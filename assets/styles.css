@@ -453,6 +453,49 @@ header.mbcc-header {
   color: var(--mbcc-gold);
 }
 
+/* Pricing / Engagement */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.pricing-card {
+  border-radius: 18px;
+  border: 1px solid rgba(247,243,233,0.26);
+  background:
+    linear-gradient(145deg, rgba(193,18,31,0.2), transparent 50%),
+    rgba(5,5,6,0.97);
+  padding: 16px 14px 14px;
+  font-size: 13px;
+}
+
+.pricing-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(247,243,233,0.75);
+  margin-bottom: 4px;
+}
+
+.pricing-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.pricing-body {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.pricing-meta {
+  font-size: 11px;
+  color: rgba(247,243,233,0.78);
+}
+
 /* About & contact */
 
 .about-grid {
@@ -480,6 +523,14 @@ header.mbcc-header {
 .contact-card a {
   color: var(--mbcc-gold);
   text-decoration: underline;
+}
+
+/* Page variants */
+
+.page-tagline {
+  font-size: 14px;
+  color: rgba(247,243,233,0.88);
+  margin-bottom: 12px;
 }
 
 /* Responsive */
