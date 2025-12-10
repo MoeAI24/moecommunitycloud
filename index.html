@@ -1,499 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MoeCommunityCloud · MBCC Enterprise Playbooks Hub</title>
-  <link rel="stylesheet" href="assets/styles.css" />
+  <meta charset="UTF-8">
+  <title>MoeCommunityCloud · MBCC Playbooks Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="hub-shell">
-    <header class="hub-header">
-      <div class="brand-row">
-        <div class="brand-block">
-          <div class="brand-logo">MB</div>
-          <div class="brand-text">
-            <span class="brand-line">Moe Bucks Community Cloud</span>
-            <span class="brand-subline">Enterprise Playbooks · Veteran Owned · Strictly Enterprise</span>
-          </div>
-        </div>
-        <nav class="hub-nav">
-          <a href="#playbooks">Playbooks</a>
-          <a href="about.html">About</a>
-          <a href="#work-with-moe">Work with Moe Bucks</a>
-          <a href="#vcdl-section">Become VCDL</a>
-        </nav>
-      </div>
-      <div class="hub-tools">
-        <input id="playbook-search" type="search" placeholder="Search playbooks (Vertex, Edge, Zero Trust, Agent-Ops…)" />
-        <a href="#work-with-moe" class="btn btn-cta-header">Book a Strategy Call</a>
-      </div>
-    </header>
+<header class="top-header">
+  <div class="brand-left">
+    <span class="brand-main">MoeCommunityCloud</span>
+    <span class="brand-sub">Vapor Cloud · Agent-Ops™ · AI Playbooks</span>
+  </div>
+</header>
 
-    <main class="hub-main">
-      <section class="hub-intro" id="about-mbcc">
-        <h1>MBCC Enterprise Playbooks Hub</h1>
-        <p>
-          Built from a Vapor Cloud perspective by a Google Cloud Digital Leader. This hub is for two audiences:
-          enterprise teams who need governed, repeatable AI systems — and Vapor Cloud Digital Leaders who want
-          revenue-ready playbooks instead of starting from scratch.
-        </p>
+<section class="hero">
+  <h1>MBCC Playbooks Hub</h1>
+  <p>The enterprise-ready catalog for AI, Edge, and Agent-Ops™ systems.</p>
+</section>
 
-        <section id="about-ceo" class="about-ceo">
-          <div class="about-ceo-layout">
-            <div class="about-ceo-photo">
-              <img
-                src="assets/images/ceo-vapor-cloud-agent-ops.jpg"
-                alt="Morris 'Moe Bucks' Stephens, C.E.O Vapor Cloud & Agent-Ops"
-              />
-            </div>
-            <div class="about-ceo-copy">
-              <h2>C.E.O Vapor Cloud &amp; Agent-Ops</h2>
-              <h3>Morris “Moe Bucks” Stephens</h3>
-              <p>
-                I help enterprises and creators stop guessing with AI and start operating like a real platform:
-                secure, repeatable, and monetized. Every MBCC playbook is built from live experience in cloud,
-                agents, and edge – not theory.
-              </p>
-              <ul class="about-ceo-list">
-                <li>U.S. Army Veteran – disciplined execution and service-first mindset.</li>
-                <li>Certified Google Cloud Digital Leader – specializing in Vertex AI, data, and AI platforms.</li>
-                <li>Founder of MoeCommunityCloud &amp; MBCC Enterprise Playbooks Hub.</li>
-                <li>Architect of Vapor Cloud – local-first, hybrid, any-cloud deployment strategy.</li>
-                <li>Designer of Agent-Ops™ – the “DevOps for agents” framework for safe, observable AI systems.</li>
-                <li>Coach &amp; educator for Vapor Cloud Digital Leaders (VCDL) and enterprise AI teams.</li>
-              </ul>
-              <p class="about-ceo-tagline">
-                My job is simple: turn AI, cloud, edge, and agents into
-                <strong>real revenue, real resilience, and real career upside</strong>
-                for the people who move first.
-              </p>
-            </div>
-          </div>
-          <div class="about-cred-strip">
-            <span>U.S. Army Veteran</span>
-            <span>Google Cloud Digital Leader</span>
-            <span>Founder · MoeCommunityCloud &amp; MBCC Playbooks Hub</span>
-          </div>
-        </section>
+<section class="playbook-grid">
 
-        <section class="lane-chooser">
-          <h2>Choose Your Lane</h2>
-          <p>Tell the hub who you are, and we’ll point you to the right moves.</p>
-          <div class="lane-buttons">
-            <button type="button" class="btn btn-lane" data-lane="enterprise">
-              I’m an enterprise leader
-            </button>
-            <button type="button" class="btn btn-lane btn-lane-alt" data-lane="vcdl">
-              I’m a Vapor Cloud Digital Leader (VCDL)
-            </button>
-          </div>
-        </section>
-      </section>
-
-      <section class="hub-strip">
-        <div class="strip-pill">
-          <span class="strip-title">For enterprise buyers</span>
-          <span class="strip-body">
-            Standardize AI, Edge, and security work into repeatable systems with governance, observability,
-            and clear ROI. Every card below can anchor a 6–7 figure program instead of another POC.
-          </span>
-        </div>
-        <div class="strip-pill strip-accent">
-          <span class="strip-title">For Vapor Cloud Digital Leaders (VCDLs)</span>
-          <span class="strip-body">
-            Treat each playbook as a productized service. Qualify, scope, simulate, and close — then deliver
-            engagements using the same architectures, simulations, and proposal generators.
-          </span>
-        </div>
-      </section>
-
-      <section class="hub-grid" id="playbooks">
-        <!-- Vertex AI Training Factory -->
-        <article class="playbook-card" data-tags="vertex ai training factory mlops gcp serverless training">
-          <header class="playbook-header">
-            <h2 class="playbook-title">Vertex AI Training Factory</h2>
-            <p class="playbook-tagline">Standardize how clients train, track, and deploy models on Vertex AI.</p>
-          </header>
-          <p class="playbook-body">
-            Turn one-off notebooks into a repeatable training factory. Serverless training, hyperparameter tuning, 
-            Model Registry, and MLOps workflows – all wrapped in MBCC simulations and templates.
-          </p>
-          <ul class="playbook-bullets">
-            <li>Serverless training patterns for TensorFlow, PyTorch, and XGBoost</li>
-            <li>Hyperparameter tuning and experiment tracking flows</li>
-            <li>Model Registry and deployment handoff into MLOps</li>
-            <li>Simulations to explain cost, performance, and risk tradeoffs</li>
-          </ul>
-          <div class="playbook-cta-row">
-            <a class="btn btn-primary" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-vertex-ai-training-factory/sales.html">
-              Open Sales Page
-            </a>
-            <a class="btn btn-secondary" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-vertex-ai-training-factory/">
-              Open Designer / Simulator
-            </a>
-            <a class="btn btn-outline" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-vertex-ai-training-factory/proposal.html">
-              Open Proposal Generator
-            </a>
-          </div>
-        </article>
-
-        <!-- AI Infrastructure & Vapor Cloud -->
-        <article class="playbook-card" data-tags="infrastructure vapor cloud platform ai gcp vpc iam bigquery">
-          <header class="playbook-header">
-            <h2 class="playbook-title">AI Infrastructure &amp; Vapor Cloud</h2>
-            <p class="playbook-tagline">Lay down a reusable AI platform foundation on Google Cloud.</p>
-          </header>
-          <p class="playbook-body">
-            VPCs, IAM, Vertex AI, BigQuery, logging, and monitoring – opinionated patterns that move clients from 
-            slides to a running AI platform they can build on.
-          </p>
-          <ul class="playbook-bullets">
-            <li>Reference architectures for secure, multi-tenant AI workloads</li>
-            <li>Cost-aware design for storage, compute, and networking</li>
-            <li>Zero-trust aligned perimeter and identity patterns</li>
-            <li>Vapor Cloud narrative: local-first, hybrid, any-cloud ready</li>
-          </ul>
-          <div class="playbook-cta-row">
-            <a class="btn btn-primary" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-ai-infrastructure-vapor-cloud/sales.html">
-              Open Sales Page
-            </a>
-            <a class="btn btn-secondary" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-ai-infrastructure-vapor-cloud/">
-              Open Designer / Simulator
-            </a>
-            <a class="btn btn-outline" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-ai-infrastructure-vapor-cloud/proposal.html">
-              Open Proposal Generator
-            </a>
-          </div>
-        </article>
-
-        <!-- Edge & IoT Monetization -->
-        <article class="playbook-card" data-tags="edge iot monetization sensors cameras gateways pipelines recurring revenue">
-          <header class="playbook-header">
-            <h2 class="playbook-title">Edge &amp; IoT Monetization</h2>
-            <p class="playbook-tagline">Turn sensors, cameras, and gateways into a billable Edge pipeline.</p>
-          </header>
-          <p class="playbook-body">
-            From raw device feeds to dashboards and subscriptions. This playbook shows how to turn Edge data flows 
-            into recurring revenue with ML scoring and alerts on top.
-          </p>
-          <ul class="playbook-bullets">
-            <li>Device → Ingest → Feature pipeline diagrams and simulations</li>
-            <li>Pricing and packaging options for Edge tiers</li>
-            <li>Latency, reliability, and offline-first patterns</li>
-            <li>Field-ready talk tracks for OT and IT stakeholders</li>
-          </ul>
-          <div class="playbook-cta-row">
-            <a class="btn btn-primary" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-edge-iot-monetization/sales.html">
-              Open Sales Page
-            </a>
-            <a class="btn btn-secondary" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-edge-iot-monetization/">
-              Open Designer / Simulator
-            </a>
-            <a class="btn btn-outline" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-edge-iot-monetization/proposal.html">
-              Open Proposal Generator
-            </a>
-          </div>
-        </article>
-
-        <!-- Smart Home Automation -->
-        <article class="playbook-card" data-tags="smart home automation iot google home matter pubsub eventarc subscriptions">
-          <header class="playbook-header">
-            <h2 class="playbook-title">Smart Home Automation Playbook</h2>
-            <p class="playbook-tagline">From hobby projects to revenue-backed smart home bundles.</p>
-          </header>
-          <p class="playbook-body">
-            A full stack for smart home: Google Home, Matter, Pub/Sub, Eventarc, dashboards, and support flows. 
-            Productize “set and forget” home automations as recurring services.
-          </p>
-          <ul class="playbook-bullets">
-            <li>Reference flows for security, lighting, and energy automations</li>
-            <li>Multi-tier packaging (starter, pro, managed)</li>
-            <li>Ops runbooks for onboarding, updates, and troubleshooting</li>
-            <li>Service blueprints for local installers and partners</li>
-          </ul>
-          <div class="playbook-cta-row">
-            <a class="btn btn-primary" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-smart-home-automation/sales.html">
-              Open Sales Page
-            </a>
-            <a class="btn btn-secondary" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-smart-home-automation/">
-              Open Designer / Simulator
-            </a>
-            <a class="btn btn-outline" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-smart-home-automation/proposal.html">
-              Open Proposal Generator
-            </a>
-          </div>
-        </article>
-
-        <!-- Zero Trust Security -->
-        <article class="playbook-card" data-tags="zero trust security iam network compliance posture blast radius">
-          <header class="playbook-header">
-            <h2 class="playbook-title">Zero Trust Security Playbook</h2>
-            <p class="playbook-tagline">Lock down AI and cloud workloads with zero trust patterns.</p>
-          </header>
-          <p class="playbook-body">
-            Map identities, devices, data, and workloads into a zero trust posture. This playbook shows clients how to 
-            secure AI, APIs, and Edge flows without slowing the business.
-          </p>
-          <ul class="playbook-bullets">
-            <li>Identity-first patterns for APIs, agents, and services</li>
-            <li>Network micro-segmentation and service boundaries</li>
-            <li>Data protection, audit, and compliance views</li>
-            <li>Simulation of blast radius reduction and incident flows</li>
-          </ul>
-          <div class="playbook-cta-row">
-            <a class="btn btn-primary" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-zero-trust-security/sales.html">
-              Open Sales Page
-            </a>
-            <a class="btn btn-secondary" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-zero-trust-security/">
-              Open Designer / Simulator
-            </a>
-            <a class="btn btn-outline" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-zero-trust-security/proposal.html">
-              Open Proposal Generator
-            </a>
-          </div>
-        </article>
-
-        <!-- Retail AI Playbook -->
-        <article class="playbook-card" data-tags="retail ai personalization recommendations stores ecommerce merchandising marketing">
-          <header class="playbook-header">
-            <h2 class="playbook-title">Retail AI Playbook</h2>
-            <p class="playbook-tagline">From prediction to basket lift and real revenue in retail.</p>
-          </header>
-          <p class="playbook-body">
-            A complete story for retail and e-commerce: demand forecasting, recommendations, store ops, and marketing 
-            optimization with AI – backed by simulations, not just buzzwords.
-          </p>
-          <ul class="playbook-bullets">
-            <li>Store + e-commerce use case library</li>
-            <li>Data and feature patterns for retail signals</li>
-            <li>Simulation of uplift by use case and data quality</li>
-            <li>Talk tracks for merch, marketing, and operations leaders</li>
-          </ul>
-          <div class="playbook-cta-row">
-            <a class="btn btn-primary" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-retail-ai-playbook/sales.html">
-              Open Sales Page
-            </a>
-            <a class="btn btn-secondary" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-retail-ai-playbook/">
-              Open Designer / Simulator
-            </a>
-            <a class="btn btn-outline" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-retail-ai-playbook/proposal.html">
-              Open Proposal Generator
-            </a>
-          </div>
-        </article>
-
-        <!-- AI Bubble Crash Monetization -->
-        <article class="playbook-card" data-tags="ai bubble crash monetization downturn strategy cost optimization consolidation">
-          <header class="playbook-header">
-            <h2 class="playbook-title">AI Bubble Crash Monetization</h2>
-            <p class="playbook-tagline">Make money when the hype deflates.</p>
-          </header>
-          <p class="playbook-body">
-            A contrarian playbook: what to build, buy, and offer when the AI bubble pops. 
-            Focus on durable value – automation, cost-out, migration, and cleanup.
-          </p>
-          <ul class="playbook-bullets">
-            <li>Service catalog for post-bubble “AI cleanup” and rationalization</li>
-            <li>Offer shapes for cost optimization and platform consolidation</li>
-            <li>Client simulations: hype projects vs. durable ROI</li>
-            <li>Narrative and slides for boards and CFO-level conversations</li>
-          </ul>
-          <div class="playbook-cta-row">
-            <a class="btn btn-primary" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-ai-bubble-crash-monetization/sales.html">
-              Open Sales Page
-            </a>
-            <a class="btn btn-secondary" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-ai-bubble-crash-monetization/">
-              Open Designer / Simulator
-            </a>
-            <a class="btn btn-outline" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-ai-bubble-crash-monetization/proposal.html">
-              Open Proposal Generator
-            </a>
-          </div>
-        </article>
-
-        <!-- Agent-Ops Playbook (Signature) -->
-        <article class="playbook-card playbook-signature" data-tags="agent ops agents orchestration observability devops vcdl production ai">
-          <header class="playbook-header">
-            <h2 class="playbook-title">Agent-Ops™ Playbook</h2>
-            <p class="playbook-tagline">The DevOps of agentic AI.</p>
-          </header>
-          <p class="playbook-body">
-            Standardize how your teams design, run, and govern autonomous agents. Blueprints, chains, risk, and replay – 
-            so agents behave like production software instead of wild experiments.
-          </p>
-          <ul class="playbook-bullets">
-            <li>Agent Blueprint Designer for roles, tools, memory, and guardrails</li>
-            <li>Task Chain Simulator for multi-agent workflows</li>
-            <li>Risk Radar and Replay Logs for observability and control</li>
-            <li>Sales page + proposal generator for live deal work</li>
-          </ul>
-          <div class="playbook-cta-row">
-            <a class="btn btn-primary" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-agent-ops-playbook/sales.html">
-              Open Sales Page
-            </a>
-            <a class="btn btn-secondary" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-agent-ops-playbook/">
-              Open Simulator
-            </a>
-            <a class="btn btn-outline" target="_blank" rel="noopener"
-              href="https://moeai24.github.io/mbcc-agent-ops-playbook/proposal.html">
-              Open Proposal Generator
-            </a>
-          </div>
-        </article>
-      </section>
-
-      <section class="vcdl-section" id="vcdl-section">
-        <h2>Enterprise vs. VCDL · Same Playbooks, Different Moves</h2>
-        <p class="vcdl-intro">
-          MBCC playbooks serve two lanes. Enterprises get governed, production-ready patterns. Vapor Cloud Digital
-          Leaders get revenue-ready offers they can run with clients. Same systems, different angles.
-        </p>
-        <div class="vcdl-grid vcdl-grid-table">
-          <div class="vcdl-card vcdl-card-header vcdl-col-enterprise">
-            <h3>Enterprise Buyers</h3>
-            <p>Leaders like CIOs, CISOs, CTOs, and founders who need predictable outcomes.</p>
-          </div>
-          <div class="vcdl-card vcdl-card-header vcdl-col-vcdl">
-            <h3>Vapor Cloud Digital Leaders (VCDLs)</h3>
-            <p>Consultants, architects, and creators building their own book of business.</p>
-          </div>
-          <div class="vcdl-card vcdl-col-enterprise">
-            <p><strong>Focus:</strong> Security, governance, observability, and risk.</p>
-            <p><strong>Need:</strong> Systems that their teams can operate, not hero projects.</p>
-          </div>
-          <div class="vcdl-card vcdl-col-vcdl">
-            <p><strong>Focus:</strong> Speed, clarity, and differentiated offerings.</p>
-            <p><strong>Need:</strong> Frameworks that help them sell and deliver like an enterprise shop.</p>
-          </div>
-          <div class="vcdl-card vcdl-col-enterprise">
-            <p><strong>Value from MBCC:</strong> Reference architectures, simulations, runbooks, and proposal flows that
-              plug directly into existing cloud and security programs.</p>
-          </div>
-          <div class="vcdl-card vcdl-col-vcdl">
-            <p><strong>Value from MBCC:</strong> Done-for-you stories, diagrams, and tools that can turn one playbook
-              into multiple client engagements.</p>
-          </div>
-          <div class="vcdl-card vcdl-col-enterprise">
-            <p><strong>Outcome:</strong> AI, Edge, and agents move from slideware to governed, observable systems.</p>
-          </div>
-          <div class="vcdl-card vcdl-col-vcdl">
-            <p><strong>Outcome:</strong> A repeatable set of offers powered by MBCC playbooks instead of one-off gigs.</p>
-          </div>
-        </div>
-        <p class="vcdl-outro">
-          Different audiences. Same mission: make AI, agents, and edge <strong>operational and profitable</strong>.
-        </p>
-      </section>
-
-      <section class="work-with-moe" id="work-with-moe">
-        <div class="work-inner">
-          <div class="work-text">
-            <h2>Work with Moe Bucks · Enterprise &amp; VCDL</h2>
-            <p>
-              Whether you’re an enterprise leader or a Vapor Cloud Digital Leader building your own book of business,
-              we can use these playbooks to co-design your next move: AI platforms, Edge monetization, Zero Trust, 
-              Agent-Ops, and more.
-            </p>
-            <p class="work-note">
-              U.S. Army Veteran · Google Cloud Digital Leader · MoeCommunityCloud.com
-            </p>
-          </div>
-          <div class="work-cta-block">
-            <a class="btn btn-cta-big" href="mailto:moeknowmoe24@gmail.com?subject=MBCC%20Playbooks%20Strategy%20Call&body=Quick%20context%20about%20my%20org%20and%20what%20I%27m%20trying%20to%20build%3A">
-              Book a Strategy Call
-            </a>
-            <span class="work-subtext">
-              Drop a line with a quick summary of your environment and which playbooks you want to explore first.
-            </span>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="hub-footer">
-      <div class="hub-footer-inner">
-        <span>MBCC · MoeCommunityCloud.com</span>
-        <span>All playbooks are for enterprise use. No hype tours – architectures, simulations, and deals only.</span>
-      </div>
-    </footer>
+  <div class="playbook-card">
+    <img src="assets/playbooks/ai-bubble.png" class="card-img" alt="AI Bubble Crash Monetization Playbook">
+    <h3>AI Bubble Crash Monetization</h3>
+    <p>Turn chaos into revenue with automation consulting, AI repair, local AI, and cost-cutting migration plays.</p>
+    <a href="bubble/sales.html" class="btn">Sales Page</a>
+    <a href="bubble/designer.html" class="btn">Designer</a>
+    <a href="bubble/proposal.html" class="btn">Proposal Generator</a>
+    <a href="https://github.com/moeai24/mbcc-ai-bubble-crash" class="btn secondary">GitHub Repo</a>
   </div>
 
-  <script>
-    (function() {
-      const searchInput = document.getElementById('playbook-search');
-      const cards = Array.from(document.querySelectorAll('.playbook-card'));
-      const laneButtons = Array.from(document.querySelectorAll('.btn-lane'));
-      const vcdlSection = document.getElementById('vcdl-section');
+  <div class="playbook-card">
+    <img src="assets/playbooks/retail.png" class="card-img" alt="Retail AI Playbook">
+    <h3>Retail AI Playbook</h3>
+    <p>Loss prevention, inventory forecasting, shrink detection, AI shelf scanners, and price optimization flows.</p>
+    <a href="retail/sales.html" class="btn">Sales Page</a>
+    <a href="retail/designer.html" class="btn">Designer</a>
+    <a href="retail/proposal.html" class="btn">Proposal Generator</a>
+    <a href="https://github.com/moeai24/mbcc-retail-ai" class="btn secondary">GitHub Repo</a>
+  </div>
 
-      function applyFilter(value) {
-        const q = value.trim().toLowerCase();
-        cards.forEach(card => {
-          if (!q) {
-            card.style.display = '';
-            return;
-          }
-          const text = (card.textContent || '').toLowerCase();
-          const tags = (card.getAttribute('data-tags') || '').toLowerCase();
-          card.style.display = (text.includes(q) || tags.includes(q)) ? '' : 'none';
-        });
-      }
+  <div class="playbook-card">
+    <img src="assets/playbooks/smarthome.png" class="card-img" alt="Smart Home Automation Playbook">
+    <h3>Smart Home Automation</h3>
+    <p>Matter + Google Home automations, energy optimization, security, and AI routines for modern homes.</p>
+    <a href="smarthome/sales.html" class="btn">Sales Page</a>
+    <a href="smarthome/designer.html" class="btn">Designer</a>
+    <a href="smarthome/proposal.html" class="btn">Proposal Generator</a>
+    <a href="https://github.com/moeai24/mbcc-smarthome" class="btn secondary">GitHub Repo</a>
+  </div>
 
-      if (searchInput) {
-        searchInput.addEventListener('input', function(e) {
-          applyFilter(e.target.value);
-        });
-      }
+  <div class="playbook-card">
+    <img src="assets/playbooks/agentops.png" class="card-img" alt="Agent-Ops Playbook">
+    <h3>Agent-Ops Playbook™</h3>
+    <p>The DevOps of agentic AI: guardrails, routing, logs, traces, interventions, and cost controls.</p>
+    <a href="agentops/sales.html" class="btn">Sales Page</a>
+    <a href="agentops/designer.html" class="btn">Designer</a>
+    <a href="agentops/proposal.html" class="btn">Proposal Generator</a>
+    <a href="https://github.com/moeai24/mbcc-agentops" class="btn secondary">GitHub Repo</a>
+  </div>
 
-      function clearHighlight() {
-        document.body.classList.remove('lane-enterprise', 'lane-vcdl');
-      }
+</section>
 
-      function highlightLane(lane) {
-        clearHighlight();
-        if (lane === 'enterprise') {
-          document.body.classList.add('lane-enterprise');
-        } else if (lane === 'vcdl') {
-          document.body.classList.add('lane-vcdl');
-        }
-      }
+<section class="playbook-grid">
 
-      function scrollToVcdl() {
-        if (!vcdlSection) return;
-        vcdlSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+  <div class="playbook-card">
+    <img src="assets/playbooks/zerotrust.png" class="card-img" alt="Zero Trust for AI">
+    <h3>Zero Trust for AI</h3>
+    <p>Identity, encryption, policy enforcement, and model isolation to secure AI and agent systems.</p>
+    <a href="zerotrust/sales.html" class="btn">Sales Page</a>
+    <a href="zerotrust/designer.html" class="btn">Designer</a>
+    <a href="zerotrust/proposal.html" class="btn">Proposal Generator</a>
+    <a href="https://github.com/moeai24/mbcc-zero-trust" class="btn secondary">GitHub Repo</a>
+  </div>
 
-      laneButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const lane = btn.getAttribute('data-lane');
-          highlightLane(lane);
-          scrollToVcdl();
-        });
-      });
-    })();
-  </script>
+  <div class="playbook-card">
+    <img src="assets/playbooks/iot.png" class="card-img" alt="Edge & IoT Monetization">
+    <h3>Edge &amp; IoT Monetization</h3>
+    <p>Monetize sensors, cameras, and telemetry with data pipelines, dashboards, and ML at the edge.</p>
+    <a href="iot/sales.html" class="btn">Sales Page</a>
+    <a href="iot/designer.html" class="btn">Designer</a>
+    <a href="iot/proposal.html" class="btn">Proposal Generator</a>
+    <a href="https://github.com/moeai24/mbcc-iot" class="btn secondary">GitHub Repo</a>
+  </div>
+
+  <div class="playbook-card">
+    <img src="assets/playbooks/infrastructure.png" class="card-img" alt="AI Infrastructure & Vapor Cloud">
+    <h3>AI Infrastructure &amp; Vapor Cloud</h3>
+    <p>VPCs, IAM, Vertex AI, GPUs, TPUs, and pipelines — an AI-ready infrastructure blueprint.</p>
+    <a href="infra/sales.html" class="btn">Sales Page</a>
+    <a href="infra/designer.html" class="btn">Designer</a>
+    <a href="infra/proposal.html" class="btn">Proposal Generator</a>
+    <a href="https://github.com/moeai24/mbcc-infrastructure" class="btn secondary">GitHub Repo</a>
+  </div>
+
+  <div class="playbook-card">
+    <img src="assets/playbooks/vertex.png" class="card-img" alt="Vertex AI Training Factory">
+    <h3>Vertex AI Training Factory</h3>
+    <p>Standardize training, tuning, registry, distributed jobs, and simulations on Vertex AI.</p>
+    <a href="vertex/sales.html" class="btn">Sales Page</a>
+    <a href="vertex/designer.html" class="btn">Designer</a>
+    <a href="vertex/proposal.html" class="btn">Proposal Generator</a>
+    <a href="https://github.com/moeai24/mbcc-vertex-ai-training-factory" class="btn secondary">GitHub Repo</a>
+  </div>
+
+</section>
+
+<footer class="site-footer">
+  <span>© MoeCommunityCloud · Vapor Cloud · MBCC Playbooks Hub</span>
+</footer>
+
 </body>
 </html>

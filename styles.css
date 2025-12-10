@@ -1,0 +1,138 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #050709;
+  color: #f5f5f5;
+}
+
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: radial-gradient(circle at top left, #c1121f33, #050709 55%);
+}
+
+.brand-main {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.06em;
+}
+
+.brand-sub {
+  display: block;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.hero {
+  text-align: center;
+  padding: 40px 16px 24px;
+}
+
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 6px;
+}
+
+.hero p {
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+.playbook-grid {
+  max-width: 1180px;
+  margin: 0 auto 36px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  padding: 0 16px;
+}
+
+.playbook-card {
+  background: #0b0f16;
+  border-radius: 14px;
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 12px 18px rgba(0,0,0,0.55);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.playbook-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 30px rgba(0,0,0,0.7);
+  border-color: #00e0ff;
+}
+
+.card-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.playbook-card h3 {
+  font-size: 16px;
+  margin: 6px 2px;
+}
+
+.playbook-card p {
+  font-size: 13px;
+  opacity: 0.82;
+  margin: 4px 2px 10px;
+  min-height: 54px;
+}
+
+.playbook-card .btn {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 7px 6px;
+  margin-top: 6px;
+  border-radius: 7px;
+  background: linear-gradient(135deg, #c1121f, #ff4d6a);
+  color: #fff;
+  border: none;
+}
+
+.playbook-card .btn.secondary {
+  background: #101827;
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+.playbook-card .btn:hover {
+  filter: brightness(1.1);
+}
+
+.site-footer {
+  text-align: center;
+  font-size: 11px;
+  opacity: 0.6;
+  padding: 20px 0 26px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .playbook-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .playbook-grid {
+    grid-template-columns: 1fr;
+  }
+}
