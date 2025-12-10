@@ -1,19 +1,21 @@
-MBCC Retail AI Playbook · Retail Subdomain
-===========================================
+Moe Community Cloud · Playbooks Hub (Root Site)
+=============================================
 
-This folder is the full mini-site for:
-  https://retail.moecommunitycloud.com/
+This is the main hub page for:
+  https://moecommunitycloud.com/
 
 Files:
-- index.html       -> Main Retail AI Playbook landing page
-- designer.html    -> Retail Readiness Simulation (interactive)
-- proposal.html    -> Retail Proposal Generator
+- index.html  -> Main MBCC Playbooks Hub landing page
 
-How to use:
-1. In the GitHub repo (or hosting root) backing retail.moecommunitycloud.com,
-   replace the existing index.html, designer.html, and proposal.html with these versions.
-2. Commit and push if using GitHub Pages.
-3. Ensure GitHub Pages (or your host) is serving from this folder.
+What this page does:
+- Presents Moe Community Cloud as the central hub for all playbooks.
+- Shows a grid of live playbooks (Vertex AI, Retail, Smart Home, Edge & IoT, etc.).
+- Explains the common pattern: landing → simulation → proposal generator.
+- Provides quick guidance on how to use the hub in client conversations.
 
-All styling is inline per page, no external CSS/JS required.
-Branding matches the MBCC / Moe Community Cloud look and feel.
+How to deploy:
+1. In the repo or hosting root for moecommunitycloud.com, replace the existing index.html with this version.
+2. Commit and push if you're using GitHub Pages (or redeploy if using another host).
+3. Ensure DNS for moecommunitycloud.com is pointing at this site.
+
+You can add more playbook tiles over time as new subdomains and mini-sites go live.
