@@ -34,9 +34,9 @@
       <section class="hub-intro" id="about-mbcc">
         <h1>MBCC Enterprise Playbooks Hub</h1>
         <p>
-          Built from a Vapor Cloud perspective by a Google Cloud Digital Leader. This hub is your library of
-          reusable architectures, simulations, and sales assets so you can walk into enterprise rooms ready
-          to talk value, not vibes.
+          Built from a Vapor Cloud perspective by a Google Cloud Digital Leader. This hub is for two audiences:
+          enterprise teams who need governed, repeatable AI systems — and Vapor Cloud Digital Leaders who want
+          revenue-ready playbooks instead of starting from scratch.
         </p>
 
         <section id="about-ceo" class="about-ceo">
@@ -69,28 +69,41 @@
                 for the people who move first.
               </p>
             </div>
-          
+          </div>
           <div class="about-cred-strip">
             <span>U.S. Army Veteran</span>
             <span>Google Cloud Digital Leader</span>
             <span>Founder · MoeCommunityCloud &amp; MBCC Playbooks Hub</span>
           </div>
         </section>
+
+        <section class="lane-chooser">
+          <h2>Choose Your Lane</h2>
+          <p>Tell the hub who you are, and we’ll point you to the right moves.</p>
+          <div class="lane-buttons">
+            <button type="button" class="btn btn-lane" data-lane="enterprise">
+              I’m an enterprise leader
+            </button>
+            <button type="button" class="btn btn-lane btn-lane-alt" data-lane="vcdl">
+              I’m a Vapor Cloud Digital Leader (VCDL)
+            </button>
+          </div>
+        </section>
       </section>
 
       <section class="hub-strip">
         <div class="strip-pill">
-          <span class="strip-title">For enterprises</span>
+          <span class="strip-title">For enterprise buyers</span>
           <span class="strip-body">
-            Standardize AI, Edge, and security work into repeatable playbooks instead of one-off projects.
-            Every card below can anchor a 6–7 figure program.
+            Standardize AI, Edge, and security work into repeatable systems with governance, observability,
+            and clear ROI. Every card below can anchor a 6–7 figure program instead of another POC.
           </span>
         </div>
         <div class="strip-pill strip-accent">
-          <span class="strip-title">For Vapor Cloud Digital Leaders (VCDL)</span>
+          <span class="strip-title">For Vapor Cloud Digital Leaders (VCDLs)</span>
           <span class="strip-body">
-            Treat each playbook as a productized service: qualify, scope, simulate, and close — then deliver with
-            confidence using the same assets.
+            Treat each playbook as a productized service. Qualify, scope, simulate, and close — then deliver
+            engagements using the same architectures, simulations, and proposal generators.
           </span>
         </div>
       </section>
@@ -354,29 +367,46 @@
       </section>
 
       <section class="vcdl-section" id="vcdl-section">
-        <h2>How a VCDL Uses These Playbooks</h2>
+        <h2>Enterprise vs. VCDL · Same Playbooks, Different Moves</h2>
         <p class="vcdl-intro">
-          Vapor Cloud Digital Leaders don’t just “know cloud” — they walk in with a system. Each playbook is a 
-          productized offer with simulations, talk tracks, and delivery patterns ready to go.
+          MBCC playbooks serve two lanes. Enterprises get governed, production-ready patterns. Vapor Cloud Digital
+          Leaders get revenue-ready offers they can run with clients. Same systems, different angles.
         </p>
-        <div class="vcdl-grid">
-          <div class="vcdl-card">
-            <h3>1. Qualify &amp; Aim</h3>
-            <p>Use the hub to match the right playbook to the client’s pain: training chaos, Edge noise, security gaps, or retail revenue pressure.</p>
+        <div class="vcdl-grid vcdl-grid-table">
+          <div class="vcdl-card vcdl-card-header vcdl-col-enterprise">
+            <h3>Enterprise Buyers</h3>
+            <p>Leaders like CIOs, CISOs, CTOs, and founders who need predictable outcomes.</p>
           </div>
-          <div class="vcdl-card">
-            <h3>2. Simulate &amp; Align</h3>
-            <p>Open the Designer/Simulator live. Walk leaders through “what good looks like” using flows, costs, and risk visuals instead of buzzwords.</p>
+          <div class="vcdl-card vcdl-card-header vcdl-col-vcdl">
+            <h3>Vapor Cloud Digital Leaders (VCDLs)</h3>
+            <p>Consultants, architects, and creators building their own book of business.</p>
           </div>
-          <div class="vcdl-card">
-            <h3>3. Propose &amp; Close</h3>
-            <p>Use the Proposal Generator to move from “good conversation” to a structured offer with phases, pricing bands, and outcomes.</p>
+          <div class="vcdl-card vcdl-col-enterprise">
+            <p><strong>Focus:</strong> Security, governance, observability, and risk.</p>
+            <p><strong>Need:</strong> Systems that their teams can operate, not hero projects.</p>
           </div>
-          <div class="vcdl-card">
-            <h3>4. Deliver &amp; Expand</h3>
-            <p>Run delivery using the same playbook patterns, then land-and-expand into adjacent playbooks (Zero Trust, Edge, Agent-Ops).</p>
+          <div class="vcdl-card vcdl-col-vcdl">
+            <p><strong>Focus:</strong> Speed, clarity, and differentiated offerings.</p>
+            <p><strong>Need:</strong> Frameworks that help them sell and deliver like an enterprise shop.</p>
+          </div>
+          <div class="vcdl-card vcdl-col-enterprise">
+            <p><strong>Value from MBCC:</strong> Reference architectures, simulations, runbooks, and proposal flows that
+              plug directly into existing cloud and security programs.</p>
+          </div>
+          <div class="vcdl-card vcdl-col-vcdl">
+            <p><strong>Value from MBCC:</strong> Done-for-you stories, diagrams, and tools that can turn one playbook
+              into multiple client engagements.</p>
+          </div>
+          <div class="vcdl-card vcdl-col-enterprise">
+            <p><strong>Outcome:</strong> AI, Edge, and agents move from slideware to governed, observable systems.</p>
+          </div>
+          <div class="vcdl-card vcdl-col-vcdl">
+            <p><strong>Outcome:</strong> A repeatable set of offers powered by MBCC playbooks instead of one-off gigs.</p>
           </div>
         </div>
+        <p class="vcdl-outro">
+          Different audiences. Same mission: make AI, agents, and edge <strong>operational and profitable</strong>.
+        </p>
       </section>
 
       <section class="work-with-moe" id="work-with-moe">
@@ -416,6 +446,8 @@
     (function() {
       const searchInput = document.getElementById('playbook-search');
       const cards = Array.from(document.querySelectorAll('.playbook-card'));
+      const laneButtons = Array.from(document.querySelectorAll('.btn-lane'));
+      const vcdlSection = document.getElementById('vcdl-section');
 
       function applyFilter(value) {
         const q = value.trim().toLowerCase();
@@ -435,6 +467,32 @@
           applyFilter(e.target.value);
         });
       }
+
+      function clearHighlight() {
+        document.body.classList.remove('lane-enterprise', 'lane-vcdl');
+      }
+
+      function highlightLane(lane) {
+        clearHighlight();
+        if (lane === 'enterprise') {
+          document.body.classList.add('lane-enterprise');
+        } else if (lane === 'vcdl') {
+          document.body.classList.add('lane-vcdl');
+        }
+      }
+
+      function scrollToVcdl() {
+        if (!vcdlSection) return;
+        vcdlSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      laneButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const lane = btn.getAttribute('data-lane');
+          highlightLane(lane);
+          scrollToVcdl();
+        });
+      });
     })();
   </script>
 </body>
