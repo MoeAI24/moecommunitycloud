@@ -10,9 +10,13 @@ Files:
 What this page does:
 - Presents Moe Community Cloud as the central hub for all playbooks.
 - Shows a grid of live playbooks (Vertex AI, Retail, Smart Home, Edge & IoT, etc.).
-- Links now use the correct subdomains:
-    • Vertex:  https://vertex.moecommunitycloud.com/
-    • Vapor:   https://vapor.moecommunitycloud.com/
+- Links now use these subdomains:
+    • Vertex:      https://vertex.moecommunitycloud.com/
+    • Retail:      https://retail.moecommunitycloud.com/
+    • Smart Home:  https://smarthome.moecommunitycloud.com/
+    • Edge & IoT:  https://edge.moecommunitycloud.com/
+    • Vapor:       https://vapor.moecommunitycloud.com/
+    • Zero Trust:  https://zerotrust.moecommunitycloud.com/
 - Explains the common pattern: landing → simulation → proposal generator.
 - Provides quick guidance on how to use the hub in client conversations.
 
