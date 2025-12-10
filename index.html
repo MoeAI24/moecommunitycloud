@@ -186,6 +186,25 @@
     .card-header {
       position: relative;
       z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .card-image {
+      position: relative;
+      z-index: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      max-height: 170px;
+    }
+
+    .card-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .card-title {
@@ -207,6 +226,7 @@
       border: 1px solid rgba(212, 175, 55, 0.6);
       color: #ffe9b8;
       background: rgba(11, 11, 11, 0.75);
+      align-self: flex-start;
     }
 
     .card-body {
@@ -337,6 +357,9 @@
         <!-- AI Bubble Crash -->
         <article class="card">
           <div class="card-header">
+            <div class="card-image">
+              <img src="/assets/playbooks/ai-bubble.png" alt="AI Bubble Crash Monetization Playbook" />
+            </div>
             <div class="card-pill">Playbook 01 · AI Bubble Crash Monetization</div>
             <div class="card-title">AI Bubble Crash & Asset Rescue Engine</div>
           </div>
@@ -359,6 +382,9 @@
         <!-- Retail AI -->
         <article class="card">
           <div class="card-header">
+            <div class="card-image">
+              <img src="/assets/playbooks/retail.png" alt="Retail AI Playbook" />
+            </div>
             <div class="card-pill">Playbook 02 · Retail AI</div>
             <div class="card-title">Retail AI Revenue Simulation & Store of the Future</div>
           </div>
@@ -381,6 +407,9 @@
         <!-- Smart Home -->
         <article class="card">
           <div class="card-header">
+            <div class="card-image">
+              <img src="/assets/playbooks/smarthome.png" alt="Smart Home Automation Playbook" />
+            </div>
             <div class="card-pill">Playbook 03 · Smart Home</div>
             <div class="card-title">Smart Home Automation & Subscription Uplift</div>
           </div>
@@ -403,6 +432,9 @@
         <!-- Agent Ops -->
         <article class="card">
           <div class="card-header">
+            <div class="card-image">
+              <img src="/assets/playbooks/agentops.png" alt="Agent-Ops Playbook" />
+            </div>
             <div class="card-pill">Playbook 04 · Agent Ops</div>
             <div class="card-title">Agent-Ops™ Factory & AI Workforce Simulator</div>
           </div>
@@ -425,6 +457,9 @@
         <!-- Zero Trust -->
         <article class="card">
           <div class="card-header">
+            <div class="card-image">
+              <img src="/assets/playbooks/zerotrust.png" alt="Zero Trust for AI Playbook" />
+            </div>
             <div class="card-pill">Playbook 05 · Zero Trust for AI</div>
             <div class="card-title">Zero Trust AI & Data Protection Blueprint</div>
           </div>
@@ -447,6 +482,9 @@
         <!-- Edge & IoT -->
         <article class="card">
           <div class="card-header">
+            <div class="card-image">
+              <img src="/assets/playbooks/iot.png" alt="Edge & IoT Monetization Playbook" />
+            </div>
             <div class="card-pill">Playbook 06 · Edge & IoT</div>
             <div class="card-title">Edge & IoT Monetization Simulator</div>
           </div>
@@ -469,6 +507,9 @@
         <!-- AI Infrastructure -->
         <article class="card">
           <div class="card-header">
+            <div class="card-image">
+              <img src="/assets/playbooks/infrastructure.png" alt="AI Infrastructure Playbook" />
+            </div>
             <div class="card-pill">Playbook 07 · AI Infrastructure</div>
             <div class="card-title">AI Infrastructure & Platform Blueprint</div>
           </div>
@@ -491,6 +532,9 @@
         <!-- Vapor Cloud -->
         <article class="card">
           <div class="card-header">
+            <div class="card-image">
+              <img src="/assets/playbooks/infrastructure.png" alt="Vapor Cloud Playbook" />
+            </div>
             <div class="card-pill">Playbook 08 · Vapor Cloud</div>
             <div class="card-title">Vapor Cloud Infrastructure & Hybrid Edge</div>
           </div>
@@ -513,6 +557,9 @@
         <!-- Vertex AI Training Factory -->
         <article class="card">
           <div class="card-header">
+            <div class="card-image">
+              <img src="/assets/playbooks/vertex.png" alt="Vertex AI Training Factory Playbook" />
+            </div>
             <div class="card-pill">Playbook 09 · Vertex AI Factory</div>
             <div class="card-title">Vertex AI Training Factory & Model Monetization</div>
           </div>
