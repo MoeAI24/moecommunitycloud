@@ -3,47 +3,96 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MoeCommunityCloud · MBCC Playbooks Hub</title>
+  <title>MoeCommunityCloud · MBCC Enterprise Playbooks Hub</title>
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
   <div class="hub-shell">
     <header class="hub-header">
-      <div class="brand-block">
-        <div class="brand-logo">MB</div>
-        <div class="brand-text">
-          <span class="brand-line">Moe Bucks Community Cloud</span>
-          <span class="brand-subline">Playbooks Hub · Veteran Owned · Strictly Enterprise</span>
+      <div class="brand-row">
+        <div class="brand-block">
+          <div class="brand-logo">MB</div>
+          <div class="brand-text">
+            <span class="brand-line">Moe Bucks Community Cloud</span>
+            <span class="brand-subline">Enterprise Playbooks · Veteran Owned · Strictly Enterprise</span>
+          </div>
         </div>
+        <nav class="hub-nav">
+          <a href="#playbooks">Playbooks</a>
+          <a href="#about-mbcc">About</a>
+          <a href="#work-with-moe">Work with Moe Bucks</a>
+          <a href="#vcdl-section">Become VCDL</a>
+        </nav>
       </div>
       <div class="hub-tools">
         <input id="playbook-search" type="search" placeholder="Search playbooks (Vertex, Edge, Zero Trust, Agent-Ops…)" />
+        <a href="#work-with-moe" class="btn btn-cta-header">Book a Strategy Call</a>
       </div>
     </header>
 
     <main class="hub-main">
-      <section class="hub-intro">
-        <h1>MBCC Enterprise Playbooks</h1>
+      <section class="hub-intro" id="about-mbcc">
+        <h1>MBCC Enterprise Playbooks Hub</h1>
         <p>
-          For leaders who want architectures, simulations, and deals – not hype tours. 
-          Each playbook below is a mini-product with its own simulations, sales page, and proposal generator.
+          Built from a Vapor Cloud perspective by a Google Cloud Digital Leader. This hub is your library of
+          reusable architectures, simulations, and sales assets so you can walk into enterprise rooms ready
+          to talk value, not vibes.
         </p>
+
+        <section id="about-ceo" class="about-ceo">
+          <div class="about-ceo-layout">
+            <div class="about-ceo-photo">
+              <img
+                src="assets/images/ceo-vapor-cloud-agent-ops.jpg"
+                alt="Morris 'Moe Bucks' Stephens, C.E.O Vapor Cloud & Agent-Ops"
+              />
+            </div>
+            <div class="about-ceo-copy">
+              <h2>C.E.O Vapor Cloud &amp; Agent-Ops</h2>
+              <h3>Morris “Moe Bucks” Stephens</h3>
+              <p>
+                I help enterprises and creators stop guessing with AI and start operating like a real platform:
+                secure, repeatable, and monetized. Every MBCC playbook is built from live experience in cloud,
+                agents, and edge – not theory.
+              </p>
+              <ul class="about-ceo-list">
+                <li>U.S. Army Veteran – disciplined execution and service-first mindset.</li>
+                <li>Certified Google Cloud Digital Leader – specializing in Vertex AI, data, and AI platforms.</li>
+                <li>Founder of MoeCommunityCloud &amp; MBCC Enterprise Playbooks Hub.</li>
+                <li>Architect of Vapor Cloud – local-first, hybrid, any-cloud deployment strategy.</li>
+                <li>Designer of Agent-Ops™ – the “DevOps for agents” framework for safe, observable AI systems.</li>
+                <li>Coach &amp; educator for Vapor Cloud Digital Leaders (VCDL) and enterprise AI teams.</li>
+              </ul>
+              <p class="about-ceo-tagline">
+                My job is simple: turn AI, cloud, edge, and agents into
+                <strong>real revenue, real resilience, and real career upside</strong>
+                for the people who move first.
+              </p>
+            </div>
+          </div>
+        </section>
       </section>
 
       <section class="hub-strip">
         <div class="strip-pill">
           <span class="strip-title">For enterprises</span>
-          <span class="strip-body">Standardize AI, Edge, and security with reusable playbooks and reference architectures.</span>
+          <span class="strip-body">
+            Standardize AI, Edge, and security work into repeatable playbooks instead of one-off projects.
+            Every card below can anchor a 6–7 figure program.
+          </span>
         </div>
         <div class="strip-pill strip-accent">
           <span class="strip-title">For Vapor Cloud Digital Leaders (VCDL)</span>
-          <span class="strip-body">Use these playbooks as your kit to scope, sell, and deliver high-value engagements.</span>
+          <span class="strip-body">
+            Treat each playbook as a productized service: qualify, scope, simulate, and close — then deliver with
+            confidence using the same assets.
+          </span>
         </div>
       </section>
 
-      <section class="hub-grid" id="playbook-grid">
+      <section class="hub-grid" id="playbooks">
         <!-- Vertex AI Training Factory -->
-        <article class="playbook-card" data-tags="vertex ai training factory mlops gcp">
+        <article class="playbook-card" data-tags="vertex ai training factory mlops gcp serverless training">
           <header class="playbook-header">
             <h2 class="playbook-title">Vertex AI Training Factory</h2>
             <p class="playbook-tagline">Standardize how clients train, track, and deploy models on Vertex AI.</p>
@@ -75,9 +124,9 @@
         </article>
 
         <!-- AI Infrastructure & Vapor Cloud -->
-        <article class="playbook-card" data-tags="infrastructure vapor cloud platform ai gcp">
+        <article class="playbook-card" data-tags="infrastructure vapor cloud platform ai gcp vpc iam bigquery">
           <header class="playbook-header">
-            <h2 class="playbook-title">AI Infrastructure & Vapor Cloud</h2>
+            <h2 class="playbook-title">AI Infrastructure &amp; Vapor Cloud</h2>
             <p class="playbook-tagline">Lay down a reusable AI platform foundation on Google Cloud.</p>
           </header>
           <p class="playbook-body">
@@ -107,9 +156,9 @@
         </article>
 
         <!-- Edge & IoT Monetization -->
-        <article class="playbook-card" data-tags="edge iot monetization sensors cameras gateways">
+        <article class="playbook-card" data-tags="edge iot monetization sensors cameras gateways pipelines recurring revenue">
           <header class="playbook-header">
-            <h2 class="playbook-title">Edge & IoT Monetization</h2>
+            <h2 class="playbook-title">Edge &amp; IoT Monetization</h2>
             <p class="playbook-tagline">Turn sensors, cameras, and gateways into a billable Edge pipeline.</p>
           </header>
           <p class="playbook-body">
@@ -139,7 +188,7 @@
         </article>
 
         <!-- Smart Home Automation -->
-        <article class="playbook-card" data-tags="smart home automation iot google home matter">
+        <article class="playbook-card" data-tags="smart home automation iot google home matter pubsub eventarc subscriptions">
           <header class="playbook-header">
             <h2 class="playbook-title">Smart Home Automation Playbook</h2>
             <p class="playbook-tagline">From hobby projects to revenue-backed smart home bundles.</p>
@@ -171,7 +220,7 @@
         </article>
 
         <!-- Zero Trust Security -->
-        <article class="playbook-card" data-tags="zero trust security iam network compliance">
+        <article class="playbook-card" data-tags="zero trust security iam network compliance posture blast radius">
           <header class="playbook-header">
             <h2 class="playbook-title">Zero Trust Security Playbook</h2>
             <p class="playbook-tagline">Lock down AI and cloud workloads with zero trust patterns.</p>
@@ -203,7 +252,7 @@
         </article>
 
         <!-- Retail AI Playbook -->
-        <article class="playbook-card" data-tags="retail ai personalization recommendations stores ecommerce">
+        <article class="playbook-card" data-tags="retail ai personalization recommendations stores ecommerce merchandising marketing">
           <header class="playbook-header">
             <h2 class="playbook-title">Retail AI Playbook</h2>
             <p class="playbook-tagline">From prediction to basket lift and real revenue in retail.</p>
@@ -235,7 +284,7 @@
         </article>
 
         <!-- AI Bubble Crash Monetization -->
-        <article class="playbook-card" data-tags="ai bubble crash monetization downturn strategy">
+        <article class="playbook-card" data-tags="ai bubble crash monetization downturn strategy cost optimization consolidation">
           <header class="playbook-header">
             <h2 class="playbook-title">AI Bubble Crash Monetization</h2>
             <p class="playbook-tagline">Make money when the hype deflates.</p>
@@ -267,7 +316,7 @@
         </article>
 
         <!-- Agent-Ops Playbook (Signature) -->
-        <article class="playbook-card playbook-signature" data-tags="agent ops agents orchestration observability devops vcdl">
+        <article class="playbook-card playbook-signature" data-tags="agent ops agents orchestration observability devops vcdl production ai">
           <header class="playbook-header">
             <h2 class="playbook-title">Agent-Ops™ Playbook</h2>
             <p class="playbook-tagline">The DevOps of agentic AI.</p>
@@ -297,6 +346,56 @@
             </a>
           </div>
         </article>
+      </section>
+
+      <section class="vcdl-section" id="vcdl-section">
+        <h2>How a VCDL Uses These Playbooks</h2>
+        <p class="vcdl-intro">
+          Vapor Cloud Digital Leaders don’t just “know cloud” — they walk in with a system. Each playbook is a 
+          productized offer with simulations, talk tracks, and delivery patterns ready to go.
+        </p>
+        <div class="vcdl-grid">
+          <div class="vcdl-card">
+            <h3>1. Qualify &amp; Aim</h3>
+            <p>Use the hub to match the right playbook to the client’s pain: training chaos, Edge noise, security gaps, or retail revenue pressure.</p>
+          </div>
+          <div class="vcdl-card">
+            <h3>2. Simulate &amp; Align</h3>
+            <p>Open the Designer/Simulator live. Walk leaders through “what good looks like” using flows, costs, and risk visuals instead of buzzwords.</p>
+          </div>
+          <div class="vcdl-card">
+            <h3>3. Propose &amp; Close</h3>
+            <p>Use the Proposal Generator to move from “good conversation” to a structured offer with phases, pricing bands, and outcomes.</p>
+          </div>
+          <div class="vcdl-card">
+            <h3>4. Deliver &amp; Expand</h3>
+            <p>Run delivery using the same playbook patterns, then land-and-expand into adjacent playbooks (Zero Trust, Edge, Agent-Ops).</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="work-with-moe" id="work-with-moe">
+        <div class="work-inner">
+          <div class="work-text">
+            <h2>Work with Moe Bucks · Enterprise &amp; VCDL</h2>
+            <p>
+              Whether you’re an enterprise leader or a Vapor Cloud Digital Leader building your own book of business,
+              we can use these playbooks to co-design your next move: AI platforms, Edge monetization, Zero Trust, 
+              Agent-Ops, and more.
+            </p>
+            <p class="work-note">
+              U.S. Army Veteran · Google Cloud Digital Leader · MoeCommunityCloud.com
+            </p>
+          </div>
+          <div class="work-cta-block">
+            <a class="btn btn-cta-big" href="mailto:moeknowmoe24@gmail.com?subject=MBCC%20Playbooks%20Strategy%20Call&body=Quick%20context%20about%20my%20org%20and%20what%20I%27m%20trying%20to%20build%3A">
+              Book a Strategy Call
+            </a>
+            <span class="work-subtext">
+              Drop a line with a quick summary of your environment and which playbooks you want to explore first.
+            </span>
+          </div>
+        </div>
       </section>
     </main>
 
