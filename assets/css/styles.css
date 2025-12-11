@@ -64,7 +64,7 @@ body::before {
   border: 2px solid var(--mbcc-gold);
   display: flex;
   align-items: center;
-  justify-content center;
+  justify-content: center;
   font-weight: 800;
   font-size: 0.9rem;
   letter-spacing: 0.08em;
@@ -231,10 +231,13 @@ body::before {
   background: rgba(8, 8, 8, 0.96);
   border-radius: var(--card-radius);
   border: 1px solid rgba(212, 175, 55, 0.45);
-  padding: 1.1rem 1rem 1.15rem;
+  padding: 0.9rem 0.9rem 1.1rem;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
 .playbook-card::before {
@@ -251,9 +254,23 @@ body::before {
   opacity: 1;
 }
 
-.playbook-card h3 {
-  margin: 0 0 0.3rem;
-  font-size: 1.05rem;
+.playbook-media {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  background: #111;
+}
+
+.playbook-image {
+  display: block;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.playbook-body h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.02rem;
 }
 
 .pill {
@@ -266,16 +283,16 @@ body::before {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: rgba(247, 243, 233, 0.8);
-  margin-bottom: 0.55rem;
+  margin-bottom: 0.4rem;
 }
 
-.playbook-card p {
+.playbook-body p {
   font-size: 0.9rem;
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.3rem;
 }
 
 .card-bullets {
-  margin: 0.35rem 0 0.7rem 1.1rem;
+  margin: 0.35rem 0 0.5rem 1.1rem;
   padding: 0;
   font-size: 0.86rem;
   color: rgba(247, 243, 233, 0.8);
@@ -466,5 +483,9 @@ textarea:focus {
 
   .owner-card {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .playbook-image {
+    height: 180px;
   }
 }
