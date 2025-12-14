@@ -1,17 +1,10 @@
-MBCC AdSense Approval Bundle (Upload Ready)
+MBCC Hub Improvements (All 4)
 
-Upload these files into your moecommunitycloud.com repo (preserve folders):
-- privacy.html
-- terms.html
-- cookies.html
-- insights/ (index + 5 articles)
-- assets/adsense-bundle.css
-- NOADS_HEAD_SNIPPET.html
+Changes:
+1) Single primary CTA: Request Enterprise Briefing (sitewide)
+2) Renamed card CTAs: View Capability Overview / Request Enterprise Briefing / Secure Delivery Slot
+3) Added 'How Engagement Works' strip
+4) Normalized CTA wording across page
 
-IMPORTANT (Ad Exclusions):
-Insert the snippet from NOADS_HEAD_SNIPPET.html into:
-- proposal.html
-- any /vault/* pages
-- any client-input pages you want ad-free
-
-Then commit + deploy. After indexing (7–14 days), apply for AdSense.
+Upload/overwrite index.html in moecommunitycloud.com hub repo.
+Hard refresh after deploy.

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MBCC Insights</title>
-  <meta name="robots" content="index, follow" />
+  <title>Ad Exclusions · MBCC</title>
+  <meta name="robots" content="noindex, noads" />
   <style>
     :root{--bg:#0b0b0b;--panel:#121212;--text:#f7f3e9;--muted:#c9c1b3;--red:#c1121f;--gold:#d4af37;--gold2:#ffd26f;--border:rgba(212,175,55,.45);--shadow:0 14px 40px rgba(0,0,0,.45);}
     *{box-sizing:border-box}
@@ -23,24 +23,21 @@
 <body>
   <div class="wrap">
     <div class="top">
-      <div><a href="../index.html">← Back to Hub</a></div>
-      <div class="pill">Public informational page</div>
+      <div><a href="index.html">← Back to Hub</a></div>
+      <div class="pill">No ads / No index</div>
     </div>
     <div class="card">
       
-<h1>MBCC Insights</h1>
-<p>Short, enterprise-friendly guidance. Outcomes-only. No implementation details are published.</p>
+<h1>Ad Exclusions (Proposal + Vault)</h1>
+<p>Proposal and Vault pages should not show ads and should not be indexed. These pages are excluded via:</p>
 <ul>
-  <li><a href="what-is-agent-ops.html">What Is Agent Operations (Agent-Ops)?</a></li>
-  <li><a href="why-ai-projects-fail-without-simulation.html">Why AI Projects Fail Without Simulation</a></li>
-  <li><a href="what-is-title-intelligence.html">What Is Title Intelligence in Real Estate?</a></li>
-  <li><a href="vault-based-ai-delivery.html">Why Enterprises Need Vault-Based AI Delivery</a></li>
-  <li><a href="demo-vs-production-ai.html">The Difference Between Demos and Production AI</a></li>
+  <li><code>&lt;meta name="robots" content="noindex, noads"&gt;</code></li>
 </ul>
+<p>If you have proposal/vault pages within this same site, ensure they include that meta tag in their head.</p>
 
       <div class="footer">
         <hr style="border:0;height:1px;background:rgba(255,255,255,.12);margin:14px 0;">
-        <a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a> · <a href="../cookies.html">Cookies</a>
+        <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="cookies.html">Cookies</a>
       </div>
     </div>
   </div>
