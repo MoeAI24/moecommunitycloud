@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>Moe Community Cloud Newsletter</title>
+    <link>https://moecommunitycloud.com/newsletter/</link>
+    <description>Daily signals on AI, cloud, automation, and digital infrastructure — focused on ownership, systems, and monetization.</description>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Dec 2025 12:00:00 </lastBuildDate>
+
+    <item>
+      <title>Issue 1 — AI Is Getting Cheaper — Control Is Getting More Expensive</title>
+      <link>https://moecommunitycloud.com/newsletter/#issue-1</link>
+      <guid>mcc-newsletter-issue-1</guid>
+      <description>Generation costs drop fast. Governance, ownership, auditability, and operations become the real premium.</description>
+      <pubDate>Tue, 16 Dec 2025 09:00:00 -0500</pubDate>
+    </item>
+
+    <item>
+      <title>Issue 2 — AI Repair Is the Next Gold Rush</title>
+      <link>https://moecommunitycloud.com/newsletter/#issue-2</link>
+      <guid>mcc-newsletter-issue-2</guid>
+      <description>The second wave isn’t adoption — it’s repair: audits, stabilization, ops layers, and governance.</description>
+      <pubDate>Wed, 17 Dec 2025 09:00:00 -0500</pubDate>
+    </item>
+
+    <item>
+      <title>Issue 3 — Cloud-Only Is Quietly Becoming a Liability</title>
+      <link>https://moecommunitycloud.com/newsletter/#issue-3</link>
+      <guid>mcc-newsletter-issue-3</guid>
+      <description>Hybrid and local-first aren’t anti-cloud — they’re pro-control. Leverage comes from optionality.</description>
+      <pubDate>Thu, 18 Dec 2025 09:00:00 -0500</pubDate>
+    </item>
+
+    <item>
+      <title>Issue 4 — Agent Ops Beats Prompt Engineering Every Time</title>
+      <link>https://moecommunitycloud.com/newsletter/#issue-4</link>
+      <guid>mcc-newsletter-issue-4</guid>
+      <description>Great prompts don’t save broken systems. Operations turns AI into infrastructure.</description>
+      <pubDate>Fri, 19 Dec 2025 09:00:00 -0500</pubDate>
+    </item>
+
+    <item>
+      <title>Issue 5 — AI Compliance Is Becoming the New Gatekeeper</title>
+      <link>https://moecommunitycloud.com/newsletter/#issue-5</link>
+      <guid>mcc-newsletter-issue-5</guid>
+      <description>“It works” isn’t enough. Audit trails, controls, and documentation decide who gets paid.</description>
+      <pubDate>Sat, 20 Dec 2025 09:00:00 -0500</pubDate>
+    </item>
+
+    <item>
+      <title>Issue 6 — Owning Infrastructure Beats Owning IP</title>
+      <link>https://moecommunitycloud.com/newsletter/#issue-6</link>
+      <guid>mcc-newsletter-issue-6</guid>
+      <description>IP can be copied. Infrastructure compounds. Ownership of outcomes outlasts hype cycles.</description>
+      <pubDate>Sun, 21 Dec 2025 09:00:00 -0500</pubDate>
+    </item>
+
+    <item>
+      <title>Issue 7 — Why Moe Community Cloud Exists</title>
+      <link>https://moecommunitycloud.com/newsletter/#issue-7</link>
+      <guid>mcc-newsletter-issue-7</guid>
+      <description>A weekend reflection: no trends, no noise — just structure for builders who want leverage.</description>
+      <pubDate>Mon, 22 Dec 2025 09:00:00 -0500</pubDate>
+    </item>
+  </channel>
+</rss>
