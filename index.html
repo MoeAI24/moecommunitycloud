@@ -330,6 +330,43 @@
     .step-num{width:28px;height:28px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-weight:800;background:linear-gradient(135deg,#ffd26f,#d4af37);color:#0b0b0b;flex:0 0 auto}
     .muted{color:#c9c1b3}
 
+    /* Founder / Owner block (square image, no circle) */
+    .owner-section{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin: 18px 0 28px;
+      padding: 14px 16px;
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 16px;
+      background: rgba(11,11,11,0.55);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    .owner-image{
+      width: 160px;
+      height: auto;
+      border-radius: 8px; /* square, slightly softened */
+      border: 1px solid rgba(247,243,233,0.18);
+      display:block;
+      flex: 0 0 auto;
+    }
+    .owner-copy h3{
+      margin:0 0 6px;
+      font-size: 1.05rem;
+      letter-spacing: 0.2px;
+    }
+    .owner-copy p{
+      margin:0;
+      color: rgba(247,243,233,0.86);
+      font-size: 0.95rem;
+      line-height: 1.35;
+    }
+
+    @media (max-width: 720px){
+      .owner-section{flex-direction:column; align-items:flex-start;}
+      .owner-image{width: 190px;}
+    }
+
 </style>
 </head>
 <body>
@@ -374,6 +411,25 @@
             MBCC · Vapor Cloud
             <span>Agent Ops · Edge · Zero Trust</span>
           </div>
+
+      <!-- Owner Section -->
+      <section class="owner-section" aria-label="Founder">
+        <img
+          src="assets/images/ceo-vapor-cloud-agent-ops.jpg"
+          alt="Morris Stephens, Founder of Moe Community Cloud"
+          class="owner-image"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="owner-copy">
+          <h3>Morris Stephens</h3>
+          <p>
+            Founder · Moe Community Cloud<br />
+            Agent-Ops™, Edge Infrastructure, Zero Trust Platforms
+          </p>
+        </div>
+      </section>
+
         </div>
       </div>
       <div class="playbooks-header">
