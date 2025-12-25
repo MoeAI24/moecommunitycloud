@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request Enterprise Briefing · MBCC</title>
+<meta name="description" content="Request an enterprise briefing for MBCC playbooks. Outcomes-only intake.">
+<link rel="canonical" href="https://moecommunitycloud.com/request-briefing.html">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<div class="topbar"><div class="container"><div class="inner">
+  <div class="brand"><div class="badge"></div><div><h1>MBCC · Enterprise Briefing</h1><p>Outcomes-only intake · Vault-gated delivery</p></div></div>
+  <nav class="nav"><a class="pill" href="index.html#playbooks">Back to Hub</a><a class="cta" href="index.html">Home</a></nav>
+</div></div></div>
+
+<main class="section"><div class="container">
+  <div class="heroCard">
+    <div class="kicker"><span class="kdot"></span> Request an enterprise briefing</div>
+    <h2 style="font-size:30px">Get a scoped plan — without exposing IP.</h2>
+    <p class="subtitle">Submit a short intake. We’ll reply with next steps and safe delivery via the Client Vault.</p>
+    <div class="notice" style="margin-top:14px"><b style="color:var(--text)">Security note</b><br>Do not paste secrets, keys, or private documents.</div>
+
+    <form class="form" id="briefForm" style="margin-top:14px">
+      <div class="field"><label for="bname">Name</label><input id="bname" name="name" required></div>
+      <div class="field"><label for="bemail">Email</label><input id="bemail" name="email" type="email" required></div>
+      <div class="field"><label for="bcompany">Company / Org</label><input id="bcompany" name="company"></div>
+      <div class="field"><label for="bfocus">Focus Area</label>
+        <select id="bfocus" name="focus" required>
+          <option value="" selected disabled>Select…</option>
+          <option>Agent Ops</option><option>Vapor Cloud Portfolio</option><option>Zero Trust by Default</option><option>Edge IoT & Telemetry</option><option>Retail AI Ops</option><option>Vertex AI / MLOps</option><option>Other</option>
+        </select>
+      </div>
+      <textarea id="boutcome" name="outcome" required placeholder="Describe the outcome / scope."></textarea>
+      <div class="help">Submitting prepares an email request (you send it).</div>
+      <div class="formActions"><button class="btn primary" type="submit">Prepare Email Request</button><a class="btn" href="index.html#playbooks">Browse Playbooks</a></div>
+    </form>
+
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      <b>Briefing request prepared</b><p>Click email to send, or copy the message.</p>
+      <div class="row"><a class="btn primary" id="toastEmail" href="#">Email request</a><button class="btn" id="toastCopy" type="button">Copy</button></div>
+    </div>
+  </div>
+</div></main>
+
+<script>
+(function(){
+  const toast=document.getElementById('toast');
+  const toastEmail=document.getElementById('toastEmail');
+  const toastCopy=document.getElementById('toastCopy');
+
+  function showToast(mailto,copyText){
+    toastEmail.href=mailto; toast.dataset.copy=copyText;
+    toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),12000);
+  }
+
+  if(toastCopy){
+    toastCopy.addEventListener('click',async ()=>{
+      const txt=toast.dataset.copy||'';
+      try{await navigator.clipboard.writeText(txt); toastCopy.textContent='Copied'; setTimeout(()=>toastCopy.textContent='Copy',1400);}
+      catch(e){const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();}
+    });
+  }
+
+  const form=document.getElementById('briefForm');
+  if(form){
+    form.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      const data=new FormData(form);
+      const name=(data.get('name')||'').toString().trim();
+      const email=(data.get('email')||'').toString().trim();
+      const company=(data.get('company')||'').toString().trim();
+      const focus=(data.get('focus')||'').toString().trim();
+      const outcome=(data.get('outcome')||'').toString().trim();
+
+      const subject=encodeURIComponent('MBCC Enterprise Briefing — '+focus);
+      const body=encodeURIComponent('Name: '+name+'\n'+'Email: '+email+'\n'+'Company: '+company+'\n'+'Focus Area: '+focus+'\n\n'+'Outcome / Scope:\n'+outcome+'\n\n'+'Notes:\n- Outcomes-only pages; delivery via Client Vault after engagement or deposit.\n- No secrets/keys in email.');
+      const mailto='mailto:moeknowmoe24@gmail.com?subject='+subject+'&body='+body;
+      showToast(mailto, decodeURIComponent(body));
+    });
+  }
+})();
+</script>
+</body></html>
