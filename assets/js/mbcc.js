@@ -1,1 +1,9 @@
-(function(){const p=location.pathname.toLowerCase().replace(/index\.html$/,'').replace(/\/+$/,'/');document.querySelectorAll('.nav a').forEach(a=>{const h=(a.getAttribute('href')||'').toLowerCase().replace(/index\.html$/,'').replace(/\/+$/,'/');if(h && h!=='/' && p.endsWith(h)){a.style.borderColor='rgba(212,175,55,.70)';a.style.background='rgba(212,175,55,.10)';}});})();
+(function(){
+  const path = location.pathname.replace(/\/index\.html$/, '/');
+  document.querySelectorAll('.nav a').forEach(a=>{
+    const href = a.getAttribute('href');
+    if(!href) return;
+    const normalized = href.replace(/\/index\.html$/, '/');
+    if(normalized === path) a.classList.add('active');
+  });
+})();
