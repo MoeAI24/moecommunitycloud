@@ -101,38 +101,3 @@ textarea{resize:vertical}
   .footergrid{grid-template-columns:1fr}
   .hero h1{font-size:34px}
 }
-
-
-/* --- MBCC Layout Tightening (Next build) --- */
-:root{
-  --mbcc-red:#c1121f;
-  --mbcc-black:#0b0b0b;
-  --mbcc-gold:#d4af37;
-  --mbcc-off:#f7f3e9;
-}
-
-.hero{padding-top:28px!important;padding-bottom:24px!important;}
-.hero .owner-card{max-width:980px;margin:18px auto 0 auto;display:grid;grid-template-columns:120px 1fr;gap:16px;
-  align-items:center;border:1px solid rgba(212,175,55,.35);border-radius:16px;padding:14px;background:rgba(11,11,11,.55);
-  box-shadow:0 10px 22px rgba(0,0,0,.35);}
-.hero .owner-card img{width:120px;height:120px;object-fit:cover;border-radius:12px;border:1px solid rgba(212,175,55,.35);}
-@media (max-width:700px){
-  .hero .owner-card{grid-template-columns:92px 1fr;}
-  .hero .owner-card img{width:92px;height:92px;}
-}
-
-.playbook-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;}
-@media (max-width:980px){.playbook-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
-@media (max-width:620px){.playbook-grid{grid-template-columns:1fr;}}
-
-.playbook-card .thumb{aspect-ratio:16/9;width:100%;border-radius:14px;overflow:hidden;border:1px solid rgba(247,243,233,.14);
-  background:rgba(255,255,255,.03);}
-.playbook-card .thumb img{width:100%;height:100%;object-fit:cover;display:block;}
-.playbook-card h3{margin-top:12px;font-size:1.05rem;line-height:1.2;}
-.playbook-card p{font-size:.95rem;line-height:1.45;color:rgba(247,243,233,.85);}
-
-.value-strip{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px;}
-.value-strip a{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem .85rem;border-radius:999px;
-  border:1px solid rgba(212,175,55,.35);text-decoration:none;color:var(--mbcc-off);background:rgba(11,11,11,.45);}
-
-.notice{border-left:4px solid rgba(212,175,55,.65)!important;}
