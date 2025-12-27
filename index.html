@@ -1,593 +1,230 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Moe Community Cloud · MBCC Playbooks Hub</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      --mbcc-red: #c1121f;
-      --mbcc-black: #0b0b0b;
-      --mbcc-gold: #d4af37;
-      --mbcc-gold-dark: #a8831e;
-      --mbcc-offwhite: #f7f3e9;
-      --card-radius: 16px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        repeating-linear-gradient(
-          135deg,
-          #101010,
-          #101010 8px,
-          #141414 8px,
-          #141414 16px
-        );
-      color: var(--mbcc-offwhite);
-      min-height: 100vh;
-    }
-
-    .page {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 24px 16px 40px;
-    }
-
-    header {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-bottom: 32px;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      border-radius: 20px;
-      padding: 20px;
-      background:
-        radial-gradient(circle at top left, rgba(193, 18, 31, 0.35), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(212, 175, 55, 0.18), transparent 55%),
-        linear-gradient(135deg, #0b0b0b, #151515);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-    }
-
-    .brand-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .brand-main {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      flex: 1;
-    }
-
-    .avatar {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      border: 3px solid var(--mbcc-gold);
-      background: #222;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 24px;
-      color: var(--mbcc-gold);
-    }
-
-    .brand-text h1 {
-      font-size: 1.6rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--mbcc-offwhite);
-    }
-
-    .brand-text p {
-      font-size: 0.95rem;
-      color: #d0cbc0;
-    }
-
-    .tagline {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(244, 162, 97, 0.5);
-      color: #f4eae0;
-      background: rgba(11, 11, 11, 0.7);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .tagline span {
-      font-size: 0.7rem;
-      opacity: 0.8;
-    }
-
-    .hero-sub {
-      margin-top: 8px;
-      font-size: 0.92rem;
-      color: #e8e1d5;
-      max-width: 720px;
-    }
-
-    .hero-sub strong {
-      color: var(--mbcc-gold);
-    }
-
-    .playbooks-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 16px;
-      margin-top: 8px;
-    }
-
-    .playbooks-header h2 {
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #f5eee2;
-    }
-
-    .playbooks-header span {
-      font-size: 0.9rem;
-      color: #c7c1b4;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      border-radius: var(--card-radius);
-      padding: 16px 16px 18px;
-      background:
-        linear-gradient(135deg, rgba(193, 18, 31, 0.22), rgba(11, 11, 11, 0.95));
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        repeating-linear-gradient(
-          135deg,
-          rgba(255, 255, 255, 0.03),
-          rgba(255, 255, 255, 0.03) 6px,
-          transparent 6px,
-          transparent 12px
-        );
-      opacity: 0.22;
-      pointer-events: none;
-      mix-blend-mode: soft-light;
-    }
-
-    .card-header {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .card-image {
-      position: relative;
-      z-index: 1;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      max-height: 170px;
-    }
-
-    .card-image img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .card-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 3px;
-      color: #f9f4ea;
-    }
-
-    .card-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(212, 175, 55, 0.6);
-      color: #ffe9b8;
-      background: rgba(11, 11, 11, 0.75);
-      align-self: flex-start;
-    }
-
-    .card-body {
-      position: relative;
-      z-index: 1;
-      font-size: 0.88rem;
-      color: #e3ddd1;
-      line-height: 1.5;
-    }
-
-    .card-body span {
-      color: var(--mbcc-gold);
-    }
-
-    .card-footer {
-      position: relative;
-      z-index: 1;
-      margin-top: 6px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 7px 12px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      text-decoration: none;
-      border: 1px solid var(--mbcc-gold-dark);
-      color: var(--mbcc-offwhite);
-      background: linear-gradient(135deg, #1d1d1d, #2c1810);
-      cursor: pointer;
-      transition:
-        transform 0.12s ease-out,
-        box-shadow 0.12s ease-out,
-        border-color 0.12s ease-out,
-        background 0.12s ease-out;
-    }
-
-    .btn.primary {
-      background: linear-gradient(135deg, var(--mbcc-red), #8c1018);
-      border-color: var(--mbcc-gold);
-      font-weight: 600;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.9);
-      border-color: #ffd26f;
-    }
-
-    .btn.secondary {
-      opacity: 0.9;
-    }
-
-    .label-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 6px;
-      font-size: 0.72rem;
-      color: #d2ccbf;
-    }
-
-    .label-pill {
-      padding: 3px 7px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(11, 11, 11, 0.75);
-    }
-
-    footer {
-      margin-top: 26px;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #b8b1a4;
-      opacity: 0.9;
-    }
-
-    @media (max-width: 640px) {
-      header {
-        padding: 16px;
-      }
-      .brand-main {
-        flex-direction: row;
-      }
-      .brand-text h1 {
-        font-size: 1.35rem;
-      }
-    }
-  </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MoeCommunityCloud (MBCC) — Governance-first AI Operating Systems</title>
+<meta name="description" content="MoeCommunityCloud (MBCC) builds governance-first AI operating systems: Agent Ops Control Plane™, Zero Trust by default, simulation before production, and local-first Vapor Cloud capabilities for enterprise outcomes."/>
+<link rel="canonical" href="https://moecommunitycloud.com/"/>
+<meta property="og:title" content="MoeCommunityCloud (MBCC) — Governance-first AI Operating Systems"/>
+<meta property="og:description" content="Governance-first AI operating systems and playbooks—outcomes only. Implementation delivered privately via MBCC Client Vault after engagement."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://moecommunitycloud.com/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="stylesheet" href="/assets/css/mbcc.css"/>
+<script defer src="/assets/js/mbcc.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "MoeCommunityCloud",
+  "url": "https://moecommunitycloud.com",
+  "brand": "MBCC",
+  "founder": {
+    "@type": "Person",
+    "name": "Morris Stephens"
+  }
+}
+</script>
 </head>
 <body>
-  <div class="page">
-    <header>
-      <div class="brand-row">
-        <div class="brand-main">
-          <div class="avatar">
-            MB
+<div class="topbar">
+  <div class="inner">
+    <a class="brand" href="/">
+      <div class="mark" aria-hidden="true"></div>
+      <div class="text">
+        <b>MBCC · MoeCommunityCloud</b>
+        <span>Vapor Cloud · Agent Ops · Edge · Zero Trust</span>
+      </div>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/agentops/control-plane/">Agent Ops</a>
+      <a href="/insights.html">Insights</a>
+      <a href="/request-briefing.html">Request Briefing</a>
+      <a href="/privacy.html">Policies</a>
+    </nav>
+  </div>
+</div>
+
+<main class="container">
+  <section class="hero">
+    <div class="heroGrid">
+      <div class="card heroMain">
+        <div class="kicker">
+          <span class="pill">Outcomes Only</span>
+          <span>Implementation delivered via MBCC Client Vault after engagement or deposit.</span>
+        </div>
+        <h1>Governance-first AI that stays under human authority.</h1>
+        <p class="subhead">
+          MBCC helps teams deploy multi-agent systems without chaos: control planes, simulation-first rollout, Zero Trust by default, and local‑first options when the network or vendor stack wobbles.
+        </p>
+        <div class="ctaRow">
+          <a class="btn primary" href="/request-briefing.html">Request Enterprise Briefing</a>
+          <a class="btn ghost" href="/agentops/control-plane/">Agent Ops Control Plane™</a>
+          <a class="btn" href="mailto:moeknowmoe24@gmail.com?subject=MBCC%20Client%20Vault%20Access%20Request&body=Company%3A%0AWebsite%3A%0AIndustry%3A%0AUse%20case%3A%0ATimeline%3A%0ABudget%20range%3A%0A">Request Vault Access</a>
+        </div>
+
+        <div class="credStrip" aria-label="Founder">
+          <div class="ownerPhoto">
+            <img src="/assets/images/ceo-vapor-cloud-agent-ops.jpg" alt="Morris Stephens — Founder, MoeCommunityCloud"/>
           </div>
-          <div class="brand-text">
-            <h1>Moe Community Cloud · MBCC</h1>
-            <p>By Morris “Moe Bucks” Stephens · U.S. Army Veteran · AI & Cloud Digital Leader</p>
-            <div class="hero-sub">
-              <strong>MBCC Playbooks Hub</strong> – monetization-ready blueprints for AI, cloud, edge, and IoT.
-              Simulation-first, consulting-ready IP you can plug into real client work.
-            </div>
+          <div class="credText">
+            <b>Morris Stephens</b>
+            <span>Founder · MoeCommunityCloud (MBCC)</span>
+            <span>Google Cloud Digital Leader · U.S. Army Veteran</span>
+          </div>
+          <div class="credMeta">
+            <span class="pill">Governance-first</span>
+            <span class="pill">Simulation-first</span>
+            <span class="pill">Zero Trust</span>
+            <span class="pill">Local-first option</span>
           </div>
         </div>
-        <div>
-          <div class="tagline">
-            MBCC · Vapor Cloud
-            <span>Agent Ops · Edge · Zero Trust</span>
-          </div>
+
+        <div class="notice">
+          Notice: This hub presents concepts, positioning, and outcomes only. Implementation assets (architectures, dashboards, templates, and runbooks) are delivered after engagement or deposit via the MBCC Client Vault.
         </div>
       </div>
-      <div class="playbooks-header">
-        <h2>Enterprise AI & Cloud Playbooks</h2>
-        <span>Click any playbook to open its simulation, sales page, or proposal generator.</span>
-      </div>
-    </header>
 
-    <main>
-      <section class="grid">
-        <!-- AI Bubble Crash -->
-        <article class="card">
-          <div class="card-header">
-            <div class="card-image">
-              <img src="assets/playbooks/ai-bubble.png" alt="AI Bubble Crash Monetization Playbook" />
-            </div>
-            <div class="card-pill">Playbook 01 · AI Bubble Crash Monetization</div>
-            <div class="card-title">AI Bubble Crash & Asset Rescue Engine</div>
+      <aside class="card heroSide">
+        <div class="grid2">
+          <div class="mini">
+            <h3>What we build</h3>
+            <p>Multi-agent operating systems with enforceable control, auditability, and safe escalation.</p>
+            <ul>
+              <li>Agent Ops Control Plane™</li>
+              <li>Zero Trust by default</li>
+              <li>Simulation before production</li>
+              <li>Edge and local-first resilience</li>
+            </ul>
           </div>
-          <div class="card-body">
-            Model what happens when the AI hype cycle pops – then show clients how to
-            <span>capture distressed assets, stabilize revenue, and replatform to durable value.</span>
+          <div class="mini">
+            <h3>Who it’s for</h3>
+            <p>Executives, platform teams, and operators who need AI outcomes without surrendering authority.</p>
           </div>
-          <div class="label-row">
-            <div class="label-pill">AI Bubble Risk</div>
-            <div class="label-pill">Turnaround Strategy</div>
-            <div class="label-pill">C-Suite Advisory</div>
+          <div class="mini">
+            <h3>How access works</h3>
+            <p>Public pages show outcomes. Delivery happens privately after engagement or deposit.</p>
           </div>
-          <div class="card-footer">
-            <a class="btn primary" href="https://bubble.moecommunitycloud.com/" target="_blank" rel="noopener noreferrer">Open Simulation</a>
-            <a class="btn secondary" href="https://bubble.moecommunitycloud.com/sales" target="_blank" rel="noopener noreferrer">Sales Page</a>
-            <a class="btn secondary" href="https://bubble.moecommunitycloud.com/proposal" target="_blank" rel="noopener noreferrer">Proposal Generator</a>
-          </div>
-        </article>
+        </div>
+      </aside>
+    </div>
+  </section>
 
-        <!-- Retail AI -->
-        <article class="card">
-          <div class="card-header">
-            <div class="card-image">
-              <img src="assets/playbooks/retail.png" alt="Retail AI Playbook" />
-            </div>
-            <div class="card-pill">Playbook 02 · Retail AI</div>
-            <div class="card-title">Retail AI Revenue Simulation & Store of the Future</div>
-          </div>
-          <div class="card-body">
-            Simulate in-store + e-commerce lift from AI vision, personalization, and dynamic pricing, then
-            <span>package it into boardroom-ready ROI stories for retailers.</span>
-          </div>
-          <div class="label-row">
-            <div class="label-pill">Foot Traffic → Revenue</div>
-            <div class="label-pill">AI Personalization</div>
-            <div class="label-pill">Retail Cloud</div>
-          </div>
-          <div class="card-footer">
-            <a class="btn primary" href="https://retail.moecommunitycloud.com/" target="_blank" rel="noopener noreferrer">Open Simulation</a>
-            <a class="btn secondary" href="https://retail.moecommunitycloud.com/sales" target="_blank" rel="noopener noreferrer">Sales Page</a>
-            <a class="btn secondary" href="https://retail.moecommunitycloud.com/proposal" target="_blank" rel="noopener noreferrer">Proposal Generator</a>
-          </div>
-        </article>
-
-        <!-- Smart Home -->
-        <article class="card">
-          <div class="card-header">
-            <div class="card-image">
-              <img src="assets/playbooks/smarthome.png" alt="Smart Home Automation Playbook" />
-            </div>
-            <div class="card-pill">Playbook 03 · Smart Home</div>
-            <div class="card-title">Smart Home Automation & Subscription Uplift</div>
-          </div>
-          <div class="card-body">
-            Show telcos, ISPs, and device makers how to build
-            <span>recurring revenue around automations, energy efficiency, and AI assistants for the home.</span>
-          </div>
-          <div class="label-row">
-            <div class="label-pill">IoT + AI</div>
-            <div class="label-pill">Subscription Design</div>
-            <div class="label-pill">Home Automations</div>
-          </div>
-          <div class="card-footer">
-            <a class="btn primary" href="https://smarthome.moecommunitycloud.com/" target="_blank" rel="noopener noreferrer">Open Simulation</a>
-            <a class="btn secondary" href="https://smarthome.moecommunitycloud.com/sales" target="_blank" rel="noopener noreferrer">Sales Page</a>
-            <a class="btn secondary" href="https://smarthome.moecommunitycloud.com/proposal" target="_blank" rel="noopener noreferrer">Proposal Generator</a>
-          </div>
-        </article>
-
-        <!-- Agent Ops -->
-        <article class="card">
-          <div class="card-header">
-            <div class="card-image">
-              <img src="assets/playbooks/agentops.png" alt="Agent-Ops Playbook" />
-            </div>
-            <div class="card-pill">Playbook 04 · Agent Ops</div>
-            <div class="card-title">Agent-Ops™ Factory & AI Workforce Simulator</div>
-          </div>
-          <div class="card-body">
-            Define how companies design, deploy, and manage AI agents across departments, including
-            <span>governance, observability, and ROI tracking at the “agent workforce” level.</span>
-          </div>
-          <div class="label-row">
-            <div class="label-pill">AI Agents</div>
-            <div class="label-pill">Ops & Governance</div>
-            <div class="label-pill">Enterprise Rollout</div>
-          </div>
-          <div class="card-footer">
-            <a class="btn primary" href="https://agentops.moecommunitycloud.com/" target="_blank" rel="noopener noreferrer">Open Simulation</a>
-            <a class="btn secondary" href="https://agentops.moecommunitycloud.com/sales" target="_blank" rel="noopener noreferrer">Sales Page</a>
-            <a class="btn secondary" href="https://agentops.moecommunitycloud.com/proposal" target="_blank" rel="noopener noreferrer">Proposal Generator</a>
-          </div>
-        </article>
-
-        <!-- Zero Trust -->
-        <article class="card">
-          <div class="card-header">
-            <div class="card-image">
-              <img src="assets/playbooks/zerotrust.png" alt="Zero Trust for AI Playbook" />
-            </div>
-            <div class="card-pill">Playbook 05 · Zero Trust for AI</div>
-            <div class="card-title">Zero Trust AI & Data Protection Blueprint</div>
-          </div>
-          <div class="card-body">
-            Help security teams move from buzzwords to a concrete
-            <span>Zero Trust reference architecture for AI workloads, data, and identities.</span>
-          </div>
-          <div class="label-row">
-            <div class="label-pill">Zero Trust</div>
-            <div class="label-pill">Data Security</div>
-            <div class="label-pill">Compliance</div>
-          </div>
-          <div class="card-footer">
-            <a class="btn primary" href="https://zerotrust.moecommunitycloud.com/" target="_blank" rel="noopener noreferrer">Open Simulation</a>
-            <a class="btn secondary" href="https://zerotrust.moecommunitycloud.com/sales" target="_blank" rel="noopener noreferrer">Sales Page</a>
-            <a class="btn secondary" href="https://zerotrust.moecommunitycloud.com/proposal" target="_blank" rel="noopener noreferrer">Proposal Generator</a>
-          </div>
-        </article>
-
-        <!-- Edge & IoT -->
-        <article class="card">
-          <div class="card-header">
-            <div class="card-image">
-              <img src="assets/playbooks/iot.png" alt="Edge & IoT Monetization Playbook" />
-            </div>
-            <div class="card-pill">Playbook 06 · Edge & IoT</div>
-            <div class="card-title">Edge & IoT Monetization Simulator</div>
-          </div>
-          <div class="card-body">
-            Model sensor deployments, edge inference, and data products so clients can see
-            <span>exactly where edge + IoT turns into cash flow, not just dashboards.</span>
-          </div>
-          <div class="label-row">
-            <div class="label-pill">Edge Compute</div>
-            <div class="label-pill">IoT Revenue</div>
-            <div class="label-pill">Industry 4.0</div>
-          </div>
-          <div class="card-footer">
-            <a class="btn primary" href="https://edgeiot.moecommunitycloud.com/" target="_blank" rel="noopener noreferrer">Open Simulation</a>
-            <a class="btn secondary" href="https://edgeiot.moecommunitycloud.com/sales" target="_blank" rel="noopener noreferrer">Sales Page</a>
-            <a class="btn secondary" href="https://edgeiot.moecommunitycloud.com/proposal" target="_blank" rel="noopener noreferrer">Proposal Generator</a>
-          </div>
-        </article>
-
-        <!-- AI Infrastructure -->
-        <article class="card">
-          <div class="card-header">
-            <div class="card-image">
-              <img src="assets/playbooks/infrastructure.png" alt="AI Infrastructure Playbook" />
-            </div>
-            <div class="card-pill">Playbook 07 · AI Infrastructure</div>
-            <div class="card-title">AI Infrastructure & Platform Blueprint</div>
-          </div>
-          <div class="card-body">
-            Show clients how to build a durable AI platform stack – networking, storage, compute, observability, and
-            <span>LLM infrastructure that doesn’t melt when real workloads show up.</span>
-          </div>
-          <div class="label-row">
-            <div class="label-pill">AI Platform</div>
-            <div class="label-pill">Cloud Architecture</div>
-            <div class="label-pill">Scalability</div>
-          </div>
-          <div class="card-footer">
-            <a class="btn primary" href="https://infra.moecommunitycloud.com/" target="_blank" rel="noopener noreferrer">Open Simulation</a>
-            <a class="btn secondary" href="https://infra.moecommunitycloud.com/sales" target="_blank" rel="noopener noreferrer">Sales Page</a>
-            <a class="btn secondary" href="https://infra.moecommunitycloud.com/proposal" target="_blank" rel="noopener noreferrer">Proposal Generator</a>
-          </div>
-        </article>
-
-        <!-- Vapor Cloud -->
-        <article class="card">
-          <div class="card-header">
-            <div class="card-image">
-              <img src="assets/playbooks/infrastructure.png" alt="Vapor Cloud Playbook" />
-            </div>
-            <div class="card-pill">Playbook 08 · Vapor Cloud</div>
-            <div class="card-title">Vapor Cloud Infrastructure & Hybrid Edge</div>
-          </div>
-          <div class="card-body">
-            Present a local-first cloud blueprint: storage, compute, IAM, logs, and containers that start on-prem
-            and <span>flip into any major cloud when the client is ready.</span>
-          </div>
-          <div class="label-row">
-            <div class="label-pill">Hybrid Cloud</div>
-            <div class="label-pill">Local-First</div>
-            <div class="label-pill">Migration Path</div>
-          </div>
-          <div class="card-footer">
-            <a class="btn primary" href="https://vapor.moecommunitycloud.com/" target="_blank" rel="noopener noreferrer">Open Simulation</a>
-            <a class="btn secondary" href="https://vapor.moecommunitycloud.com/sales" target="_blank" rel="noopener noreferrer">Sales Page</a>
-            <a class="btn secondary" href="https://vapor.moecommunitycloud.com/proposal" target="_blank" rel="noopener noreferrer">Proposal Generator</a>
-          </div>
-        </article>
-
-        <!-- Vertex AI Training Factory -->
-        <article class="card">
-          <div class="card-header">
-            <div class="card-image">
-              <img src="assets/playbooks/vertex.png" alt="Vertex AI Training Factory Playbook" />
-            </div>
-            <div class="card-pill">Playbook 09 · Vertex AI Factory</div>
-            <div class="card-title">Vertex AI Training Factory & Model Monetization</div>
-          </div>
-          <div class="card-body">
-            Turn model training into a repeatable factory: datasets, pipelines, evaluation, and deployment on Vertex AI –
-            <span>plus the commercial hooks that make it billable.</span>
-          </div>
-          <div class="label-row">
-            <div class="label-pill">Vertex AI</div>
-            <div class="label-pill">MLOps</div>
-            <div class="label-pill">Model ROI</div>
-          </div>
-          <div class="card-footer">
-            <a class="btn primary" href="https://vertex.moecommunitycloud.com/" target="_blank" rel="noopener noreferrer">Open Simulation</a>
-            <a class="btn secondary" href="https://vertex.moecommunitycloud.com/sales" target="_blank" rel="noopener noreferrer">Sales Page</a>
-            <a class="btn secondary" href="https://vertex.moecommunitycloud.com/proposal" target="_blank" rel="noopener noreferrer">Proposal Generator</a>
-          </div>
-        </article>
-      </section>
-    </main>
-
-    <footer>
-      Moe Community Cloud · MBCC · Vapor Cloud · © <span id="year"></span> Morris “Moe Bucks” Stephens. All rights reserved.
-    </footer>
+  <div class="sectionTitle">
+    <h2>Available & Emerging Playbooks</h2>
+    <span>High-value directions with safe public positioning.</span>
   </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <section class="tiles">
+    <article class="card tile">
+      <div class="tileTop">
+        <h3>Agent Ops</h3>
+        <div class="badges">
+          <span class="badge gold">Control Plane</span>
+          <span class="badge">Multi-agent</span>
+        </div>
+      </div>
+      <p>Govern, constrain, and supervise agent systems in-flight. Outcomes-only public pages; delivery via Vault.</p>
+      <div class="tileActions">
+        <a class="link primary" href="/agentops/control-plane/">Explore</a>
+        <a class="link" href="/request-briefing.html">Briefing</a>
+      </div>
+    </article>
+
+    <article class="card tile">
+      <div class="tileTop">
+        <h3>Zero Trust</h3>
+        <div class="badges">
+          <span class="badge gold">Default</span>
+          <span class="badge">RBAC</span>
+        </div>
+      </div>
+      <p>Authentication, authorization, audit trails, and secrets hygiene—wired as an operating condition.</p>
+      <div class="tileActions">
+        <a class="link primary" href="https://zero-trust.moecommunitycloud.com/">Outcomes</a>
+        <a class="link" href="/request-briefing.html">Briefing</a>
+      </div>
+    </article>
+
+    <article class="card tile">
+      <div class="tileTop">
+        <h3>Edge IoT</h3>
+        <div class="badges">
+          <span class="badge gold">Resilience</span>
+          <span class="badge">Telemetry</span>
+        </div>
+      </div>
+      <p>Local-first signals, event-driven actions, and safe automation—without drowning in dashboards.</p>
+      <div class="tileActions">
+        <a class="link primary" href="https://edge-iot.moecommunitycloud.com/">Outcomes</a>
+        <a class="link" href="/request-briefing.html">Briefing</a>
+      </div>
+    </article>
+
+    <article class="card tile">
+      <div class="tileTop">
+        <h3>Retail</h3>
+        <div class="badges">
+          <span class="badge gold">Ops</span>
+          <span class="badge">Automation</span>
+        </div>
+      </div>
+      <p>Retail AI flows that are observable, constraint-aware, and ready for real operational pressure.</p>
+      <div class="tileActions">
+        <a class="link primary" href="https://retail.moecommunitycloud.com/">Outcomes</a>
+        <a class="link" href="/request-briefing.html">Briefing</a>
+      </div>
+    </article>
+
+    <article class="card tile">
+      <div class="tileTop">
+        <h3>Smart Home</h3>
+        <div class="badges">
+          <span class="badge gold">Event-driven</span>
+          <span class="badge">Automation</span>
+        </div>
+      </div>
+      <p>Responsive dashboards and automation patterns using cloud events, triggers, and safe control.</p>
+      <div class="tileActions">
+        <a class="link primary" href="https://smarthome.moecommunitycloud.com/">Outcomes</a>
+        <a class="link" href="/request-briefing.html">Briefing</a>
+      </div>
+    </article>
+
+    <article class="card tile">
+      <div class="tileTop">
+        <h3>Vertex Training Factory</h3>
+        <div class="badges">
+          <span class="badge gold">GCP</span>
+          <span class="badge">MLOps</span>
+        </div>
+      </div>
+      <p>Training pipelines and governance patterns for AI systems on Google Cloud.</p>
+      <div class="tileActions">
+        <a class="link primary" href="https://vertex.moecommunitycloud.com/">Outcomes</a>
+        <a class="link" href="/request-briefing.html">Briefing</a>
+      </div>
+    </article>
+  </section>
+
+  <div class="footer">
+  <a href="/about.html">About</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/privacy.html">Privacy</a>
+  <a href="/terms.html">Terms</a>
+</div>
+    <div class="smallLinks">
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="/insights.html">Insights</a>
+      <a href="mailto:moeknowmoe24@gmail.com?subject=MBCC%20Inquiry">Contact</a>
+    </div>
+  </div>
+</main>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+
 </body>
 </html>
