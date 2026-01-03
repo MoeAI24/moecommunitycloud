@@ -198,3 +198,22 @@ input, textarea{color:var(--off)}
   background: rgba(193,18,31,.14);
   text-decoration:none;
 }
+.brandlogoimg{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  border:1px solid rgba(212,175,55,.35);
+  box-shadow: var(--shadow);
+  background: rgba(11,11,11,.6);
+  object-fit: cover;
+}
+.brand .logo{ display:none; } /* replaced by image logo */
+.heroMark{
+  width:92px;
+  height:92px;
+  border-radius:22px;
+  border:1px solid rgba(212,175,55,.28);
+  box-shadow: var(--shadow);
+  background: rgba(11,11,11,.55);
+  object-fit: cover;
+}
