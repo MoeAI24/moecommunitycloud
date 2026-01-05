@@ -182,18 +182,3 @@ textarea{resize:vertical}
 }
 
 
-/* === Homepage Leaderboard Banner (728x90) === */
-.leaderboard {
-  display: flex;
-  justify-content: center;
-  margin: 18px 0 10px 0;
-}
-.leaderboard__img {
-  width: 728px;
-  height: 90px;
-  max-width: 100%;
-  height: auto;
-  border-radius: 14px;
-  border: 1px solid rgba(212,175,55,.14);
-  box-shadow: 0 16px 40px rgba(0,0,0,.35);
-}
