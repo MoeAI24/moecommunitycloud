@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="AgentOps Pulse Preview">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#c1121f"/><stop offset="0.55" stop-color="#d4af37"/><stop offset="1" stop-color="#a8831e"/>
+    </linearGradient>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0" stop-color="#1b1c25"/><stop offset="1" stop-color="#0b0b0b"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect x="18" y="18" rx="28" width="864" height="484" fill="url(#bg)" stroke="#d4af37" stroke-opacity="0.22" stroke-width="2"/>
+  <text x="54" y="86" fill="#f7f3e9" font-family="system-ui,Segoe UI,Roboto,Arial" font-size="28" font-weight="800">AgentOps KPI Pulse</text>
+  <text x="54" y="118" fill="rgba(247,243,233,.70)" font-family="system-ui,Segoe UI,Roboto,Arial" font-size="16">MTTD • MTTR • Drift • Compliance • Cost</text>
+
+  <g transform="translate(54,160)">
+    <rect x="0" y="0" width="520" height="240" rx="18" fill="#111217" stroke="#d4af37" stroke-opacity="0.14"/>
+    <g opacity="0.25" stroke="#d4af37" stroke-opacity="0.22">
+      <line x1="22" y1="70" x2="498" y2="70"/><line x1="22" y1="120" x2="498" y2="120"/><line x1="22" y1="170" x2="498" y2="170"/><line x1="22" y1="220" x2="498" y2="220"/>
+    </g>
+    <g>
+      <rect x="70" y="170" width="34" height="70" rx="10" fill="rgba(193,18,31,.55)">
+        <animate attributeName="height" values="70;120;78;110;70" dur="2.6s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="170;120;162;130;170" dur="2.6s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="150" y="140" width="34" height="100" rx="10" fill="rgba(212,175,55,.55)">
+        <animate attributeName="height" values="100;70;110;78;100" dur="2.6s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="140;170;130;162;140" dur="2.6s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="230" y="120" width="34" height="120" rx="10" fill="rgba(168,131,30,.55)">
+        <animate attributeName="height" values="120;95;130;100;120" dur="2.6s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="120;145;110;140;120" dur="2.6s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="310" y="150" width="34" height="90" rx="10" fill="rgba(193,18,31,.42)">
+        <animate attributeName="height" values="90;120;80;110;90" dur="2.6s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="150;120;160;130;150" dur="2.6s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="390" y="110" width="34" height="130" rx="10" fill="rgba(212,175,55,.42)">
+        <animate attributeName="height" values="130;90;120;105;130" dur="2.6s" repeatCount="indefinite"/>
+        <animate attributeName="y" values="110;150;120;135;110" dur="2.6s" repeatCount="indefinite"/>
+      </rect>
+    </g>
+    <path d="M22 210 L90 210 L110 170 L140 240 L175 140 L210 210 L250 210 L285 185 L320 210 L360 210 L390 160 L420 240 L455 170 L498 170"
+          fill="none" stroke="url(#g)" stroke-width="4" filter="url(#glow)" stroke-linecap="round" stroke-linejoin="round">
+      <animate attributeName="stroke-dasharray" values="0,1200;260,1200;0,1200" dur="2.8s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-dashoffset" values="0;-220;0" dur="2.8s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <g transform="translate(608,160)">
+    <rect x="0" y="0" width="220" height="240" rx="18" fill="#111217" stroke="#d4af37" stroke-opacity="0.14"/>
+    <text x="18" y="42" fill="rgba(247,243,233,.72)" font-family="system-ui" font-size="14" font-weight="700">Quick Read</text>
+    <g fill="rgba(247,243,233,.86)" font-family="system-ui" font-size="13">
+      <text x="18" y="78">MTTD: <tspan fill="#d4af37" font-weight="800">4m</tspan></text>
+      <text x="18" y="108">MTTR: <tspan fill="#d4af37" font-weight="800">22m</tspan></text>
+      <text x="18" y="138">Drift: <tspan fill="#d4af37" font-weight="800">Low</tspan></text>
+      <text x="18" y="168">Compliance: <tspan fill="#d4af37" font-weight="800">Pass</tspan></text>
+    </g>
+    <circle cx="186" cy="64" r="10" fill="#c1121f" opacity="0.65">
+      <animate attributeName="r" values="10;14;10" dur="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.65;0.35;0.65" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <text x="54" y="470" fill="rgba(247,243,233,.55)" font-family="system-ui" font-size="13">Free asset preview • MoeCommunityCloud</text>
+</svg>

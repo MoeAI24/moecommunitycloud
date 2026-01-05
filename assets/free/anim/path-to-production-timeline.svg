@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="Path to Production Timeline Preview">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1"><stop offset="0" stop-color="#111217"/><stop offset="1" stop-color="#0b0b0b"/></linearGradient>
+    <linearGradient id="gold" x1="0" x2="1"><stop offset="0" stop-color="#d4af37"/><stop offset="1" stop-color="#a8831e"/></linearGradient>
+    <linearGradient id="heat" x1="0" x2="1"><stop offset="0" stop-color="#c1121f"/><stop offset="0.55" stop-color="#d4af37"/><stop offset="1" stop-color="#a8831e"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect x="18" y="18" rx="28" width="864" height="484" fill="url(#bg)" stroke="#d4af37" stroke-opacity="0.22" stroke-width="2"/>
+  <text x="54" y="86" fill="#f7f3e9" font-family="system-ui,Segoe UI,Roboto,Arial" font-size="28" font-weight="800">Path to Production (AI Agents)</text>
+  <text x="54" y="118" fill="rgba(247,243,233,.70)" font-family="system-ui" font-size="16">Mobilize → Govern → Prototype → Deploy → Operate → Optimize</text>
+
+  <g transform="translate(70,185)">
+    <rect x="0" y="0" width="760" height="110" rx="18" fill="rgba(255,255,255,.03)" stroke="rgba(212,175,55,.16)"/>
+    <line x1="40" y1="64" x2="720" y2="64" stroke="rgba(212,175,55,.22)" stroke-width="6" stroke-linecap="round"/>
+    <line x1="40" y1="64" x2="720" y2="64" stroke="url(#heat)" stroke-width="6" stroke-linecap="round" filter="url(#glow)" stroke-dasharray="40 1200">
+      <animate attributeName="stroke-dasharray" values="40 1200;320 1200;520 1200;680 1200;40 1200" dur="6s" repeatCount="indefinite"/>
+    </line>
+
+    <g font-family="system-ui" font-size="12" fill="rgba(247,243,233,.80)">
+      <circle cx="40" cy="64" r="12" fill="rgba(193,18,31,.55)"><animate attributeName="r" values="12;14;12" dur="1.6s" repeatCount="indefinite"/></circle>
+      <text x="18" y="28">Mobilize</text>
+
+      <circle cx="176" cy="64" r="12" fill="rgba(212,175,55,.55)"><animate attributeName="opacity" values="0.35;0.9;0.35" dur="1.8s" begin="0.4s" repeatCount="indefinite"/></circle>
+      <text x="160" y="28">Govern</text>
+
+      <circle cx="312" cy="64" r="12" fill="rgba(168,131,30,.55)"><animate attributeName="opacity" values="0.9;0.35;0.9" dur="1.8s" begin="0.8s" repeatCount="indefinite"/></circle>
+      <text x="292" y="28">Prototype</text>
+
+      <circle cx="448" cy="64" r="12" fill="rgba(193,18,31,.42)"><animate attributeName="opacity" values="0.35;0.9;0.35" dur="1.8s" begin="1.2s" repeatCount="indefinite"/></circle>
+      <text x="434" y="28">Deploy</text>
+
+      <circle cx="584" cy="64" r="12" fill="rgba(212,175,55,.42)"><animate attributeName="opacity" values="0.9;0.35;0.9" dur="1.8s" begin="1.6s" repeatCount="indefinite"/></circle>
+      <text x="566" y="28">Operate</text>
+
+      <circle cx="720" cy="64" r="12" fill="rgba(168,131,30,.42)"><animate attributeName="r" values="12;15;12" dur="1.6s" begin="2s" repeatCount="indefinite"/></circle>
+      <text x="700" y="28">Optimize</text>
+    </g>
+
+    <circle cx="40" cy="64" r="10" fill="url(#gold)" filter="url(#glow)">
+      <animate attributeName="cx" values="40;176;312;448;584;720;40" dur="6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <g transform="translate(70,335)" font-family="system-ui" font-size="13" fill="rgba(247,243,233,.72)">
+    <rect x="0" y="0" width="760" height="105" rx="18" fill="rgba(255,255,255,.02)" stroke="rgba(212,175,55,.14)"/>
+    <text x="18" y="32">• Build repeatable pipelines (not one-off demos)</text>
+    <text x="18" y="58">• Add policy gates + approvals before scaling</text>
+    <text x="18" y="84">• Monitor drift, cost, safety, and tool usage continuously</text>
+  </g>
+
+  <text x="54" y="470" fill="rgba(247,243,233,.55)" font-family="system-ui" font-size="13">Free asset preview • MoeCommunityCloud</text>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="Governance Shield Preview">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1"><stop offset="0" stop-color="#111217"/><stop offset="1" stop-color="#0b0b0b"/></linearGradient>
+    <linearGradient id="gold" x1="0" x2="1"><stop offset="0" stop-color="#d4af37"/><stop offset="1" stop-color="#a8831e"/></linearGradient>
+    <filter id="softGlow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect x="18" y="18" rx="28" width="864" height="484" fill="url(#bg)" stroke="#d4af37" stroke-opacity="0.22" stroke-width="2"/>
+  <text x="54" y="86" fill="#f7f3e9" font-family="system-ui,Segoe UI,Roboto,Arial" font-size="28" font-weight="800">AI Governance Checklist</text>
+  <text x="54" y="118" fill="rgba(247,243,233,.70)" font-family="system-ui" font-size="16">Security • Responsible AI • Approvals • Logging</text>
+
+  <g transform="translate(92,165)">
+    <path d="M210 0 C170 18 135 26 105 32 C80 37 55 40 25 42
+             C20 130 25 200 60 260 C95 325 150 370 210 398
+             C270 370 325 325 360 260 C395 200 400 130 395 42
+             C365 40 340 37 315 32 C285 26 250 18 210 0 Z"
+          fill="none" stroke="url(#gold)" stroke-width="6" filter="url(#softGlow)"/>
+    <path d="M210 22 C175 36 145 44 120 50 C95 56 72 58 48 60
+             C44 132 50 195 78 245 C108 300 155 340 210 365
+             C265 340 312 300 342 245 C370 195 376 132 372 60
+             C348 58 325 56 300 50 C275 44 245 36 210 22 Z"
+          fill="rgba(212,175,55,.08)">
+      <animate attributeName="fill-opacity" values="0.08;0.16;0.08" dur="2.2s" repeatCount="indefinite"/>
+    </path>
+
+    <g font-family="system-ui" font-size="15" fill="rgba(247,243,233,.86)">
+      <circle cx="70" cy="110" r="10" fill="rgba(193,18,31,.55)"><animate attributeName="opacity" values="0.25;0.9;0.25" dur="2.4s" repeatCount="indefinite"/></circle>
+      <text x="92" y="115">Access boundaries</text>
+      <circle cx="70" cy="155" r="10" fill="rgba(212,175,55,.55)"><animate attributeName="opacity" values="0.9;0.25;0.9" dur="2.4s" repeatCount="indefinite"/></circle>
+      <text x="92" y="160">Logging &amp; audit trails</text>
+      <circle cx="70" cy="200" r="10" fill="rgba(168,131,30,.55)"><animate attributeName="opacity" values="0.25;0.9;0.25" dur="2.4s" repeatCount="indefinite"/></circle>
+      <text x="92" y="205">Human approvals</text>
+      <circle cx="70" cy="245" r="10" fill="rgba(193,18,31,.42)"><animate attributeName="opacity" values="0.9;0.25;0.9" dur="2.4s" repeatCount="indefinite"/></circle>
+      <text x="92" y="250">Policy gates</text>
+    </g>
+  </g>
+
+  <g transform="translate(560,165)">
+    <rect x="0" y="0" width="300" height="250" rx="18" fill="#111217" stroke="#d4af37" stroke-opacity="0.14"/>
+    <text x="18" y="42" fill="rgba(247,243,233,.72)" font-family="system-ui" font-size="14" font-weight="700">Checklist Preview</text>
+    <g fill="rgba(247,243,233,.78)" font-family="system-ui" font-size="13">
+      <text x="18" y="82">• Model &amp; prompt inventory</text>
+      <text x="18" y="112">• Data classification</text>
+      <text x="18" y="142">• Tool permission boundaries</text>
+      <text x="18" y="172">• Incident response path</text>
+      <text x="18" y="202">• Continuous evaluation</text>
+    </g>
+    <g transform="translate(240,85)">
+      <circle cx="0" cy="0" r="26" fill="none" stroke="rgba(212,175,55,.18)" stroke-width="8"/>
+      <circle cx="0" cy="0" r="26" fill="none" stroke="url(#gold)" stroke-width="8" stroke-linecap="round" stroke-dasharray="80 200">
+        <animate attributeName="stroke-dasharray" values="30 200;110 200;30 200" dur="2.6s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+
+  <text x="54" y="470" fill="rgba(247,243,233,.55)" font-family="system-ui" font-size="13">Free asset preview • MoeCommunityCloud</text>
+</svg>
