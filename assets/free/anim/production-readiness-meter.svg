@@ -1,110 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- FILE: /assets/free/anim/production-readiness-meter.svg -->
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="Production Readiness Self-Score Preview">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="Production Readiness Meter Preview">
   <defs>
-    <linearGradient id="bg" x1="0" x2="1">
-      <stop offset="0" stop-color="#111217"/>
-      <stop offset="1" stop-color="#0b0b0b"/>
-    </linearGradient>
-    <linearGradient id="gold" x1="0" x2="1">
-      <stop offset="0" stop-color="#d4af37"/>
-      <stop offset="1" stop-color="#a8831e"/>
-    </linearGradient>
-    <linearGradient id="heat" x1="0" x2="1">
-      <stop offset="0" stop-color="#c1121f"/>
-      <stop offset="0.55" stop-color="#d4af37"/>
-      <stop offset="1" stop-color="#a8831e"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="7" result="b"/>
-      <feMerge>
-        <feMergeNode in="b"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+    <linearGradient id="bg" x1="0" x2="1"><stop offset="0" stop-color="#111217"/><stop offset="1" stop-color="#0b0b0b"/></linearGradient>
+    <linearGradient id="gold" x1="0" x2="1"><stop offset="0" stop-color="#d4af37"/><stop offset="1" stop-color="#a8831e"/></linearGradient>
+    <linearGradient id="heat" x1="0" x2="1"><stop offset="0" stop-color="#c1121f"/><stop offset="0.55" stop-color="#d4af37"/><stop offset="1" stop-color="#a8831e"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
   </defs>
-
-  <!-- Panel -->
   <rect x="18" y="18" rx="28" ry="28" width="864" height="484" fill="url(#bg)" stroke="#d4af37" stroke-opacity="0.22" stroke-width="2"/>
+  <text x="54" y="86" fill="#f7f3e9" font-family="system-ui,Segoe UI,Roboto,Arial" font-size="28" font-weight="800">Production Readiness Self-Score</text>
+  <text x="54" y="118" fill="rgba(247,243,233,.70)" font-family="system-ui" font-size="16">Experimental → Scaling → Production-Ready</text>
 
-  <!-- Title -->
-  <text x="54" y="86" fill="#f7f3e9" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="28" font-weight="800">
-    Production Readiness Self-Score
-  </text>
-  <text x="54" y="118" fill="rgba(247,243,233,.70)" font-family="system-ui" font-size="16">
-    10 questions • Score your agent program: Experimental → Scaling → Production-Ready
-  </text>
+  <g transform="translate(110,180)">
+    <rect x="0" y="0" width="680" height="170" rx="22" fill="rgba(255,255,255,.03)" stroke="rgba(212,175,55,.16)"/>
+    <text x="26" y="44" fill="rgba(247,243,233,.80)" font-family="system-ui" font-size="13" font-weight="700">Score Meter</text>
 
-  <!-- Left: score gauge -->
-  <g transform="translate(85,165)">
-    <rect x="0" y="0" width="420" height="270" rx="22" fill="rgba(255,255,255,.03)" stroke="rgba(212,175,55,.14)"/>
-    <text x="22" y="46" font-family="system-ui" font-size="14" font-weight="800" fill="rgba(247,243,233,.85)">Score Meter</text>
-
-    <!-- Gauge track -->
-    <rect x="22" y="74" width="376" height="24" rx="12" fill="rgba(212,175,55,.10)" />
-    <!-- Animated fill -->
-    <rect x="22" y="74" width="80" height="24" rx="12" fill="url(#heat)" filter="url(#glow)">
-      <animate attributeName="width" values="80;160;240;320;120;80" dur="6.2s" repeatCount="indefinite"/>
+    <!-- Track -->
+    <rect x="26" y="78" width="628" height="20" rx="10" fill="rgba(212,175,55,.14)"/>
+    <rect x="26" y="78" width="220" height="20" rx="10" fill="rgba(193,18,31,.55)">
+      <animate attributeName="width" values="180;420;560;320;180" dur="6s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="26" y="78" width="220" height="20" rx="10" fill="url(#heat)" filter="url(#glow)" opacity="0.55">
+      <animate attributeName="width" values="180;420;560;320;180" dur="6s" repeatCount="indefinite"/>
     </rect>
 
-    <!-- Marker -->
-    <circle cx="102" cy="86" r="10" fill="url(#gold)" filter="url(#glow)">
-      <animate attributeName="cx" values="102;182;262;342;142;102" dur="6.2s" repeatCount="indefinite"/>
+    <!-- Knob -->
+    <circle cx="206" cy="88" r="14" fill="url(#gold)" filter="url(#glow)">
+      <animate attributeName="cx" values="206;446;586;346;206" dur="6s" repeatCount="indefinite"/>
     </circle>
 
     <!-- Labels -->
-    <g font-family="system-ui" font-size="12" fill="rgba(247,243,233,.70)">
-      <text x="22" y="120">0</text>
-      <text x="140" y="120">3</text>
-      <text x="258" y="120">6</text>
-      <text x="376" y="120">10</text>
-    </g>
-
-    <!-- Tier cards -->
-    <g font-family="system-ui">
-      <rect x="22" y="145" width="376" height="52" rx="16" fill="rgba(193,18,31,.10)" stroke="rgba(193,18,31,.22)"/>
-      <text x="42" y="176" font-size="13" font-weight="900" fill="rgba(247,243,233,.88)">Experimental</text>
-      <text x="170" y="176" font-size="12.5" fill="rgba(247,243,233,.70)">Gaps in eval, logging, gates</text>
-
-      <rect x="22" y="206" width="376" height="52" rx="16" fill="rgba(212,175,55,.10)" stroke="rgba(212,175,55,.20)"/>
-      <text x="42" y="237" font-size="13" font-weight="900" fill="rgba(247,243,233,.88)">Scaling</text>
-      <text x="170" y="237" font-size="12.5" fill="rgba(247,243,233,.70)">Pipelines + monitoring in place</text>
-
-      <rect x="22" y="267" width="376" height="52" rx="16" fill="rgba(168,131,30,.10)" stroke="rgba(168,131,30,.22)"/>
-      <text x="42" y="298" font-size="13" font-weight="900" fill="rgba(247,243,233,.88)">Production-Ready</text>
-      <text x="170" y="298" font-size="12.5" fill="rgba(247,243,233,.70)">Policy gates + observability + IR</text>
-    </g>
-
-    <!-- Animated highlight sweep -->
-    <rect x="22" y="145" width="376" height="52" rx="16" fill="rgba(255,255,255,.06)" opacity="0">
-      <animate attributeName="y" values="145;206;267;206;145" dur="6.2s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.55;0.55;0.55;0" dur="6.2s" repeatCount="indefinite"/>
-    </rect>
-  </g>
-
-  <!-- Right: sample questions -->
-  <g transform="translate(540,165)" font-family="system-ui">
-    <rect x="0" y="0" width="300" height="270" rx="22" fill="rgba(255,255,255,.03)" stroke="rgba(212,175,55,.14)"/>
-    <text x="18" y="46" font-size="14" font-weight="800" fill="rgba(247,243,233,.85)">Sample Questions</text>
-
-    <g font-size="12.8" fill="rgba(247,243,233,.74)">
-      <text x="18" y="86">1) Do you have automated evals?</text>
-      <text x="18" y="116">2) Are tool permissions scoped?</text>
-      <text x="18" y="146">3) Do you log tool calls & outputs?</text>
-      <text x="18" y="176">4) Can you detect drift quickly?</text>
-      <text x="18" y="206">5) Is incident response defined?</text>
-    </g>
-
-    <!-- Animated checkbox -->
-    <g transform="translate(240,78)">
-      <rect x="0" y="0" width="42" height="42" rx="12" fill="rgba(212,175,55,.14)" stroke="rgba(212,175,55,.26)"/>
-      <path d="M10 22 L18 30 L32 14" fill="none" stroke="url(#gold)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-        <animate attributeName="opacity" values="0;1;0" dur="2.0s" repeatCount="indefinite"/>
-      </path>
+    <g fill="rgba(247,243,233,.72)" font-family="system-ui" font-size="12">
+      <text x="26" y="140">0–3 Experimental</text>
+      <text x="280" y="140">4–7 Scaling</text>
+      <text x="520" y="140">8–10 Production-Ready</text>
     </g>
   </g>
 
-  <text x="54" y="470" fill="rgba(247,243,233,.55)" font-family="system-ui" font-size="13">
-    Free asset preview • MoeCommunityCloud
-  </text>
+  <text x="54" y="470" fill="rgba(247,243,233,.55)" font-family="system-ui" font-size="13">Free asset preview • MoeCommunityCloud</text>
 </svg>
