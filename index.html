@@ -28,6 +28,57 @@
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8387411349417007"
      crossorigin="anonymous"></script>
+<style>
+/* MBCC Partner Path visual fill (keeps existing layout; adds animated diagram) */
+.ppGrid{
+  display:grid;
+  grid-template-columns: 1.2fr .9fr;
+  gap:16px;
+  align-items:center;
+}
+@media (max-width: 860px){
+  .ppGrid{grid-template-columns:1fr}
+}
+.ppViz{
+  padding:12px;
+  border-radius:14px;
+  border:1px solid rgba(212,175,55,.25);
+  background: rgba(255,255,255,.02);
+  overflow:hidden;
+}
+.ppViz svg{width:100%; height:auto; display:block}
+.ppLine{stroke: rgba(212,175,55,.45); stroke-width:4; stroke-linecap:round}
+.ppNode circle{
+  fill:#0b0b0b;
+  stroke:#d4af37;
+  stroke-width:3;
+}
+.ppNode text{
+  fill: rgba(247,243,233,.92);
+  font-size: 12px;
+  text-anchor: middle;
+}
+.ppNode .mini{
+  fill: rgba(247,243,233,.70);
+  font-size: 11px;
+}
+.ppNode.active circle{
+  filter: drop-shadow(0 0 10px rgba(193,18,31,.55));
+  animation: ppPulse 2.2s ease-in-out infinite;
+}
+.ppNode.active text{fill:#fff}
+@keyframes ppPulse{
+  0%{transform:scale(1); opacity:1}
+  50%{transform:scale(1.12); opacity:.85}
+  100%{transform:scale(1); opacity:1}
+}
+.ppCaption{
+  margin-top:10px;
+  font-size:12px;
+  color: rgba(247,243,233,.70);
+  line-height:1.5;
+}
+</style>
 </head>
 <body>
 <header class="topbar">
@@ -51,17 +102,72 @@
     </nav>
   </div>
 </header>
-<div class="panel" style="margin-top:14px; padding:16px">
-        <span class="badge">Partner Path (Fast Track)</span>
-        <div class="small" style="line-height:1.85; margin-top:10px">
-          <strong>Onboarding → Training → Certification → Licensing → Enterprise Proof</strong><br/>
-          Built for whitelabel buyers who want a repeatable delivery business.
-        </div>
-        <div class="ctaRow" style="margin-top:12px">
-          <a class="btn primary" href="https://finternetops.moecommunitycloud.com/training/">Start training →</a>
-          <a class="btn" href="partners.html#partnerpath">See partner path</a>
-        </div>
+<div class="panel" style="margin-top:14px; padding:16px"><div class="ppGrid">
+    <div class="ppCopy">
+      <span class="badge">Partner Path (Fast Track)</span>
+      <div class="small" style="line-height:1.85; margin-top:10px">
+        <strong>Onboarding → Training → Certification → Licensing → Enterprise Proof</strong><br/>
+        Built for whitelabel buyers who want a repeatable delivery business.
       </div>
+      <div class="ctaRow" style="margin-top:12px">
+        <a class="btn primary" href="https://finternetops.moecommunitycloud.com/training/">Start training →</a>
+        <a class="btn" href="partners.html#partnerpath">See partner path</a>
+      </div>
+    </div>
+
+    <div class="ppViz" aria-label="Partner Path animated diagram">
+      <svg viewBox="0 0 520 170" role="img" aria-label="Partner Path progression">
+        <defs>
+          <linearGradient id="ppGlow" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#c1121f" stop-opacity="0.55"/>
+            <stop offset="1" stop-color="#d4af37" stop-opacity="0.65"/>
+          </linearGradient>
+        </defs>
+
+        <line class="ppLine" x1="48" y1="78" x2="472" y2="78" />
+        <line x1="48" y1="78" x2="472" y2="78" stroke="url(#ppGlow)" stroke-width="2" opacity="0.55"/>
+
+        <g class="ppNode active" data-step="0" transform="translate(48,78)">
+          <circle r="14"></circle>
+          <text y="46">Onboarding</text>
+          <text class="mini" y="64">Scope + standards</text>
+        </g>
+
+        <g class="ppNode" data-step="1" transform="translate(154,78)">
+          <circle r="14"></circle>
+          <text y="46">Training</text>
+          <text class="mini" y="64">Playbooks + reps</text>
+        </g>
+
+        <g class="ppNode" data-step="2" transform="translate(260,78)">
+          <circle r="14"></circle>
+          <text y="46">Certification</text>
+          <text class="mini" y="64">Proof of skill</text>
+        </g>
+
+        <g class="ppNode" data-step="3" transform="translate(366,78)">
+          <circle r="14"></circle>
+          <text y="46">Licensing</text>
+          <text class="mini" y="64">Delivery rights</text>
+        </g>
+
+        <g class="ppNode" data-step="4" transform="translate(472,78)">
+          <circle r="14"></circle>
+          <text y="46">Enterprise Proof</text>
+          <text class="mini" y="64">Artifacts + KPIs</text>
+        </g>
+
+        <text x="260" y="130" text-anchor="middle" fill="rgba(247,243,233,.72)" font-size="12">
+          Visual roadmap — built for repeatable delivery and partner scale.
+        </text>
+      </svg>
+
+      <div class="ppCaption">
+        This is the “fast track” your buyers can understand in 5 seconds — and it makes the homepage feel alive without looking like an ad.
+      </div>
+    </div>
+  </div>
+</div></div>
 
     </section>
 
@@ -238,6 +344,19 @@
     </div>
   </div>
 </footer>
+<script>
+/* Partner Path auto-advance (lightweight; no tracking) */
+(function(){
+  const nodes = document.querySelectorAll('.ppViz .ppNode');
+  if(!nodes || nodes.length === 0) return;
+  let i = 0;
+  setInterval(() => {
+    nodes.forEach(n => n.classList.remove('active'));
+    nodes[i].classList.add('active');
+    i = (i + 1) % nodes.length;
+  }, 2400);
+})();
+</script>
 <script src="assets/js/site.js"></script>
 </body>
 </html>
