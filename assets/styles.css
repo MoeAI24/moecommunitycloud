@@ -100,3 +100,7 @@ repeating-linear-gradient(135deg, rgba(255,255,255,.03) 0 2px, transparent 2px 1
   gap:10px;
   margin-top:12px;
 }
+
+
+/* Blog hero image */
+.blog-hero-image{border-radius:16px;border:1px solid rgba(255,255,255,.14);box-shadow:0 10px 30px rgba(0,0,0,.35);}
