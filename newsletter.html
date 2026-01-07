@@ -14,10 +14,7 @@
       --gold2:#a8831e;
       --off:#f7f3e9;
       --muted: rgba(247,243,233,.78);
-      --card: rgba(255,255,255,.04);
-      --card2: rgba(255,255,255,.06);
       --stroke: rgba(212,175,55,.26);
-      --stroke2: rgba(212,175,55,.40);
       --shadow: 0 18px 40px rgba(0,0,0,.55);
       --r: 16px;
     }
@@ -55,7 +52,7 @@
       display:flex; align-items:center; justify-content:space-between;
       gap:14px;
       padding:14px 16px;
-      border:1px solid var(--stroke);
+      border:1px solid rgba(212,175,55,.26);
       background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       border-radius: 14px;
       box-shadow: 0 10px 26px rgba(0,0,0,.35);
@@ -96,7 +93,7 @@
       margin-top:18px;
       padding:34px 18px 18px;
       border-radius: var(--r);
-      border:1px solid var(--stroke);
+      border:1px solid rgba(212,175,55,.26);
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
       box-shadow: var(--shadow);
       position:relative;
@@ -166,7 +163,6 @@
       box-shadow: 0 12px 28px rgba(0,0,0,.42);
     }
     .btn.primary:hover{border-color: rgba(212,175,55,.85)}
-    .btn .ic{width:18px; height:18px; display:inline-block}
     .fine{
       margin-top:10px;
       font-size: 13px;
@@ -187,7 +183,7 @@
     }
 
     .card{
-      border:1px solid var(--stroke);
+      border:1px solid rgba(212,175,55,.26);
       border-radius: var(--r);
       background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
       box-shadow: 0 16px 34px rgba(0,0,0,.38);
@@ -239,15 +235,8 @@
     }
 
     /* Form */
-    .form{
-      display:grid;
-      gap:10px;
-      margin-top:10px;
-    }
-    .field{
-      display:grid;
-      gap:6px;
-    }
+    .form{display:grid; gap:10px; margin-top:10px;}
+    .field{display:grid; gap:6px;}
     label{font-weight:800; font-size: 13px; color: rgba(247,243,233,.88)}
     input{
       width:100%;
@@ -318,7 +307,7 @@
         <a href="/consulting.html">Consulting</a>
         <a href="/partners.html">Partners</a>
         <a href="/free-assets/">Free Assets</a>
-        <a href="/index.html#join">Join</a>
+        <a href="/contact">Contact</a>
       </nav>
     </header>
 
@@ -333,14 +322,8 @@
           </p>
 
           <div class="hero-actions">
-            <a class="btn primary" href="#signup">
-              <span class="ic" aria-hidden="true">✉️</span>
-              Join the Runway
-            </a>
-            <a class="btn" href="/membership.html">
-              <span class="ic" aria-hidden="true">👑</span>
-              Become a Member
-            </a>
+            <a class="btn primary" href="#signup">✉️ Join the Runway</a>
+            <a class="btn" href="/contact">Apply / Contact</a>
           </div>
 
           <div class="fine">
@@ -367,7 +350,7 @@
 
             <div class="muted-note">
               <strong>Privacy note:</strong> Public pages only describe the newsletter at a high level.
-              Any frameworks, sequencing, or internal methods are shared privately with subscribers/members.
+              Any frameworks, sequencing, or internal methods are shared privately with subscribers.
             </div>
           </div>
         </article>
@@ -379,11 +362,7 @@
               Subscribe to receive private signals directly. Keep your edge private.
             </p>
 
-            <!--
-              IMPORTANT:
-              Replace the form action with your provider endpoint (Mailchimp/Beehiiv/ConvertKit/etc).
-              If you don't have one yet, this can post to a simple backend endpoint later.
-            -->
+            <!-- Replace action="#" with your email provider endpoint when ready -->
             <form class="form" method="post" action="#">
               <div class="field">
                 <label for="name">Name (optional)</label>
@@ -406,7 +385,7 @@
             <div class="mini-links" style="margin-top:14px">
               <a href="/consulting.html">Work With Us</a>
               <a href="/partners.html">Partner</a>
-              <a href="/index.html">Home</a>
+              <a href="/contact">Contact</a>
             </div>
           </div>
         </aside>
@@ -415,9 +394,9 @@
       <section class="footer" aria-label="Footer">
         <div><strong>Moe Community Cloud</strong> — quiet systems for durable digital leadership.</div>
         <div class="mini-links">
-          <a href="/membership.html">Membership</a>
-          <a href="/consulting.html">Consulting</a>
           <a href="/partners.html">Partners</a>
+          <a href="/consulting.html">Consulting</a>
+          <a href="/contact">Contact</a>
         </div>
       </section>
     </main>
