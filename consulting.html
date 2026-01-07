@@ -1,135 +1,376 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Consulting • Moe Community Cloud (MBCC)</title>
-<meta name="description" content="Implementation consulting for Agent Ops and FinternetOps: scoped builds, operator runbooks, and enterprise proof artifacts."/>
-<meta name="theme-color" content="#0b0b0b"/>
-<link rel="stylesheet" href="assets/css/site.css"/>
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml"/>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Moe Community Cloud (MBCC)",
-  "url": "https://moecommunitycloud.com/",
-  "logo": "https://moecommunitycloud.com/assets/img/moecommunitycloud-logo.png",
-  "description": "Enterprise-ready operating systems for AI agents and finance automation. Agent Ops + FinternetOps + Consulting + Partner enablement."
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Moe Community Cloud",
-  "url": "https://moecommunitycloud.com/"
-}
-</script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8387411349417007"
-     crossorigin="anonymous"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Ops & AgentOps Consulting | Moe Community Cloud (MBCC)</title>
+  <meta name="description" content="MBCC consulting: AgentOps implementation, FinternetOps automation pilots, governance, runbooks, and partner-ready delivery. Outcome-first, operator-grade, enterprise-safe." />
+  <link rel="canonical" href="https://moecommunitycloud.com/consulting.html" />
+
+  <meta property="og:title" content="AI Ops & AgentOps Consulting | Moe Community Cloud (MBCC)" />
+  <meta property="og:description" content="Implementation that actually ships: AgentOps + FinternetOps installs, controls, runbooks, and proof artifacts. Built for operators and partner delivery." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://moecommunitycloud.com/consulting.html" />
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"Moe Community Cloud (MBCC) Consulting",
+    "url":"https://moecommunitycloud.com/consulting.html",
+    "areaServed":"US",
+    "description":"Outcome-first consulting for AI operations, AgentOps implementation, and finance automation pilots (FinternetOps). Deliverables include runbooks, controls, governance boundaries, and proof artifacts.",
+    "brand":{"@type":"Brand","name":"MBCC"},
+    "sameAs":["https://moecommunitycloud.com/"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What do you deliver in a typical consulting engagement?","acceptedAnswer":{"@type":"Answer","text":"Operator-ready deliverables: scoped implementation plan, runbooks, control boundaries, reporting/KPIs, proof artifacts, and a handoff path for internal ownership or partner delivery."}},
+      {"@type":"Question","name":"Do you publish your internal playbooks publicly?","acceptedAnswer":{"@type":"Answer","text":"No. Public pages describe outcomes only. Implementation assets are delivered privately after engagement through secure handoff."}},
+      {"@type":"Question","name":"How long are your sprints and pilots?","acceptedAnswer":{"@type":"Answer","text":"Most builds run 2–8 weeks depending on scope. Pilots are designed to produce proof artifacts quickly and expand after validation."}},
+      {"@type":"Question","name":"Can you work with our existing stack?","acceptedAnswer":{"@type":"Answer","text":"Yes. MBCC integrates into your current tools, access model, and reporting needs, with an operator-first focus on reliability, governance, and cost control."}}
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --red:#c1121f; --black:#0b0b0b; --gold:#d4af37;
+      --off:#f7f3e9; --muted: rgba(247,243,233,.78);
+      --stroke: rgba(212,175,55,.26); --shadow: 0 18px 40px rgba(0,0,0,.55);
+      --r: 16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--off);
+      background: radial-gradient(1200px 700px at 15% 10%, rgba(193,18,31,.22), transparent 55%),
+                  radial-gradient(900px 600px at 85% 15%, rgba(212,175,55,.10), transparent 60%),
+                  radial-gradient(800px 600px at 60% 90%, rgba(193,18,31,.12), transparent 55%),
+                  var(--black);
+      overflow-x:hidden;
+    }
+    body:before{
+      content:""; position:fixed; inset:0; pointer-events:none; opacity:.16;
+      background:
+        repeating-linear-gradient(135deg, rgba(255,255,255,.06) 0 2px, transparent 2px 14px),
+        repeating-linear-gradient(45deg, rgba(193,18,31,.10) 0 2px, transparent 2px 16px);
+      mix-blend-mode: overlay;
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:1120px; margin:0 auto; padding:22px 18px 72px}
+
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      padding:14px 16px; border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border-radius: 14px; box-shadow: 0 10px 26px rgba(0,0,0,.35);
+      backdrop-filter: blur(10px); position:sticky; top:14px; z-index:20;
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.2px;}
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: radial-gradient(14px 14px at 30% 35%, rgba(255,255,255,.18), transparent 60%),
+                  linear-gradient(135deg, rgba(193,18,31,.95), rgba(212,175,55,.55));
+      border:1px solid rgba(212,175,55,.55); box-shadow: 0 10px 20px rgba(0,0,0,.4);
+    }
+    .navlinks{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .navlinks a{
+      padding:9px 12px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      color: rgba(247,243,233,.92);
+      font-weight: 750; font-size: 14px; white-space:nowrap;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    .navlinks a:hover{transform: translateY(-1px); border-color: rgba(212,175,55,.45); background: rgba(255,255,255,.05);}
+    @media (max-width: 960px){ .navlinks{display:none} }
+
+    .hero{
+      margin-top:18px; padding:30px 18px 18px; border-radius: var(--r);
+      border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: var(--shadow); position:relative; overflow:hidden;
+    }
+    .hero:after{
+      content:""; position:absolute; inset:-2px; pointer-events:none; opacity:.95;
+      background: radial-gradient(900px 320px at 15% 10%, rgba(193,18,31,.26), transparent 60%),
+                  radial-gradient(820px 280px at 90% 0%, rgba(212,175,55,.14), transparent 55%);
+    }
+    .hero-inner{position:relative; z-index:1; display:grid; grid-template-columns: 1.08fr .92fr; gap:16px; align-items:center; max-width:1040px; margin:0 auto;}
+    @media (max-width: 960px){ .hero-inner{grid-template-columns:1fr} }
+
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center; width:fit-content;
+      padding:8px 12px; border-radius: 999px;
+      border:1px solid rgba(212,175,55,.35);
+      background: rgba(0,0,0,.25);
+      color: rgba(247,243,233,.92);
+      font-weight:850; font-size:13px; letter-spacing:.2px;
+    }
+    .kdot{width:8px; height:8px; border-radius:999px; background: var(--gold); box-shadow: 0 0 0 6px rgba(212,175,55,.16);}
+    h1{margin:12px 0 10px; font-size: clamp(30px, 4vw, 52px); line-height:1.05; letter-spacing:-.7px;}
+    .sub{margin:0; color: var(--muted); font-size: clamp(15px, 1.6vw, 18px); line-height:1.6; max-width: 54ch;}
+    .hero-actions{margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px; border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      font-weight:900; letter-spacing:.2px; min-width: 210px; text-align:center;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    .btn:hover{transform: translateY(-1px); border-color: rgba(212,175,55,.45); background: rgba(255,255,255,.06);}
+    .btn.primary{border-color: rgba(212,175,55,.65); background: linear-gradient(180deg, rgba(193,18,31,.34), rgba(212,175,55,.12)); box-shadow: 0 12px 28px rgba(0,0,0,.42);}
+    .btn.primary:hover{border-color: rgba(212,175,55,.92);}
+
+    .pillrow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .pill{padding:8px 10px; border-radius: 999px; border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.18); font-weight:800; font-size: 13px; color: rgba(247,243,233,.88);}
+
+    /* IMAGE SIZE FIX */
+    .hero-figure{
+      border-radius: 14px; border: 1px solid rgba(212,175,55,.28);
+      background: rgba(0,0,0,.18); overflow:hidden; box-shadow: 0 14px 30px rgba(0,0,0,.45);
+    }
+    .hero-figure img{display:block; width:100%; max-height: 360px; object-fit: cover; object-position:center;}
+    .caption{padding:10px 12px; font-size: 13px; color: rgba(247,243,233,.72); border-top: 1px solid rgba(255,255,255,.08);}
+
+    .grid{margin-top:16px; display:grid; grid-template-columns: 1.02fr .98fr; gap:14px; align-items:start;}
+    @media (max-width: 960px){ .grid{grid-template-columns:1fr} }
+
+    .card{border:1px solid var(--stroke); border-radius: var(--r); background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)); box-shadow: 0 16px 34px rgba(0,0,0,.38); overflow:hidden;}
+    .pad{padding:18px}
+    .card h2{margin:0 0 10px; font-size:18px; letter-spacing:-.2px}
+    .card p{margin:0 0 12px; color: var(--muted); line-height:1.65}
+    .bullets{margin:10px 0 0; padding:0; list-style:none; display:grid; gap:10px}
+    .bullets li{display:flex; gap:10px; align-items:flex-start; padding:12px 12px; border-radius: 14px; background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08);}
+    .tick{width:20px; height:20px; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; background: rgba(212,175,55,.16); border:1px solid rgba(212,175,55,.45); flex:0 0 auto; margin-top:1px;}
+    .tick:before{content:"✓"; font-weight:900; color: rgba(247,243,233,.95); font-size:12px; line-height:1}
+    .mini{margin-top:12px; padding:12px 12px; border-radius: 14px; border:1px solid rgba(212,175,55,.30); background: rgba(0,0,0,.20); color: rgba(247,243,233,.78); font-size: 13px; line-height:1.55;}
+
+    .twoimgs{display:grid; grid-template-columns:1fr; gap:12px}
+    .imgcard{border-radius: 14px; border: 1px solid rgba(212,175,55,.28); background: rgba(0,0,0,.18); overflow:hidden; box-shadow: 0 14px 30px rgba(0,0,0,.45);}
+    .imgcard img{display:block; width:100%; max-height: 320px; object-fit: cover;}
+    .imgcard .cap{padding:10px 12px; font-size: 13px; color: rgba(247,243,233,.72); border-top:1px solid rgba(255,255,255,.08)}
+
+    .longform .cols{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    @media (max-width: 860px){ .longform .cols{grid-template-columns:1fr} }
+    .longform h3{margin:16px 0 8px; font-size:16px; letter-spacing:-.2px}
+    .faq details{border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.02); border-radius:14px; padding:12px; margin:10px 0}
+    .faq summary{cursor:pointer; font-weight:900}
+    .faq p{margin:8px 0 0}
+    .resource-links a{ text-decoration: underline; text-underline-offset: 3px; }
+
+    footer{margin-top:16px; padding:18px; border-radius: var(--r); border:1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.02); text-align:center; color: rgba(247,243,233,.70);}
+    footer strong{color: rgba(247,243,233,.92)}
+    .mini-links{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:10px}
+    .mini-links a{padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.18); color: rgba(247,243,233,.88); font-weight:850; font-size:13px}
+  </style>
 </head>
 <body>
-<header class="topbar">
-  <div class="container navwrap">
-    <div class="brand">
-      <img class="brandlogoimg" src="assets/img/moecommunitycloud-logo.png" alt="Moe Community Cloud logo" width="44" height="44" decoding="async" />
-      <div class="brandmeta">
-        <div class="name">Moe Community Cloud</div>
-        <div class="tag">Agent Ops • FinternetOps • Consulting • Partners</div>
-      </div>
-    </div>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a class="primary" href="https://agentops.moecommunitycloud.com/">Agent Ops</a>
-      <a href="https://finternetops.moecommunitycloud.com/">FinternetOps</a>
-      <a href="consulting.html">Consulting</a>
-      <a href="partners.html">Partners</a>
-      <a href="newsletter.html">Newsletter</a>
-      <a href="shop.html">Shop</a>
-    </nav>
-  </div>
-</header>
-<main class="container hero fadeIn">
-  <div class="heroGrid">
-    <section class="panel">
-      <span class="badge">Consulting</span>
-      <div class="h1">Implementation<br/>that actually ships.</div>
-      <p class="lead">
-        MBCC installs and integrates Agent Ops and FinternetOps programs for teams that want outcomes, not experiments.
-        Engagements are scoped, documented, and built to transition into partner delivery or internal ownership.
-      </p>
-      <div class="ctaRow">
-        <a class="btn primary" href="contact.html">Start a conversation →</a>
-        <a class="btn" href="partners.html#partnerpath">Partner delivery</a>
-      </div>
-    </section>
-    
-    <aside class="panel">
-      <span class="badge">Delivery room</span>
-      <div class="hr"></div>
-      <img src="assets/img/consulting-war-room.webp" alt="Premium operations consulting war-room with dashboards, runbooks, and governance" loading="eager" style="width:100%;border-radius:14px;display:block;;height:auto" decoding="async" width="1200" height="799">
-      <div class="small" style="margin-top:10px;line-height:1.7;opacity:.92">
-        Scoped builds • Runbooks • Controls • Proof artifacts
-      </div>
-    </aside>
-<aside class="panel">
-      <span class="badge">Ideal outcomes</span>
-      <div class="hr"></div>
-      <div class="small" style="line-height:1.9">
-        Faster deployments • Cleaner controls • Stronger reporting • Repeatable delivery • Partner-ready documentation.
-      </div>
-    </aside>
-  </div>
-</main>
+  <div class="wrap">
+    <header class="topbar" aria-label="Top navigation">
+      <a class="brand" href="/index.html" title="Moe Community Cloud Home">
+        <span class="logo" aria-hidden="true"></span>
+        <span>Moe Community Cloud</span>
+      </a>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="/index.html">Home</a>
+        <a href="https://agentops.moecommunitycloud.com/">Agent Ops</a>
+        <a href="https://finternetops.moecommunitycloud.com/">FinternetOps</a>
+        <a href="/consulting.html">Consulting</a>
+        <a href="/partners.html">Partners</a>
+        <a href="/newsletter.html">Newsletter</a>
+        <a href="/free-assets/">Free Assets</a>
+        <a href="/shop">Shop</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </header>
 
-<section class="section container" id="offerings">
-  <h2>Offerings</h2>
+    <main>
+      <section class="hero" aria-label="Consulting hero">
+        <div class="hero-inner">
+          <div>
+            <div class="kicker"><span class="kdot" aria-hidden="true"></span> Implementation Consulting</div>
+            <h1>Implementation that actually ships.</h1>
+            <p class="sub">
+              MBCC installs and integrates <strong>AgentOps</strong> and <strong>FinternetOps</strong> programs for teams that want outcomes,
+              not experiments — with scoped builds, operator runbooks, governance boundaries, and proof artifacts.
+            </p>
+            <div class="hero-actions">
+              <a class="btn primary" href="/contact.html">Start a conversation →</a>
+              <a class="btn" href="/partners.html">Partner delivery path</a>
+            </div>
+            <div class="pillrow" aria-label="Keywords">
+              <span class="pill">AI Ops consulting</span>
+              <span class="pill">AgentOps implementation</span>
+              <span class="pill">AI governance</span>
+              <span class="pill">Runbooks + controls</span>
+              <span class="pill">Enterprise proof artifacts</span>
+            </div>
+          </div>
 
-  <div class="panel" style="margin:14px 0 22px 0">
-    <span class="badge">How we ship</span>
-    <div class="hr"></div>
-    <img src="assets/img/consulting-delivery-pipeline.webp" alt="Enterprise delivery pipeline from discovery to implementation to enablement" loading="lazy" style="width:100%;border-radius:14px;display:block;;height:auto" decoding="async" width="1400" height="933">
-    <div class="small" style="margin-top:10px;line-height:1.7;opacity:.92">
-      A simple, repeatable delivery pipeline that transitions cleanly into partner delivery or internal ownership.
-      <a href="partners.html#partnerpath" class="link">See Partner Path →</a>
-    </div>
-  </div>
+          <figure class="hero-figure">
+            <img src="assets/images/consulting-warroom.jpg" alt="Premium operations consulting war-room with dashboards, runbooks, and governance" loading="lazy" />
+            <figcaption class="caption">Delivery room: scope → controls → proof → handoff.</figcaption>
+          </figure>
+        </div>
+      </section>
 
-  <div class="grid">
-    <article class="card">
-      <h3>Agent Ops Build Sprint</h3>
-      <p>Design an agent workflow, define guardrails, implement a deployment plan, and produce an operator runbook.</p>
-      <div class="meta"><span class="pill">Discovery</span><span class="pill">Runbooks</span><span class="pill">Governance</span></div>
-    </article>
-    <article class="card">
-      <h3>FinternetOps Pilot</h3>
-      <p>Map finance workflows, define exception states, implement automation patterns, and output proof artifacts (KPIs + narratives).</p>
-      <div class="meta"><span class="pill">Exceptions</span><span class="pill">Reporting</span><span class="pill">Proof system</span></div>
-    </article>
-    <article class="card">
-      <h3>Partner Enablement</h3>
-      <p>Train your internal team or partner network: onboarding, certification readiness, licensing readiness, and delivery standards.</p>
-      <div class="meta"><span class="pill">Training</span><span class="pill">Certification</span><span class="pill">Scale</span></div>
-    </article>
+      <section class="grid" aria-label="Consulting overview">
+        <article class="card">
+          <div class="pad">
+            <h2>What we deliver (operator-grade)</h2>
+            <p>
+              This page stays outcome-level (public-safe). The work product is delivered privately after engagement.
+              Our goal: <strong>make your system ownable</strong> — by your team, or through partner delivery.
+            </p>
+            <ul class="bullets">
+              <li><span class="tick" aria-hidden="true"></span><div><strong>Scoped implementation</strong><br><span style="color:rgba(247,243,233,.72)">Clear boundaries, timelines, and acceptance criteria.</span></div></li>
+              <li><span class="tick" aria-hidden="true"></span><div><strong>Runbooks & handoff</strong><br><span style="color:rgba(247,243,233,.72)">Operator playbooks, escalation paths, rollback routines.</span></div></li>
+              <li><span class="tick" aria-hidden="true"></span><div><strong>Controls & governance</strong><br><span style="color:rgba(247,243,233,.72)">Access boundaries, audit posture, risk checkpoints.</span></div></li>
+              <li><span class="tick" aria-hidden="true"></span><div><strong>Proof artifacts</strong><br><span style="color:rgba(247,243,233,.72)">KPIs, narratives, and evidence you can reuse internally.</span></div></li>
+            </ul>
+            <div class="mini">
+              <strong>Ideal outcomes:</strong> faster deployments, cleaner controls, stronger reporting, repeatable delivery, partner-ready documentation.
+            </div>
+          </div>
+        </article>
+
+        <aside class="card">
+          <div class="pad">
+            <h2>Offerings</h2>
+            <p>Choose the lane that matches your current maturity and timeline.</p>
+            <ul class="bullets">
+              <li><span class="tick" aria-hidden="true"></span><div><strong>Agent Ops Build Sprint</strong><br><span style="color:rgba(247,243,233,.72)">Design workflows, define guardrails, implement plan, deliver runbook.</span></div></li>
+              <li><span class="tick" aria-hidden="true"></span><div><strong>FinternetOps Pilot</strong><br><span style="color:rgba(247,243,233,.72)">Map workflows, define exceptions, implement automation patterns, output proof artifacts.</span></div></li>
+              <li><span class="tick" aria-hidden="true"></span><div><strong>Partner Enablement</strong><br><span style="color:rgba(247,243,233,.72)">Onboard teams/partners with standards, readiness, and delivery enablement.</span></div></li>
+            </ul>
+            <div class="mini">
+              <strong>Fast next step:</strong> send your goal, timeline, stack, and who will own the system after delivery.
+              We’ll route you to the right engagement.
+            </div>
+            <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="btn primary" style="min-width:unset; padding:10px 14px; border-radius:12px;" href="/contact.html">Contact intake →</a>
+              <a class="btn" style="min-width:unset; padding:10px 14px; border-radius:12px;" href="/free-assets/">Free tools</a>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="grid" aria-label="Process and visuals">
+        <article class="card">
+          <div class="pad longform">
+            <h2>How we work (simple, repeatable)</h2>
+            <p>Consulting fails when delivery is vague. MBCC uses a repeatable pipeline designed for clean handoff.</p>
+            <div class="cols">
+              <div>
+                <h3>1) Discovery & scope</h3><p>Confirm the use case, boundaries, stakeholders, and what “done” means.</p>
+                <h3>2) Build & controls</h3><p>Implement workflows with guardrails, logging posture, and operator responsibilities.</p>
+              </div>
+              <div>
+                <h3>3) Proof artifacts</h3><p>Create evidence (KPIs, narrative frames, checklists) your org can reuse.</p>
+                <h3>4) Handoff & enablement</h3><p>Deliver runbooks and a handoff plan for internal ownership or partner delivery.</p>
+              </div>
+            </div>
+            <div class="mini resource-links">
+              <strong>Want more context?</strong>
+              Read the <a href="/newsletter.html">newsletter</a> (signals) and use the <a href="/free-assets/">free assets</a> (tools).
+              Public resources explain outcomes without exposing internal IP.
+            </div>
+          </div>
+        </article>
+
+        <aside class="card">
+          <div class="pad">
+            <h2>Delivery visuals (sized correctly)</h2>
+            <p>These images are constrained so they won’t blow up the layout.</p>
+            <div class="twoimgs">
+              <div class="imgcard">
+                <img src="assets/images/delivery-pipeline.jpg" alt="Enterprise delivery pipeline from discovery to implementation to enablement" loading="lazy" />
+                <div class="cap">Delivery pipeline: discovery → implementation → enablement.</div>
+              </div>
+              <div class="imgcard">
+                <img src="assets/images/proof-artifacts.jpg" alt="Proof artifacts and governance documentation examples" loading="lazy" />
+                <div class="cap">Proof artifacts: KPIs, narratives, runbooks, governance boundaries.</div>
+              </div>
+            </div>
+            <div class="mini">
+              If any image is still too large, keep the CSS and swap the file for a smaller export (recommended: 1600px wide JPG, compressed).
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="card" aria-label="SEO content and FAQs" style="margin-top:14px;">
+        <div class="pad longform">
+          <h2>AI Ops & AgentOps consulting services</h2>
+          <p>
+            MBCC provides <strong>AI operations consulting</strong> for organizations adopting agentic workflows,
+            automation, and governance-first deployments. We focus on reliability, operational ownership, and
+            the documentation required for enterprise adoption.
+          </p>
+
+          <div class="cols">
+            <div>
+              <h3>Who we serve</h3>
+              <ul class="bullets">
+                <li><span class="tick" aria-hidden="true"></span><div><strong>Ops-led teams</strong><br><span style="color:rgba(247,243,233,.72)">Reliability, incident readiness, and governance posture.</span></div></li>
+                <li><span class="tick" aria-hidden="true"></span><div><strong>Product & engineering</strong><br><span style="color:rgba(247,243,233,.72)">Operationalizing agents beyond demos and pilots.</span></div></li>
+                <li><span class="tick" aria-hidden="true"></span><div><strong>Finance automation</strong><br><span style="color:rgba(247,243,233,.72)">Exception handling, reporting, and proof artifacts.</span></div></li>
+              </ul>
+            </div>
+            <div>
+              <h3>What buyers get</h3>
+              <ul class="bullets">
+                <li><span class="tick" aria-hidden="true"></span><div><strong>Documentation that sells</strong><br><span style="color:rgba(247,243,233,.72)">Runbooks and proof artifacts built for stakeholders.</span></div></li>
+                <li><span class="tick" aria-hidden="true"></span><div><strong>Governance boundaries</strong><br><span style="color:rgba(247,243,233,.72)">Clear ownership and audit posture.</span></div></li>
+                <li><span class="tick" aria-hidden="true"></span><div><strong>Repeatable delivery</strong><br><span style="color:rgba(247,243,233,.72)">A pipeline your team can run without MBCC forever.</span></div></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mini">
+            <strong>AdSense mindset:</strong> pages that rank and monetize need substance—service language, internal links, FAQs,
+            and scoped value statements—so both users and search engines understand what you do.
+          </div>
+
+          <div class="faq" aria-label="Frequently asked questions">
+            <h3>FAQs</h3>
+            <details><summary>What do you deliver in a typical engagement?</summary><p>Scoped plan, runbooks, control boundaries, KPIs, proof artifacts, and a clean handoff path.</p></details>
+            <details><summary>Do you publish internal playbooks publicly?</summary><p>No. Public pages describe outcomes only. Implementation assets are delivered privately after engagement.</p></details>
+            <details><summary>What timelines should we expect?</summary><p>Most builds run 2–8 weeks depending on scope. Pilots produce proof artifacts quickly and expand after validation.</p></details>
+            <details><summary>Can you integrate with our current tools and cloud?</summary><p>Yes. We integrate with your stack and access model, focusing on reliability, governance, and cost control.</p></details>
+          </div>
+
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" style="min-width:unset; padding:10px 14px; border-radius:12px;" href="/contact.html">Start a conversation →</a>
+            <a class="btn" style="min-width:unset; padding:10px 14px; border-radius:12px;" href="/partners.html">Partner delivery</a>
+            <a class="btn" style="min-width:unset; padding:10px 14px; border-radius:12px;" href="/newsletter.html">Newsletter</a>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div><strong>Moe Community Cloud (MBCC)</strong> — enterprise-ready operating systems for AI agents and next‑gen finance automation.</div>
+        <div class="mini-links">
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+          <a href="/disclaimer.html">Disclaimer</a>
+          <a href="/sitemap.xml">Sitemap</a>
+        </div>
+        <div style="margin-top:10px; font-size:12.5px; color:rgba(247,243,233,.66);">© 2026 Moe Community Cloud (MBCC). All rights reserved.</div>
+      </footer>
+    </main>
   </div>
-</section>
-<footer class="footer">
-  <div class="container footgrid">
-    <div>
-      <div class="small"><strong>MBCC</strong> builds enterprise-ready operating systems for AI agents and next‑gen finance automation—designed for operators, partners, and whitelabel growth.</div>
-      <div class="small" style="margin-top:10px">© 2026 Moe Community Cloud (MBCC). All rights reserved.</div>
-    </div>
-    <div class="footlinks">
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-      <a href="disclaimer.html">Disclaimer</a>
-      <a href="sitemap.xml">Sitemap</a>
-    </div>
-  </div>
-</footer>
-<script src="assets/js/site.js"></script>
 </body>
 </html>
