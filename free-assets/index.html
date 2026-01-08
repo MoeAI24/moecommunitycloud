@@ -1,222 +1,291 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Free Assets | MoeCommunityCloud</title>
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Free AI AgentOps cheat sheets, governance checklists, and production readiness tools from MoeCommunityCloud." />
-  <link rel="stylesheet" href="../styles.css" />
+  <meta name="theme-color" content="#0b0b0b"/>
+  <title>Free Assets • MoeCommunityCloud</title>
+  <meta name="description" content="Free AI & AgentOps assets + free animated tools to level up your landing pages, dashboards, and product UI. No signup." />
+  <link rel="canonical" href="https://moecommunitycloud.com/free-assets/" />
+  <meta property="og:title" content="Free Assets • MoeCommunityCloud" />
+  <meta property="og:description" content="Free downloads + free animated tools (Lottie, Particles, GSAP, Chart.js). No signup." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://moecommunitycloud.com/free-assets/" />
+  <meta property="og:image" content="https://moecommunitycloud.com/assets/images/training-og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8387411349417007"
-    crossorigin="anonymous"></script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Are these downloads really free?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. MoeCommunityCloud provides these AgentOps and AI governance cheat sheets as free educational assets. No signup required."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do the PDFs contain placeholders?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. Each download button links to a real PDF included on the site (Path to Production, KPIs, Governance Checklist, Failure Modes, and the Self-Score)."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I share these assets with my team?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. You can share the links internally. For white-label or commercial redistribution, use the Consulting page to discuss licensing."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Why do you show ads on the Free Assets page?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Ads help fund the creation of more free, high-quality resources while keeping downloads available with no signup."
-        }
-      }
-    ]
-  }
-  </script>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
+  <style>
+    :root{--mbcc-off:#f7f3e9;}
+    .toolGrid{display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:14px; margin-top:14px}
+    @media (max-width:980px){ .toolGrid{grid-template-columns:1fr} }
+    .toolCard{grid-column: span 6; border:1px solid rgba(212,175,55,.18); background: rgba(0,0,0,.18); border-radius: 18px; padding: 14px; overflow:hidden; position:relative;}
+    @media (max-width:980px){ .toolCard{grid-column: span 12;} }
+    .toolCard h3{margin:2px 0 6px}
+    .toolCard p{margin:0 0 10px; color: rgba(247,243,233,.78); font-weight:800; line-height:1.6}
+    .toolMeta{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .pill{display:inline-flex; align-items:center; gap:8px; border-radius:999px; padding:6px 10px; border:1px solid rgba(212,175,55,.18); background: rgba(212,175,55,.06); font-weight:950;}
+    .toolBtns{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .toolBtns a{display:inline-flex; align-items:center; justify-content:center; border-radius:999px; padding:10px 14px; border:1px solid rgba(212,175,55,.34); background: rgba(212,175,55,.06); text-decoration:none; font-weight:950;}
+    .toolBtns a.primary{background: linear-gradient(180deg, rgba(193,18,31,.95), rgba(123,10,18,.95)); border-color: rgba(212,175,55,.55);}
+    .demoBox{margin-top:12px; border-radius:16px; border:1px solid rgba(212,175,55,.14); background: rgba(0,0,0,.22); padding: 12px;}
+    .demoRow{display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:14px; margin-top:14px}
+    .demo{grid-column: span 6; border-radius: 18px; border:1px solid rgba(212,175,55,.18); background: rgba(0,0,0,.18); padding: 14px; position:relative; overflow:hidden;}
+    @media (max-width:980px){ .demo{grid-column: span 12;} }
+    .demo h3{margin:0 0 8px}
+    #particlesMini{height:220px; border-radius:14px; overflow:hidden; border:1px solid rgba(212,175,55,.14)}
+    .demoBtnRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .demoBtnRow button{border-radius:999px; padding:10px 14px; border:1px solid rgba(212,175,55,.34); background: rgba(212,175,55,.06); color: var(--mbcc-off); font-weight:950; cursor:pointer;}
+    .demoBtnRow button.primary{background: linear-gradient(180deg, rgba(193,18,31,.95), rgba(123,10,18,.95)); border-color: rgba(212,175,55,.55);}
+    canvas{max-width:100%}
+    .adsenseSlot{margin-top:14px; border-radius:18px; border:1px dashed rgba(212,175,55,.24); padding:14px; color: rgba(247,243,233,.70); font-weight:850; background: rgba(0,0,0,.12);}
+    .note{color: rgba(247,243,233,.70); font-weight:850}
+  </style>
 </head>
 
 <body>
-<header class="topbar">
-  <div class="container topbar__row">
-    <div class="brand">
-      <div class="brand__mark"></div>
-      <div>
-        <div class="brand__title">MoeCommunityCloud</div>
-        <div class="brand__sub">AgentOps • AI Infrastructure • Playbooks</div>
+  <header class="topbar">
+    <div class="container">
+      <div class="nav">
+        <div class="brand">
+          <span class="brandMark" aria-hidden="true"></span>
+          <div>
+            <div>MoeCommunityCloud</div>
+            <small>AgentOps • AI Infrastructure • Playbooks</small>
+          </div>
+        </div>
+        <nav class="navlinks" aria-label="Site navigation">
+          <a href="/">Home</a>
+          <a href="https://agentops.moecommunitycloud.com">Agent Ops</a>
+          <a href="https://finternetops.moecommunitycloud.com">FinternetOps</a>
+          <a href="/consulting.html">Consulting</a>
+          <a href="/partners.html">Partners</a>
+          <a class="active" href="/free-assets/">Free Assets</a>
+          <a href="/newsletter.html">Newsletter</a>
+          <a href="/shop.html">Shop</a>
+        </nav>
       </div>
     </div>
+  </header>
 
-    <nav class="nav">
-      <a class="nav__link" href="../index.html">Home</a>
-      <a class="nav__link" href="https://agentops.moecommunitycloud.com/">Agent Ops</a>
-      <a class="nav__link" href="https://finternetops.moecommunitycloud.com/">FinternetOps</a>
-      <a class="nav__link" href="../consulting.html">Consulting</a>
-      <a class="nav__link" href="../partners.html">Partners</a>
-      <a class="nav__link" href="index.html">Free Assets</a>
-      <a class="nav__link" href="../newsletter.html">Newsletter</a>
-      <a class="nav__link" href="../shop.html">Shop</a>
-    </nav>
-  </div>
-</header>
+  <main class="container">
+    <section class="hero">
+      <div class="hrow">
+        <div>
+          <span class="pill" style="border-color: rgba(193,18,31,.35); background: rgba(193,18,31,.10)">Free Downloads • No Signup</span>
+          <h1>Free AI & AgentOps Assets</h1>
+          <p class="sub">Practical cheat sheets, governance checklists, and production-readiness tools designed for teams building real AI agents — not demos.</p>
+          <p class="note">New: free animated tools + live demos you can copy into your own sites. AdSense-safe, production focused.</p>
 
-<main>
-  <section class="hero">
-    <div class="container hero__grid">
-      <div>
-        <p class="kicker">Free Downloads • No Signup</p>
-        <h1>Free AI & AgentOps Assets</h1>
-        <p class="lede">Practical cheat sheets, governance checklists, and production-readiness tools designed for teams building real AI agents — not demos.</p>
-        <div class="hero__trust">
-          <span class="pill">AdSense-safe</span>
-          <span class="pill">Production focused</span>
-          <span class="pill">Original content</span>
+          <div class="toolBtns" style="margin-top:12px">
+            <a class="primary" href="https://finternetops.moecommunitycloud.com/training/?utm_source=moecommunitycloud&utm_medium=free-assets&utm_campaign=cta_top" target="_blank" rel="noopener">Start Training →</a>
+            <a href="/whitelist.html?utm_source=moecommunitycloud&utm_medium=free-assets&utm_campaign=cta_top">Whitelist Business Owners →</a>
+          </div>
+
+          <div class="adsenseSlot">
+            AdSense Slot (safe placement). Replace this with your AdSense code when ready.
+          </div>
         </div>
       </div>
-      <div class="notice">
-        Use these assets to accelerate delivery, tighten governance, and operate AI agents with confidence.
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="container" style="margin-top:12px;">
-    <ins class="adsbygoogle"
-         style="display:block;text-align:center;margin:18px 0"
-         data-ad-client="ca-pub-8387411349417007"
-         data-ad-slot="2827463913"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
-
-  <section class="section section--alt">
-    <div class="container">
-      <div class="section__head">
+    <section class="section" id="downloads">
+      <div class="sectionTitle">
         <h2>Downloadable Cheat Sheets</h2>
-        <p class="muted">Animated previews + real PDFs (no placeholders).</p>
+        <div class="small">Animated previews + real PDFs (no placeholders).</div>
+      </div>
+      <div class="note">Keep your existing PDF download cards in this section. This update adds the animated tools + demos section underneath.</div>
+    </section>
+
+    <section class="section" id="animated-tools">
+      <div class="sectionTitle">
+        <h2>Free Animated Tools</h2>
+        <div class="small">Use these to make your UI feel premium without paying for animation packs.</div>
       </div>
 
-      <div class="grid">
-
-        <div class="card">
-          <img src="../assets/free/anim/path-to-production-timeline.svg" alt="Animated preview: Path to Production timeline" style="border-radius:14px;border:1px solid rgba(212,175,55,.14);margin-bottom:12px;">
-          <div class="card__head">
-            <h3>Path to Production for AI Agents</h3>
-            <p>Mobilize → Govern → Prototype → Deploy → Operate → Optimize</p>
+      <div class="toolGrid">
+        <div class="toolCard">
+          <h3>LottieFiles (Lottie Animations)</h3>
+          <p>Free vector animations (JSON) for hero sections, feature cards, loaders, and UI micro-interactions.</p>
+          <div class="toolMeta"><span class="pill">Lightweight</span><span class="pill">Web + Mobile</span><span class="pill">Premium feel</span></div>
+          <div class="toolBtns">
+            <a class="primary" href="https://lottiefiles.com" target="_blank" rel="noopener">Browse LottieFiles</a>
+            <a href="https://github.com/airbnb/lottie-web" target="_blank" rel="noopener">lottie-web</a>
           </div>
-          <div class="tags"><span class="tag">PDF</span><span class="tag">1-pager</span></div>
-          <div class="card__cta">
-            <a class="btn btn--small" href="../assets/free/path-to-production-onepager.pdf" download>Download</a>
-          </div>
+          <div class="demoBox"><div class="small"><b>Tip:</b> Use Lottie for product “feature motion” instead of heavy videos.</div></div>
         </div>
 
-        <div class="card">
-          <img src="../assets/free/anim/agentops-pulse.svg" alt="Animated preview: AgentOps KPI Pulse" style="border-radius:14px;border:1px solid rgba(212,175,55,.14);margin-bottom:12px;">
-          <div class="card__head">
-            <h3>AgentOps KPI Cheat Sheet</h3>
-            <p>MTTD, MTTR, drift detection, compliance, cost & latency</p>
+        <div class="toolCard">
+          <h3>tsParticles (Particles Backgrounds)</h3>
+          <p>Free particle backgrounds for hero sections (like premium SaaS). Highly configurable and fast.</p>
+          <div class="toolMeta"><span class="pill">Hero effects</span><span class="pill">Fast</span><span class="pill">Interactive</span></div>
+          <div class="toolBtns">
+            <a class="primary" href="https://particles.js.org" target="_blank" rel="noopener">tsParticles</a>
+            <a href="#demo-particles">See Demo</a>
           </div>
-          <div class="tags"><span class="tag">Operations</span><span class="tag">Metrics</span></div>
-          <div class="card__cta">
-            <a class="btn btn--small" href="../assets/free/agentops-kpis.pdf" download>Download</a>
-          </div>
+          <div class="demoBox"><div class="small"><b>Use:</b> subtle background behind pricing cards & CTAs.</div></div>
         </div>
 
-        <div class="card">
-          <img src="../assets/free/anim/governance-shield.svg" alt="Animated preview: Governance Shield" style="border-radius:14px;border:1px solid rgba(212,175,55,.14);margin-bottom:12px;">
-          <div class="card__head">
-            <h3>AI Governance Checklist</h3>
-            <p>Security, approvals, logging, evaluation and monitoring</p>
+        <div class="toolCard">
+          <h3>GSAP + ScrollTrigger</h3>
+          <p>Industry-grade animation for scrolling stories, reveals, and timeline motion (free core GSAP).</p>
+          <div class="toolMeta"><span class="pill">Timeline</span><span class="pill">Scroll motion</span><span class="pill">Smooth</span></div>
+          <div class="toolBtns">
+            <a class="primary" href="https://greensock.com/gsap/" target="_blank" rel="noopener">GSAP</a>
+            <a href="https://greensock.com/scrolltrigger/" target="_blank" rel="noopener">ScrollTrigger</a>
           </div>
-          <div class="tags"><span class="tag">Governance</span><span class="tag">Compliance</span></div>
-          <div class="card__cta">
-            <a class="btn btn--small" href="../assets/free/governance-checklist.pdf" download>Download</a>
-          </div>
+          <div class="demoBox"><div class="small"><b>Use:</b> animate section titles and CTA cards as users scroll.</div></div>
         </div>
 
-        <div class="card">
-          <img src="../assets/free/anim/failure-modes-tiles.svg" alt="Animated preview: Failure modes tiles" style="border-radius:14px;border:1px solid rgba(212,175,55,.14);margin-bottom:12px;">
-          <div class="card__head">
-            <h3>Agent Failure Modes</h3>
-            <p>Common breakdowns + the first fix to try</p>
+        <div class="toolCard">
+          <h3>Chart.js (Animated Charts)</h3>
+          <p>Free charts with built-in animations — perfect for dashboard previews and “proof” sections.</p>
+          <div class="toolMeta"><span class="pill">Dashboards</span><span class="pill">Animated</span><span class="pill">Easy</span></div>
+          <div class="toolBtns">
+            <a class="primary" href="https://www.chartjs.org/" target="_blank" rel="noopener">Chart.js</a>
+            <a href="#demo-chart">See Demo</a>
           </div>
-          <div class="tags"><span class="tag">Reliability</span><span class="tag">Playbook</span></div>
-          <div class="card__cta">
-            <a class="btn btn--small" href="../assets/free/agent-failure-modes.pdf" download>Download</a>
-          </div>
+          <div class="demoBox"><div class="small"><b>Use:</b> show “Ops KPIs” in your consulting funnel.</div></div>
         </div>
 
-        <div class="card">
-          <img src="../assets/free/anim/production-readiness-meter.svg" alt="Animated preview: Production readiness meter" style="border-radius:14px;border:1px solid rgba(212,175,55,.14);margin-bottom:12px;">
-          <div class="card__head">
-            <h3>Production Readiness Self-Score</h3>
-            <p>10 questions to classify: Experimental → Scaling → Production-Ready</p>
+        <div class="toolCard">
+          <h3>Animate.css (Instant CSS Animations)</h3>
+          <p>Drop-in animation classes (fade, bounce, zoom). Great for fast “wow” without JS.</p>
+          <div class="toolMeta"><span class="pill">No JS</span><span class="pill">Quick wins</span><span class="pill">CTA boosts</span></div>
+          <div class="toolBtns">
+            <a class="primary" href="https://animate.style/" target="_blank" rel="noopener">Animate.css</a>
+            <a href="#demo-animate">See Demo</a>
           </div>
-          <div class="tags"><span class="tag">Scorecard</span><span class="tag">PDF</span></div>
-          <div class="card__cta">
-            <a class="btn btn--small" href="../assets/free/production-readiness-selfscore.pdf" download>Download</a>
-          </div>
+          <div class="demoBox"><div class="small"><b>Use:</b> animate “Start Training” buttons when they enter view.</div></div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section__head">
-        <h2>FAQ</h2>
-        <p class="muted">Quick answers about free downloads, usage, and updates.</p>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <div class="card__head">
-            <h3>Are these downloads really free?</h3>
-            <p>Yes — no signup required. We publish original AgentOps-focused resources to help teams ship production-ready agents.</p>
+        <div class="toolCard">
+          <h3>Haikei + Hero Patterns</h3>
+          <p>Free SVG waves, blobs, and patterns for section dividers and backgrounds. Makes pages look custom.</p>
+          <div class="toolMeta"><span class="pill">Backgrounds</span><span class="pill">SVG export</span><span class="pill">Fast</span></div>
+          <div class="toolBtns">
+            <a class="primary" href="https://app.haikei.app" target="_blank" rel="noopener">Haikei</a>
+            <a href="https://www.heropatterns.com/" target="_blank" rel="noopener">Hero Patterns</a>
           </div>
-        </div>
-
-        <div class="card">
-          <div class="card__head">
-            <h3>Do the PDFs contain placeholders?</h3>
-            <p>No. Every button links to a real PDF file hosted in this repo.</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card__head">
-            <h3>Can I share these with my team?</h3>
-            <p>Yes for internal use and sharing links. For white-label or commercial redistribution, reach out via Consulting.</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card__head">
-            <h3>Where can I find all pages?</h3>
-            <p>Use the <a class="nav__link" href="../sitemap.html">Site Map</a> for quick navigation, and Search Console uses <a class="nav__link" href="../sitemap.xml">sitemap.xml</a>.</p>
-          </div>
+          <div class="demoBox"><div class="small"><b>Use:</b> wave separators between funnel sections.</div></div>
         </div>
       </div>
-    </div>
-  </section>
 
-</main>
+      <div class="adsenseSlot">AdSense Slot (safe placement). Keep it between sections, not inside download buttons.</div>
+    </section>
+
+    <section class="section" id="live-demos">
+      <div class="sectionTitle">
+        <h2>Live Demos</h2>
+        <div class="small">Copy these patterns into your own pages. Lightweight and AdSense-safe.</div>
+      </div>
+
+      <div class="demoRow">
+        <div class="demo" id="demo-animate">
+          <h3>Animate.css Button Effects</h3>
+          <p class="sub" style="margin:0 0 10px">Click styles — good for CTA buttons.</p>
+          <div class="demoBtnRow">
+            <button id="btnPulse" class="primary">Pulse CTA</button>
+            <button id="btnBounce">Bounce</button>
+            <button id="btnTada">Tada</button>
+          </div>
+          <div class="demoBox"><div class="small"><b>How:</b> add <code>animate__animated animate__pulse</code> to any button.</div></div>
+        </div>
+
+        <div class="demo" id="demo-particles">
+          <h3>Particles Mini Background</h3>
+          <p class="sub" style="margin:0 0 10px">A subtle hero effect (kept light for performance).</p>
+          <div id="particlesMini"></div>
+          <div class="demoBox"><div class="small"><b>Tip:</b> Use low particle counts to keep it fast.</div></div>
+        </div>
+
+        <div class="demo" id="demo-chart">
+          <h3>Chart.js Animated KPI Chart</h3>
+          <p class="sub" style="margin:0 0 10px">Perfect for “Proof” sections in your funnel.</p>
+          <canvas id="kpiChart" height="220"></canvas>
+          <div class="demoBtnRow"><button id="btnChart" class="primary">Replay Animation</button></div>
+        </div>
+
+        <div class="demo">
+          <h3>Lottie Preview</h3>
+          <p class="sub" style="margin:0 0 10px">Loads a lightweight public Lottie animation (swap with your branded one later).</p>
+          <div id="lottieBox" style="height:220;border-radius:14px;overflow:hidden;border:1px solid rgba(212,175,55,.14)"></div>
+          <div class="demoBox"><div class="small"><b>Tip:</b> Replace the JSON URL with your own MBCC animation later.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">© 2026 MoeCommunityCloud™ • Free assets + free animated tools.</div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
+  <script>
+    function animateOnce(el, cls){
+      el.classList.remove("animate__animated", cls);
+      void el.offsetWidth;
+      el.classList.add("animate__animated", cls);
+      el.addEventListener("animationend", ()=>{ el.classList.remove("animate__animated", cls); }, {once:true});
+    }
+    document.getElementById("btnPulse")?.addEventListener("click", ()=> animateOnce(document.getElementById("btnPulse"), "animate__pulse"));
+    document.getElementById("btnBounce")?.addEventListener("click", ()=> animateOnce(document.getElementById("btnBounce"), "animate__bounce"));
+    document.getElementById("btnTada")?.addEventListener("click", ()=> animateOnce(document.getElementById("btnTada"), "animate__tada"));
+
+    (async function(){
+      if(!window.tsParticles) return;
+      await tsParticles.load("particlesMini", {
+        fpsLimit: 60,
+        background: { color: "transparent" },
+        particles: {
+          number: { value: 28, density: { enable: true, area: 800 } },
+          color: { value: "#d4af37" },
+          links: { enable: true, color: "#c1121f", distance: 130, opacity: 0.25, width: 1 },
+          move: { enable: true, speed: 1.2 },
+          opacity: { value: 0.5 },
+          size: { value: { min: 1, max: 3 } }
+        },
+        interactivity: { events: { onHover: { enable: true, mode: "repulse" } }, modes: { repulse: { distance: 120 } } }
+      });
+    })();
+
+    let chart;
+    function buildChart(){
+      const ctx = document.getElementById("kpiChart");
+      if(!ctx || !window.Chart) return;
+      if(chart) chart.destroy();
+      chart = new Chart(ctx, {
+        type: "line",
+        data: { labels: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"], datasets: [{ label: "Ops Health (demo)", data: [62, 68, 66, 72, 78, 76, 82], tension: 0.35 }] },
+        options: {
+          responsive: true,
+          animation: { duration: 900 },
+          plugins: { legend: { labels: { color: "#f7f3e9" } } },
+          scales: {
+            x: { ticks: { color: "rgba(247,243,233,.75)" }, grid: { color: "rgba(212,175,55,.10)" } },
+            y: { ticks: { color: "rgba(247,243,233,.75)" }, grid: { color: "rgba(212,175,55,.10)" } }
+          }
+        }
+      });
+    }
+    buildChart();
+    document.getElementById("btnChart")?.addEventListener("click", buildChart);
+
+    (function(){
+      if(!window.lottie) return;
+      const box = document.getElementById("lottieBox");
+      if(!box) return;
+      lottie.loadAnimation({
+        container: box,
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "https://assets10.lottiefiles.com/packages/lf20_touohxv0.json"
+      });
+    })();
+  </script>
 </body>
 </html>
