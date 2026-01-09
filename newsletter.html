@@ -260,15 +260,6 @@
       html{scroll-behavior:auto}
     }
   </style>
-
-  <style>
-    /* sample-signals */
-    #sample-signals .grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px}
-    #sample-signals article.card{grid-column:span 6}
-    @media (max-width: 980px){#sample-signals article.card{grid-column:span 12}}
-    #sample-signals ul{margin:10px 0 0 18px}
-  </style>
-
 </head>
 
 <body>
@@ -309,7 +300,7 @@
           <h3>AI Is Getting Cheaper — Control Is Getting More Expensive</h3>
           <p>Generation costs drop fast. Governance, ownership, auditability, and operations become the real premium.</p>
           <div class="actions">
-            <a class="btn" href="newsletter/issues/issue-008-why-mcc-exists.html""""""">Read</a>
+            <button class="mini gold" onclick="openIssue(1)">Read</button>
             <a class="mini" href="https://moecommunitycloud.com/join">Join</a>
           </div>
         </article>
@@ -395,81 +386,7 @@
 
     <footer>
       <div><strong>© Moe Community Cloud</strong> — Signal. Structure. Ownership.</div>
-      
-<section class="section container" id="sample-signals">
-  <h2>Sample Signals (Public Preview)</h2>
-  <p class="lead">Five examples of what the Digital Leader Runway feels like—clean, actionable, enterprise-focused. Full signals stay private.</p>
-
-  <div class="grid" style="margin-top:16px">
-    <!-- 1 -->
-    <article class="card">
-      <img src="assets/images/newsletter/quiet-stack.png" alt="MBCC stack diagram showing Strategy, Infrastructure, Automation, Governance, Distribution" loading="lazy" style="width:100%;height:auto;border-radius:14px;">
-      <h3 style="margin-top:12px">The Quiet Stack: How Digital Leaders Build Power Without Broadcasting</h3>
-      <p>Most people chase tactics. Digital leaders build a stack. If the foundation is weak, everything downstream breaks—no matter how loud the marketing is.</p>
-      <ul>
-        <li>The 5-layer sequence that prevents random execution</li>
-        <li>Why governance comes before scaling</li>
-        <li>How distribution gets easier once the stack is stable</li>
-      </ul>
-      <a class="btn primary" href="#subscribe">Get the full runway signal →</a>
-    </article>
-
-    <!-- 2 -->
-    <article class="card">
-      <img src="assets/images/newsletter/agentops-pillars.png" alt="Enterprise AgentOps pillars: Logs, RBAC, Change Control, Evidence" loading="lazy" style="width:100%;height:auto;border-radius:14px;">
-      <h3 style="margin-top:12px">Enterprise-Ready AgentOps: The 4 Pillars Buyers Actually Trust</h3>
-      <p>If you want enterprise deals, you don’t sell hype—you sell controls. These pillars separate a demo from a deployable system.</p>
-      <ul>
-        <li>What “enterprise-ready” means in practice</li>
-        <li>The minimum evidence buyers expect</li>
-        <li>How to structure delivery for certification</li>
-      </ul>
-      <a class="btn primary" href="#subscribe">Subscribe for the templates →</a>
-    </article>
-
-    <!-- 3 -->
-    <article class="card">
-      <img src="assets/images/newsletter/pass-pause.png" alt="MBCC PASS/PAUSE checklist for enterprise readiness signals" loading="lazy" style="width:100%;height:auto;border-radius:14px;">
-      <h3 style="margin-top:12px">PASS/PAUSE: The 5-Question Filter Before You Chase Any Trend</h3>
-      <p>Every week there’s a “new thing.” Most are distractions. This filter keeps your runway clean and your decisions profitable.</p>
-      <ul>
-        <li>A fast test to eliminate time-wasters</li>
-        <li>How to spot fake “enterprise readiness”</li>
-        <li>When to pause vs when to commit</li>
-      </ul>
-      <a class="btn primary" href="#subscribe">Get tomorrow’s signal →</a>
-    </article>
-
-    <!-- 4 -->
-    <article class="card">
-      <img src="assets/images/newsletter/evidence-pipeline.png" alt="Evidence pipeline turning logs, KPIs, and audits into a proof pack and buyer confidence" loading="lazy" style="width:100%;height:auto;border-radius:14px;">
-      <h3 style="margin-top:12px">Proof Packs: Stop Selling Promises—Sell Evidence</h3>
-      <p>Enterprise buyers don’t buy “plans.” They buy proof. An evidence pipeline turns ops signals into confidence that closes deals.</p>
-      <ul>
-        <li>What a Proof Pack contains (public-safe view)</li>
-        <li>How evidence shortens sales cycles</li>
-        <li>Packaging trust into a repeatable asset</li>
-      </ul>
-      <a class="btn primary" href="#subscribe">Subscribe for proof structure →</a>
-    </article>
-
-    <!-- 5 -->
-    <article class="card">
-      <img src="assets/images/newsletter/30-days-signal.png" alt="30-day compounding clarity calendar with highlighted signal blocks" loading="lazy" style="width:100%;height:auto;border-radius:14px;">
-      <h3 style="margin-top:12px">30 Days of Compounding Clarity: One Signal a Day, No Noise</h3>
-      <p>This runway isn’t a public roadmap. It’s private sequencing—small daily signals that compound into execution you can actually ship.</p>
-      <ul>
-        <li>Why cadence beats motivation</li>
-        <li>Momentum without burnout</li>
-        <li>What to focus on first (and what to ignore)</li>
-      </ul>
-      <a class="btn primary" href="#subscribe">Join the runway →</a>
-    </article>
-  </div>
-</section>
-
-
-<div class="footerLinks">
+      <div class="footerLinks">
         <a href="https://moecommunitycloud.com/">Home</a>
         <a href="https://moecommunitycloud.com/join">Join</a>
         <a href="mailto:moeknowmoe24@gmail.com">Contact</a>
