@@ -286,7 +286,105 @@
       </div>
     </div>
 
-    
+    <section class="hero" aria-label="Newsletter hero">
+      <div class="heroCard">
+        <div class="kicker">Daily Newsletter</div>
+        <h2 class="heroTitle">MCC Intelligence Archive</h2>
+        <p class="heroSub">
+          Daily signals on AI, cloud, automation, and digital infrastructure — built for operators,
+          consultants, and builders who want leverage. No hype. Just structure.
+        </p>
+
+        <div class="heroBtns">
+          <a class="btn primary" href="#subscribe">Subscribe via Gmail</a>
+          <a class="btn" href="#archive">Read the Latest Issues</a>
+          <button class="btn" onclick="copyLink()">Copy Page Link</button>
+        </div>
+
+        <p class="micro">
+          Delivery: Gmail. Archive: here. Monetization: memberships + systems (not hype).
+        </p>
+      </div>
+
+      <aside class="panel" id="subscribe" aria-label="Subscribe panel">
+        <h3>Subscribe (Gmail)</h3>
+        <p>
+          Enter your email, click subscribe, and Gmail opens a pre-filled message to
+          <strong>moeknowmoe24@gmail.com</strong>. That’s it.
+        </p>
+
+        <div class="searchWrap" style="margin-bottom:14px;">
+          <label for="subEmail" class="hint">Your email</label>
+          <input id="subEmail" type="search" inputmode="email" placeholder="you@example.com" aria-label="Your email for subscription" />
+          <label for="subName" class="hint">Name (optional)</label>
+          <input id="subName" type="search" placeholder="First name" aria-label="Your name for subscription" />
+          <button class="btn primary" onclick="subscribeGmail()">Subscribe</button>
+          <div class="hint">
+            Pro tip: create a Gmail label called <span class="kbd">MCC Newsletter</span> to keep subscribers organized.
+          </div>
+        </div>
+
+        <div class="goldLine"></div>
+
+        <h3>Search Issues</h3>
+        <p>Filter the archive by keyword (example: <em>Agent Ops</em>, <em>compliance</em>, <em>hybrid</em>).</p>
+        <div class="searchRow">
+          <input id="search" type="search" placeholder="Type to filter…" aria-label="Search newsletter issues" />
+          <button class="btn" onclick="clearSearch()">Clear</button>
+        </div>
+        <div class="hint">Keyboard: <span class="kbd">Ctrl</span> + <span class="kbd">K</span> to focus search.</div>
+
+        <div class="goldLine"></div>
+
+        <h3>Share</h3>
+        <p class="hint">Share the archive link (no platform dependency).</p>
+        <div class="searchRow">
+          <button class="btn" onclick="shareX()">Share to X</button>
+          <button class="btn" onclick="shareLinkedIn()">Share to LinkedIn</button>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" aria-label="30-day calendar">
+      <div class="sectionHead">
+        <h2>30-Day Runway</h2>
+        <span>Planned topics (keeps you consistent).</span>
+      </div>
+      <div class="calendar">
+        <ol>
+          <li><strong>Day 1:</strong> AI Is Getting Cheaper — Control Is Getting Expensive</li>
+          <li><strong>Day 2:</strong> AI Repair Is the Next Gold Rush</li>
+          <li><strong>Day 3:</strong> Cloud-Only Is Quietly Becoming a Liability</li>
+          <li><strong>Day 4:</strong> Agent Ops Beats Prompt Engineering</li>
+          <li><strong>Day 5:</strong> AI Compliance Is Becoming the New Gatekeeper</li>
+          <li><strong>Day 6:</strong> Owning Infrastructure Beats Owning IP</li>
+          <li><strong>Day 7:</strong> Why Moe Community Cloud Exists</li>
+          <li><strong>Day 8:</strong> Why Most AI Projects Don’t Scale</li>
+          <li><strong>Day 9:</strong> The Hidden Cost of “Easy” Automation</li>
+          <li><strong>Day 10:</strong> Why Enterprises Are Slowing AI Rollouts</li>
+          <li><strong>Day 11:</strong> Local AI Isn’t Anti-Cloud — It’s Pro-Control</li>
+          <li><strong>Day 12:</strong> Tools vs Systems: The Difference That Pays</li>
+          <li><strong>Day 13:</strong> What Consultants Get Wrong About AI</li>
+          <li><strong>Day 14:</strong> Weekend Signals We’re Watching Next Quarter</li>
+          <li><strong>Day 15:</strong> Where AI Consulting Money Actually Comes From</li>
+          <li><strong>Day 16:</strong> Retainers Beat One-Off AI Projects</li>
+          <li><strong>Day 17:</strong> Why “AI Strategy” Alone Doesn’t Sell</li>
+          <li><strong>Day 18:</strong> Compliance Creates Long Contracts</li>
+          <li><strong>Day 19:</strong> Why Enterprises Pay for Documentation</li>
+          <li><strong>Day 20:</strong> The Exit Strategy Nobody Designs</li>
+          <li><strong>Day 21:</strong> Weekend: Ownership vs Exposure</li>
+          <li><strong>Day 22:</strong> Why We Don’t Chase Trends</li>
+          <li><strong>Day 23:</strong> Builders vs Operators (Who Gets Paid)</li>
+          <li><strong>Day 24:</strong> When Platforms Reward Dependence</li>
+          <li><strong>Day 25:</strong> When AI Becomes a Utility</li>
+          <li><strong>Day 26:</strong> Who Wins After the AI Bubble Pops</li>
+          <li><strong>Day 27:</strong> Quiet Systems Outlast Loud Products</li>
+          <li><strong>Day 28:</strong> Weekend: What We’re Building Next</li>
+          <li><strong>Day 29:</strong> From the Desk of Moe Bucks (Authority Letter)</li>
+          <li><strong>Day 30:</strong> What It Means to Be a Digital Leader</li>
+        </ol>
+      </div>
+    </section>
 
     <section class="section" id="archive" aria-label="Newsletter archive">
       <div class="sectionHead">
@@ -300,7 +398,7 @@
           <h3>AI Is Getting Cheaper — Control Is Getting More Expensive</h3>
           <p>Generation costs drop fast. Governance, ownership, auditability, and operations become the real premium.</p>
           <div class="actions">
-            <button class="mini gold" onclick="openIssue(1)">Read</button>
+            <a class="mini gold" href="/newsletter/issues/issue-001-ai-cheaper-control.html">Read</a>
             <a class="mini" href="https://moecommunitycloud.com/join">Join</a>
           </div>
         </article>
@@ -310,7 +408,7 @@
           <h3>AI Repair Is the Next Gold Rush</h3>
           <p>The second wave isn’t adoption — it’s repair: audits, stabilization, ops layers, and governance.</p>
           <div class="actions">
-            <button class="mini gold" onclick="openIssue(2)">Read</button>
+            <a class="mini gold" href="/newsletter/issues/issue-002-ai-repair-gold-rush.html">Read</a>
             <a class="mini" href="https://agentops.moecommunitycloud.com/">Agent Ops</a>
           </div>
         </article>
@@ -320,7 +418,7 @@
           <h3>Cloud-Only Is Quietly Becoming a Liability</h3>
           <p>Hybrid and local-first aren’t anti-cloud — they’re pro-control. Leverage comes from optionality.</p>
           <div class="actions">
-            <button class="mini gold" onclick="openIssue(3)">Read</button>
+            <a class="mini gold" href="/newsletter/issues/issue-003-cloud-only-liability.html">Read</a>
             <a class="mini" href="https://moecommunitycloud.com/">Home</a>
           </div>
         </article>
@@ -330,7 +428,7 @@
           <h3>Agent Ops Beats Prompt Engineering Every Time</h3>
           <p>Great prompts don’t save broken systems. Operations turns AI into infrastructure.</p>
           <div class="actions">
-            <button class="mini gold" onclick="openIssue(4)">Read</button>
+            <a class="mini gold" href="/newsletter/issues/issue-004-agentops-vs-prompts.html">Read</a>
             <a class="mini" href="https://moecommunitycloud.com/join">Join</a>
           </div>
         </article>
@@ -340,7 +438,7 @@
           <h3>AI Compliance Is Becoming the New Gatekeeper</h3>
           <p>“It works” isn’t enough. Audit trails, controls, and documentation decide who gets paid.</p>
           <div class="actions">
-            <button class="mini gold" onclick="openIssue(5)">Read</button>
+            <a class="mini gold" href="/newsletter/issues/issue-005-ai-compliance-gatekeeper.html">Read</a>
             <a class="mini" href="https://moecommunitycloud.com/join">Join</a>
           </div>
         </article>
@@ -350,7 +448,7 @@
           <h3>Owning Infrastructure Beats Owning IP</h3>
           <p>IP can be copied. Infrastructure compounds. Ownership of outcomes outlasts hype cycles.</p>
           <div class="actions">
-            <button class="mini gold" onclick="openIssue(6)">Read</button>
+            <a class="mini gold" href="/newsletter/issues/issue-006-own-infrastructure.html">Read</a>
             <a class="mini" href="https://moecommunitycloud.com/">Home</a>
           </div>
         </article>
@@ -360,7 +458,7 @@
           <h3>Why Moe Community Cloud Exists</h3>
           <p>A weekend reflection: no trends, no noise — just structure for builders who want leverage.</p>
           <div class="actions">
-            <button class="mini gold" onclick="openIssue(7)">Read</button>
+            <a class="mini gold" href="/newsletter/issues/issue-007-why-mcc-exists.html">Read</a>
             <a class="mini" href="https://moecommunitycloud.com/join">Join</a>
           </div>
         </article>
