@@ -472,3 +472,30 @@ textarea:focus {
     height: 180px;
   }
 }
+
+
+/* === MBCC readability + banner size tweaks (no structure/text changes) === */
+
+/* Slightly larger base text for readability */
+html { font-size: 17px; }
+body { line-height: 1.6; }
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.45rem; }
+
+/* Reduce large hero/banner heights safely */
+.hero img,
+.banner img,
+.hero-image,
+.banner-image {
+  max-height: 420px;
+  object-fit: cover;
+}
+
+/* Prevent banners from dominating viewport */
+.hero,
+.banner {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
