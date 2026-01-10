@@ -89,7 +89,7 @@ h3{font-size:1.3rem;line-height:1.25;}
 .panel img{
   width:100%;
   display:block;
-  height:260px;          /* desktop banner height */
+  height:170px;          /* desktop banner height */
   object-fit:cover;      /* prevents squeezing */
   object-position:center;
   border-radius:16px;
@@ -98,9 +98,14 @@ h3{font-size:1.3rem;line-height:1.25;}
 @media (max-width:768px){
   .card img,
   .panel img{
-    height:200px;        /* mobile */
+    height:135px;        /* mobile */
   }
 }
+
+
+/* Extra clamp for homepage funnel banners (the two big cards) */
+#training-funnel .card > a > img{height:160px;}
+@media (max-width:768px){#training-funnel .card > a > img{height:125px;}}
 
 /* Leaderboard images must keep exact ratio */
 img[width="728"][height="90"]{
