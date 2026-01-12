@@ -8,6 +8,7 @@
 <meta name="theme-color" content="#0b0b0b"/>
 <link rel="stylesheet" href="assets/css/site.css"/>
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml"/>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -26,8 +27,10 @@
   "url": "https://moecommunitycloud.com/"
 }
 </script>
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8387411349417007"
      crossorigin="anonymous"></script>
+
 <style>
 /* MBCC: Partner Path + Quick Links right-column visuals (no structural redesign) */
 
@@ -84,33 +87,32 @@ h1{font-size:2.2rem;line-height:1.15;}
 h2{font-size:1.7rem;line-height:1.2;}
 h3{font-size:1.3rem;line-height:1.25;}
 
-/* Banner/hero images: smaller, never squished */
+/* Banner/hero images: smaller, never squished (kept for any other images on site) */
 .card img,
 .panel img{
   width:100%;
   display:block;
-  height:260px;          /* desktop banner height */
-  object-fit:cover;      /* prevents squeezing */
+  height:260px;
+  object-fit:cover;
   object-position:center;
   border-radius:16px;
 }
-
 @media (max-width:768px){
   .card img,
   .panel img{
-    height:200px;        /* mobile */
+    height:200px;
   }
 }
 
-/* Leaderboard images must keep exact ratio */
+/* Leaderboard images (kept, though we removed them from homepage) */
 img[width="728"][height="90"]{
   height:auto !important;
   max-height:none !important;
   object-fit:contain !important;
 }
-
 </style>
 </head>
+
 <body>
 <header class="topbar">
   <div class="container navwrap">
@@ -127,13 +129,15 @@ img[width="728"][height="90"]{
       <a href="https://finternetops.moecommunitycloud.com/">FinternetOps</a>
       <a href="consulting.html">Consulting</a>
       <a href="partners.html">Partners</a>
-        <a class="nav__link" href="free-assets/index.html">Free Assets</a>
+      <a class="nav__link" href="free-assets/index.html">Free Assets</a>
       <a href="newsletter.html">Newsletter</a>
       <a href="shop.html">Shop</a>
     </nav>
   </div>
 </header>
-<div class="panel" style="margin-top:14px; padding:16px"><div class="ppGrid">
+
+<div class="panel" style="margin-top:14px; padding:16px">
+  <div class="ppGrid">
     <div class="ppCopy">
       <span class="badge">Partner Path (Fast Track)</span>
       <div class="small" style="line-height:1.85; margin-top:10px">
@@ -192,9 +196,7 @@ img[width="728"][height="90"]{
       <div class="ppCaption">Visual roadmap — built for repeatable delivery and partner scale.</div>
     </div>
   </div>
-</div></div>
-
-    </section>
+</div>
 
 <section class="section" id="training-funnel">
   <h2>Get Started the Right Way</h2>
@@ -204,60 +206,71 @@ img[width="728"][height="90"]{
   </p>
 
   <div class="grid2" style="margin-top:16px">
-    <div class="card" style="overflow:hidden">
-      <a href="https://finternetops.moecommunitycloud.com/training/?utm_source=moecommunitycloud&utm_medium=homepage_banner&utm_campaign=finternetops_training&utm_content=training_banner_1600" target="_blank" rel="noopener">
-        <img src="assets/images/mbcc-training-banner-1600x500.png"
-             alt="MBCC FinternetOps Enterprise Training + Certification"
-             loading="lazy"
-             style="width:100%;height:auto;display:block;border-radius:16px"/>
-      </a>
-      <div style="padding-top:12px">
+    <!-- CARD 1 (banner removed, replaced with more content) -->
+    <div class="card">
+      <div style="padding-top:4px">
         <p class="small">
           <strong>Enterprise Training + Certification</strong><br/>
           Scenario modules, quizzes (80%+), capstone proof pack, and verifiable certificates.
         </p>
+
         <ul class="bullets">
-          <li>Clear learning path (no fluff)</li>
-          <li>Evidence-first operations (recon, change control, incident response)</li>
-          <li>Certificate + verification link for credibility</li>
+          <li><strong>Operator-first</strong>: recon, change control, incident response</li>
+          <li><strong>Evidence-first</strong>: runbooks, controls, evidence exports</li>
+          <li><strong>Credibility</strong>: certificate + verification link</li>
+          <li><strong>Repeatable delivery</strong>: standards you can sell and install</li>
         </ul>
+
+        <div class="panel" style="margin-top:10px; padding:12px">
+          <span class="badge">Outcome</span>
+          <div class="small" style="margin-top:8px; line-height:1.85">
+            You finish with a <strong>proof pack</strong> you can show in enterprise conversations: scope, controls, narratives, KPIs, and handoff artifacts.
+          </div>
+        </div>
+
         <div class="ctaRow" style="margin-top:12px">
-          <a class="btn primary" href="https://finternetops.moecommunitycloud.com/training/?utm_source=moecommunitycloud&utm_medium=homepage_banner&utm_campaign=finternetops_training&utm_content=training_cta">Start Training →</a>
-          <a class="btn" href="https://finternetops.moecommunitycloud.com/training/?utm_source=moecommunitycloud&utm_medium=homepage_banner&utm_campaign=finternetops_training&utm_content=training_leaderboard">View Training Portal</a>
+          <a class="btn primary" href="https://finternetops.moecommunitycloud.com/training/?utm_source=moecommunitycloud&utm_medium=homepage_content&utm_campaign=finternetops_training&utm_content=training_cta">Start Training →</a>
+          <a class="btn" href="https://finternetops.moecommunitycloud.com/training/?utm_source=moecommunitycloud&utm_medium=homepage_content&utm_campaign=finternetops_training&utm_content=portal_link">View Training Portal</a>
         </div>
       </div>
     </div>
 
-    <div class="card" style="overflow:hidden">
-      <a href="https://finternetops.moecommunitycloud.com/training/?utm_source=moecommunitycloud&utm_medium=homepage_banner&utm_campaign=whitelist_business_owners&utm_content=whitelist_banner_1600" target="_blank" rel="noopener">
-        <img src="assets/images/mbcc-whitelist-banner-1600x500.png"
-             alt="Whitelist Business Owners Program"
-             loading="lazy"
-             style="width:100%;height:auto;display:block;border-radius:16px"/>
-      </a>
-      <div style="padding-top:12px">
+    <!-- CARD 2 (banner removed, replaced with more content) -->
+    <div class="card">
+      <div style="padding-top:4px">
         <p class="small">
           <strong>Whitelist Business Owners</strong><br/>
           Priority onboarding + enablement for founders building a real delivery business with MBCC.
         </p>
+
         <ul class="bullets">
-          <li>Partner enablement + sales assets</li>
-          <li>Quality gates + proof pack templates</li>
-          <li>Tier path to higher-value enterprise deals</li>
+          <li><strong>Enablement</strong>: sales assets + positioning + delivery boundaries</li>
+          <li><strong>Quality gates</strong>: standards and proof templates built in</li>
+          <li><strong>Tier pathway</strong>: route to higher-value enterprise deals</li>
+          <li><strong>Partner scale</strong>: licensing lanes + repeatable onboarding</li>
         </ul>
+
+        <div class="panel" style="margin-top:10px; padding:12px">
+          <span class="badge">Outcome</span>
+          <div class="small" style="margin-top:8px; line-height:1.85">
+            You get a cleaner path to <strong>selling delivery</strong> with confidence—without exposing internal playbook IP.
+          </div>
+        </div>
+
         <div class="ctaRow" style="margin-top:12px">
-          <a class="btn primary" href="https://finternetops.moecommunitycloud.com/training/?utm_source=moecommunitycloud&utm_medium=homepage_banner&utm_campaign=whitelist_business_owners&utm_content=whitelist_cta">Join the Whitelist →</a>
+          <a class="btn primary" href="https://finternetops.moecommunitycloud.com/training/?utm_source=moecommunitycloud&utm_medium=homepage_content&utm_campaign=whitelist_business_owners&utm_content=whitelist_cta">Join the Whitelist →</a>
           <a class="btn" href="whitelist.html">What’s included</a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Sponsored AdSense (kept; fixed client id to match your real one) -->
   <div class="adSlot" style="margin-top:18px">
     <div class="small"><strong>Sponsored</strong> (AdSense-ready)</div>
     <ins class="adsbygoogle"
          style="display:block; min-height: 90px"
-         data-ad-client="ca-pub-XXXXXXXXXXXXXXX"
+         data-ad-client="ca-pub-8387411349417007"
          data-ad-slot="0000000000"
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
@@ -272,7 +285,7 @@ img[width="728"][height="90"]{
         and a certificate that can be verified.
       </p>
       <div class="ctaRow">
-        <a class="btn" href="https://finternetops.moecommunitycloud.com/training/?utm_source=moecommunitycloud&utm_medium=homepage_banner&utm_campaign=finternetops_training&utm_content=trust_proof">See Certification →</a>
+        <a class="btn" href="https://finternetops.moecommunitycloud.com/training/?utm_source=moecommunitycloud&utm_medium=homepage_content&utm_campaign=finternetops_training&utm_content=trust_proof">See Certification →</a>
         <a class="btn" href="partners.html#partnerpath">Partner Path →</a>
       </div>
     </div>
@@ -288,22 +301,11 @@ img[width="728"][height="90"]{
     </div>
   </div>
 
-  <div class="ctaRow" style="margin-top:14px">
-    <a class="btn" href="https://finternetops.moecommunitycloud.com/training/?utm_source=moecommunitycloud&utm_medium=homepage_banner&utm_campaign=finternetops_training&utm_content=leaderboard_top" target="_blank" rel="noopener">
-      <img src="assets/images/mbcc-training-leaderboard-728x90.png" alt="FinternetOps Enterprise Training" width="728" height="90" loading="lazy" style="max-width:100%;height:auto;border-radius:14px;display:block"/>
-    </a>
-  </div>
-
-  <div class="ctaRow" style="margin-top:10px">
-    <a class="btn" href="https://finternetops.moecommunitycloud.com/training/?utm_source=moecommunitycloud&utm_medium=homepage_banner&utm_campaign=whitelist_business_owners&utm_content=leaderboard_top" target="_blank" rel="noopener">
-      <img src="assets/images/mbcc-whitelist-leaderboard-728x90.png" alt="Whitelist Business Owners" width="728" height="90" loading="lazy" style="max-width:100%;height:auto;border-radius:14px;display:block"/>
-    </a>
-  </div>
+  <!-- Removed: two leaderboard banner image blocks (728x90) -->
+  <!-- Space now used for content above. -->
 </section>
 
-
-
-    <aside class="panel float">
+<aside class="panel float">
   <div class="qlGrid">
     <div class="qlCopy">
       <span class="badge">Quick Links</span>
@@ -346,7 +348,8 @@ img[width="728"][height="90"]{
     </div>
   </div>
 </aside>
-  </div>
+
+</div>
 </main>
 
 <section class="section container" id="whatwedo">
@@ -488,10 +491,11 @@ img[width="728"][height="90"]{
     <a class="btn" href="partners.html">Partner opportunities</a>
   </div>
 </section>
+
 <footer class="footer">
   <div class="container footgrid">
     <div>
-      <div class="small"><strong>MBCC</strong> builds enterprise-ready operating systems for AI agents and next‑gen finance automation—designed for operators, partners, and whitelabel growth.</div>
+      <div class="small"><strong>MBCC</strong> builds enterprise-ready operating systems for AI agents and next-gen finance automation—designed for operators, partners, and whitelabel growth.</div>
       <div class="small" style="margin-top:10px">© 2026 Moe Community Cloud (MBCC). All rights reserved.</div>
     </div>
     <div class="footlinks">
@@ -504,6 +508,7 @@ img[width="728"][height="90"]{
     </div>
   </div>
 </footer>
+
 <script>
 /* MBCC micro-animations (no tracking) */
 (function(){
@@ -532,3 +537,4 @@ img[width="728"][height="90"]{
 <script src="assets/js/site.js"></script>
 </body>
 </html>
+
