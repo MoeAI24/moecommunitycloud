@@ -1,131 +1,175 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<section class="applyPanel" style="margin-top:18px">
+  <span class="badge">Partner Application</span>
+  <h2>Apply for Partner Review</h2>
+  <p class="lead">
+    Submit your details for partner review. We evaluate delivery readiness, not hype.
+    This does not grant access to internal IP; it begins the qualification process.
+  </p>
 
-<title>Apply to Become an MBCC Delivery Partner</title>
-<meta name="description" content="Apply to become an authorized Moe Community Cloud (MBCC) delivery partner. Certification, licensing, and enterprise-ready delivery systems."/>
-<link rel="canonical" href="https://moecommunitycloud.com/partners/apply.html"/>
-
-<link rel="stylesheet" href="/assets/css/site.css"/>
-
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"WebPage",
-  "name":"MBCC Partner Application",
-  "description":"Application page for authorized MBCC delivery partners",
-  "isPartOf":{"@type":"Organization","name":"Moe Community Cloud"}
-}
-</script>
-
-<style>
-.applyWrap{max-width:960px;margin:0 auto;padding:22px 16px 40px}
-.applyPanel{border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(0,0,0,.18);padding:18px}
-.applyGrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
-@media(max-width:860px){.applyGrid{grid-template-columns:1fr}}
-.applyBox{border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px;background:rgba(0,0,0,.16)}
-.applyBox h3{margin:0 0 8px}
-.applyBox p{margin:0;color:rgba(247,243,233,.75);line-height:1.65}
-.applyList{margin:8px 0 0 18px;color:rgba(247,243,233,.75)}
-.applyCTA{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-.applyBtn{padding:12px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.25);font-weight:900;text-decoration:none;color:#fff}
-.applyBtn.primary{border-color:rgba(193,18,31,.6);background:rgba(193,18,31,.18)}
-.applyNote{margin-top:14px;font-size:.95rem;color:rgba(247,243,233,.7)}
-</style>
-</head>
-
-<body>
-<header class="topbar">
-  <div class="container navwrap">
-    <div class="brand">
-      <img src="/assets/img/moecommunitycloud-logo.png" width="44" height="44" alt="MBCC logo"/>
-      <div class="brandmeta">
-        <div class="name">Moe Community Cloud</div>
-        <div class="tag">Agent Ops • FinternetOps • Delivery Partners</div>
-      </div>
-    </div>
-    <nav class="nav">
-      <a href="/index.html">Home</a>
-      <a href="/partners.html">Partners</a>
-      <a href="/consulting.html">Consulting</a>
-      <a href="/newsletter.html">Newsletter</a>
-    </nav>
-  </div>
-</header>
-
-<main class="applyWrap">
-  <section class="applyPanel">
-    <span class="badge">Partner Application</span>
-    <h1 style="margin:8px 0">Apply to Become an Authorized MBCC Delivery Partner</h1>
-    <p class="lead">
-      We onboard a limited number of partners each quarter.
-      This application determines eligibility for certification, licensing,
-      and enterprise delivery under Moe Community Cloud standards.
-    </p>
-
-    <div class="applyGrid">
-      <div class="applyBox">
-        <h3>Who should apply</h3>
-        <ul class="applyList">
-          <li>Consulting firms expanding into AI or finance ops</li>
-          <li>Operators seeking a repeatable delivery system</li>
-          <li>Partners who want licensed frameworks—not raw IP</li>
-        </ul>
+  <form id="partnerAppForm" class="appForm" autocomplete="on">
+    <div class="appGrid">
+      <div class="appField">
+        <label for="fullName">Full name</label>
+        <input id="fullName" name="fullName" type="text" placeholder="Your name" required />
       </div>
 
-      <div class="applyBox">
-        <h3>Who should not apply</h3>
-        <ul class="applyList">
-          <li>Resellers looking for source code</li>
-          <li>Individuals seeking certification only</li>
-          <li>Teams unwilling to follow delivery standards</li>
-        </ul>
+      <div class="appField">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@company.com" required />
       </div>
 
-      <div class="applyBox">
-        <h3>What acceptance includes</h3>
-        <ul class="applyList">
-          <li>Structured onboarding & training</li>
-          <li>Certification & delivery entitlement</li>
-          <li>Enterprise proof artifacts</li>
-          <li>Clear licensing boundaries</li>
-        </ul>
+      <div class="appField">
+        <label for="company">Company / Brand</label>
+        <input id="company" name="company" type="text" placeholder="Company name (or solo brand)" required />
       </div>
 
-      <div class="applyBox">
-        <h3>What acceptance does not include</h3>
-        <ul class="applyList">
-          <li>Ownership of MBCC IP</li>
-          <li>Unrestricted resale rights</li>
-          <li>Custom exceptions to governance</li>
-        </ul>
+      <div class="appField">
+        <label for="website">Website / LinkedIn</label>
+        <input id="website" name="website" type="url" placeholder="https://..." />
+      </div>
+
+      <div class="appField">
+        <label for="role">Your role</label>
+        <select id="role" name="role" required>
+          <option value="" selected disabled>Select one…</option>
+          <option>Owner / Founder</option>
+          <option>Consultant</option>
+          <option>Implementation Lead</option>
+          <option>Sales / Partnerships</option>
+          <option>Operator / Analyst</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="appField">
+        <label for="teamSize">Team size</label>
+        <select id="teamSize" name="teamSize" required>
+          <option value="" selected disabled>Select one…</option>
+          <option>Solo</option>
+          <option>2–5</option>
+          <option>6–15</option>
+          <option>16–50</option>
+          <option>51+</option>
+        </select>
+      </div>
+
+      <div class="appField">
+        <label for="track">Preferred track</label>
+        <select id="track" name="track" required>
+          <option value="" selected disabled>Select one…</option>
+          <option>Operator</option>
+          <option>Consultant</option>
+          <option>Sales</option>
+          <option>Not sure (recommend)</option>
+        </select>
+      </div>
+
+      <div class="appField">
+        <label for="timeline">Target start timeline</label>
+        <select id="timeline" name="timeline" required>
+          <option value="" selected disabled>Select one…</option>
+          <option>Immediately (0–2 weeks)</option>
+          <option>Soon (2–6 weeks)</option>
+          <option>Later (6–12 weeks)</option>
+          <option>Exploring only</option>
+        </select>
+      </div>
+
+      <div class="appField appFull">
+        <label for="clients">Ideal clients / markets</label>
+        <input id="clients" name="clients" type="text" placeholder="e.g., fintech ops, SMB automation, enterprise delivery, compliance teams" required />
+      </div>
+
+      <div class="appField appFull">
+        <label for="experience">Delivery experience (short)</label>
+        <textarea id="experience" name="experience" rows="4" placeholder="What have you implemented or delivered before? Keep it high-level." required></textarea>
+      </div>
+
+      <div class="appField appFull">
+        <label for="why">Why MBCC partner program?</label>
+        <textarea id="why" name="why" rows="4" placeholder="What outcome are you trying to achieve as a partner?" required></textarea>
+      </div>
+
+      <div class="appField appFull">
+        <label for="agree">
+          <input id="agree" name="agree" type="checkbox" required />
+          I understand this program is delivery + licensing. I am not requesting internal source code or proprietary playbooks.
+        </label>
       </div>
     </div>
 
-    <div class="applyCTA">
-      <a class="applyBtn primary" href="mailto:partners@moecommunitycloud.com?subject=MBCC Partner Application">
-        Start Partner Review →
-      </a>
-      <a class="applyBtn" href="https://finternetops.moecommunitycloud.com/training/">
-        Review Training First →
-      </a>
+    <div class="appActions">
+      <button type="submit" class="applyBtn primary">Submit Application →</button>
+      <a class="applyBtn" href="https://finternetops.moecommunitycloud.com/training/">Review Training First →</a>
     </div>
 
     <p class="applyNote">
-      Applications are reviewed manually.  
-      Acceptance is based on delivery readiness, not audience size or hype.
+      After you submit, your email app will open with the application pre-filled.
+      If you prefer, you can copy/paste the text and email it manually.
     </p>
-  </section>
-</main>
+  </form>
 
-<footer class="footer">
-  <div class="container footgrid">
-    <div class="small">
-      © 2026 Moe Community Cloud (MBCC). All rights reserved.
-    </div>
-  </div>
-</footer>
-</body>
-</html>
+  <script>
+    (function () {
+      const form = document.getElementById("partnerAppForm");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const v = (id) => (document.getElementById(id)?.value || "").trim();
+        const c = (id) => document.getElementById(id)?.checked;
+
+        const fullName = v("fullName");
+        const email = v("email");
+        const company = v("company");
+        const website = v("website");
+        const role = v("role");
+        const teamSize = v("teamSize");
+        const track = v("track");
+        const timeline = v("timeline");
+        const clients = v("clients");
+        const experience = v("experience");
+        const why = v("why");
+
+        if (!c("agree")) {
+          alert("Please confirm the IP / licensing acknowledgment box.");
+          return;
+        }
+
+        const subject = encodeURIComponent("MBCC Partner Application — " + company);
+        const body = encodeURIComponent(
+`MBCC PARTNER APPLICATION
+
+Name: ${fullName}
+Email: ${email}
+Company/Brand: ${company}
+Website/LinkedIn: ${website}
+
+Role: ${role}
+Team size: ${teamSize}
+Preferred track: ${track}
+Start timeline: ${timeline}
+
+Ideal clients/markets:
+${clients}
+
+Delivery experience (high-level):
+${experience}
+
+Why MBCC partner program:
+${why}
+
+Acknowledgment:
+Applicant understands this is delivery + licensing and is not requesting internal IP/playbooks.
+
+— Submitted from: https://moecommunitycloud.com/partners/apply.html`
+        );
+
+        // Change this email to whatever inbox you want for partner applications
+        const to = "partners@moecommunitycloud.com";
+        window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+      });
+    })();
+  </script>
+</section>
+
