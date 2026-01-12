@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -25,6 +25,25 @@
   "@type": "WebSite",
   "name": "Moe Community Cloud",
   "url": "https://moecommunitycloud.com/"
+}
+</script>
+
+<!-- Optional: SEO-safe agent listing schema (does NOT reveal IP) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"MBCC Agent Library (Featured)",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Treasury Recon Agent","url":"https://finternetops.moecommunitycloud.com/agents.html"},
+    {"@type":"ListItem","position":2,"name":"Custody & Settlement Agent","url":"https://finternetops.moecommunitycloud.com/agents.html"},
+    {"@type":"ListItem","position":3,"name":"Risk & Limits Agent","url":"https://finternetops.moecommunitycloud.com/agents.html"},
+    {"@type":"ListItem","position":4,"name":"Compliance Evidence Agent","url":"https://finternetops.moecommunitycloud.com/agents.html"},
+    {"@type":"ListItem","position":5,"name":"Partner Onboarding Agent","url":"https://finternetops.moecommunitycloud.com/agents.html"},
+    {"@type":"ListItem","position":6,"name":"Certification Proctor Agent","url":"https://finternetops.moecommunitycloud.com/agents.html"},
+    {"@type":"ListItem","position":7,"name":"SOW & Delivery Agent","url":"https://finternetops.moecommunitycloud.com/agents.html"},
+    {"@type":"ListItem","position":8,"name":"AgentOps Orchestration Agent","url":"https://finternetops.moecommunitycloud.com/agents.html"}
+  ]
 }
 </script>
 
@@ -75,10 +94,7 @@
 
 /* =========================================================
    MBCC: Homepage readability + banner sizing
-   (no structure/text changes)
    ========================================================= */
-
-/* Typography scale (one step bigger) */
 html{font-size:17px;}
 body{line-height:1.7;}
 .lead{font-size:1.1rem;line-height:1.75;}
@@ -87,7 +103,7 @@ h1{font-size:2.2rem;line-height:1.15;}
 h2{font-size:1.7rem;line-height:1.2;}
 h3{font-size:1.3rem;line-height:1.25;}
 
-/* Banner/hero images: smaller, never squished (kept for any other images on site) */
+/* Existing image rule kept for non-agent cards */
 .card img,
 .panel img{
   width:100%;
@@ -99,16 +115,25 @@ h3{font-size:1.3rem;line-height:1.25;}
 }
 @media (max-width:768px){
   .card img,
-  .panel img{
-    height:200px;
-  }
+  .panel img{ height:200px; }
 }
 
-/* Leaderboard images (kept, though we removed them from homepage) */
-img[width="728"][height="90"]{
-  height:auto !important;
-  max-height:none !important;
-  object-fit:contain !important;
+/* ✅ NEW: Agent thumbnail images on homepage (NOT banners) */
+.agentThumb{
+  width:100%;
+  height:auto;
+  max-height:220px;
+  object-fit:cover;
+  object-position:center;
+  border-radius:14px;
+  display:block;
+  margin:0 0 10px;
+}
+.agentCaption{
+  font-size:12px;
+  color:rgba(247,243,233,.70);
+  line-height:1.5;
+  margin-top:6px;
 }
 </style>
 </head>
@@ -198,6 +223,115 @@ img[width="728"][height="90"]{
   </div>
 </div>
 
+<!-- ===========================
+     NEW SECTION: FEATURED AGENTS
+     SEO-friendly, no IP leakage
+=========================== -->
+<section class="section container" id="agents">
+  <h2>Featured MBCC Agents</h2>
+  <p class="lead">
+    MBCC agents are production-focused operator roles — built to help teams move faster with cleaner workflows, clearer reporting,
+    and consistent governance outputs. We describe outcomes publicly without exposing internal playbooks or proprietary implementation details.
+  </p>
+
+  <div class="ctaRow" style="margin-top:12px">
+    <a class="btn primary" href="https://finternetops.moecommunitycloud.com/agents.html">View FinternetOps Agent Library →</a>
+    <a class="btn" href="https://agentops.moecommunitycloud.com/">AgentOps Delivery System →</a>
+  </div>
+
+  <div class="grid" style="margin-top:16px">
+    <!-- 1 -->
+    <article class="card">
+      <img class="agentThumb" src="assets/images/treasury-recon.png" alt="Treasury Recon Agent - operational reconciliation for tokenized treasury positions" loading="lazy" decoding="async"/>
+      <h3 style="margin:0 0 6px">Treasury Recon Agent</h3>
+      <p class="small">Reconciliation-focused agent that helps operators spot breaks and mismatches across reporting sources. Built for clean exception handling and faster resolution cycles.</p>
+      <div class="agentCaption">SEO: treasury reconciliation, tokenized operations, exception management.</div>
+      <div class="actions" style="margin-top:10px">
+        <a class="btn" href="https://finternetops.moecommunitycloud.com/agents.html">Learn more →</a>
+      </div>
+    </article>
+
+    <!-- 2 -->
+    <article class="card">
+      <img class="agentThumb" src="assets/images/custody-settlement.png" alt="Custody and Settlement Agent - operational status tracking and exception queues" loading="lazy" decoding="async"/>
+      <h3 style="margin:0 0 6px">Custody &amp; Settlement Agent</h3>
+      <p class="small">Tracks operational movement and settlement status to reduce “where is it?” chaos. Designed for partner handoffs, dashboard visibility, and exception queues.</p>
+      <div class="agentCaption">SEO: custody operations, settlement status, exception queue dashboards.</div>
+      <div class="actions" style="margin-top:10px">
+        <a class="btn" href="https://finternetops.moecommunitycloud.com/agents.html">Learn more →</a>
+      </div>
+    </article>
+
+    <!-- 3 -->
+    <article class="card">
+      <img class="agentThumb" src="assets/images/risk-limits.png" alt="Risk and Limits Agent - exposure checks, concentration limits, and operator escalations" loading="lazy" decoding="async"/>
+      <h3 style="margin:0 0 6px">Risk &amp; Limits Agent</h3>
+      <p class="small">Helps teams enforce exposure discipline with clear daily snapshots and escalation events. Built for operator review, not black-box automation.</p>
+      <div class="agentCaption">SEO: risk limits, exposure monitoring, daily risk snapshot.</div>
+      <div class="actions" style="margin-top:10px">
+        <a class="btn" href="https://finternetops.moecommunitycloud.com/agents.html">Learn more →</a>
+      </div>
+    </article>
+
+    <!-- 4 -->
+    <article class="card">
+      <img class="agentThumb" src="assets/images/compliance-evidence.png" alt="Compliance Evidence Agent - audit friendly reporting and proof bundles" loading="lazy" decoding="async"/>
+      <h3 style="margin:0 0 6px">Compliance Evidence Agent</h3>
+      <p class="small">Produces audit-friendly outputs and proof artifacts without exposing internal controls logic. Focused on clean reporting, approvals, and change visibility.</p>
+      <div class="agentCaption">SEO: compliance evidence, audit readiness, operational proof bundle.</div>
+      <div class="actions" style="margin-top:10px">
+        <a class="btn" href="https://finternetops.moecommunitycloud.com/agents.html">Learn more →</a>
+      </div>
+    </article>
+
+    <!-- 5 -->
+    <article class="card">
+      <img class="agentThumb" src="assets/images/partner-onboarding.png" alt="Partner Onboarding Agent - routing partners into operator consultant and sales tracks" loading="lazy" decoding="async"/>
+      <h3 style="margin:0 0 6px">Partner Onboarding Agent</h3>
+      <p class="small">Routes partners into the right enablement track with readiness checks and next-step deliverables. Built to support a repeatable partner funnel at scale.</p>
+      <div class="agentCaption">SEO: partner enablement, onboarding workflows, delivery readiness.</div>
+      <div class="actions" style="margin-top:10px">
+        <a class="btn" href="partners.html#partnerpath">Partner path →</a>
+      </div>
+    </article>
+
+    <!-- 6 -->
+    <article class="card">
+      <img class="agentThumb" src="assets/images/certification-proctor.png" alt="Certification Proctor Agent - training QA assessment scoring and badge status" loading="lazy" decoding="async"/>
+      <h3 style="margin:0 0 6px">Certification Proctor Agent</h3>
+      <p class="small">Supports training quality: completion checks, assessment scoring, and remediation guidance. Outputs badge-style status for partner profiles.</p>
+      <div class="agentCaption">SEO: certification readiness, training QA, badge status.</div>
+      <div class="actions" style="margin-top:10px">
+        <a class="btn" href="https://finternetops.moecommunitycloud.com/training/">Training →</a>
+      </div>
+    </article>
+
+    <!-- 7 -->
+    <article class="card">
+      <img class="agentThumb" src="assets/images/sow-delivery.png" alt="SOW and Delivery Agent - consulting delivery planning acceptance criteria and reporting cadence" loading="lazy" decoding="async"/>
+      <h3 style="margin:0 0 6px">SOW &amp; Delivery Agent</h3>
+      <p class="small">Helps shape delivery scopes and implementation phases with clear acceptance expectations. Designed for weekly reporting rhythm and cleaner delivery execution.</p>
+      <div class="agentCaption">SEO: statement of work, delivery phases, acceptance criteria, weekly reporting.</div>
+      <div class="actions" style="margin-top:10px">
+        <a class="btn" href="consulting.html">Consulting →</a>
+      </div>
+    </article>
+
+    <!-- 8 -->
+    <article class="card">
+      <img class="agentThumb" src="assets/images/agentops-orchestration.png" alt="AgentOps Orchestration Agent - governance, RBAC, logging and change control for agent lifecycle" loading="lazy" decoding="async"/>
+      <h3 style="margin:0 0 6px">AgentOps Orchestration Agent</h3>
+      <p class="small">Bridges delivery discipline across agents with lifecycle structure and operator visibility. Built for repeatable delivery systems, not one-off demos.</p>
+      <div class="agentCaption">SEO: agent lifecycle, RBAC, logs, change control, delivery system.</div>
+      <div class="actions" style="margin-top:10px">
+        <a class="btn" href="https://agentops.moecommunitycloud.com/">AgentOps →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== Existing page continues below (unchanged) ===== -->
+
 <section class="section" id="training-funnel">
   <h2>Get Started the Right Way</h2>
   <p class="lead">
@@ -206,7 +340,6 @@ img[width="728"][height="90"]{
   </p>
 
   <div class="grid2" style="margin-top:16px">
-    <!-- CARD 1 (banner removed, replaced with more content) -->
     <div class="card">
       <div style="padding-top:4px">
         <p class="small">
@@ -235,7 +368,6 @@ img[width="728"][height="90"]{
       </div>
     </div>
 
-    <!-- CARD 2 (banner removed, replaced with more content) -->
     <div class="card">
       <div style="padding-top:4px">
         <p class="small">
@@ -265,7 +397,6 @@ img[width="728"][height="90"]{
     </div>
   </div>
 
-  <!-- Sponsored AdSense (kept; fixed client id to match your real one) -->
   <div class="adSlot" style="margin-top:18px">
     <div class="small"><strong>Sponsored</strong> (AdSense-ready)</div>
     <ins class="adsbygoogle"
@@ -300,9 +431,6 @@ img[width="728"][height="90"]{
       </ol>
     </div>
   </div>
-
-  <!-- Removed: two leaderboard banner image blocks (728x90) -->
-  <!-- Space now used for content above. -->
 </section>
 
 <aside class="panel float">
@@ -512,7 +640,6 @@ img[width="728"][height="90"]{
 <script>
 /* MBCC micro-animations (no tracking) */
 (function(){
-  // Partner Path auto-advance
   const ppNodes = document.querySelectorAll('.ppViz .ppNode');
   if(ppNodes && ppNodes.length){
     let i = 0;
@@ -522,7 +649,6 @@ img[width="728"][height="90"]{
       i = (i + 1) % ppNodes.length;
     }, 2400);
   }
-  // Quick Links lane highlight auto-advance
   const lanes = document.querySelectorAll('.qlViz .laneCard');
   if(lanes && lanes.length){
     let j = 0;
