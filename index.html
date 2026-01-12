@@ -1,59 +1,56 @@
-<!doctype html>
+ <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
   <title>Moe Community Cloud | AI, Cloud, Automation & Digital Strategy</title>
   <meta name="description" content="Moe Community Cloud delivers AI, cloud automation, training, and consulting solutions for modern businesses and creators." />
   <link rel="canonical" href="https://moecommunitycloud.com/" />
 
   <link rel="stylesheet" href="/assets/css/site.css" />
 
-  <!-- AdSense (include ONCE per page) -->
+  <!-- AdSense: include ONCE per page -->
   <script async
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX"
     crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <!-- HEADER / NAV (keep your existing nav if you already have one) -->
   <header class="site-header">
-    <div class="container">
-      <a class="brand" href="/">Moe Community Cloud</a>
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Moe Community Cloud home">Moe Community Cloud</a>
 
-      <nav class="site-nav" aria-label="Primary">
+      <nav class="site-nav" aria-label="Primary navigation">
         <a href="/consulting.html">Consulting</a>
         <a href="/partners.html">Partners</a>
         <a href="/training/index.html">Training</a>
-        <!-- AgentOps redirect stub path (or link direct to agentops domain if you prefer) -->
         <a href="/agentops/">AgentOps</a>
         <a href="/newsletter/">Newsletter</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO (banner is controlled by CSS: max-height + object-fit + aspect-ratio) -->
   <main>
     <section class="hero">
       <div class="container">
         <h1>AI, Cloud, Automation — Built for Real Business</h1>
-        <p>
+        <p class="lead">
           Practical systems for AI operations, governance, and scalable cloud delivery.
           Clear paths to consulting support and training programs.
         </p>
 
-        <!-- OPTIONAL HERO IMAGE (remove if you don’t want it) -->
-        <!-- Replace src with your real hero image path -->
-        <img
-          src="/assets/images/home-hero.jpg"
-          alt="Moe Community Cloud AI and cloud automation"
-          loading="eager" />
+        <!-- Optional hero image (delete this img if you don't want it) -->
+        <img class="hero-media"
+             src="/assets/images/home-hero.jpg"
+             alt="Moe Community Cloud AI and cloud automation"
+             loading="eager" decoding="async" fetchpriority="high" />
       </div>
     </section>
 
-    <!-- In-content AdSense slot (safe: after first section, not in hero) -->
+    <!-- AdSense: SAFE placement (not in hero, not above H1) -->
     <section class="container">
-      <div class="adsense-slot">
+      <div class="adsense-slot" aria-label="Advertisement">
         <ins class="adsbygoogle"
           style="display:block"
           data-ad-client="ca-pub-XXXXXXXXXXXX"
@@ -61,36 +58,32 @@
           data-ad-format="auto"
           data-full-width-responsive="true"></ins>
       </div>
-
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </section>
 
-    <!-- CORE SECTIONS (simple, no redesign tricks) -->
     <section class="container">
       <h2>What We Do</h2>
       <p>
-        Moe Community Cloud focuses on AI operations, compliance-aware delivery, and cloud automation —
-        built to work reliably in production.
+        Moe Community Cloud focuses on production-ready AI and cloud systems — operations, compliance-aligned delivery,
+        and automation that scales without breaking.
       </p>
 
-      <div class="grid">
+      <div class="grid grid-3">
         <article class="card">
           <h3>AI & Cloud Consulting</h3>
-          <p>Operationalize AI responsibly: governance, logs, RBAC, stability, and scalable delivery.</p>
+          <p>Governance, logs, RBAC, stability, and scalable delivery for real-world systems.</p>
           <a class="btn" href="/consulting.html">Explore Consulting</a>
         </article>
 
         <article class="card">
-          <h3>Partner Enablement</h3>
-          <p>Collaboration paths for platforms, vendors, and teams building responsible AI solutions.</p>
+          <h3>Partners</h3>
+          <p>Collaboration pathways for platforms and teams building responsible AI solutions.</p>
           <a class="btn" href="/partners.html">View Partners</a>
         </article>
 
         <article class="card">
-          <h3>Training Programs</h3>
-          <p>Practical training focused on AI ops, deployment, governance, and real-world systems.</p>
+          <h3>Training</h3>
+          <p>Practical programs focused on AI ops, deployment, governance, and real production workflows.</p>
           <a class="btn" href="/training/index.html">Start Training</a>
         </article>
       </div>
@@ -98,26 +91,31 @@
 
     <section class="container">
       <h2>Latest</h2>
-      <p>New posts from the newsletter issues.</p>
+      <p>Recent updates from our newsletter issues.</p>
+
       <ul class="list">
         <li><a href="/newsletter/issues/issue-006-ai-compliance-not-optional.html">AI Compliance Isn’t Optional Anymore — Here’s Why</a></li>
         <li><a href="/newsletter/issues/issue-007-ai-ops-failure.html">Why Most AI Projects Fail at the Ops Layer</a></li>
         <li><a href="/newsletter/issues/issue-008-responsible-ai-small-teams.html">What “Responsible AI” Actually Means for Small Teams</a></li>
       </ul>
+
+      <p class="soft-cta">
+        Teams applying these ideas in production often explore our
+        <a href="/consulting.html">AI & cloud consulting services</a> or deepen capability through our
+        <a href="/training/index.html">AI training programs</a>.
+      </p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
+    <div class="container footer-inner">
       <p>&copy; <span id="y"></span> Moe Community Cloud. All rights reserved.</p>
+      <p class="small">Built for clarity, speed, and AdSense-safe monetization.</p>
     </div>
   </footer>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
-
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
   <script src="/assets/js/site.js" defer></script>
 </body>
 </html>
- 
+
