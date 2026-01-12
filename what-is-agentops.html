@@ -87,7 +87,42 @@
     footer{max-width:var(--max); margin:18px auto 28px; padding: 0 16px; color:rgba(247,243,233,.62); font-size:12px;}
     .footerline{border-top:1px solid rgba(212,175,55,.14); padding-top:14px; display:flex; flex-wrap:wrap;
       gap:10px; justify-content:space-between; align-items:center;}
-  </style>
+  
+    /* Framework sections */
+    .framework{margin-top:22px}
+    .framework__grid{display:grid; gap:16px; grid-template-columns:1fr}
+    @media (min-width: 860px){ .framework__grid{grid-template-columns:1fr 1fr} }
+    .framework__card{
+      background: rgba(16,16,16,.45);
+      border:1px solid rgba(212,175,55,.18);
+      border-radius:14px;
+      padding:14px;
+    }
+    .framework__card h3{margin:0 0 8px; font-size:18px; letter-spacing:-.01em}
+    .framework__card p{margin:0 0 10px}
+    .framework__outcome{
+      margin-top:10px;
+      padding:10px 12px;
+      border-left:3px solid rgba(212,175,55,.55);
+      background:rgba(212,175,55,.07);
+      border-radius:10px;
+      color: rgba(247,243,233,.82);
+      font-size: 14px;
+    }
+    .section-img{margin:10px 0 12px; border-radius:14px; overflow:hidden; border:1px solid rgba(212,175,55,.22)}
+    .section-img img{width:100%; height:auto; display:block; aspect-ratio:16/9; object-fit:cover}
+    .framework__toc{
+      display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 8px;
+    }
+    .framework__toc a{
+      font-size:12px;
+      padding:7px 10px;
+      border:1px solid rgba(212,175,55,.18);
+      border-radius:999px;
+      background:rgba(16,16,16,.35);
+    }
+
+</style>
 </head>
 
 <body>
@@ -132,6 +167,145 @@
         <p>This shift introduces a new operational challenge: <strong>how do organizations control, govern, and scale AI agents safely?</strong></p>
         <p>AgentOps is the answer. AgentOps is the discipline focused on managing the <strong>full lifecycle of AI agents</strong>, including orchestration, permissions, monitoring, compliance, and operational control. Without AgentOps, enterprises risk security breaches, runaway costs, compliance failures, and unpredictable agent behavior.</p>
         <p class="note">As AI adoption accelerates in 2026 and beyond, AgentOps is becoming as essential as DevOps and MLOps once were.</p>
+
+
+        <section class="framework" aria-labelledby="framework-title">
+          <h2 id="framework-title">MBCC Delivery Framework</h2>
+          <p>
+            This is the enterprise delivery path we use to move AgentOps from “idea” to “production,” then into repeatable execution.
+            Each stage is designed to protect scope, increase competence, and create proof that sells.
+          </p>
+
+          <div class="framework__toc" aria-label="Framework navigation">
+            <a href="#onboarding">Onboarding</a>
+            <a href="#training">Training</a>
+            <a href="#certification">Certification</a>
+            <a href="#licensing">Licensing</a>
+            <a href="#enterprise-proof">Enterprise Proof</a>
+            <a href="#scale">Scale</a>
+          </div>
+
+          <div class="framework__grid">
+
+            <div class="framework__card" id="onboarding">
+              <h3>1) Onboarding</h3>
+              <div class="section-img">
+                <picture>
+                  <source srcset="assets/images/agentops/onboarding.webp" type="image/webp">
+                  <img src="assets/images/agentops/onboarding.png" width="1600" height="900" loading="lazy" decoding="async"
+                       alt="AgentOps onboarding: scope boundaries and delivery expectations">
+                </picture>
+              </div>
+              <p>
+                Onboarding establishes the foundation for successful AgentOps delivery. We define scope boundaries, responsibilities,
+                and operational constraints so everyone knows what the agents will—and will not—do.
+              </p>
+              <p>
+                We align stakeholders across engineering, security, and leadership on objectives, risk tolerance, and change control
+                so the engagement starts with clarity instead of assumptions.
+              </p>
+              <div class="framework__outcome"><strong>Outcome:</strong> Documented scope, boundaries, and enterprise-ready positioning.</div>
+            </div>
+
+            <div class="framework__card" id="training">
+              <h3>2) Training</h3>
+              <div class="section-img">
+                <picture>
+                  <source srcset="assets/images/agentops/training.webp" type="image/webp">
+                  <img src="assets/images/agentops/training.png" width="1600" height="900" loading="lazy" decoding="async"
+                       alt="Structured training modules and labs for AgentOps and FinternetOps workflows">
+                </picture>
+              </div>
+              <p>
+                Training converts AgentOps from an external service into an internal capability. We deliver structured modules and labs
+                for AgentOps and FinternetOps workflows that mirror production realities.
+              </p>
+              <p>
+                Teams practice boundaries, permissions, observability, and incident response in controlled environments—so production
+                rollouts are stable and auditable.
+              </p>
+              <div class="framework__outcome"><strong>Outcome:</strong> Practical, repeatable skills to operate AI agents safely in production.</div>
+            </div>
+
+            <div class="framework__card" id="certification">
+              <h3>3) Certification</h3>
+              <div class="section-img">
+                <picture>
+                  <source srcset="assets/images/agentops/certification.webp" type="image/webp">
+                  <img src="assets/images/agentops/certification.png" width="1600" height="900" loading="lazy" decoding="async"
+                       alt="MBCC standards-based certification for AgentOps competence and delivery quality">
+                </picture>
+              </div>
+              <p>
+                Certification validates competence and delivery quality under MBCC standards. Candidates demonstrate applied capability:
+                governance, controls, troubleshooting, and operational hygiene—not theory.
+              </p>
+              <p>
+                Certified teams reduce enterprise sales friction by signaling consistent delivery benchmarks and responsible execution.
+              </p>
+              <div class="framework__outcome"><strong>Outcome:</strong> Verified AgentOps practitioners aligned to MBCC delivery standards.</div>
+            </div>
+
+            <div class="framework__card" id="licensing">
+              <h3>4) Licensing</h3>
+              <div class="section-img">
+                <picture>
+                  <source srcset="assets/images/agentops/licensing.webp" type="image/webp">
+                  <img src="assets/images/agentops/licensing.png" width="1600" height="900" loading="lazy" decoding="async"
+                       alt="Authorized partner or whitelabel licensing pathways with clear boundaries">
+                </picture>
+              </div>
+              <p>
+                Licensing enables authorized partner or whitelabel delivery pathways with clear boundaries. We separate usage rights,
+                delivery scope, and brand requirements to protect enterprise trust.
+              </p>
+              <p>
+                This makes partner-led implementation scalable while maintaining consistent client experience and governance.
+              </p>
+              <div class="framework__outcome"><strong>Outcome:</strong> Repeatable partner delivery without compromising quality or brand integrity.</div>
+            </div>
+
+            <div class="framework__card" id="enterprise-proof">
+              <h3>5) Enterprise Proof</h3>
+              <div class="section-img">
+                <picture>
+                  <source srcset="assets/images/agentops/enterprise-proof.webp" type="image/webp">
+                  <img src="assets/images/agentops/enterprise-proof.png" width="1600" height="900" loading="lazy" decoding="async"
+                       alt="KPI scorecards, narratives, and anonymized enterprise proof for AgentOps value">
+                </picture>
+              </div>
+              <p>
+                Enterprise buyers demand evidence. We produce KPI scorecards, delivery narratives, and anonymized case frameworks that
+                translate AgentOps execution into business outcomes—without exposing client data.
+              </p>
+              <p>
+                These assets support executive reviews, procurement, and sales conversations by making control and impact measurable.
+              </p>
+              <div class="framework__outcome"><strong>Outcome:</strong> Sales-ready proof that accelerates enterprise decision-making.</div>
+            </div>
+
+            <div class="framework__card" id="scale">
+              <h3>6) Scale</h3>
+              <div class="section-img">
+                <picture>
+                  <source srcset="assets/images/agentops/scale.webp" type="image/webp">
+                  <img src="assets/images/agentops/scale.png" width="1600" height="900" loading="lazy" decoding="async"
+                       alt="Scaling AgentOps into repeatable delivery and retainers with consistent client experience">
+                </picture>
+              </div>
+              <p>
+                Scale turns initial deployment into repeatable delivery and retainer work with consistent client experience. We standardize
+                governance, documentation, and operational loops so growth doesn’t increase risk.
+              </p>
+              <p>
+                This is how organizations and partners expand AgentOps across teams, products, and business units safely.
+              </p>
+              <div class="framework__outcome"><strong>Outcome:</strong> Sustainable AgentOps operations that grow without adding chaos.</div>
+            </div>
+
+          </div>
+        </section>
+
 
         <h2 id="what-is-agentops">What Is AgentOps?</h2>
         <div class="ad-slot" role="complementary" aria-label="Advertisement">
