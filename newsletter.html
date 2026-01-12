@@ -1,678 +1,252 @@
-<!doctype html>
+ <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Moe Community Cloud | Newsletter</title>
-  <meta name="description" content="Daily signals on AI, cloud, automation, and digital infrastructure — focused on ownership, systems, and monetization." />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MBCC Newsletter | Agent Ops, Compliance, Cloud & Monetization</title>
+  <meta name="description" content="MBCC Newsletter: operator-focused insights on Agent Ops, compliance evidence, cloud/hybrid infrastructure, and monetization systems—enterprise-safe, no hype."/>
+  <meta name="theme-color" content="#0b0b0b"/>
+  <link rel="canonical" href="https://moecommunitycloud.com/newsletter.html"/>
 
-  <!-- Canonical (update if you choose a different path) -->
-  <link rel="canonical" href="https://moecommunitycloud.com/newsletter/" />
+  <link rel="stylesheet" href="/assets/css/site.css"/>
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Moe Community Cloud | Newsletter" />
-  <meta property="og:description" content="Daily signals on AI, cloud, automation, and digital infrastructure — focused on ownership, systems, and monetization." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://moecommunitycloud.com/newsletter/" />
+  <!-- ✅ AdSense loader (once per page) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8387411349417007"
+    crossorigin="anonymous"></script>
 
-  <!-- Twitter (optional but helpful) -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Moe Community Cloud | Newsletter" />
-  <meta name="twitter:description" content="Daily signals on AI, cloud, automation, and digital infrastructure — focused on ownership, systems, and monetization." />
-
-  <!-- Basic JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebPage",
-    "name":"Moe Community Cloud Newsletter",
-    "url":"https://moecommunitycloud.com/newsletter/",
-    "isPartOf":{"@type":"WebSite","name":"Moe Community Cloud","url":"https://moecommunitycloud.com"},
-    "publisher":{"@type":"Organization","name":"Moe Community Cloud","url":"https://moecommunitycloud.com","email":"moeknowmoe24@gmail.com"}
-  }
-  </script>
-
+  <!-- Page-local helpers (keeps layout consistent even if site.css changes) -->
   <style>
-    :root{
-      --red:#c1121f;
-      --black:#0b0b0b;
-      --gold:#d4af37;
-      --gold2:#a8831e;
-      --off:#f7f3e9;
-      --muted:rgba(247,243,233,.78);
-      --card:rgba(255,255,255,.04);
-      --card2:rgba(255,255,255,.06);
-      --shadow:0 18px 40px rgba(0,0,0,.45);
-      --r:16px;
-      --focus:rgba(212,175,55,.75);
+    /* keep ad stable + on-brand */
+    .adsense-slot{
+      margin:16px 0;
+      min-height:250px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(0,0,0,.18);
+      padding:12px;
     }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      color:var(--off);
-      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
-      background:
-        radial-gradient(1200px 700px at 20% -10%, rgba(193,18,31,.28), transparent 55%),
-        radial-gradient(900px 600px at 90% 10%, rgba(212,175,55,.12), transparent 55%),
-        linear-gradient(180deg, #060606, var(--black));
-      overflow-x:hidden;
-    }
-
-    /* subtle plaid overlay */
-    .plaid{
-      position:fixed; inset:0; pointer-events:none; opacity:.22;
-      background:
-        repeating-linear-gradient(45deg, rgba(212,175,55,.06) 0 2px, transparent 2px 14px),
-        repeating-linear-gradient(-45deg, rgba(193,18,31,.08) 0 2px, transparent 2px 16px);
-      mix-blend-mode:screen;
-    }
-
-    a{color:var(--off); text-decoration:none}
-    a:hover{color:white; text-decoration:underline}
-    .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 80px}
-
-    /* Skip link */
-    .skip{
-      position:absolute; left:-9999px; top:8px;
-      background:rgba(0,0,0,.85); border:1px solid rgba(212,175,55,.5);
-      padding:10px 12px; border-radius:12px;
-    }
-    .skip:focus{left:12px; z-index:999; outline:2px solid var(--focus); outline-offset:3px}
-
-    /* Top bar */
-    .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:16px; padding:14px 16px; border:1px solid rgba(212,175,55,.22);
-      border-radius:999px; background:rgba(0,0,0,.35); backdrop-filter: blur(10px);
-      position:sticky; top:12px; z-index:20;
-    }
-    .brand{display:flex; align-items:center; gap:10px; min-width:240px;}
-    .logo{
-      width:40px; height:40px; border-radius:12px;
-      background:linear-gradient(135deg, rgba(193,18,31,.95), rgba(212,175,55,.55));
-      border:1px solid rgba(212,175,55,.35);
-      box-shadow:0 10px 28px rgba(0,0,0,.35);
-    }
-    .brand h1{font-size:14px; margin:0; letter-spacing:.16em; text-transform:uppercase}
-    .brand p{margin:2px 0 0; font-size:12px; color:var(--muted)}
-    .nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
-    .pill{
-      padding:10px 12px; border-radius:999px; font-weight:800; font-size:13px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.03);
-    }
-    .pill.cta{
-      border-color:rgba(212,175,55,.55);
-      background:linear-gradient(135deg, rgba(193,18,31,.9), rgba(193,18,31,.55));
-      box-shadow:0 14px 30px rgba(193,18,31,.22);
-    }
-
-    /* Hero */
-    .hero{display:grid; grid-template-columns: 1.2fr .8fr; gap:18px; margin-top:22px;}
-    @media (max-width: 920px){ .hero{grid-template-columns:1fr} .brand{min-width:auto} }
-    .heroCard{
-      border-radius:calc(var(--r) + 6px);
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border:1px solid rgba(212,175,55,.22);
-      box-shadow:var(--shadow);
-      padding:22px;
-      position:relative; overflow:hidden;
-    }
-    .heroCard:before{
-      content:""; position:absolute; inset:-2px;
-      background: radial-gradient(600px 220px at 20% 0%, rgba(193,18,31,.25), transparent 65%),
-                  radial-gradient(520px 220px at 95% 10%, rgba(212,175,55,.18), transparent 60%);
-      pointer-events:none;
-    }
-    .heroCard > *{position:relative}
-    .kicker{
-      display:inline-flex; gap:8px; align-items:center;
-      padding:8px 10px; border-radius:999px;
-      background:rgba(193,18,31,.18);
-      border:1px solid rgba(193,18,31,.35);
-      font-size:12px; letter-spacing:.14em; text-transform:uppercase;
-    }
-    .heroTitle{margin:14px 0 8px; font-size:38px; line-height:1.08; letter-spacing:-.02em;}
-    @media (max-width: 520px){ .heroTitle{font-size:30px} }
-    .heroSub{margin:0 0 14px; color:var(--muted); font-size:15px; line-height:1.6; max-width:70ch;}
-    .heroBtns{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 14px; border-radius:14px; font-weight:950;
-      border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.04);
-      cursor:pointer;
-    }
-    .btn.primary{
-      border-color:rgba(212,175,55,.65);
-      background:linear-gradient(135deg, rgba(193,18,31,.95), rgba(193,18,31,.6));
-      box-shadow:0 16px 30px rgba(193,18,31,.22);
-    }
-    .btn:focus,.pill:focus,.mini:focus,input:focus,button:focus{
-      outline:2px solid var(--focus); outline-offset:3px;
-    }
-    .micro{margin-top:12px; font-size:12px; color:rgba(247,243,233,.7)}
-
-    /* Right column cards */
-    .panel{
-      border-radius:calc(var(--r) + 6px);
-      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow:var(--shadow);
-      padding:18px;
-    }
-    .panel h3{margin:0 0 6px; font-size:16px; letter-spacing:.08em; text-transform:uppercase}
-    .panel p{margin:0 0 12px; color:var(--muted); font-size:14px; line-height:1.55}
-    .goldLine{height:1px; background:linear-gradient(90deg, transparent, rgba(212,175,55,.65), transparent); margin:18px 0;}
-    .hint{font-size:12px; color:rgba(247,243,233,.68); line-height:1.45}
-    .kbd{
-      display:inline-block; padding:2px 6px; border-radius:8px;
-      border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.05);
-      font-weight:900; font-size:11px; letter-spacing:.06em;
-    }
-
-    /* Search */
-    .searchWrap{display:grid; gap:10px}
-    .searchRow{display:flex; gap:10px; flex-wrap:wrap}
-    input[type="search"]{
-      width:100%;
-      padding:12px 12px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.35);
-      color:var(--off);
-    }
-
-    /* Sections */
-    .section{margin-top:26px}
-    .sectionHead{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:12px;}
-    .sectionHead h2{margin:0; font-size:18px; letter-spacing:.12em; text-transform:uppercase; color:rgba(247,243,233,.95);}
-    .sectionHead span{color:var(--muted); font-size:13px}
-
-    /* Cards grid */
-    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:14px;}
-    .card{
-      grid-column: span 6;
-      border-radius:var(--r);
-      background:linear-gradient(180deg, var(--card2), var(--card));
-      border:1px solid rgba(255,255,255,.12);
-      padding:16px;
-      box-shadow:0 16px 36px rgba(0,0,0,.35);
-      position:relative; overflow:hidden;
-    }
-    .card:before{
-      content:""; position:absolute; inset:0; pointer-events:none;
-      background: radial-gradient(420px 120px at 20% 0%, rgba(193,18,31,.18), transparent 60%),
-                  radial-gradient(420px 120px at 95% 10%, rgba(212,175,55,.12), transparent 60%);
-      opacity:.85;
-    }
-    .card > *{position:relative}
-    .meta{display:flex; justify-content:space-between; gap:10px; font-size:12px; color:rgba(247,243,233,.7); margin-bottom:8px;}
-    .tag{
-      display:inline-flex; align-items:center; gap:6px;
-      padding:6px 10px; border-radius:999px;
-      border:1px solid rgba(212,175,55,.22);
-      background:rgba(212,175,55,.08);
-      font-weight:900; letter-spacing:.08em; text-transform:uppercase;
-      font-size:11px;
-    }
-    .card h3{margin:8px 0 8px; font-size:18px; line-height:1.2}
-    .card p{margin:0; color:var(--muted); line-height:1.6; font-size:14px}
-    .card .actions{margin-top:12px; display:flex; gap:10px; flex-wrap:wrap}
-    .mini{
-      padding:10px 12px; border-radius:12px; font-weight:950; font-size:13px;
-      border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.03);
-      display:inline-flex; align-items:center; gap:8px;
-    }
-    .mini.gold{border-color:rgba(212,175,55,.55); background:rgba(212,175,55,.12);}
-    @media (max-width: 920px){ .card{grid-column: span 12} }
-
-    /* Calendar list */
-    .calendar{
-      border-radius:var(--r);
-      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.12);
-      padding:16px;
-      box-shadow:0 16px 36px rgba(0,0,0,.30);
-    }
-    .calendar ol{margin:0; padding-left:18px; color:rgba(247,243,233,.88); line-height:1.7}
-    .calendar li{margin:6px 0}
-    .calendar strong{color:rgba(212,175,55,.95)}
-
-    /* Dialog */
-    dialog::backdrop{background:rgba(0,0,0,.6)}
-    dialog a{color:rgba(212,175,55,.95)}
-
-    /* Footer */
-    footer{
-      margin-top:34px;
-      border-top:1px solid rgba(255,255,255,.12);
-      padding-top:18px;
-      color:rgba(247,243,233,.7);
-      font-size:13px;
-      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-    }
-    .footerLinks{display:flex; gap:10px; flex-wrap:wrap}
-
-    /* Respect reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto}
-    }
+    .hint{color:rgba(247,243,233,.68);font-size:.95rem;line-height:1.7}
   </style>
 </head>
 
 <body>
-  <a class="skip" href="#archive">Skip to archive</a>
-  <div class="plaid" aria-hidden="true"></div>
-
-  <div class="wrap">
-
-    <div class="topbar" role="navigation" aria-label="Primary">
+  <header class="topbar">
+    <div class="container navwrap">
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <h1>MOE COMMUNITY CLOUD</h1>
-          <p>Signal • Structure • Ownership</p>
+        <img class="brandlogoimg" src="/assets/img/moecommunitycloud-logo.png" alt="Moe Community Cloud logo" width="44" height="44"/>
+        <div class="brandmeta">
+          <div class="name">Moe Community Cloud</div>
+          <div class="tag">Agent Ops • FinternetOps • Consulting • Partners</div>
         </div>
       </div>
-
-      <div class="nav">
-        <a class="pill" href="https://moecommunitycloud.com/">Home</a>
-        <a class="pill" href="#archive">Archive</a>
-        <a class="pill" href="https://agentops.moecommunitycloud.com/">Agent Ops</a>
-        <a class="pill" href="./rss.xml" title="RSS feed">RSS</a>
-        <a class="pill cta" href="https://moecommunitycloud.com/join">Join</a>
-      </div>
+      <nav class="nav" aria-label="Primary">
+        <a href="/index.html">Home</a>
+        <a class="primary" href="https://agentops.moecommunitycloud.com/">Agent Ops</a>
+        <a href="https://finternetops.moecommunitycloud.com/">FinternetOps</a>
+        <a href="/consulting.html">Consulting</a>
+        <a href="/partners.html">Partners</a>
+        <a href="/newsletter.html" aria-current="page">Newsletter</a>
+        <a href="/shop.html">Shop</a>
+      </nav>
     </div>
+  </header>
 
-    <section class="hero" aria-label="Newsletter hero">
-      <div class="heroCard">
-        <div class="kicker">Daily Newsletter</div>
-        <h2 class="heroTitle">MCC Intelligence Archive</h2>
-        <p class="heroSub">
-          Daily signals on AI, cloud, automation, and digital infrastructure — built for operators,
-          consultants, and builders who want leverage. No hype. Just structure.
-        </p>
+  <main class="container" style="padding-top:16px;">
+    <!-- HERO -->
+    <section class="panel" style="padding:16px; margin-top:14px;">
+      <span class="badge">MBCC Newsletter</span>
+      <h1 style="margin:10px 0 8px;">Operator-first updates you can use.</h1>
+      <p class="lead" style="margin:0;">
+        Short, practical insights on <strong>Agent Ops</strong>, <strong>compliance evidence</strong>, <strong>cloud/hybrid execution</strong>,
+        and <strong>monetization systems</strong>. Enterprise-safe, no roadmap leaks, no hype.
+      </p>
 
-        <div class="heroBtns">
-          <a class="btn primary" href="#subscribe">Subscribe via Gmail</a>
-          <a class="btn" href="#archive">Read the Latest Issues</a>
-          <button class="btn" onclick="copyLink()">Copy Page Link</button>
-        </div>
-
-        <p class="micro">
-          Delivery: Gmail. Archive: here. Monetization: memberships + systems (not hype).
-        </p>
+      <div class="ctaRow" style="margin-top:12px;">
+        <a class="btn primary" href="/partners.html#partnerpath">Become a Partner →</a>
+        <a class="btn" href="/consulting.html">Consulting →</a>
+        <a class="btn" href="https://finternetops.moecommunitycloud.com/training/">Training →</a>
       </div>
-
-      <aside class="panel" id="subscribe" aria-label="Subscribe panel">
-        <h3>Subscribe (Gmail)</h3>
-        <p>
-          Enter your email, click subscribe, and Gmail opens a pre-filled message to
-          <strong>moeknowmoe24@gmail.com</strong>. That’s it.
-        </p>
-
-        <div class="searchWrap" style="margin-bottom:14px;">
-          <label for="subEmail" class="hint">Your email</label>
-          <input id="subEmail" type="search" inputmode="email" placeholder="you@example.com" aria-label="Your email for subscription" />
-          <label for="subName" class="hint">Name (optional)</label>
-          <input id="subName" type="search" placeholder="First name" aria-label="Your name for subscription" />
-          <button class="btn primary" onclick="subscribeGmail()">Subscribe</button>
-          <div class="hint">
-            Pro tip: create a Gmail label called <span class="kbd">MCC Newsletter</span> to keep subscribers organized.
-          </div>
-        </div>
-
-        <div class="goldLine"></div>
-
-        <h3>Search Issues</h3>
-        <p>Filter the archive by keyword (example: <em>Agent Ops</em>, <em>compliance</em>, <em>hybrid</em>).</p>
-        <div class="searchRow">
-          <input id="search" type="search" placeholder="Type to filter…" aria-label="Search newsletter issues" />
-          <button class="btn" onclick="clearSearch()">Clear</button>
-        </div>
-        <div class="hint">Keyboard: <span class="kbd">Ctrl</span> + <span class="kbd">K</span> to focus search.</div>
-
-        <div class="goldLine"></div>
-
-        <h3>Share</h3>
-        <p class="hint">Share the archive link (no platform dependency).</p>
-        <div class="searchRow">
-          <button class="btn" onclick="shareX()">Share to X</button>
-          <button class="btn" onclick="shareLinkedIn()">Share to LinkedIn</button>
-        </div>
-      </aside>
     </section>
 
-    <section class="section" aria-label="30-day calendar">
+    <!-- SUBSCRIBE -->
+    <section class="panel" style="padding:16px; margin-top:14px;">
       <div class="sectionHead">
-        <h2>30-Day Runway</h2>
-        <span>Planned topics (keeps you consistent).</span>
+        <h2 style="margin:0;">Subscribe</h2>
+        <span>Get the newest issues in your inbox.</span>
       </div>
-      <div class="calendar">
-        <ol>
-          <li><strong>Day 1:</strong> AI Is Getting Cheaper — Control Is Getting Expensive</li>
-          <li><strong>Day 2:</strong> AI Repair Is the Next Gold Rush</li>
-          <li><strong>Day 3:</strong> Cloud-Only Is Quietly Becoming a Liability</li>
-          <li><strong>Day 4:</strong> Agent Ops Beats Prompt Engineering</li>
-          <li><strong>Day 5:</strong> AI Compliance Is Becoming the New Gatekeeper</li>
-          <li><strong>Day 6:</strong> Owning Infrastructure Beats Owning IP</li>
-          <li><strong>Day 7:</strong> Why Moe Community Cloud Exists</li>
-          <li><strong>Day 8:</strong> Why Most AI Projects Don’t Scale</li>
-          <li><strong>Day 9:</strong> The Hidden Cost of “Easy” Automation</li>
-          <li><strong>Day 10:</strong> Why Enterprises Are Slowing AI Rollouts</li>
-          <li><strong>Day 11:</strong> Local AI Isn’t Anti-Cloud — It’s Pro-Control</li>
-          <li><strong>Day 12:</strong> Tools vs Systems: The Difference That Pays</li>
-          <li><strong>Day 13:</strong> What Consultants Get Wrong About AI</li>
-          <li><strong>Day 14:</strong> Weekend Signals We’re Watching Next Quarter</li>
-          <li><strong>Day 15:</strong> Where AI Consulting Money Actually Comes From</li>
-          <li><strong>Day 16:</strong> Retainers Beat One-Off AI Projects</li>
-          <li><strong>Day 17:</strong> Why “AI Strategy” Alone Doesn’t Sell</li>
-          <li><strong>Day 18:</strong> Compliance Creates Long Contracts</li>
-          <li><strong>Day 19:</strong> Why Enterprises Pay for Documentation</li>
-          <li><strong>Day 20:</strong> The Exit Strategy Nobody Designs</li>
-          <li><strong>Day 21:</strong> Weekend: Ownership vs Exposure</li>
-          <li><strong>Day 22:</strong> Why We Don’t Chase Trends</li>
-          <li><strong>Day 23:</strong> Builders vs Operators (Who Gets Paid)</li>
-          <li><strong>Day 24:</strong> When Platforms Reward Dependence</li>
-          <li><strong>Day 25:</strong> When AI Becomes a Utility</li>
-          <li><strong>Day 26:</strong> Who Wins After the AI Bubble Pops</li>
-          <li><strong>Day 27:</strong> Quiet Systems Outlast Loud Products</li>
-          <li><strong>Day 28:</strong> Weekend: What We’re Building Next</li>
-          <li><strong>Day 29:</strong> From the Desk of Moe Bucks (Authority Letter)</li>
-          <li><strong>Day 30:</strong> What It Means to Be a Digital Leader</li>
-        </ol>
+
+      <div class="formRow" style="margin-top:10px;">
+        <input class="input" type="text" placeholder="Name (optional)" aria-label="Name"/>
+        <input class="input" type="email" placeholder="Email address" aria-label="Email"/>
+        <a class="btn primary" href="/join.html">Join / Subscribe →</a>
+      </div>
+
+      <div class="note" style="margin-top:10px;">
+        Prefer partners-only updates? Start here: <a href="/partners/apply.html">Partner Application →</a>
       </div>
     </section>
 
-    <section class="section" id="archive" aria-label="Newsletter archive">
+    <!-- ✅ ADSENSE (safe placement: after subscribe, before content list) -->
+    <section class="adsense-slot" aria-label="Sponsored">
+      <!-- Moecommunityadunit1 -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-8387411349417007"
+           data-ad-slot="2827463913"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </section>
+
+    <!-- SEO + FUNNEL (REPLACES 30-DAY RUNWAY IP) -->
+    <section class="section" aria-label="Newsletter focus and categories">
+      <div class="sectionHead">
+        <h2>What This Newsletter Covers</h2>
+        <span>Operator-focused, enterprise-safe.</span>
+      </div>
+
+      <div class="grid" style="margin-top:12px;">
+        <article class="card" data-tags="agent ops operations governance">
+          <div class="meta"><span class="tag">Category</span><span>Agent Ops</span></div>
+          <h3>Agent Ops &amp; Operational Discipline</h3>
+          <p>
+            Practical signals on operating AI systems: ownership, logging, guardrails, escalation paths,
+            and repeatable delivery standards — not prompt hype.
+          </p>
+          <div class="actions">
+            <a class="mini gold" href="https://agentops.moecommunitycloud.com/">Explore Agent Ops</a>
+            <a class="mini" href="/partners.html#partnerpath">Partner Path</a>
+          </div>
+        </article>
+
+        <article class="card" data-tags="compliance audit governance evidence">
+          <div class="meta"><span class="tag">Category</span><span>Compliance</span></div>
+          <h3>Compliance, Evidence &amp; Governance</h3>
+          <p>
+            Enterprise-ready perspectives on audit trails, change control, documentation, and evidence outputs —
+            written for builders who want to sell responsibly.
+          </p>
+          <div class="actions">
+            <a class="mini gold" href="/newsletter/issues/issue-005-ai-compliance-gatekeeper.html">Start Here</a>
+            <a class="mini" href="/consulting.html">Consulting</a>
+          </div>
+        </article>
+
+        <article class="card" data-tags="cloud hybrid local-first infrastructure">
+          <div class="meta"><span class="tag">Category</span><span>Infrastructure</span></div>
+          <h3>Cloud, Hybrid &amp; Ownership</h3>
+          <p>
+            Signals on infrastructure leverage: cost control, resiliency, hybrid/local-first patterns,
+            and why “optional cloud” is becoming a competitive advantage.
+          </p>
+          <div class="actions">
+            <a class="mini gold" href="/newsletter/issues/issue-006-ai-compliance-not-optional.html">Read an Issue</a>
+            <a class="mini" href="/partners/apply.html">Apply</a>
+          </div>
+        </article>
+
+        <article class="card" data-tags="monetization consulting retainers systems">
+          <div class="meta"><span class="tag">Category</span><span>Monetization</span></div>
+          <h3>Monetization for Builders</h3>
+          <p>
+            How operators and consultants get paid: retainers, delivery systems, proof packs,
+            partner licensing pathways — with structure and ethics.
+          </p>
+          <div class="actions">
+            <a class="mini gold" href="/partners.html">Partner Opportunities</a>
+            <a class="mini" href="/partners/apply.html">Apply</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="hint" style="margin-top:12px;">
+        We do not publish internal roadmaps, private playbooks, or proprietary delivery mechanics here.
+        This archive stays high-value and enterprise-safe.
+      </p>
+    </section>
+
+    <!-- LATEST ISSUES (linked) -->
+    <section class="section" aria-label="Latest newsletter issues">
       <div class="sectionHead">
         <h2>Latest Issues</h2>
-        <span id="resultCount">7 issues</span>
+        <span>Start with compliance and ops fundamentals.</span>
       </div>
 
-      <div class="grid" id="grid">
-        <article class="card" data-issue="1" data-title="AI Is Getting Cheaper — Control Is Getting More Expensive" data-tags="control governance ownership ops">
-          <div class="meta"><span class="tag">Vol 1 • Issue 1</span><span>Dec 16, 2025</span></div>
-          <h3>AI Is Getting Cheaper — Control Is Getting More Expensive</h3>
-          <p>Generation costs drop fast. Governance, ownership, auditability, and operations become the real premium.</p>
+      <div class="grid" style="margin-top:12px;">
+        <article class="card">
+          <div class="meta"><span class="tag">Issue</span><span>005</span></div>
+          <h3>AI Compliance Gatekeeper</h3>
+          <p>Why governance and evidence outputs are now table stakes for AI systems in production.</p>
           <div class="actions">
-            <a class="mini gold" href="/newsletter/issues/issue-001-ai-cheaper-control.html">Read</a>
-            <a class="mini" href="https://moecommunitycloud.com/join">Join</a>
+            <a class="mini gold" href="/newsletter/issues/issue-005-ai-compliance-gatekeeper.html">Read Issue →</a>
+            <a class="mini" href="/partners/apply.html">Become a Partner →</a>
           </div>
         </article>
 
-        <article class="card" data-issue="2" data-title="AI Repair Is the Next Gold Rush" data-tags="repair audit stabilization agent ops">
-          <div class="meta"><span class="tag">Vol 1 • Issue 2</span><span>Dec 17, 2025</span></div>
-          <h3>AI Repair Is the Next Gold Rush</h3>
-          <p>The second wave isn’t adoption — it’s repair: audits, stabilization, ops layers, and governance.</p>
+        <article class="card">
+          <div class="meta"><span class="tag">Issue</span><span>006</span></div>
+          <h3>AI Compliance Isn’t Optional Anymore</h3>
+          <p>How teams avoid scramble-mode: documentation, lifecycle control, and operational accountability.</p>
           <div class="actions">
-            <a class="mini gold" href="/newsletter/issues/issue-002-ai-repair-gold-rush.html">Read</a>
-            <a class="mini" href="https://agentops.moecommunitycloud.com/">Agent Ops</a>
+            <a class="mini gold" href="/newsletter/issues/issue-006-ai-compliance-not-optional.html">Read Issue →</a>
+            <a class="mini" href="/consulting.html">Consulting →</a>
           </div>
         </article>
 
-        <article class="card" data-issue="3" data-title="Cloud-Only Is Quietly Becoming a Liability" data-tags="hybrid local-first resilience cost">
-          <div class="meta"><span class="tag">Vol 1 • Issue 3</span><span>Dec 18, 2025</span></div>
-          <h3>Cloud-Only Is Quietly Becoming a Liability</h3>
-          <p>Hybrid and local-first aren’t anti-cloud — they’re pro-control. Leverage comes from optionality.</p>
+        <article class="card">
+          <div class="meta"><span class="tag">Issue</span><span>007</span></div>
+          <h3>Why Most AI Projects Fail at the Ops Layer</h3>
+          <p>Most failures aren’t “model problems”—they’re monitoring, change control, and ownership problems.</p>
           <div class="actions">
-            <a class="mini gold" href="/newsletter/issues/issue-003-cloud-only-liability.html">Read</a>
-            <a class="mini" href="https://moecommunitycloud.com/">Home</a>
+            <a class="mini gold" href="/newsletter/issues/issue-007-ai-ops-failure.html">Read Issue →</a>
+            <a class="mini" href="/partners.html">Partner Path →</a>
           </div>
         </article>
 
-        <article class="card" data-issue="4" data-title="Agent Ops Beats Prompt Engineering Every Time" data-tags="agent ops operations monitoring costs">
-          <div class="meta"><span class="tag">Vol 1 • Issue 4</span><span>Dec 19, 2025</span></div>
-          <h3>Agent Ops Beats Prompt Engineering Every Time</h3>
-          <p>Great prompts don’t save broken systems. Operations turns AI into infrastructure.</p>
+        <article class="card">
+          <div class="meta"><span class="tag">Issue</span><span>008</span></div>
+          <h3>Responsible AI for Small Teams</h3>
+          <p>Practical responsibility: disclosures, review thresholds, logging, and controlled automation.</p>
           <div class="actions">
-            <a class="mini gold" href="/newsletter/issues/issue-004-agentops-vs-prompts.html">Read</a>
-            <a class="mini" href="https://moecommunitycloud.com/join">Join</a>
+            <a class="mini gold" href="/newsletter/issues/issue-008-responsible-ai-small-teams.html">Read Issue →</a>
+            <a class="mini" href="https://finternetops.moecommunitycloud.com/training/">Training →</a>
           </div>
         </article>
+      </div>
 
-        <article class="card" data-issue="5" data-title="AI Compliance Is Becoming the New Gatekeeper" data-tags="compliance audit trails documentation governance">
-          <div class="meta"><span class="tag">Vol 1 • Issue 5</span><span>Dec 20, 2025</span></div>
-          <h3>AI Compliance Is Becoming the New Gatekeeper</h3>
-          <p>“It works” isn’t enough. Audit trails, controls, and documentation decide who gets paid.</p>
-          <div class="actions">
-            <a class="mini gold" href="/newsletter/issues/issue-005-ai-compliance-gatekeeper.html">Read</a>
-            <a class="mini" href="https://moecommunitycloud.com/join">Join</a>
-          </div>
-        </article>
-
-        <article class="card" data-issue="6" data-title="Owning Infrastructure Beats Owning IP" data-tags="ownership infrastructure licensing systems">
-          <div class="meta"><span class="tag">Vol 1 • Issue 6</span><span>Dec 21, 2025</span></div>
-          <h3>Owning Infrastructure Beats Owning IP</h3>
-          <p>IP can be copied. Infrastructure compounds. Ownership of outcomes outlasts hype cycles.</p>
-          <div class="actions">
-            <a class="mini gold" href="/newsletter/issues/issue-006-own-infrastructure.html">Read</a>
-            <a class="mini" href="https://moecommunitycloud.com/">Home</a>
-          </div>
-        </article>
-
-        <article class="card" data-issue="7" data-title="Why Moe Community Cloud Exists" data-tags="mission structure ownership builders">
-          <div class="meta"><span class="tag">Vol 1 • Issue 7</span><span>Dec 22, 2025</span></div>
-          <h3>Why Moe Community Cloud Exists</h3>
-          <p>A weekend reflection: no trends, no noise — just structure for builders who want leverage.</p>
-          <div class="actions">
-            <a class="mini gold" href="/newsletter/issues/issue-007-why-mcc-exists.html">Read</a>
-            <a class="mini" href="https://moecommunitycloud.com/join">Join</a>
-          </div>
-        </article>
+      <div class="ctaRow" style="margin-top:14px;">
+        <a class="btn primary" href="/partners/apply.html">Apply to Partner Program →</a>
+        <a class="btn" href="/partners.html#partnerpath">See Partner Path →</a>
+        <a class="btn" href="https://finternetops.moecommunitycloud.com/agents.html">FinternetOps Agents →</a>
       </div>
     </section>
+  </main>
 
-    <dialog id="reader" aria-label="Issue reader"
-      style="border:none;border-radius:18px;max-width:860px;width:calc(100% - 24px);background:rgba(10,10,10,.95);color:var(--off);padding:0;box-shadow:0 30px 80px rgba(0,0,0,.6);">
-      <div style="padding:16px 18px;border-bottom:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:space-between;gap:10px;">
-        <div>
-          <div id="readerMeta" style="font-weight:950;letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:rgba(247,243,233,.75);"></div>
-          <div id="readerTitle" style="font-size:20px;font-weight:980;margin-top:4px;"></div>
+  <footer class="footer">
+    <div class="container footgrid">
+      <div>
+        <div class="small">
+          <strong>MBCC</strong> builds enterprise-ready operating systems for AI agents and next-gen finance automation—designed for operators, partners, and whitelabel growth.
         </div>
-        <button class="btn" onclick="closeReader()" style="padding:10px 12px;border-radius:12px;">Close</button>
+        <div class="small" style="margin-top:10px">© 2026 Moe Community Cloud (MBCC). All rights reserved.</div>
       </div>
-      <div id="readerBody" style="padding:18px;line-height:1.7;color:rgba(247,243,233,.9);"></div>
-      <div style="padding:14px 18px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
-        <a class="mini gold" href="https://moecommunitycloud.com/join">Become a Digital Leader</a>
-        <a class="mini" href="https://agentops.moecommunitycloud.com/">Agent Ops</a>
-        <a class="mini" href="#subscribe">Subscribe</a>
+      <div class="footlinks">
+        <a href="/partners.html">Partners</a>
+        <a href="/partners/apply.html">Apply</a>
+        <a href="/consulting.html">Consulting</a>
+        <a href="https://agentops.moecommunitycloud.com/">Agent Ops</a>
+        <a href="https://finternetops.moecommunitycloud.com/">FinternetOps</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/sitemap.xml">Sitemap</a>
       </div>
-    </dialog>
+    </div>
+  </footer>
 
-    <footer>
-      <div><strong>© Moe Community Cloud</strong> — Signal. Structure. Ownership.</div>
-      <div class="footerLinks">
-        <a href="https://moecommunitycloud.com/">Home</a>
-        <a href="https://moecommunitycloud.com/join">Join</a>
-        <a href="mailto:moeknowmoe24@gmail.com">Contact</a>
-      </div>
-    </footer>
-
-  </div>
-
-  <script>
-    const PAGE_URL = "https://moecommunitycloud.com/newsletter/";
-    const PAGE_TITLE = "Moe Community Cloud | Newsletter";
-
-    function subscribeGmail(){
-      const email = document.getElementById("subEmail").value.trim();
-      const name = document.getElementById("subName").value.trim();
-
-      if(!email){
-        alert("Enter your email first.");
-        document.getElementById("subEmail").focus();
-        return;
-      }
-
-      const to = "moeknowmoe24@gmail.com";
-      const subject = encodeURIComponent("Moe Community Cloud Newsletter — Subscribe");
-      const body = encodeURIComponent(
-        `SUBSCRIBE REQUEST\n\nEmail: ${email}\nName: ${name || "(not provided)"}\n\nRequested list: MCC Daily Newsletter\n\n— Sent from ${PAGE_URL}`
-      );
-
-      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-    }
-
-    function clearSearch(){
-      const s = document.getElementById("search");
-      s.value = "";
-      filterCards("");
-      s.focus();
-    }
-
-    function filterCards(q){
-      const query = (q || "").toLowerCase().trim();
-      const cards = Array.from(document.querySelectorAll(".card"));
-      let shown = 0;
-
-      cards.forEach(card => {
-        const title = (card.getAttribute("data-title") || "").toLowerCase();
-        const tags  = (card.getAttribute("data-tags") || "").toLowerCase();
-        const text  = (card.innerText || "").toLowerCase();
-        const match = !query || title.includes(query) || tags.includes(query) || text.includes(query);
-        card.style.display = match ? "" : "none";
-        if(match) shown++;
-      });
-
-      document.getElementById("resultCount").textContent = `${shown} issue${shown===1?"":"s"}`;
-    }
-
-    async function copyLink(){
-      try{
-        await navigator.clipboard.writeText(PAGE_URL);
-        alert("Link copied: " + PAGE_URL);
-      }catch(e){
-        prompt("Copy this link:", PAGE_URL);
-      }
-    }
-
-    function shareX(){
-      const u = encodeURIComponent(PAGE_URL);
-      const t = encodeURIComponent("MCC Intelligence Archive — daily signal on AI, cloud, automation.");
-      window.open(`https://twitter.com/intent/tweet?url=${u}&text=${t}`, "_blank", "noopener,noreferrer");
-    }
-
-    function shareLinkedIn(){
-      const u = encodeURIComponent(PAGE_URL);
-      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${u}`, "_blank", "noopener,noreferrer");
-    }
-
-    document.addEventListener("keydown", (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
-        e.preventDefault();
-        document.getElementById("search").focus();
-      }
-    });
-
-    document.getElementById("search").addEventListener("input", (e) => filterCards(e.target.value));
-
-    const issues = {
-      1: {
-        meta: "Vol. 1 • Issue 1 • Dec 16, 2025",
-        title: "AI Is Getting Cheaper — Control Is Getting More Expensive",
-        body: `
-          <p><strong>This Week’s Signal</strong><br>
-          AI costs are dropping fast. But control is becoming the premium: governance, ownership, auditability, and operations.</p>
-          <p>Most people celebrate lower generation costs. Builders should ask: <em>Who owns the stack when dependency becomes the risk?</em></p>
-          <blockquote style="margin:14px 0;padding:12px 14px;border-left:3px solid rgba(212,175,55,.65);background:rgba(255,255,255,.03);border-radius:12px;color:rgba(247,243,233,.85);">
-            Cheap AI without structure is just expensive chaos.
-          </blockquote>
-          <p><strong>Playbook Highlight:</strong> Agent Ops — operations &gt; prompts.<br>
-          <a href="https://agentops.moecommunitycloud.com/">agentops.moecommunitycloud.com</a></p>
-        `
-      },
-      2: {
-        meta: "Vol. 1 • Issue 2 • Dec 17, 2025",
-        title: "AI Repair Is the Next Gold Rush",
-        body: `
-          <p><strong>Today’s Signal</strong><br>
-          The second wave isn’t adoption — it’s repair. Systems break quietly when there’s no ops layer: logging, permissions, escalation paths, cost controls, and failure handling.</p>
-          <p><strong>Agent Ops Insight</strong><br>
-          Most AI projects don’t fail technically — they fail operationally. No logging. No ownership. No kill switch.</p>
-          <p><strong>Monetization</strong><br>
-          AI audits &amp; stabilization, Agent Ops retainers, hybrid/local migrations, governance packages.</p>
-          <p><strong>Rule:</strong> If you didn’t design the exit, you’re trapped.</p>
-        `
-      },
-      3: {
-        meta: "Vol. 1 • Issue 3 • Dec 18, 2025",
-        title: "Cloud-Only Is Quietly Becoming a Liability",
-        body: `
-          <p><strong>Today’s Signal</strong><br>
-          Cloud-only is starting to look like strategic exposure. Hybrid/local-first designs restore leverage and resilience.</p>
-          <p><strong>Opportunity</strong><br>
-          Cloud exit planning, cost audits, local AI fallback deployments, compliance redesigns.</p>
-          <p><strong>Rule:</strong> Convenience scales risk faster than capability.</p>
-        `
-      },
-      4: {
-        meta: "Vol. 1 • Issue 4 • Dec 19, 2025",
-        title: "Agent Ops Beats Prompt Engineering Every Time",
-        body: `
-          <p><strong>Today’s Signal</strong><br>
-          Great prompts don’t save broken systems. Operations turns AI into infrastructure.</p>
-          <p><strong>Sell</strong><br>
-          Monitoring frameworks, cost control layers, human-in-the-loop systems — these become retainers.</p>
-          <p><strong>Rule:</strong> If it can’t be operated, it can’t be trusted.</p>
-        `
-      },
-      5: {
-        meta: "Vol. 1 • Issue 5 • Dec 20, 2025",
-        title: "AI Compliance Is Becoming the New Gatekeeper",
-        body: `
-          <p><strong>Today’s Signal</strong><br>
-          Enterprises now ask how AI is governed: audit logs, access controls, documentation, explainability.</p>
-          <p><strong>Monetization</strong><br>
-          Documentation services, governance audits, regulated deployment frameworks, advisory retainers.</p>
-          <p><strong>Rule:</strong> If you can’t explain it, you can’t sell it.</p>
-        `
-      },
-      6: {
-        meta: "Vol. 1 • Issue 6 • Dec 21, 2025",
-        title: "Owning Infrastructure Beats Owning IP",
-        body: `
-          <p><strong>Today’s Signal</strong><br>
-          IP can be copied. Infrastructure compounds. Owners of outcomes outlast hype cycles.</p>
-          <p><strong>Rule:</strong> Ownership compounds when nobody’s watching.</p>
-        `
-      },
-      7: {
-        meta: "Vol. 1 • Issue 7 • Dec 22, 2025",
-        title: "Why Moe Community Cloud Exists",
-        body: `
-          <p><strong>Weekend Reflection</strong><br>
-          Moe Community Cloud exists for builders who want leverage — not noise.</p>
-          <ul>
-            <li>Structure over shortcuts</li>
-            <li>Systems over demos</li>
-            <li>Ownership over dependency</li>
-          </ul>
-          <p>Welcome to Moe Community Cloud.</p>
-        `
-      }
-    };
-
-    function openIssue(n){
-      const issue = issues[n];
-      if(!issue) return;
-      document.getElementById("readerMeta").textContent = issue.meta;
-      document.getElementById("readerTitle").textContent = issue.title;
-      document.getElementById("readerBody").innerHTML = issue.body;
-      const dlg = document.getElementById("reader");
-      if (typeof dlg.showModal === "function") dlg.showModal();
-      else alert("Your browser does not support dialogs.");
-    }
-
-    function closeReader(){
-      const dlg = document.getElementById("reader");
-      if (dlg.open) dlg.close();
-    }
-
-    // Init
-    filterCards("");
-  </script>
+  <script src="/assets/js/site.js" defer></script>
 </body>
 </html>
+
