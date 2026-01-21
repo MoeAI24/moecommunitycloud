@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Uptime Risk Score | Moe Community Cloud</title>
+  <meta name="description" content="Get a 0–100 uptime risk score and a prioritized fix list across compute, load balancer, Kubernetes, and VPC decisions."/>
+  <meta name="robots" content="index,follow"/>
+  
+  <style>
+    :root{--bg:#0b0b0b;--text:#f7f3e9;--muted:rgba(247,243,233,.72);--muted2:rgba(247,243,233,.55);--gold:#d4af37;--red:#c1121f;--border:rgba(247,243,233,.12)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text);line-height:1.45}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:980px;margin:0 auto;padding:18px}
+    .card{border:1px solid var(--border);border-radius:16px;background:rgba(16,16,16,.9);padding:16px}
+    .btn{display:inline-flex;gap:10px;align-items:center;justify-content:center;padding:12px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.12);font-weight:900;cursor:pointer}
+    .btn.secondary{border-color:var(--border);background:rgba(247,243,233,.05)}
+    label{display:grid;gap:6px;font-weight:900}
+    input,select,textarea{padding:12px;border-radius:12px;border:1px solid var(--border);background:rgba(11,11,11,.55);color:var(--text);outline:none}
+    textarea{min-height:110px;resize:vertical}
+    input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(212,175,55,.25);border-color:rgba(212,175,55,.55)}
+    .meta{display:flex;gap:8px;flex-wrap:wrap}
+    .pill{font-size:12px;color:rgba(247,243,233,.65);border:1px solid rgba(247,243,233,.10);padding:3px 8px;border-radius:999px;background:rgba(11,11,11,.25)}
+    .hr{border-top:1px solid rgba(247,243,233,.08);margin:14px 0}
+    .box{border-radius:16px;border:1px solid rgba(247,243,233,.10);background:rgba(11,11,11,.35);padding:14px}
+    .small{font-size:12px;color:var(--muted2)}
+    pre{margin:0;white-space:pre-wrap;word-break:break-word;color:rgba(247,243,233,.80);font-size:12px;line-height:1.45}
+  </style>
+
+</head>
+<body>
+<main class="wrap">
+  <a href="../tools.html" style="color:var(--muted);">← Back to Tools</a>
+  <h1 style="margin:10px 0 6px;">Uptime Risk Score</h1>
+  <p style="margin:0 0 14px;color:var(--muted);max-width:80ch;">Get a 0–100 uptime risk score and a prioritized fix list across compute, load balancer, Kubernetes, and VPC decisions.</p>
+  <div class="meta"><span class="pill">Compute</span><span class="pill">Load Balancer</span><span class="pill">Kubernetes</span><span class="pill">VPC</span></div>
+  
+<section class="card" style="margin-top:14px;">
+  <label>Do you have a load balancer in front of public traffic?
+    <select id="u_lb"><option value="yes">Yes</option><option value="no">No</option><option value="unknown">Not sure</option></select>
+  </label>
+  <label>Do you have at least two instances/pods for the app?
+    <select id="u_multi"><option value="yes">Yes</option><option value="no">No</option><option value="unknown">Not sure</option></select>
+  </label>
+  <label>Do you have health checks + auto-restart?
+    <select id="u_health"><option value="yes">Yes</option><option value="no">No</option><option value="unknown">Not sure</option></select>
+  </label>
+  <label>Do you have monitoring/alerts for error rate + latency?
+    <select id="u_alerts"><option value="yes">Yes</option><option value="no">No</option><option value="unknown">Not sure</option></select>
+  </label>
+  <label>Do you have backups for critical data?
+    <select id="u_backup"><option value="yes">Yes</option><option value="no">No</option><option value="unknown">Not sure</option></select>
+  </label>
+  <label>Are deploys safe (rolling updates / rollback)?
+    <select id="u_deploy"><option value="yes">Yes</option><option value="no">No</option><option value="unknown">Not sure</option></select>
+  </label>
+  <label>Is admin access controlled (MFA / least privilege)?
+    <select id="u_admin"><option value="yes">Yes</option><option value="no">No</option><option value="unknown">Not sure</option></select>
+  </label>
+  <label>Do you have private networking for internal services?
+    <select id="u_vpc"><option value="yes">Yes</option><option value="no">No</option><option value="unknown">Not sure</option></select>
+  </label>
+  <label>Do you have a spike plan (autoscaling tested)?
+    <select id="u_spike"><option value="yes">Yes</option><option value="no">No</option><option value="unknown">Not sure</option></select>
+  </label>
+  <label>Do you have an incident runbook?
+    <select id="u_runbook"><option value="yes">Yes</option><option value="no">No</option><option value="unknown">Not sure</option></select>
+  </label>
+
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+    <button class="btn" type="button" id="u_score">Get Score</button>
+    <a class="btn secondary" href="traffic-spike-simulator.html">Traffic Spike Tool</a>
+    <a class="btn secondary" href="../contact.html">Fix My Uptime</a>
+  </div>
+
+  <div class="hr"></div>
+  <div class="box" id="u_out"><strong>Result:</strong><div class="small" style="margin-top:6px;">Pick answers and click Get Score.</div></div>
+</section>
+
+  <p class="small" style="margin-top:14px;">Guidance only. Use this as a starting point and validate with real measurements.</p>
+</main>
+<script>
+function pts(v){ return v==="yes"?0:v==="unknown"?6:12; }
+document.getElementById("u_score").addEventListener("click", () => {
+  const a = {
+    lb: document.getElementById("u_lb").value,
+    multi: document.getElementById("u_multi").value,
+    health: document.getElementById("u_health").value,
+    alerts: document.getElementById("u_alerts").value,
+    backup: document.getElementById("u_backup").value,
+    deploy: document.getElementById("u_deploy").value,
+    admin: document.getElementById("u_admin").value,
+    vpc: document.getElementById("u_vpc").value,
+    spike: document.getElementById("u_spike").value,
+    runbook: document.getElementById("u_runbook").value
+  };
+  let risk=0;
+  risk += (a.lb==="no")?18:(a.lb==="unknown")?9:0;
+  risk += (a.multi==="no")?18:(a.multi==="unknown")?9:0;
+  risk += (a.health==="no")?16:(a.health==="unknown")?8:0;
+  risk += (a.alerts==="no")?16:(a.alerts==="unknown")?8:0;
+  risk += pts(a.backup)+pts(a.deploy)+pts(a.admin)+pts(a.vpc)+pts(a.spike)+pts(a.runbook);
+  risk=Math.max(0,Math.min(100,risk));
+  const score=100-risk;
+
+  let level="STRONG", color="#d4af37";
+  if(score<55){level="WEAK"; color="#c1121f";}
+  else if(score<75){level="MEDIUM"; color="#d4af37";}
+
+  const fixes=[];
+  if(a.lb!=="yes") fixes.push("Put all public traffic behind a load balancer with health checks.");
+  if(a.multi!=="yes") fixes.push("Run at least two instances/pods (remove single instance failure).");
+  if(a.health!=="yes") fixes.push("Add health checks + auto-restart (readiness checks on K8s).");
+  if(a.alerts!=="yes") fixes.push("Add basic monitoring and alerting (latency + error rate).");
+  if(a.backup!=="yes") fixes.push("Implement backups + restore tests.");
+  if(a.deploy!=="yes") fixes.push("Use rolling deploys and keep a rollback path.");
+  if(a.admin!=="yes") fixes.push("Lock down admin access (MFA, least privilege).");
+  if(a.vpc!=="yes") fixes.push("Segment internal services into private networking.");
+  if(a.spike!=="yes") fixes.push("Test autoscaling limits and simulate spikes.");
+  if(a.runbook!=="yes") fixes.push("Write a short incident runbook.");
+
+  const top=fixes.slice(0,5);
+
+  document.getElementById("u_out").innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+      <div style="font-weight:900;font-size:16px;color:${color};">Uptime Score: ${Math.round(score)}/100 • ${level}</div>
+      <span class="pill">Risk: ${Math.round(risk)}/100</span>
+    </div>
+    <div style="margin-top:10px;color:rgba(247,243,233,.75);"><strong>Top fixes:</strong>
+      <ul style="margin:6px 0 0;padding-left:18px;">${top.length?top.map(f=>`<li>${f}</li>`).join(""):"<li>No major flags based on your inputs.</li>"}</ul>
+    </div>`;
+});
+</script>
+</body>
+</html>

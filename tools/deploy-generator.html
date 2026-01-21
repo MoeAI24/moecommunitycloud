@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Deploy This App Generator | Moe Community Cloud</title>
+  <meta name="description" content="Generate a practical deployment blueprint by app type and traffic level using compute, Kubernetes, load balancer, and VPC primitives."/>
+  <meta name="robots" content="index,follow"/>
+  
+  <style>
+    :root{--bg:#0b0b0b;--text:#f7f3e9;--muted:rgba(247,243,233,.72);--muted2:rgba(247,243,233,.55);--gold:#d4af37;--red:#c1121f;--border:rgba(247,243,233,.12)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text);line-height:1.45}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:980px;margin:0 auto;padding:18px}
+    .card{border:1px solid var(--border);border-radius:16px;background:rgba(16,16,16,.9);padding:16px}
+    .btn{display:inline-flex;gap:10px;align-items:center;justify-content:center;padding:12px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.12);font-weight:900;cursor:pointer}
+    .btn.secondary{border-color:var(--border);background:rgba(247,243,233,.05)}
+    label{display:grid;gap:6px;font-weight:900}
+    input,select,textarea{padding:12px;border-radius:12px;border:1px solid var(--border);background:rgba(11,11,11,.55);color:var(--text);outline:none}
+    textarea{min-height:110px;resize:vertical}
+    input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(212,175,55,.25);border-color:rgba(212,175,55,.55)}
+    .meta{display:flex;gap:8px;flex-wrap:wrap}
+    .pill{font-size:12px;color:rgba(247,243,233,.65);border:1px solid rgba(247,243,233,.10);padding:3px 8px;border-radius:999px;background:rgba(11,11,11,.25)}
+    .hr{border-top:1px solid rgba(247,243,233,.08);margin:14px 0}
+    .box{border-radius:16px;border:1px solid rgba(247,243,233,.10);background:rgba(11,11,11,.35);padding:14px}
+    .small{font-size:12px;color:var(--muted2)}
+    pre{margin:0;white-space:pre-wrap;word-break:break-word;color:rgba(247,243,233,.80);font-size:12px;line-height:1.45}
+  </style>
+
+</head>
+<body>
+<main class="wrap">
+  <a href="../tools.html" style="color:var(--muted);">← Back to Tools</a>
+  <h1 style="margin:10px 0 6px;">Deploy This App Generator</h1>
+  <p style="margin:0 0 14px;color:var(--muted);max-width:80ch;">Generate a practical deployment blueprint by app type and traffic level using compute, Kubernetes, load balancer, and VPC primitives.</p>
+  <div class="meta"><span class="pill">Compute</span><span class="pill">Kubernetes</span><span class="pill">Load Balancer</span><span class="pill">VPC</span></div>
+  
+<section class="card" style="margin-top:14px;">
+  <label>App type
+    <select id="dg_type">
+      <option value="static">Static site / SPA</option>
+      <option value="api">API / web backend</option>
+      <option value="worker">Workers / jobs</option>
+      <option value="saas">SaaS (multi-service)</option>
+    </select>
+  </label>
+  <label>Traffic level
+    <select id="dg_traffic">
+      <option value="low">Low (MVP)</option>
+      <option value="med">Medium</option>
+      <option value="high">High</option>
+      <option value="spiky">Spiky / viral</option>
+    </select>
+  </label>
+  <label>Team ops capacity
+    <select id="dg_ops">
+      <option value="lite">Lite (no dedicated ops)</option>
+      <option value="some">Some ops experience</option>
+      <option value="dedicated">Dedicated ops</option>
+    </select>
+  </label>
+  <label>Need private networking for internal services?
+    <select id="dg_vpc">
+      <option value="yes">Yes</option>
+      <option value="no">No / not sure</option>
+    </select>
+  </label>
+
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+    <button class="btn" type="button" id="dg_gen">Generate Plan</button>
+    <a class="btn secondary" href="should-this-be-k8s.html">K8s Decision</a>
+    <a class="btn secondary" href="../contact.html">Done-For-You Deploy</a>
+  </div>
+
+  <div class="hr"></div>
+
+  <div class="box" id="dg_out"><strong>Deployment plan:</strong><div class="small" style="margin-top:6px;">Click Generate to produce a recommended setup.</div></div>
+  <div style="height:12px"></div>
+  <div class="box"><strong>Starter config (pseudo-yaml)</strong><div class="hr"></div><pre id="dg_yaml"># Generate to view</pre></div>
+</section>
+
+  <p class="small" style="margin-top:14px;">Guidance only. Use this as a starting point and validate with real measurements.</p>
+</main>
+<script>
+document.getElementById("dg_gen").addEventListener("click", () => {
+  const type=document.getElementById("dg_type").value;
+  const traffic=document.getElementById("dg_traffic").value;
+  const ops=document.getElementById("dg_ops").value;
+  const vpc=document.getElementById("dg_vpc").value;
+
+  const needsLb = (traffic !== "low") || (type !== "static");
+  const k8s = (type === "saas" && ops !== "lite") || (traffic === "high") || (traffic === "spiky" && ops === "dedicated");
+
+  const steps=[];
+  steps.push(vpc==="yes" ? "VPC with public/private segmentation." : "Basic VPC defaults (tighten later).");
+  steps.push(needsLb ? "Load balancer in front of public endpoints." : "Load balancer optional for low traffic.");
+  steps.push(k8s ? "Run services on Kubernetes (managed if possible)." : "Run services on compute (VMs/managed runtime).");
+  if (type==="static") steps.push("Serve static assets from object storage + caching.");
+  if (traffic==="spiky") steps.push("Enable autoscaling and test with a spike simulation.");
+
+  const risks=[];
+  if (k8s && ops==="lite") risks.push("Kubernetes burden may be high for lite ops — consider simpler compute first.");
+  risks.push("Add logging + metrics early to avoid blind outages.");
+
+  document.getElementById("dg_out").innerHTML = `
+    <div style="font-weight:900;color:#d4af37;">Recommended setup</div>
+    <ul style="margin:10px 0 0;padding-left:18px;color:rgba(247,243,233,.75);">${steps.map(s=>`<li>${s}</li>`).join("")}</ul>
+    <div style="margin-top:12px;font-weight:900;color:#d4af37;">Key risks</div>
+    <ul style="margin:10px 0 0;padding-left:18px;color:rgba(247,243,233,.75);">${risks.map(r=>`<li>${r}</li>`).join("")}</ul>
+  `;
+
+  document.getElementById("dg_yaml").textContent = `# Vendor-neutral blueprint (placeholder)
+app:
+  type: ${type}
+  traffic: ${traffic}
+network:
+  vpc: ${vpc === "yes" ? "segmented" : "default"}
+  load_balancer: ${needsLb ? "enabled" : "optional"}
+runtime:
+  platform: ${k8s ? "kubernetes" : "compute"}
+  health_checks: enabled
+  rolling_updates: enabled
+scaling:
+  autoscaling: ${(traffic==="high"||traffic==="spiky") ? "enabled" : "optional"}
+observability:
+  logs: recommended
+  metrics: recommended
+security:
+  admin_access: "MFA + least privilege"
+  public_exposure: "${needsLb ? "LB only" : "minimize"}"`;
+});
+</script>
+</body>
+</html>

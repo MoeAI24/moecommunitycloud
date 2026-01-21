@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Storage Strategy Advisor | Moe Community Cloud</title>
+  <meta name="description" content="Pick object vs block storage for your workload. Get cost/performance tradeoffs, risk flags, and migration considerations."/>
+  <meta name="robots" content="index,follow"/>
+  
+  <style>
+    :root{--bg:#0b0b0b;--text:#f7f3e9;--muted:rgba(247,243,233,.72);--muted2:rgba(247,243,233,.55);--gold:#d4af37;--red:#c1121f;--border:rgba(247,243,233,.12)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text);line-height:1.45}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:980px;margin:0 auto;padding:18px}
+    .card{border:1px solid var(--border);border-radius:16px;background:rgba(16,16,16,.9);padding:16px}
+    .btn{display:inline-flex;gap:10px;align-items:center;justify-content:center;padding:12px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.12);font-weight:900;cursor:pointer}
+    .btn.secondary{border-color:var(--border);background:rgba(247,243,233,.05)}
+    label{display:grid;gap:6px;font-weight:900}
+    input,select,textarea{padding:12px;border-radius:12px;border:1px solid var(--border);background:rgba(11,11,11,.55);color:var(--text);outline:none}
+    textarea{min-height:110px;resize:vertical}
+    input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(212,175,55,.25);border-color:rgba(212,175,55,.55)}
+    .meta{display:flex;gap:8px;flex-wrap:wrap}
+    .pill{font-size:12px;color:rgba(247,243,233,.65);border:1px solid rgba(247,243,233,.10);padding:3px 8px;border-radius:999px;background:rgba(11,11,11,.25)}
+    .hr{border-top:1px solid rgba(247,243,233,.08);margin:14px 0}
+    .box{border-radius:16px;border:1px solid rgba(247,243,233,.10);background:rgba(11,11,11,.35);padding:14px}
+    .small{font-size:12px;color:var(--muted2)}
+    pre{margin:0;white-space:pre-wrap;word-break:break-word;color:rgba(247,243,233,.80);font-size:12px;line-height:1.45}
+  </style>
+
+</head>
+<body>
+<main class="wrap">
+  <a href="../tools.html" style="color:var(--muted);">← Back to Tools</a>
+  <h1 style="margin:10px 0 6px;">Storage Strategy Advisor</h1>
+  <p style="margin:0 0 14px;color:var(--muted);max-width:80ch;">Pick object vs block storage for your workload. Get cost/performance tradeoffs, risk flags, and migration considerations.</p>
+  <div class="meta"><span class="pill">Object Storage</span><span class="pill">Block Storage</span></div>
+  
+<section class="card" style="margin-top:14px;">
+  <label>What are you storing?
+    <select id="ss_type">
+      <option value="media">Media files (images/video/audio)</option>
+      <option value="backups">Backups / archives</option>
+      <option value="logs">Logs / event data</option>
+      <option value="db">Database files / low-latency I/O</option>
+      <option value="vm">VM disk / app filesystem</option>
+    </select>
+  </label>
+  <label>Access pattern
+    <select id="ss_access">
+      <option value="rare">Rare reads (archive)</option>
+      <option value="normal">Normal reads</option>
+      <option value="hot">Very frequent reads (hot)</option>
+      <option value="random">Random reads/writes (I/O heavy)</option>
+    </select>
+  </label>
+  <label>Latency sensitivity
+    <select id="ss_latency">
+      <option value="low">Low (seconds OK)</option>
+      <option value="med">Medium (hundreds of ms)</option>
+      <option value="high">High (needs low ms)</option>
+    </select>
+  </label>
+  <label>Estimated size (GB)
+    <input id="ss_size" type="number" min="0" placeholder="e.g., 500"/>
+  </label>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+    <button class="btn" type="button" id="ss_eval">Recommend</button>
+    <a class="btn secondary" href="cost-reality-checker.html">Run Cost Check</a>
+    <a class="btn secondary" href="../contact.html">Need a Migration?</a>
+  </div>
+  <div class="hr"></div>
+  <div class="box" id="ss_out"><strong>Recommendation:</strong><div class="small" style="margin-top:6px;">Choose options and click Recommend.</div></div>
+</section>
+
+  <p class="small" style="margin-top:14px;">Guidance only. Use this as a starting point and validate with real measurements.</p>
+</main>
+<script>
+document.getElementById("ss_eval").addEventListener("click", () => {
+  const type=document.getElementById("ss_type").value;
+  const access=document.getElementById("ss_access").value;
+  const latency=document.getElementById("ss_latency").value;
+  const size=Number(document.getElementById("ss_size").value||0);
+
+  let rec="Object Storage", why=[], risks=[], next=[];
+  if (type==="db"||type==="vm"||access==="random"||latency==="high"){
+    rec="Block Storage";
+    why=["You need low-latency random read/write I/O.","Block storage behaves like a disk for VMs and databases."];
+    risks=["Watch IOPS/throughput caps and snapshot strategy.","Plan backups and replication for durability."];
+    next=["If you’re running many services, review your compute/k8s topology."];
+  } else {
+    rec="Object Storage";
+    why=["Great for large files, backups, logs, and media delivery.","Durable and cost-efficient for scale."];
+    if (access==="hot") risks.push("Hot access can increase retrieval/egress costs depending on tier.");
+    risks.push("Design around object semantics (not a POSIX filesystem).");
+    next=["If serving media, consider caching and estimate egress in the Cost Checker."];
+  }
+  if (size>5000){
+    why.push("Large dataset: prioritize lifecycle policies/tiering to control long-term costs.");
+    risks.push("Large migrations need staged cutover and integrity checks.");
+  }
+  document.getElementById("ss_out").innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+      <div style="font-weight:900;font-size:16px;color:#d4af37;">Recommended: ${rec}</div>
+      <span class="pill">Size: ${size? size.toLocaleString()+" GB":"n/a"}</span>
+    </div>
+    <div style="margin-top:10px;color:rgba(247,243,233,.75);"><strong>Why:</strong>
+      <ul style="margin:6px 0 0;padding-left:18px;">${why.map(x=>`<li>${x}</li>`).join("")}</ul>
+    </div>
+    <div style="margin-top:10px;color:rgba(247,243,233,.75);"><strong>Watch-outs:</strong>
+      <ul style="margin:6px 0 0;padding-left:18px;">${risks.map(x=>`<li>${x}</li>`).join("")}</ul>
+    </div>
+    <div style="margin-top:10px;color:rgba(247,243,233,.75);"><strong>Next:</strong>
+      <ul style="margin:6px 0 0;padding-left:18px;">${next.map(x=>`<li>${x}</li>`).join("")}</ul>
+    </div>`;
+});
+</script>
+</body>
+</html>

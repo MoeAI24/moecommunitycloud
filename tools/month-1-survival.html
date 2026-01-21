@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Can This App Survive Month 1? | Moe Community Cloud</title>
+  <meta name="description" content="Runway vs infrastructure reality: estimate early cost drivers across compute, storage, and traffic routing to survive month 1."/>
+  <meta name="robots" content="index,follow"/>
+  
+  <style>
+    :root{--bg:#0b0b0b;--text:#f7f3e9;--muted:rgba(247,243,233,.72);--muted2:rgba(247,243,233,.55);--gold:#d4af37;--red:#c1121f;--border:rgba(247,243,233,.12)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text);line-height:1.45}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:980px;margin:0 auto;padding:18px}
+    .card{border:1px solid var(--border);border-radius:16px;background:rgba(16,16,16,.9);padding:16px}
+    .btn{display:inline-flex;gap:10px;align-items:center;justify-content:center;padding:12px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.12);font-weight:900;cursor:pointer}
+    .btn.secondary{border-color:var(--border);background:rgba(247,243,233,.05)}
+    label{display:grid;gap:6px;font-weight:900}
+    input,select,textarea{padding:12px;border-radius:12px;border:1px solid var(--border);background:rgba(11,11,11,.55);color:var(--text);outline:none}
+    textarea{min-height:110px;resize:vertical}
+    input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(212,175,55,.25);border-color:rgba(212,175,55,.55)}
+    .meta{display:flex;gap:8px;flex-wrap:wrap}
+    .pill{font-size:12px;color:rgba(247,243,233,.65);border:1px solid rgba(247,243,233,.10);padding:3px 8px;border-radius:999px;background:rgba(11,11,11,.25)}
+    .hr{border-top:1px solid rgba(247,243,233,.08);margin:14px 0}
+    .box{border-radius:16px;border:1px solid rgba(247,243,233,.10);background:rgba(11,11,11,.35);padding:14px}
+    .small{font-size:12px;color:var(--muted2)}
+    pre{margin:0;white-space:pre-wrap;word-break:break-word;color:rgba(247,243,233,.80);font-size:12px;line-height:1.45}
+  </style>
+
+</head>
+<body>
+<main class="wrap">
+  <a href="../tools.html" style="color:var(--muted);">← Back to Tools</a>
+  <h1 style="margin:10px 0 6px;">Can This App Survive Month 1?</h1>
+  <p style="margin:0 0 14px;color:var(--muted);max-width:80ch;">Runway vs infrastructure reality: estimate early cost drivers across compute, storage, and traffic routing to survive month 1.</p>
+  <div class="meta"><span class="pill">Compute</span><span class="pill">Storage</span><span class="pill">Load Balancer</span></div>
+  
+<section class="card" style="margin-top:14px;">
+  <label>Monthly budget (USD)
+    <input id="m_budget" type="number" min="0" placeholder="e.g., 300"/>
+  </label>
+  <label>Compute profile
+    <select id="m_compute">
+      <option value="small">Small (MVP)</option>
+      <option value="medium">Medium</option>
+      <option value="large">Large</option>
+    </select>
+  </label>
+  <label>Storage (GB)
+    <input id="m_storage" type="number" min="0" placeholder="e.g., 200"/>
+  </label>
+  <label>Traffic level
+    <select id="m_traffic">
+      <option value="low">Low</option>
+      <option value="med">Medium</option>
+      <option value="high">High</option>
+      <option value="spiky">Spiky</option>
+    </select>
+  </label>
+
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+    <button class="btn" type="button" id="m_run">Run Check</button>
+    <a class="btn secondary" href="cost-reality-checker.html">Cost Reality Checker</a>
+    <a class="btn secondary" href="../contact.html">Help Me Survive</a>
+  </div>
+
+  <div class="hr"></div>
+  <div class="box" id="m_out"><strong>Result:</strong><div class="small" style="margin-top:6px;">Enter values and click Run Check.</div></div>
+</section>
+
+  <p class="small" style="margin-top:14px;">Guidance only. Use this as a starting point and validate with real measurements.</p>
+</main>
+<script>
+document.getElementById("m_run").addEventListener("click", () => {
+  const budget=Number(document.getElementById("m_budget").value||0);
+  const compute=document.getElementById("m_compute").value;
+  const storage=Number(document.getElementById("m_storage").value||0);
+  const traffic=document.getElementById("m_traffic").value;
+
+  const baseCompute = compute==="small"?55:compute==="medium"?160:420;
+  const baseStorage = storage*0.02;
+  const lb = (traffic==="low")?12:(traffic==="med")?18:(traffic==="high")?30:35;
+  const trafficOver = (traffic==="low")?10:(traffic==="med")?25:(traffic==="high")?60:80;
+
+  const est = baseCompute + baseStorage + lb + trafficOver;
+  const margin = budget - est;
+
+  let verdict="SURVIVES", color="#d4af37";
+  if(budget<=0){ verdict="ENTER A BUDGET"; color="#c1121f"; }
+  else if(margin<0){ verdict="AT RISK"; color="#c1121f"; }
+  else if(margin < budget*0.15){ verdict="TIGHT"; color="#d4af37"; }
+
+  const fixes=[];
+  if(margin<0){
+    fixes.push("Reduce compute profile or start smaller until traction requires scale.");
+    fixes.push("Move large files to object storage; add lifecycle policies.");
+    fixes.push("Reduce egress (cache aggressively).");
+    fixes.push("Avoid Kubernetes early unless you can operate it.");
+  } else {
+    fixes.push("Keep baseline lean; scale only on measured demand.");
+    fixes.push("Set budget alerts and watch egress + requests.");
+    if(traffic==="spiky") fixes.push("Test autoscaling with Traffic Spike Survival.");
+  }
+
+  document.getElementById("m_out").innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+      <div style="font-weight:900;font-size:16px;color:${color};">${verdict}</div>
+      <span class="pill">Estimated: $${est.toFixed(0)}/mo</span>
+    </div>
+    <div style="margin-top:10px;color:rgba(247,243,233,.75);">
+      <div><strong>Budget:</strong> $${budget.toFixed(0)}/mo</div>
+      <div><strong>Compute:</strong> $${baseCompute.toFixed(0)}</div>
+      <div><strong>Storage:</strong> $${baseStorage.toFixed(0)}</div>
+      <div><strong>Load balancer:</strong> $${lb.toFixed(0)}</div>
+      <div><strong>Traffic overhead:</strong> $${trafficOver.toFixed(0)}</div>
+      <div style="margin-top:6px;"><strong>Margin:</strong> $${margin.toFixed(0)}</div>
+    </div>
+    <div style="margin-top:12px;font-weight:900;color:#d4af37;">Fix order</div>
+    <ul style="margin:10px 0 0;padding-left:18px;color:rgba(247,243,233,.75);">
+      ${fixes.map(f=>`<li>${f}</li>`).join("")}
+    </ul>`;
+});
+</script>
+</body>
+</html>
