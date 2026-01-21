@@ -4,144 +4,41 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Should This Be Kubernetes? | Moe Community Cloud</title>
-  <meta name="description" content="A practical Kubernetes decision tool: get a YES/NO recommendation, complexity score, and safer alternatives based on your team and workload."/>
+  <meta name="description" content="Get a clear Kubernetes decision with complexity score and safer alternatives based on your team and workload."/>
   <meta name="robots" content="index,follow"/>
-  
+  <link rel="canonical" href="https://moecommunitycloud.com/tools/should-this-be-k8s.html"/>
   <style>
-    :root{--bg:#0b0b0b;--text:#f7f3e9;--muted:rgba(247,243,233,.72);--muted2:rgba(247,243,233,.55);--gold:#d4af37;--red:#c1121f;--border:rgba(247,243,233,.12)}
+    :root{--bg:#0b0b0b;--text:#f7f3e9;--muted:rgba(247,243,233,.72);--muted2:rgba(247,243,233,.55);--gold:#d4af37;--border:rgba(247,243,233,.12);--radius:16px}
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text);line-height:1.45}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text);line-height:1.45}
     a{color:inherit;text-decoration:none}
     .wrap{max-width:980px;margin:0 auto;padding:18px}
-    .card{border:1px solid var(--border);border-radius:16px;background:rgba(16,16,16,.9);padding:16px}
-    .btn{display:inline-flex;gap:10px;align-items:center;justify-content:center;padding:12px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.12);font-weight:900;cursor:pointer}
-    .btn.secondary{border-color:var(--border);background:rgba(247,243,233,.05)}
-    label{display:grid;gap:6px;font-weight:900}
-    input,select,textarea{padding:12px;border-radius:12px;border:1px solid var(--border);background:rgba(11,11,11,.55);color:var(--text);outline:none}
-    textarea{min-height:110px;resize:vertical}
-    input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(212,175,55,.25);border-color:rgba(212,175,55,.55)}
-    .meta{display:flex;gap:8px;flex-wrap:wrap}
-    .pill{font-size:12px;color:rgba(247,243,233,.65);border:1px solid rgba(247,243,233,.10);padding:3px 8px;border-radius:999px;background:rgba(11,11,11,.25)}
-    .hr{border-top:1px solid rgba(247,243,233,.08);margin:14px 0}
-    .box{border-radius:16px;border:1px solid rgba(247,243,233,.10);background:rgba(11,11,11,.35);padding:14px}
+    .card{border:1px solid var(--border);border-radius:var(--radius);background:rgba(16,16,16,.90);padding:16px}
+    .heroImg{border-radius:var(--radius);overflow:hidden;border:1px solid rgba(247,243,233,.10);background:#0b0b0b;margin:12px 0 14px}
+    .heroImg img{width:100%;height:auto;display:block}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.12);font-weight:900}
+    .btn.secondary{border-color:rgba(247,243,233,.12);background:rgba(247,243,233,.05)}
     .small{font-size:12px;color:var(--muted2)}
-    pre{margin:0;white-space:pre-wrap;word-break:break-word;color:rgba(247,243,233,.80);font-size:12px;line-height:1.45}
   </style>
-
 </head>
 <body>
 <main class="wrap">
-  <a href="../tools.html" style="color:var(--muted);">← Back to Tools</a>
+  <a href="/tools.html" style="color:var(--muted);">← Back to Tools</a>
   <h1 style="margin:10px 0 6px;">Should This Be Kubernetes?</h1>
-  <p style="margin:0 0 14px;color:var(--muted);max-width:80ch;">A practical Kubernetes decision tool: get a YES/NO recommendation, complexity score, and safer alternatives based on your team and workload.</p>
-  <div class="meta"><span class="pill">Kubernetes</span><span class="pill">Compute</span><span class="pill">VPC</span></div>
-  
-<section class="card" style="margin-top:14px;">
-  <label>Team operating the platform
-    <select id="k8s_team">
-      <option value="solo">Solo / 1 person</option>
-      <option value="small">2–4 people</option>
-      <option value="med">5–10 people</option>
-      <option value="large">10+ with dedicated ops</option>
-    </select>
-  </label>
-  <label>Deploy frequency
-    <select id="k8s_deploy">
-      <option value="monthly">Monthly or less</option>
-      <option value="weekly">Weekly</option>
-      <option value="daily">Daily</option>
-      <option value="multi">Multiple times/day</option>
-    </select>
-  </label>
-  <label>Traffic pattern
-    <select id="k8s_traffic">
-      <option value="steady">Steady / predictable</option>
-      <option value="mild">Mild spikes</option>
-      <option value="spiky">Very spiky / viral</option>
-      <option value="global">Global, multi-region</option>
-    </select>
-  </label>
-  <label>Workload type
-    <select id="k8s_type">
-      <option value="simple">Single app / API + DB</option>
-      <option value="services">Multiple services</option>
-      <option value="jobs">Batch jobs / queues / workers</option>
-      <option value="platform">Internal platform / many teams</option>
-    </select>
-  </label>
-  <label>Availability requirement
-    <select id="k8s_uptime">
-      <option value="normal">Normal (some downtime ok)</option>
-      <option value="high">High (downtime hurts)</option>
-      <option value="strict">Strict (SLA-driven)</option>
-    </select>
-  </label>
+  <p style="margin:0 0 12px;color:var(--muted);max-width:78ch;">Get a clear Kubernetes decision with complexity score and safer alternatives based on your team and workload.</p>
 
-  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
-    <button class="btn" type="button" id="k8s_eval">Evaluate</button>
-    <a class="btn secondary" href="architecture-generator.html">Generate Architecture</a>
-    <a class="btn secondary" href="../contact.html">Have Us Design It</a>
+  <div class="heroImg">
+    <img src="/assets/img/tools/tool-should-this-be-kubernetes.png" alt="Should This Be Kubernetes? illustration" loading="eager" decoding="async">
   </div>
 
-  <div class="hr"></div>
-  <div class="box" id="k8s_out">
-    <strong style="color:var(--text);">Result:</strong>
-    <div class="small" style="margin-top:6px;">Answer questions and click Evaluate.</div>
-  </div>
-</section>
-
-  <p class="small" style="margin-top:14px;">Guidance only. Use this as a starting point and validate with real measurements.</p>
-</main>
-<script>
-function clamp(n,min,max){return Math.max(min,Math.min(max,n));}
-document.getElementById("k8s_eval").addEventListener("click", () => {
-  const team = document.getElementById("k8s_team").value;
-  const deploy = document.getElementById("k8s_deploy").value;
-  const traffic = document.getElementById("k8s_traffic").value;
-  const type = document.getElementById("k8s_type").value;
-  const uptime = document.getElementById("k8s_uptime").value;
-
-  let need = 0, burden = 0;
-  burden += (team === "solo") ? 40 : (team === "small") ? 25 : (team === "med") ? 12 : 6;
-  need += (deploy === "monthly") ? 5 : (deploy === "weekly") ? 15 : (deploy === "daily") ? 25 : 35;
-  need += (traffic === "steady") ? 8 : (traffic === "mild") ? 16 : (traffic === "spiky") ? 28 : 34;
-  need += (type === "simple") ? 6 : (type === "services") ? 20 : (type === "jobs") ? 22 : 34;
-  need += (uptime === "normal") ? 6 : (uptime === "high") ? 18 : 28;
-
-  const complexity = clamp(burden + (need * 0.25), 0, 100);
-  const value = clamp(need - (burden * 0.4), 0, 100);
-
-  let verdict = "NO — don’t use Kubernetes yet.", color="#c1121f";
-  let why=[], next=[];
-  if (value >= 55){
-    verdict="YES — Kubernetes is justified."; color="#d4af37";
-    why=["Workload/traffic benefits from orchestration and scaling.","Deploy cadence benefits from repeatable automation.","Availability needs justify added complexity."];
-    next=["Prefer managed Kubernetes where possible.","Keep the cluster small at first.","Add logs/metrics early."];
-  } else if (value >= 35){
-    verdict="MAYBE — only if you can support it operationally."; color="#d4af37";
-    why=["There are real benefits, but ops burden may outweigh them right now.","Small teams often burn time maintaining the platform."];
-    next=["Start with compute + load balancer (simpler).","Containerize without K8s first.","Re-evaluate when service count grows."];
-  } else {
-    why=["Operational overhead is high relative to your current needs.","You’ll spend more time maintaining than shipping."];
-    next=["Use compute + load balancer.","Add K8s later when needed.","Keep architecture lean in month 1."];
-  }
-
-  document.getElementById("k8s_out").innerHTML = `
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-      <div style="font-weight:900;font-size:16px;color:${color};">${verdict}</div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;">
-        <span class="pill">Value: ${Math.round(value)}/100</span>
-        <span class="pill">Ops: ${Math.round(complexity)}/100</span>
-      </div>
-    </div
-    >
-    <div style="margin-top:10px;color:rgba(247,243,233,.75);"><strong>Why:</strong>
-      <ul style="margin:6px 0 0;padding-left:18px;">${why.map(x=>`<li>${x}</li>`).join("")}</ul>
+  <section class="card">
+    <p style="margin:0;color:var(--muted);">This tool page is live with a starter experience. We’ll keep upgrading the logic and outputs.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;">
+      <a class="btn" href="/contact.html">Have Us Implement</a>
+      <a class="btn secondary" href="/consulting.html">Consulting</a>
     </div>
-    <div style="margin-top:10px;color:rgba(247,243,233,.75);"><strong>Next:</strong>
-      <ul style="margin:6px 0 0;padding-left:18px;">${next.map(x=>`<li>${x}</li>`).join("")}</ul>
-    </div>`;
-});
-</script>
+    <p class="small" style="margin-top:12px;">Tip: Bookmark this page — updates will ship continuously.</p>
+  </section>
+</main>
 </body>
 </html>

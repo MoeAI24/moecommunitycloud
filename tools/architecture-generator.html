@@ -4,142 +4,41 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Cloud Architecture Generator | Moe Community Cloud</title>
-  <meta name="description" content="Turn an app idea into a practical cloud architecture using compute, storage, load balancing, Kubernetes, and VPC — with risks and next steps."/>
+  <meta name="description" content="Turn an app idea into a practical architecture baseline with scaling notes, risks, and next steps."/>
   <meta name="robots" content="index,follow"/>
-  
+  <link rel="canonical" href="https://moecommunitycloud.com/tools/architecture-generator.html"/>
   <style>
-    :root{--bg:#0b0b0b;--text:#f7f3e9;--muted:rgba(247,243,233,.72);--muted2:rgba(247,243,233,.55);--gold:#d4af37;--red:#c1121f;--border:rgba(247,243,233,.12)}
+    :root{--bg:#0b0b0b;--text:#f7f3e9;--muted:rgba(247,243,233,.72);--muted2:rgba(247,243,233,.55);--gold:#d4af37;--border:rgba(247,243,233,.12);--radius:16px}
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text);line-height:1.45}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text);line-height:1.45}
     a{color:inherit;text-decoration:none}
     .wrap{max-width:980px;margin:0 auto;padding:18px}
-    .card{border:1px solid var(--border);border-radius:16px;background:rgba(16,16,16,.9);padding:16px}
-    .btn{display:inline-flex;gap:10px;align-items:center;justify-content:center;padding:12px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.12);font-weight:900;cursor:pointer}
-    .btn.secondary{border-color:var(--border);background:rgba(247,243,233,.05)}
-    label{display:grid;gap:6px;font-weight:900}
-    input,select,textarea{padding:12px;border-radius:12px;border:1px solid var(--border);background:rgba(11,11,11,.55);color:var(--text);outline:none}
-    textarea{min-height:110px;resize:vertical}
-    input:focus,select:focus,textarea:focus{box-shadow:0 0 0 3px rgba(212,175,55,.25);border-color:rgba(212,175,55,.55)}
-    .meta{display:flex;gap:8px;flex-wrap:wrap}
-    .pill{font-size:12px;color:rgba(247,243,233,.65);border:1px solid rgba(247,243,233,.10);padding:3px 8px;border-radius:999px;background:rgba(11,11,11,.25)}
-    .hr{border-top:1px solid rgba(247,243,233,.08);margin:14px 0}
-    .box{border-radius:16px;border:1px solid rgba(247,243,233,.10);background:rgba(11,11,11,.35);padding:14px}
+    .card{border:1px solid var(--border);border-radius:var(--radius);background:rgba(16,16,16,.90);padding:16px}
+    .heroImg{border-radius:var(--radius);overflow:hidden;border:1px solid rgba(247,243,233,.10);background:#0b0b0b;margin:12px 0 14px}
+    .heroImg img{width:100%;height:auto;display:block}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.12);font-weight:900}
+    .btn.secondary{border-color:rgba(247,243,233,.12);background:rgba(247,243,233,.05)}
     .small{font-size:12px;color:var(--muted2)}
-    pre{margin:0;white-space:pre-wrap;word-break:break-word;color:rgba(247,243,233,.80);font-size:12px;line-height:1.45}
   </style>
-
 </head>
 <body>
 <main class="wrap">
-  <a href="../tools.html" style="color:var(--muted);">← Back to Tools</a>
+  <a href="/tools.html" style="color:var(--muted);">← Back to Tools</a>
   <h1 style="margin:10px 0 6px;">Cloud Architecture Generator</h1>
-  <p style="margin:0 0 14px;color:var(--muted);max-width:80ch;">Turn an app idea into a practical cloud architecture using compute, storage, load balancing, Kubernetes, and VPC — with risks and next steps.</p>
-  <div class="meta"><span class="pill">Compute</span><span class="pill">Object Storage</span><span class="pill">Block Storage</span><span class="pill">Load Balancer</span><span class="pill">Kubernetes</span><span class="pill">VPC</span></div>
-  
-<section class="card" style="margin-top:14px;">
-  <label>App type
-    <select id="ag_type">
-      <option value="api">API / Web app</option>
-      <option value="saas">SaaS product</option>
-      <option value="media">Media platform (uploads/stream)</option>
-      <option value="ecom">E-commerce</option>
-      <option value="ml">AI/ML app</option>
-    </select>
-  </label>
-  <label>Stage
-    <select id="ag_stage">
-      <option value="mvp">MVP / early</option>
-      <option value="prod">Production (growing)</option>
-      <option value="scale">Scale / high traffic</option>
-    </select>
-  </label>
-  <label>Traffic pattern
-    <select id="ag_traffic">
-      <option value="steady">Steady / predictable</option>
-      <option value="spiky">Spiky / viral</option>
-      <option value="global">Global / multi-region</option>
-    </select>
-  </label>
-  <label>Team size
-    <select id="ag_team">
-      <option value="solo">Solo / 1 person</option>
-      <option value="small">2–4</option>
-      <option value="med">5–10</option>
-      <option value="large">10+ with ops</option>
-    </select>
-  </label>
-  <label>Describe the app (plain English)
-    <textarea id="ag_desc" placeholder="Example: Users upload images, we generate thumbnails, we have user accounts, and we want low cost for month 1."></textarea>
-  </label>
-  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
-    <button class="btn" type="button" id="ag_gen">Generate Architecture</button>
-    <a class="btn secondary" href="vpc-security-checker.html">VPC Security</a>
-    <a class="btn secondary" href="../contact.html">Have Us Build It</a>
+  <p style="margin:0 0 12px;color:var(--muted);max-width:78ch;">Turn an app idea into a practical architecture baseline with scaling notes, risks, and next steps.</p>
+
+  <div class="heroImg">
+    <img src="/assets/img/tools/tool-cloud-architecture-generator.png" alt="Cloud Architecture Generator illustration" loading="eager" decoding="async">
   </div>
-  <div class="hr"></div>
-  <div class="box" id="ag_out"><strong>Architecture baseline:</strong><div class="small" style="margin-top:6px;">Fill inputs and click Generate.</div></div>
-  <div style="height:12px"></div>
-  <div class="box" id="ag_risks"><strong>Risks & next steps:</strong><div class="small" style="margin-top:6px;">We’ll list likely risks and what to do first.</div></div>
-</section>
 
-  <p class="small" style="margin-top:14px;">Guidance only. Use this as a starting point and validate with real measurements.</p>
+  <section class="card">
+    <p style="margin:0;color:var(--muted);">This tool page is live with a starter experience. We’ll keep upgrading the logic and outputs.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;">
+      <a class="btn" href="/contact.html">Have Us Implement</a>
+      <a class="btn secondary" href="/consulting.html">Consulting</a>
+    </div>
+    <p class="small" style="margin-top:12px;">Tip: Bookmark this page — updates will ship continuously.</p>
+  </section>
 </main>
-<script>
-document.getElementById("ag_gen").addEventListener("click", () => {
-  const type=document.getElementById("ag_type").value;
-  const stage=document.getElementById("ag_stage").value;
-  const traffic=document.getElementById("ag_traffic").value;
-  const team=document.getElementById("ag_team").value;
-  const desc=(document.getElementById("ag_desc").value||"").trim();
-
-  const k8sLikely = (stage==="scale") || (traffic==="global") || (team==="large");
-  const computeBase = k8sLikely ? "Kubernetes (managed if possible)" : "Compute (VMs/managed runtime)";
-  const lb = (traffic!=="steady" || stage!=="mvp") ? "Load Balancer" : "Optional Load Balancer";
-
-  const components = [
-    "VPC with public + private segmentation",
-    lb + " in front of public endpoints",
-    computeBase + " for app services",
-    "Object Storage for static assets/uploads"
-  ];
-  if (type==="ml"||type==="media"||type==="saas") components.push("Block Storage only where disk semantics are required");
-  if (type==="media") components.push("Async workers for thumbnails/transcoding (compute or K8s jobs)");
-  if (traffic==="global") components.push("Multi-region plan (start 1 region + failover strategy)");
-
-  const risks = [
-    "Avoid overbuilding: start lean, add complexity only when metrics demand it.",
-    "Define access boundaries early (private services, least privilege).",
-    "Plan backups and lifecycle policies for storage from day one."
-  ];
-  if (k8sLikely && (team==="solo"||team==="small")) risks.push("Kubernetes ops burden may be high for small teams — consider simpler compute first.");
-  if (traffic==="spiky") risks.push("Spiky traffic: validate autoscaling and run Traffic Spike Survival.");
-  if (type==="media") risks.push("Media delivery: egress costs can dominate — estimate bandwidth and caching.");
-
-  const next = [
-    "Run VPC Security Sanity Checker.",
-    "Run Cost Reality Checker for budget baseline.",
-    (traffic!=="steady" ? "Run Traffic Spike Survival Calculator." : "If traffic changes, re-check scaling assumptions."),
-    "If you want implementation: request a one-page architecture plan."
-  ];
-
-  document.getElementById("ag_out").innerHTML = `
-    <div style="font-weight:900;color:#d4af37;">Recommended baseline</div>
-    <ul style="margin:10px 0 0;padding-left:18px;color:rgba(247,243,233,.75);">
-      ${components.map(c=>`<li>${c}</li>`).join("")}
-    </ul>
-    <div style="margin-top:10px;color:rgba(247,243,233,.62);font-size:12px;">App notes: ${desc? desc.replace(/</g,"&lt;"):"—"}</div>
-  `;
-  document.getElementById("ag_risks").innerHTML = `
-    <div style="font-weight:900;color:#d4af37;">Likely risks</div>
-    <ul style="margin:10px 0 0;padding-left:18px;color:rgba(247,243,233,.75);">
-      ${risks.map(r=>`<li>${r}</li>`).join("")}
-    </ul>
-    <div style="margin-top:12px;font-weight:900;color:#d4af37;">Next steps</div>
-    <ul style="margin:10px 0 0;padding-left:18px;color:rgba(247,243,233,.75);">
-      ${next.map(n=>`<li>${n}</li>`).join("")}
-    </ul>
-  `;
-});
-</script>
 </body>
 </html>

@@ -6,1019 +6,455 @@
   <title>Free Cloud Tools | Moe Community Cloud</title>
   <meta name="description" content="Free cloud tools for cost planning, Kubernetes decisions, storage strategy, VPC security checks, architecture generation, deployment blueprints, traffic spike simulation, uptime risk scoring, and month-1 survival." />
   <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#0b0b0b" />
   <link rel="canonical" href="https://moecommunitycloud.com/tools.html" />
-
-  <!-- OPTIONAL: AdSense (uncomment + add your publisher id)
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXX"
-     crossorigin="anonymous"></script>
-  -->
-
+  <meta name="theme-color" content="#0b0b0b" />
   <style>
     :root{
-      --bg:#0b0b0b;
-      --text:#f7f3e9;
-      --muted:rgba(247,243,233,.72);
-      --muted2:rgba(247,243,233,.55);
-      --red:#c1121f;
-      --gold:#d4af37;
-      --border:rgba(247,243,233,.12);
-      --shadow: 0 14px 38px rgba(0,0,0,.55);
-      --radius:16px;
-      --max:1180px;
-      --focus: 0 0 0 3px rgba(212,175,55,.25);
+      --bg:#0b0b0b;--text:#f7f3e9;--muted:rgba(247,243,233,.72);--muted2:rgba(247,243,233,.55);
+      --red:#c1121f;--gold:#d4af37;--border:rgba(247,243,233,.12);--shadow:0 14px 38px rgba(0,0,0,.55);
+      --radius:16px;--max:1180px;--focus:0 0 0 3px rgba(212,175,55,.25);
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans";
-      color:var(--text);
-      background:
-        linear-gradient(180deg, rgba(193,18,31,.18), rgba(11,11,11,0) 55%),
-        repeating-linear-gradient(135deg, rgba(247,243,233,.05) 0 2px, rgba(11,11,11,0) 2px 14px),
-        repeating-linear-gradient(45deg, rgba(193,18,31,.06) 0 2px, rgba(11,11,11,0) 2px 16px),
-        var(--bg);
-      line-height:1.45;
-    }
-    a{color:inherit; text-decoration:none}
-    a:focus{outline:none; box-shadow:var(--focus); border-radius:10px}
-    .wrap{max-width:var(--max); margin:0 auto; padding: 0 18px;}
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;color:var(--text);
+      background:linear-gradient(180deg, rgba(193,18,31,.18), rgba(11,11,11,0) 55%),
+      repeating-linear-gradient(135deg, rgba(247,243,233,.05) 0 2px, rgba(11,11,11,0) 2px 14px),
+      repeating-linear-gradient(45deg, rgba(193,18,31,.06) 0 2px, rgba(11,11,11,0) 2px 16px),
+      var(--bg); line-height:1.45;}
+    a{color:inherit;text-decoration:none}
+    a:focus{outline:none;box-shadow:var(--focus);border-radius:10px}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
 
-    .topbar{
-      position:sticky; top:0; z-index:50;
-      background: rgba(11,11,11,.72);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid rgba(247,243,233,.08);
-    }
-    .topbar-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      padding: 12px 0;
-      gap:14px;
-    }
-    .brand{display:flex; align-items:center; gap:12px;}
-    .logoMark{
-      width:44px; height:44px;
-      border-radius:14px;
-      border:1px solid rgba(212,175,55,.42);
-      background:
-        linear-gradient(180deg, rgba(212,175,55,.10), rgba(11,11,11,0)),
-        repeating-linear-gradient(135deg, rgba(193,18,31,.25) 0 2px, rgba(11,11,11,0) 2px 10px),
-        #0b0b0b;
-      box-shadow: 0 10px 28px rgba(0,0,0,.55);
-      display:grid; place-items:center;
-      flex:0 0 auto;
-    }
-    .logoMark span{font-weight:900; letter-spacing:.6px; color:var(--gold); font-size:14px;}
-    .brandText{display:flex; flex-direction:column; line-height:1.1}
-    .brandText .name{font-weight:900; letter-spacing:.3px}
-    .brandText .tag{font-size:12px; color:var(--muted2)}
-    nav{display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
-    .navlink{
-      font-size:14px; color:var(--muted);
-      padding:8px 10px; border-radius:12px;
-      border:1px solid transparent;
-    }
-    .navlink:hover{color:var(--text); border-color: rgba(247,243,233,.10); background: rgba(247,243,233,.04);}
-    .navlink.active{color:var(--text); border-color: rgba(212,175,55,.32); background: rgba(212,175,55,.07);}
-    .cta{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding: 10px 14px;
-      border-radius: 14px;
-      border:1px solid rgba(212,175,55,.55);
-      background: linear-gradient(180deg, rgba(212,175,55,.14), rgba(11,11,11,0));
-      color: var(--text);
-      font-weight:900;
-      box-shadow: 0 12px 30px rgba(0,0,0,.45);
-      white-space:nowrap;
-    }
-    .cta:hover{border-color: rgba(212,175,55,.85); transform: translateY(-1px)}
-    .cta:active{transform: translateY(0px)}
-    .cta small{color:var(--gold); font-weight:900; letter-spacing:.4px}
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(11,11,11,.72);backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(247,243,233,.08);}
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:14px;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logoMark{width:44px;height:44px;border-radius:14px;border:1px solid rgba(212,175,55,.42);
+      background:linear-gradient(180deg, rgba(212,175,55,.10), rgba(11,11,11,0)),
+      repeating-linear-gradient(135deg, rgba(193,18,31,.25) 0 2px, rgba(11,11,11,0) 2px 10px), #0b0b0b;
+      display:grid;place-items:center;box-shadow:0 10px 28px rgba(0,0,0,.55)}
+    .logoMark span{font-weight:900;letter-spacing:.6px;color:var(--gold);font-size:14px}
+    .brandText .name{font-weight:900}
+    .brandText .tag{font-size:12px;color:var(--muted2)}
+    nav{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .navlink{font-size:14px;color:var(--muted);padding:8px 10px;border-radius:12px;border:1px solid transparent}
+    .navlink:hover{color:var(--text);border-color:rgba(247,243,233,.10);background:rgba(247,243,233,.04)}
+    .navlink.active{color:var(--text);border-color:rgba(212,175,55,.32);background:rgba(212,175,55,.07)}
+    .cta{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);
+      background:linear-gradient(180deg, rgba(212,175,55,.14), rgba(11,11,11,0));font-weight:900}
+    .cta small{color:var(--gold)}
 
-    .hero{padding: 38px 0 18px;}
-    .heroGrid{display:grid; grid-template-columns: 1.25fr .75fr; gap:18px; align-items:stretch;}
-    .heroCard{
-      border-radius: var(--radius);
-      border: 1px solid rgba(247,243,233,.10);
-      background:
-        radial-gradient(900px 260px at 10% 0%, rgba(193,18,31,.22), rgba(11,11,11,0) 60%),
-        radial-gradient(700px 260px at 90% 10%, rgba(212,175,55,.14), rgba(11,11,11,0) 60%),
-        rgba(16,16,16,.86);
-      box-shadow: var(--shadow);
-      padding: 22px 20px;
-      overflow:hidden;
-      position:relative;
-    }
-    .heroCard::after{
-      content:"";
-      position:absolute; inset:-60px -80px auto auto;
-      width:260px; height:260px;
-      background:
-        repeating-linear-gradient(135deg, rgba(193,18,31,.35) 0 2px, rgba(11,11,11,0) 2px 12px),
-        radial-gradient(circle at 30% 30%, rgba(212,175,55,.40), rgba(11,11,11,0) 55%);
-      border-radius: 60px;
-      opacity:.55;
-      transform: rotate(8deg);
-      pointer-events:none;
-    }
-    .kicker{display:inline-flex; align-items:center; gap:10px; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color: var(--muted);}
-    .dot{width:10px; height:10px; border-radius:99px; background: var(--red); box-shadow: 0 0 0 4px rgba(193,18,31,.18);}
-    h1{margin:10px 0 10px; font-size: clamp(28px, 3.1vw, 44px); letter-spacing: -0.02em; line-height:1.05;}
-    .lead{margin: 0 0 14px; color: var(--muted); font-size: 16px; max-width: 60ch;}
-    .heroActions{display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px;}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding: 11px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(247,243,233,.12);
-      background: rgba(247,243,233,.04);
-      color: var(--text);
-      font-weight:900;
-      cursor:pointer;
-      user-select:none;
-      transition: transform .12s ease, border-color .12s ease, background .12s ease;
-    }
-    .btn:hover{border-color: rgba(247,243,233,.20); transform: translateY(-1px)}
-    .btn:active{transform: translateY(0px)}
-    .btn.primary{border-color: rgba(212,175,55,.60); background: linear-gradient(180deg, rgba(212,175,55,.14), rgba(11,11,11,0)); box-shadow: 0 12px 30px rgba(0,0,0,.38);}
-    .btn .pill{font-size:12px; padding: 2px 8px; border-radius: 999px; border:1px solid rgba(247,243,233,.14); color: var(--muted); background: rgba(11,11,11,.35);}
+    .hero{padding:28px 0 10px}
+    .heroGrid{display:grid;grid-template-columns:1.25fr .75fr;gap:18px;align-items:stretch}
+    .heroCard{border-radius:var(--radius);border:1px solid rgba(247,243,233,.10);background:rgba(16,16,16,.86);
+      box-shadow:var(--shadow);padding:18px;overflow:hidden}
+    .heroMedia{margin-top:12px;border-radius:16px;overflow:hidden;border:1px solid rgba(247,243,233,.10);background:#0b0b0b}
+    .heroMedia img{width:100%;height:auto;display:block}
+    .kicker{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+    .dot{width:10px;height:10px;border-radius:99px;background:var(--red);box-shadow:0 0 0 4px rgba(193,18,31,.18)}
+    h1{margin:10px 0 10px;font-size:clamp(28px, 3.1vw, 44px);line-height:1.05}
+    .lead{margin:0;color:var(--muted);font-size:16px;max-width:60ch}
+    .heroActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:11px 14px;border-radius:14px;border:1px solid rgba(247,243,233,.12);
+      background:rgba(247,243,233,.04);font-weight:900;cursor:pointer}
+    .btn.primary{border-color:rgba(212,175,55,.60);background:linear-gradient(180deg, rgba(212,175,55,.14), rgba(11,11,11,0))}
+    .pill{font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid rgba(247,243,233,.14);color:var(--muted);background:rgba(11,11,11,.35)}
 
-    .sideCard{
-      border-radius: var(--radius);
-      border: 1px solid rgba(247,243,233,.10);
-      background: rgba(16,16,16,.86);
-      box-shadow: var(--shadow);
-      padding: 18px 18px;
-      display:flex; flex-direction:column; gap:12px;
-    }
-    .sideTitle{font-weight:900; letter-spacing:.2px; display:flex; align-items:center; gap:10px;}
-    .sideTitle .badge{font-size:12px; padding: 2px 8px; border-radius: 999px; border:1px solid rgba(212,175,55,.40); background: rgba(212,175,55,.10); color: var(--gold); font-weight:900; letter-spacing:.05em;}
-    .sideText{color: var(--muted); font-size:14px; margin:0}
-    .searchRow{display:flex; gap:10px; align-items:center; margin-top: 6px;}
-    .search{
-      flex:1;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(247,243,233,.12);
-      background: rgba(11,11,11,.50);
-      color: var(--text);
-      outline:none;
-    }
-    .search:focus{box-shadow:var(--focus); border-color: rgba(212,175,55,.5)}
-    .mini{font-size:12px; color: var(--muted2);}
+    .sideCard{border-radius:var(--radius);border:1px solid rgba(247,243,233,.10);background:rgba(16,16,16,.86);
+      box-shadow:var(--shadow);padding:18px;display:flex;flex-direction:column;gap:12px}
+    .sideTitle{font-weight:900;display:flex;align-items:center;gap:10px}
+    .badgeInline{font-size:12px;padding:2px 8px;border-radius:999px;border:1px solid rgba(212,175,55,.40);
+      background:rgba(212,175,55,.10);color:var(--gold);font-weight:900}
+    .searchRow{display:flex;gap:10px;flex-wrap:wrap}
+    .search{flex:1;min-width:220px;padding:12px;border-radius:14px;border:1px solid rgba(247,243,233,.12);
+      background:rgba(11,11,11,.50);color:var(--text);outline:none}
+    .search:focus{box-shadow:var(--focus);border-color:rgba(212,175,55,.5)}
 
-    .filters{
-      margin: 18px 0 10px;
-      position: sticky;
-      top: 74px;
-      z-index: 30;
-      background: rgba(11,11,11,.70);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(247,243,233,.08);
-      border-radius: 18px;
-      padding: 10px;
-      box-shadow: 0 14px 34px rgba(0,0,0,.40);
-    }
-    .chips{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
-    .chip{
-      border-radius: 999px;
-      border: 1px solid rgba(247,243,233,.12);
-      background: rgba(247,243,233,.04);
-      color: var(--muted);
-      padding: 8px 12px;
-      cursor:pointer;
-      font-weight:900;
-      letter-spacing:.2px;
-      font-size: 13px;
-      user-select:none;
-      transition: transform .12s ease, border-color .12s ease, background .12s ease, color .12s ease;
-    }
-    .chip:hover{transform: translateY(-1px); border-color: rgba(247,243,233,.22); color:var(--text)}
-    .chip.active{border-color: rgba(212,175,55,.62); background: rgba(212,175,55,.12); color: var(--text);}
-    .count{
-      margin-left:auto;
-      font-size:12px;
-      color: var(--muted2);
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(247,243,233,.10);
-      background: rgba(11,11,11,.35);
-      white-space:nowrap;
-    }
+    .filters{margin:18px 0 10px;position:sticky;top:74px;z-index:30;background:rgba(11,11,11,.70);backdrop-filter:blur(10px);
+      border:1px solid rgba(247,243,233,.08);border-radius:18px;padding:10px;box-shadow:0 14px 34px rgba(0,0,0,.40)}
+    .chips{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+    .chip{border-radius:999px;border:1px solid rgba(247,243,233,.12);background:rgba(247,243,233,.04);color:var(--muted);
+      padding:8px 12px;cursor:pointer;font-weight:900;font-size:13px}
+    .chip.active{border-color:rgba(212,175,55,.62);background:rgba(212,175,55,.12);color:var(--text)}
+    .count{margin-left:auto;font-size:12px;color:var(--muted2);padding:4px 10px;border-radius:999px;border:1px solid rgba(247,243,233,.10);
+      background:rgba(11,11,11,.35)}
 
-    .section{padding: 16px 0 6px;}
-    .sectionHead{display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin: 8px 0 10px;}
-    .sectionHead h2{margin:0; font-size: 18px; letter-spacing:.2px;}
-    .sectionHead p{margin:0; color: var(--muted2); font-size: 13px; max-width: 70ch;}
+    .section{padding:16px 0 6px}
+    .sectionHead{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:8px 0 10px}
+    .sectionHead h2{margin:0;font-size:18px}
+    .sectionHead p{margin:0;color:var(--muted2);font-size:13px}
+    .grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:14px}
 
-    .grid{display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px;}
-    .tool{
-      border-radius: var(--radius);
-      border: 1px solid rgba(247,243,233,.10);
-      background:
-        radial-gradient(650px 200px at 15% 0%, rgba(193,18,31,.14), rgba(11,11,11,0) 55%),
-        rgba(16,16,16,.86);
-      box-shadow: 0 14px 34px rgba(0,0,0,.45);
-      padding: 16px 16px 14px;
-      position:relative;
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-      min-height: 210px;
-      transition: transform .14s ease, border-color .14s ease, background .14s ease;
-    }
-    .tool:hover{transform: translateY(-2px); border-color: rgba(212,175,55,.28);}
-    .tool::before{
-      content:"";
-      position:absolute;
-      inset:-70px -70px auto auto;
-      width:220px; height:220px;
-      border-radius: 60px;
-      background:
-        repeating-linear-gradient(135deg, rgba(247,243,233,.06) 0 2px, rgba(11,11,11,0) 2px 10px),
-        radial-gradient(circle at 40% 40%, rgba(212,175,55,.20), rgba(11,11,11,0) 60%);
-      opacity:.55;
-      transform: rotate(10deg);
-      pointer-events:none;
-    }
-    .toolTop{display:flex; align-items:flex-start; justify-content:space-between; gap:10px;}
-    .toolIcon{
-      width:42px; height:42px;
-      border-radius: 14px;
-      border: 1px solid rgba(247,243,233,.12);
-      background:
-        linear-gradient(180deg, rgba(212,175,55,.12), rgba(11,11,11,0)),
-        rgba(11,11,11,.35);
-      display:grid; place-items:center;
-      flex:0 0 auto;
-    }
-    .toolIcon svg{width:22px; height:22px; opacity:.95}
-    .toolBadges{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;}
-    .badge{
-      font-size:12px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(247,243,233,.12);
-      background: rgba(11,11,11,.35);
-      color: var(--muted);
-      font-weight:900;
-      letter-spacing:.04em;
-    }
-    .badge.free{border-color: rgba(212,175,55,.45); color: var(--gold); background: rgba(212,175,55,.10)}
-    .badge.pop{border-color: rgba(193,18,31,.40); color: #ffd2d2; background: rgba(193,18,31,.12)}
-    .badge.new{border-color: rgba(247,243,233,.18); color: var(--text); background: rgba(247,243,233,.06)}
-    .tool h3{margin:0; font-size: 16px; letter-spacing:.1px; line-height:1.2;}
-    .tool p{margin:0; color: var(--muted); font-size: 14px;}
-    .meta{display:flex; gap:8px; flex-wrap:wrap; margin-top: 2px;}
-    .meta span{font-size: 12px; color: var(--muted2); border: 1px solid rgba(247,243,233,.10); padding: 3px 8px; border-radius: 999px; background: rgba(11,11,11,.28);}
-    .toolFooter{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:10px;
-      margin-top:auto;
-      padding-top: 8px;
-      border-top: 1px solid rgba(247,243,233,.08);
-    }
-    .link{
-      display:inline-flex; align-items:center; gap:8px;
-      font-weight:900;
-      color: var(--text);
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid rgba(212,175,55,.25);
-      background: rgba(212,175,55,.08);
-      transition: transform .12s ease, border-color .12s ease;
-      white-space:nowrap;
-    }
-    .link:hover{transform: translateY(-1px); border-color: rgba(212,175,55,.55)}
-    .smallNote{font-size:12px; color: var(--muted2); text-align:right;}
+    .tool{border-radius:var(--radius);border:1px solid rgba(247,243,233,.10);background:rgba(16,16,16,.86);box-shadow:0 14px 34px rgba(0,0,0,.45);
+      padding:12px;display:flex;flex-direction:column;gap:10px;min-height:260px}
+    .toolThumbWrap{border-radius:14px;overflow:hidden;border:1px solid rgba(247,243,233,.10);background:#0b0b0b}
+    .toolThumb{width:100%;height:auto;display:block}
+    .toolBadges{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{font-size:12px;padding:3px 8px;border-radius:999px;border:1px solid rgba(247,243,233,.12);background:rgba(11,11,11,.35);color:var(--muted);font-weight:900}
+    .badge.free{border-color:rgba(212,175,55,.45);color:var(--gold);background:rgba(212,175,55,.10)}
+    .badge.pop{border-color:rgba(193,18,31,.40);color:#ffd2d2;background:rgba(193,18,31,.12)}
+    .badge.new{border-color:rgba(247,243,233,.18);color:var(--text);background:rgba(247,243,233,.06)}
+    .tool h3{margin:0;font-size:16px;line-height:1.2}
+    .tool p{margin:0;color:var(--muted);font-size:14px}
+    .meta{display:flex;gap:8px;flex-wrap:wrap}
+    .meta span{font-size:12px;color:var(--muted2);border:1px solid rgba(247,243,233,.10);padding:3px 8px;border-radius:999px;background:rgba(11,11,11,.28)}
+    .toolFooter{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:8px;border-top:1px solid rgba(247,243,233,.08)}
+    .link{display:inline-flex;align-items:center;padding:8px 10px;border-radius:12px;border:1px solid rgba(212,175,55,.25);background:rgba(212,175,55,.08);font-weight:900}
+    .smallNote{font-size:12px;color:var(--muted2);text-align:right}
+    .empty{display:none;border-radius:var(--radius);border:1px solid rgba(247,243,233,.10);background:rgba(16,16,16,.86);padding:14px;color:var(--muted)}
 
-    .ctaBreak{
-      margin: 18px 0;
-      border-radius: var(--radius);
-      border: 1px solid rgba(212,175,55,.32);
-      background:
-        radial-gradient(900px 320px at 10% 0%, rgba(212,175,55,.18), rgba(11,11,11,0) 55%),
-        radial-gradient(900px 320px at 90% 10%, rgba(193,18,31,.18), rgba(11,11,11,0) 55%),
-        rgba(16,16,16,.86);
-      box-shadow: var(--shadow);
-      padding: 18px 18px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-    .ctaBreak h3{margin:0; font-size:16px; letter-spacing:.2px}
-    .ctaBreak p{margin:4px 0 0; color:var(--muted); font-size:14px; max-width:70ch}
-    .ctaRow{display:flex; gap:10px; flex-wrap:wrap}
-    .btn.gold{border-color: rgba(212,175,55,.70); background: rgba(212,175,55,.12);}
-    .btn.red{border-color: rgba(193,18,31,.55); background: rgba(193,18,31,.12);}
+    .ctaBreak{margin:18px 0;border-radius:var(--radius);border:1px solid rgba(212,175,55,.32);background:rgba(16,16,16,.86);box-shadow:var(--shadow);
+      padding:18px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+    .ctaBreak h3{margin:0;font-size:16px}
+    .ctaBreak p{margin:4px 0 0;color:var(--muted);font-size:14px;max-width:70ch}
+    .ctaRow{display:flex;gap:10px;flex-wrap:wrap}
 
-    .infoGrid{display:grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 12px 0;}
-    .infoCard{
-      border-radius: var(--radius);
-      border: 1px solid rgba(247,243,233,.10);
-      background: rgba(16,16,16,.86);
-      box-shadow: 0 14px 34px rgba(0,0,0,.35);
-      padding: 14px 14px;
-      display:flex; flex-direction:column; gap:8px;
-    }
-    .infoCard h4{margin:0; font-size:14px; letter-spacing:.2px}
-    .infoCard p{margin:0; font-size:13px; color:var(--muted)}
+    footer{border-top:1px solid rgba(247,243,233,.08);padding:20px 0 28px;color:var(--muted2);font-size:13px}
+    .footerGrid{display:grid;grid-template-columns:1.5fr .5fr .5fr;gap:14px}
+    .footerLinks{display:flex;flex-direction:column;gap:8px}
+    .footerLinks a{color:var(--muted);padding:6px 8px;border-radius:12px;border:1px solid transparent;width:fit-content}
+    .footerLinks a:hover{color:var(--text);border-color:rgba(247,243,233,.10);background:rgba(247,243,233,.04)}
 
-    .newsletter{
-      margin: 18px 0 24px;
-      border-radius: var(--radius);
-      border: 1px solid rgba(247,243,233,.10);
-      background: rgba(16,16,16,.86);
-      box-shadow: var(--shadow);
-      padding: 18px;
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px; flex-wrap:wrap;
-    }
-    .newsletter h3{margin:0; font-size:16px}
-    .newsletter p{margin:4px 0 0; color:var(--muted); font-size:14px; max-width:70ch}
-    .formRow{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
-    .email{
-      min-width: 240px;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(247,243,233,.12);
-      background: rgba(11,11,11,.50);
-      color: var(--text);
-      outline:none;
-    }
-    .email:focus{box-shadow:var(--focus); border-color: rgba(212,175,55,.5)}
-    .fine{color: var(--muted2); font-size:12px; margin-top:6px;}
-
-    footer{border-top: 1px solid rgba(247,243,233,.08); padding: 20px 0 28px; color: var(--muted2); font-size: 13px;}
-    .footerGrid{display:grid; grid-template-columns: 1.5fr .5fr .5fr; gap: 14px; align-items:start;}
-    .footerLinks{display:flex; flex-direction:column; gap:8px}
-    .footerLinks a{color: var(--muted); padding: 6px 8px; border-radius: 12px; border: 1px solid transparent; width: fit-content;}
-    .footerLinks a:hover{color: var(--text); border-color: rgba(247,243,233,.10); background: rgba(247,243,233,.04);}
-
-    .adSlot{
-      margin: 12px 0 18px;
-      border-radius: var(--radius);
-      border: 1px dashed rgba(247,243,233,.18);
-      background: rgba(11,11,11,.35);
-      padding: 12px;
-      color: var(--muted2);
-      font-size: 12px;
-    }
-    .empty{
-      display:none;
-      border-radius: var(--radius);
-      border: 1px solid rgba(247,243,233,.10);
-      background: rgba(16,16,16,.86);
-      box-shadow: 0 14px 34px rgba(0,0,0,.35);
-      padding: 14px 14px;
-      color: var(--muted);
-    }
-
-    @media (max-width: 980px){
-      .heroGrid{grid-template-columns: 1fr; }
-      .filters{top: 66px;}
-      .grid{grid-template-columns: repeat(2, 1fr);}
-      .infoGrid{grid-template-columns: 1fr;}
-      .footerGrid{grid-template-columns: 1fr;}
-      nav{justify-content:flex-start}
-    }
-    @media (max-width: 620px){
-      .grid{grid-template-columns: 1fr;}
-      .topbar-inner{flex-direction:column; align-items:flex-start}
-      .count{margin-left:0}
-      .searchRow{flex-direction:column; align-items:stretch}
-      .email{min-width: 100%}
-    }
-    @media (prefers-reduced-motion: reduce){
-      *{transition:none !important; scroll-behavior:auto !important;}
-    }
+    @media (max-width:980px){.heroGrid{grid-template-columns:1fr} .grid{grid-template-columns:repeat(2,1fr)} .footerGrid{grid-template-columns:1fr} .filters{top:66px}}
+    @media (max-width:620px){.grid{grid-template-columns:1fr}}
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebPage",
-    "name":"Free Cloud Tools | Moe Community Cloud",
-    "url":"https://moecommunitycloud.com/tools.html",
-    "description":"Free cloud tools for cost planning, architecture, Kubernetes, storage, security, deployment, traffic spikes, uptime and runway.",
-    "mainEntity":{
-      "@type":"ItemList",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Cloud Cost Reality Checker","url":"https://moecommunitycloud.com/tools/cost-reality-checker.html"},
-        {"@type":"ListItem","position":2,"name":"Should This Be Kubernetes?","url":"https://moecommunitycloud.com/tools/should-this-be-k8s.html"},
-        {"@type":"ListItem","position":3,"name":"Storage Strategy Advisor","url":"https://moecommunitycloud.com/tools/storage-strategy.html"},
-        {"@type":"ListItem","position":4,"name":"Cloud Architecture Generator","url":"https://moecommunitycloud.com/tools/architecture-generator.html"},
-        {"@type":"ListItem","position":5,"name":"VPC Security Sanity Checker","url":"https://moecommunitycloud.com/tools/vpc-security-checker.html"},
-        {"@type":"ListItem","position":6,"name":"Deploy This App Generator","url":"https://moecommunitycloud.com/tools/deploy-generator.html"},
-        {"@type":"ListItem","position":7,"name":"Traffic Spike Survival Calculator","url":"https://moecommunitycloud.com/tools/traffic-spike-simulator.html"},
-        {"@type":"ListItem","position":8,"name":"Uptime Risk Score","url":"https://moecommunitycloud.com/tools/uptime-risk-score.html"},
-        {"@type":"ListItem","position":9,"name":"Can This App Survive Month 1?","url":"https://moecommunitycloud.com/tools/month-1-survival.html"}
-      ]
-    }
-  }
-  </script>
 </head>
-
 <body>
-  <header class="topbar">
-    <div class="wrap">
-      <div class="topbar-inner">
-        <div class="brand">
-          <div class="logoMark" aria-hidden="true"><span>MB</span></div>
-          <div class="brandText">
-            <div class="name">Moe Community Cloud</div>
-            <div class="tag">Tools • Training • Systems That Scale</div>
-          </div>
-        </div>
 
-        <nav aria-label="Primary">
-          <a class="navlink" href="index.html">Home</a>
-          <a class="navlink" href="consulting.html">Consulting</a>
-          <a class="navlink" href="newsletter.html">Newsletter</a>
-          <a class="navlink active" href="tools.html" aria-current="page">Free Tools</a>
-          <a class="navlink" href="shop.html">Shop</a>
-          <a class="cta" href="contact.html"><span>Work With Us</span><small>→</small></a>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="wrap">
-        <div class="heroGrid">
-          <div class="heroCard">
-            <div class="kicker"><span class="dot"></span><span>NO LOGIN REQUIRED • REAL INFRA DECISIONS</span></div>
-            <h1>Free Cloud Tools<br/>built for operators.</h1>
-            <p class="lead">
-              Practical infrastructure intelligence using shared cloud primitives:
-              <strong>Compute</strong>, <strong>Object Storage</strong>, <strong>Block Storage</strong>,
-              <strong>Load Balancer</strong>, <strong>Kubernetes</strong>, and <strong>VPC</strong>.
-              Clear answers. No sales-deck nonsense.
-            </p>
-
-            <div class="heroActions">
-              <a class="btn primary" href="#featured"><span>Start with Featured</span> <span class="pill">Fast Wins</span></a>
-              <a class="btn" href="#all-tools"><span>Browse All Tools</span> <span class="pill">9 Tools</span></a>
-              <a class="btn" href="#help"><span>Need It Built?</span> <span class="pill">Audit + Fix</span></a>
-            </div>
-
-            <div class="adSlot" aria-label="Ad slot placeholder">
-              Ad slot (optional): place AdSense unit here once your publisher ID is added.
-            </div>
-          </div>
-
-          <aside class="sideCard" aria-label="Tools quick search">
-            <div class="sideTitle">Find a tool fast <span class="badge">FREE</span></div>
-            <p class="sideText">Search by name, category, or primitives (compute, kubernetes, vpc, storage, load balancer).</p>
-
-            <div class="searchRow">
-              <input id="toolSearch" class="search" type="search" placeholder="Search tools… (e.g., kubernetes, cost, vpc)" autocomplete="off" />
-              <button id="clearSearch" class="btn" type="button" aria-label="Clear search">Clear</button>
-            </div>
-            <div class="mini" id="searchHint">Tip: type “storage” or “k8s”</div>
-
-            <div class="infoCard" style="margin-top:6px;">
-              <h4>What you get</h4>
-              <p>Clear recommendations, risk flags, and next-step actions. Optional upgrades are always your choice.</p>
-            </div>
-          </aside>
-        </div>
-
-        <div class="filters" role="region" aria-label="Tool filters">
-          <div class="chips">
-            <button class="chip active" data-filter="all" type="button">All Tools</button>
-            <button class="chip" data-filter="cost" type="button">Cost & Planning</button>
-            <button class="chip" data-filter="architecture" type="button">Architecture</button>
-            <button class="chip" data-filter="kubernetes" type="button">Kubernetes</button>
-            <button class="chip" data-filter="security" type="button">Security</button>
-            <button class="chip" data-filter="storage" type="button">Storage</button>
-            <button class="chip" data-filter="founders" type="button">Founders</button>
-            <div class="count" id="resultCount">Showing 9 tools</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="featured">
-      <div class="wrap">
-        <div class="sectionHead">
-          <div>
-            <h2>⭐ Most Used Free Tools</h2>
-            <p>Start here if you want immediate clarity without deep setup.</p>
-          </div>
-          <p class="mini">No login • No tracking walls • AdSense-safe content</p>
-        </div>
-
-        <div class="grid" id="toolGrid">
-
-          <article class="tool" data-tags="cost planning compute object-storage load-balancer founders" data-filter="cost founders" data-name="Cloud Cost Reality Checker">
-            <div class="toolTop">
-              <div class="toolIcon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2v20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M16.5 7.5c0-2-2-3.5-4.5-3.5S7.5 5.5 7.5 7.5 9 11 12 11s4.5 1.5 4.5 3.5S14.5 18 12 18 7.5 16.5 7.5 14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div class="toolBadges"><span class="badge free">FREE</span><span class="badge pop">POPULAR</span></div>
-            </div>
-            <h3>Cloud Cost Reality Checker</h3>
-            <p>Estimate real monthly cost, spot hidden fees, and pick the lean setup that matches your traffic.</p>
-            <div class="meta"><span>Compute</span><span>Object Storage</span><span>Load Balancer</span></div>
-            <div class="toolFooter"><a class="link" href="tools/cost-reality-checker.html">Run Cost Check →</a><div class="smallNote">Best for MVP → scale</div></div>
-          </article>
-
-          <article class="tool" data-tags="kubernetes compute vpc architecture planning" data-filter="kubernetes architecture" data-name="Should This Be Kubernetes?">
-            <div class="toolTop">
-              <div class="toolIcon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2l9 5-9 5-9-5 9-5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                  <path d="M21 7v10l-9 5-9-5V7" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                  <path d="M12 12v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div class="toolBadges"><span class="badge free">FREE</span><span class="badge pop">POPULAR</span></div>
-            </div>
-            <h3>Should This Be Kubernetes?</h3>
-            <p>Get a clear YES/NO, complexity score, and safer alternatives if Kubernetes is premature.</p>
-            <div class="meta"><span>Kubernetes</span><span>Compute</span><span>VPC</span></div>
-            <div class="toolFooter"><a class="link" href="tools/should-this-be-k8s.html">Check Now →</a><div class="smallNote">Kills overbuild</div></div>
-          </article>
-
-          <article class="tool" data-tags="storage object-storage block-storage planning cost" data-filter="storage cost" data-name="Storage Strategy Advisor">
-            <div class="toolTop">
-              <div class="toolIcon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <ellipse cx="12" cy="5" rx="8" ry="3" stroke="currentColor" stroke-width="2"/>
-                  <path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5" stroke="currentColor" stroke-width="2"/>
-                  <path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6" stroke="currentColor" stroke-width="2"/>
-                </svg>
-              </div>
-              <div class="toolBadges"><span class="badge free">FREE</span></div>
-            </div>
-            <h3>Storage Strategy Advisor</h3>
-            <p>Object vs block — without jargon. Pick the right storage for media, logs, backups, and I/O workloads.</p>
-            <div class="meta"><span>Object Storage</span><span>Block Storage</span></div>
-            <div class="toolFooter"><a class="link" href="tools/storage-strategy.html">Find Best Fit →</a><div class="smallNote">Avoids rework</div></div>
-          </article>
-
-          <article class="tool" data-tags="architecture compute object-storage block-storage load-balancer kubernetes vpc" data-filter="architecture" data-name="Cloud Architecture Generator">
-            <div class="toolTop">
-              <div class="toolIcon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M7 7h4v4H7V7Z" stroke="currentColor" stroke-width="2"/>
-                  <path d="M13 13h4v4h-4v-4Z" stroke="currentColor" stroke-width="2"/>
-                  <path d="M13 7h4v4h-4V7Z" stroke="currentColor" stroke-width="2"/>
-                  <path d="M11 9h2M15 11v2M9 11v6h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div class="toolBadges"><span class="badge free">FREE</span><span class="badge new">NEW</span></div>
-            </div>
-            <h3>Cloud Architecture Generator</h3>
-            <p>Turn a plain-English app idea into a real architecture baseline with scaling notes and risks.</p>
-            <div class="meta"><span>Compute</span><span>Storage</span><span>Load Balancer</span><span>Kubernetes</span><span>VPC</span></div>
-            <div class="toolFooter"><a class="link" href="tools/architecture-generator.html">Generate Architecture →</a><div class="smallNote">Founder-ready</div></div>
-          </article>
-
-          <article class="tool" data-tags="security vpc kubernetes compute architecture" data-filter="security architecture" data-name="VPC Security Sanity Checker">
-            <div class="toolTop">
-              <div class="toolIcon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2l8 4v6c0 6-4 10-8 10S4 18 4 12V6l8-4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                  <path d="M9 12l2 2 4-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <div class="toolBadges"><span class="badge free">FREE</span></div>
-            </div>
-            <h3>VPC Security Sanity Checker</h3>
-            <p>Catch risky exposure, weak access paths, and misconfigured network boundaries before incidents.</p>
-            <div class="meta"><span>VPC</span><span>Compute</span><span>Kubernetes</span></div>
-            <div class="toolFooter"><a class="link" href="tools/vpc-security-checker.html">Check Security →</a><div class="smallNote">Quick risk scan</div></div>
-          </article>
-
-          <article class="tool" data-tags="deployment ops compute kubernetes load-balancer vpc" data-filter="architecture kubernetes" data-name="Deploy This App Generator">
-            <div class="toolTop">
-              <div class="toolIcon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M14 4c3 1 6 4 6 8-4 0-7 3-8 6-3 0-6-3-8-6 1-2 3-6 10-8Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                  <path d="M10 10l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M7 17c-1 2-1 3-1 3s1 0 3-1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div class="toolBadges"><span class="badge free">FREE</span></div>
-            </div>
-            <h3>“Deploy This App” Generator</h3>
-            <p>Select app type + traffic. Get a deployment blueprint and safe defaults you can refine later.</p>
-            <div class="meta"><span>Compute</span><span>Kubernetes</span><span>Load Balancer</span><span>VPC</span></div>
-            <div class="toolFooter"><a class="link" href="tools/deploy-generator.html">Generate Deploy Plan →</a><div class="smallNote">Starter blueprint</div></div>
-          </article>
-
-          <article class="tool" data-tags="ops load-balancer compute kubernetes founders cost" data-filter="cost founders" data-name="Traffic Spike Survival Calculator">
-            <div class="toolTop">
-              <div class="toolIcon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M4 19V5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M4 19h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M7 15l4-5 3 3 5-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <div class="toolBadges"><span class="badge free">FREE</span></div>
-            </div>
-            <h3>Traffic Spike Survival Calculator</h3>
-            <p>Simulate spikes, find failure points, and see where costs explode — before launch-day embarrassment.</p>
-            <div class="meta"><span>Load Balancer</span><span>Compute</span><span>Kubernetes</span></div>
-            <div class="toolFooter"><a class="link" href="tools/traffic-spike-simulator.html">Simulate Traffic →</a><div class="smallNote">Scale-safety</div></div>
-          </article>
-
-          <article class="tool" data-tags="reliability security vpc load-balancer kubernetes compute" data-filter="security" data-name="Uptime Risk Score">
-            <div class="toolTop">
-              <div class="toolIcon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M3 12h4l2-6 4 14 2-8h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <div class="toolBadges"><span class="badge free">FREE</span></div>
-            </div>
-            <h3>Uptime Risk Score</h3>
-            <p>Answer 10 questions. Get a 0–100 uptime score with single points of failure and top fixes.</p>
-            <div class="meta"><span>Compute</span><span>Load Balancer</span><span>Kubernetes</span><span>VPC</span></div>
-            <div class="toolFooter"><a class="link" href="tools/uptime-risk-score.html">Get Uptime Score →</a><div class="smallNote">Reliability first</div></div>
-          </article>
-
-          <article class="tool" data-tags="founders cost planning compute storage load-balancer" data-filter="founders cost" data-name="Can This App Survive Month 1?">
-            <div class="toolTop">
-              <div class="toolIcon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M7 2v4M17 2v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M4 6h16v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z" stroke="currentColor" stroke-width="2"/>
-                  <path d="M8 11h8M8 15h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div class="toolBadges"><span class="badge free">FREE</span></div>
-            </div>
-            <h3>Can This App Survive Month 1?</h3>
-            <p>Runway vs infrastructure reality. See what breaks your budget first — compute, storage, or traffic routing.</p>
-            <div class="meta"><span>Compute</span><span>Storage</span><span>Load Balancer</span></div>
-            <div class="toolFooter"><a class="link" href="tools/month-1-survival.html">Check Runway →</a><div class="smallNote">Founder math</div></div>
-          </article>
-
-        </div>
-
-        <div class="empty" id="emptyState">No tools match your filter/search. Try “all”, or clear the search box.</div>
-      </div>
-    </section>
-
-    <section class="section" id="help">
-      <div class="wrap">
-        <div class="ctaBreak">
-          <div>
-            <h3>Want these decisions made <span style="color:var(--gold);font-weight:900;">for you</span>?</h3>
-            <p>These tools show what’s wrong. We fix it — clean architecture, lean cost, stronger security, and scale-ready operations.</p>
-          </div>
-          <div class="ctaRow">
-            <a class="btn gold" href="consulting.html">Infrastructure Audit</a>
-            <a class="btn red" href="contact.html">Optimization Sprint</a>
-            <a class="btn primary" href="contact.html">Build It For Me</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="all-tools">
-      <div class="wrap">
-        <div class="sectionHead">
-          <div>
-            <h2>How the tools work</h2>
-            <p>No dark patterns. No forced signups. Clear output you can forward to your team.</p>
-          </div>
-        </div>
-
-        <div class="infoGrid">
-          <div class="infoCard"><h4>1) Input real info</h4><p>Traffic, app type, budget, storage type, operational constraints — plain English is fine.</p></div>
-          <div class="infoCard"><h4>2) Get decisions + risks</h4><p>Each tool returns recommendations, risk flags, and what to do next — without vendor hype.</p></div>
-          <div class="infoCard"><h4>3) Optional upgrades</h4><p>If you want us to implement, we offer fixed-scope sprints and retainer pathways.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="newsletter">
-          <div>
-            <h3>Want advanced versions of these tools?</h3>
-            <p>Get updates when we ship new calculators, decision tables, and deployment blueprints.</p>
-            <div class="fine">No spam. No selling your data.</div>
-          </div>
-
-          <form class="formRow" action="#" method="post" onsubmit="return false;">
-            <label style="position:absolute; left:-9999px;" for="emailInput">Email</label>
-            <input id="emailInput" class="email" type="email" placeholder="you@company.com" autocomplete="email" />
-            <button class="btn primary" type="submit" id="subscribeBtn">Get Advanced Tools</button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <div class="footerGrid">
-        <div>
-          <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
-            <div class="logoMark" aria-hidden="true" style="width:40px;height:40px;border-radius:14px;"><span>MB</span></div>
-            <div>
-              <div style="font-weight:900; letter-spacing:.2px;">Moe Community Cloud</div>
-              <div style="color:var(--muted2); font-size:12px;">Built for builders • Systems that scale</div>
-            </div>
-          </div>
-          <div style="max-width:70ch;">Free tools are educational and informational. Outputs are guidance — not legal or financial advice.</div>
-        </div>
-
-        <div class="footerLinks" aria-label="Site links">
-          <a href="index.html">Home</a>
-          <a href="consulting.html">Consulting</a>
-          <a href="newsletter.html">Newsletter</a>
-          <a href="contact.html">Contact</a>
-        </div>
-
-        <div class="footerLinks" aria-label="Tool links">
-          <a href="tools/cost-reality-checker.html">Cost Checker</a>
-          <a href="tools/should-this-be-k8s.html">Kubernetes Tool</a>
-          <a href="tools/storage-strategy.html">Storage Advisor</a>
-          <a href="tools/vpc-security-checker.html">VPC Checker</a>
+<header class="topbar">
+  <div class="wrap">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logoMark" aria-hidden="true"><span>MB</span></div>
+        <div class="brandText">
+          <div class="name">Moe Community Cloud</div>
+          <div class="tag">Tools • Training • Systems That Scale</div>
         </div>
       </div>
 
-      <div style="margin-top:14px; color:var(--muted2); font-size:12px;">
-        © <span id="year"></span> MoeCommunityCloud.com. All rights reserved.
-      </div>
-    </div>
-  </footer>
-
-  <!-- Tool Preview Modal -->
-  <div id="toolModal" style="display:none; position:fixed; inset:0; z-index:9999;">
-    <div id="toolModalBackdrop" style="position:absolute; inset:0; background:rgba(0,0,0,.68); backdrop-filter: blur(6px);"></div>
-    <div role="dialog" aria-modal="true" aria-labelledby="toolModalTitle"
-         style="position:relative; max-width:880px; margin:7vh auto; padding:0 16px;">
-      <div style="border-radius:16px;border:1px solid rgba(247,243,233,.12);background: rgba(16,16,16,.95);box-shadow: 0 18px 60px rgba(0,0,0,.65);overflow:hidden;">
-        <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:10px; padding:16px; border-bottom:1px solid rgba(247,243,233,.08);">
-          <div>
-            <div id="toolModalBadges" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px;"></div>
-            <h3 id="toolModalTitle" style="margin:0; font-size:18px; letter-spacing:.2px;"></h3>
-            <p id="toolModalDesc" style="margin:8px 0 0; color:rgba(247,243,233,.72); font-size:14px;"></p>
-          </div>
-          <button id="toolModalClose" class="btn" type="button" aria-label="Close tool preview" style="white-space:nowrap;">Close ✕</button>
-        </div>
-
-        <div style="padding:16px;">
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:14px;">
-            <div style="border-radius:16px; border:1px solid rgba(247,243,233,.10); background: rgba(11,11,11,.35); padding:14px;">
-              <div style="font-weight:900; margin-bottom:8px;">What this tool does</div>
-              <ul id="toolModalBullets" style="margin:0; padding-left:18px; color:rgba(247,243,233,.72); font-size:14px; line-height:1.5;"></ul>
-            </div>
-
-            <div style="border-radius:16px; border:1px solid rgba(247,243,233,.10); background: rgba(11,11,11,.35); padding:14px;">
-              <div style="font-weight:900; margin-bottom:8px;">Uses (primitives)</div>
-              <div id="toolModalMeta" style="display:flex; gap:8px; flex-wrap:wrap;"></div>
-
-              <div style="margin-top:12px; border-top:1px solid rgba(247,243,233,.08); padding-top:12px;">
-                <div style="font-weight:900; margin-bottom:8px;">Next best step</div>
-                <div id="toolModalNext" style="color:rgba(247,243,233,.72); font-size:14px;"></div>
-              </div>
-            </div>
-          </div>
-
-          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; justify-content:flex-end;">
-            <a id="toolModalLink" class="btn primary" href="#" style="text-decoration:none;">Open Tool →</a>
-            <a class="btn" href="contact.html" style="text-decoration:none;">Have Us Implement</a>
-          </div>
-
-          <div style="margin-top:12px; color:rgba(247,243,233,.55); font-size:12px;">
-            Note: tool outputs are guidance based on your inputs. Real costs vary by provider, region, and traffic behavior.
-          </div>
-        </div>
-      </div>
+      <nav aria-label="Primary">
+        <a class="navlink" href="/index.html">Home</a>
+        <a class="navlink" href="/consulting.html">Consulting</a>
+        <a class="navlink" href="/newsletter.html">Newsletter</a>
+        <a class="navlink active" href="/tools.html" aria-current="page">Free Tools</a>
+        <a class="cta" href="/contact.html"><span>Work With Us</span><small>→</small></a>
+      </nav>
     </div>
   </div>
+</header>
 
-  <script>
-    // Filter + Search
-    (function () {
-      const chips = Array.from(document.querySelectorAll(".chip"));
-      const grid = document.getElementById("toolGrid");
-      const tools = Array.from(grid.querySelectorAll(".tool"));
-      const resultCount = document.getElementById("resultCount");
-      const emptyState = document.getElementById("emptyState");
-      const searchInput = document.getElementById("toolSearch");
-      const clearBtn = document.getElementById("clearSearch");
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="heroGrid">
+        <div class="heroCard">
+          <div class="kicker"><span class="dot"></span><span>NO LOGIN REQUIRED • REAL INFRA DECISIONS</span></div>
+          <h1>Free Cloud Tools<br/>built for operators.</h1>
+          <p class="lead">Exciting, story-driven tools to make cloud decisions fast — cost, security, scaling, and deployment.</p>
 
-      let activeFilter = "all";
-      let searchQuery = "";
+          <div class="heroActions">
+            <a class="btn primary" href="#featured"><span>Start with Featured</span> <span class="pill">Fast Wins</span></a>
+            <a class="btn" href="#help"><span>Need It Built?</span> <span class="pill">Audit + Fix</span></a>
+          </div>
 
-      function normalize(s){ return (s || "").toLowerCase().trim(); }
-      function matchesFilter(tool, filter){
-        if (filter === "all") return true;
-        const f = normalize(tool.getAttribute("data-filter"));
-        return f.split(/\s+/).includes(filter);
-      }
-      function matchesSearch(tool, query){
-        if (!query) return true;
-        const name = normalize(tool.getAttribute("data-name"));
-        const tags = normalize(tool.getAttribute("data-tags"));
-        const text = normalize(tool.innerText);
-        const q = normalize(query);
-        const expandedQ = (q === "k8s") ? "kubernetes" : q;
-        return name.includes(expandedQ) || tags.includes(expandedQ) || text.includes(expandedQ);
-      }
-      function apply(){
-        let shown = 0;
-        tools.forEach(tool => {
-          const ok = matchesFilter(tool, activeFilter) && matchesSearch(tool, searchQuery);
-          tool.style.display = ok ? "flex" : "none";
-          if (ok) shown++;
-        });
-        resultCount.textContent = `Showing ${shown} tool${shown === 1 ? "" : "s"}`;
-        emptyState.style.display = shown === 0 ? "block" : "none";
-      }
+          <div class="heroMedia">
+            <img src="/assets/img/tools/tools-hero-free-cloud-tools.png" alt="Free Cloud Tools hero illustration" loading="eager" decoding="async">
+          </div>
+        </div>
 
-      chips.forEach(chip => {
-        chip.addEventListener("click", () => {
-          chips.forEach(c => c.classList.remove("active"));
-          chip.classList.add("active");
-          activeFilter = chip.getAttribute("data-filter");
-          apply();
-        });
-      });
+        <aside class="sideCard" aria-label="Tools quick search">
+          <div class="sideTitle">Find a tool fast <span class="badgeInline">FREE</span></div>
+          <p style="margin:0;color:var(--muted);font-size:14px;">Search by name, category, or primitives.</p>
+          <div class="searchRow">
+            <input id="toolSearch" class="search" type="search" placeholder="Search tools… (e.g., kubernetes, cost, vpc)" autocomplete="off" />
+            <button id="clearSearch" class="btn" type="button">Clear</button>
+          </div>
+          <div style="color:var(--muted2);font-size:12px;">Tip: type “storage” or “k8s”</div>
+        </aside>
+      </div>
 
-      searchInput.addEventListener("input", (e) => { searchQuery = e.target.value || ""; apply(); });
-      clearBtn.addEventListener("click", () => { searchInput.value = ""; searchQuery = ""; apply(); searchInput.focus(); });
+      <div class="filters" role="region" aria-label="Tool filters">
+        <div class="chips">
+          <button class="chip active" data-filter="all" type="button">All Tools</button>
+          <button class="chip" data-filter="cost" type="button">Cost & Planning</button>
+          <button class="chip" data-filter="architecture" type="button">Architecture</button>
+          <button class="chip" data-filter="kubernetes" type="button">Kubernetes</button>
+          <button class="chip" data-filter="security" type="button">Security</button>
+          <button class="chip" data-filter="storage" type="button">Storage</button>
+          <button class="chip" data-filter="founders" type="button">Founders</button>
+          <div class="count" id="resultCount">Showing 9 tools</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      document.getElementById("subscribeBtn").addEventListener("click", () => {
-        const email = document.getElementById("emailInput").value.trim();
-        if (!email) { alert("Enter your email to get updates."); return; }
-        alert("You’re in. (Connect this to your email system.)");
-      });
+  <section class="section" id="featured">
+    <div class="wrap">
+      <div class="sectionHead">
+        <div>
+          <h2>⭐ Most Used Free Tools</h2>
+          <p>Start here if you want immediate clarity without deep setup. No login • No tracking walls • AdSense-safe</p>
+        </div>
+      </div>
 
-      document.getElementById("year").textContent = new Date().getFullYear();
+      <div class="grid" id="toolGrid">
+        <article class="tool" data-tags="cost planning compute object-storage load-balancer founders" data-filter="cost founders" data-name="Cloud Cost Reality Checker">
+  <div class="toolThumbWrap">
+    <img class="toolThumb" src="/assets/img/tools/tool-cloud-cost-reality-checker.png" alt="Cloud Cost Reality Checker thumbnail" loading="lazy" decoding="async">
+  </div>
+  <div class="toolTop">
+    <div class="toolBadges"><span class="badge free">FREE</span><span class="badge pop">POPULAR</span></div>
+  </div>
+  <h3>Cloud Cost Reality Checker</h3>
+  <p>Estimate real monthly cost, spot hidden fees, and pick the lean setup that matches your traffic.</p>
+  <div class="meta" aria-label="Uses primitives"><span>Compute</span><span>Object Storage</span><span>Load Balancer</span></div>
+  <div class="toolFooter">
+    <a class="link" href="/tools/cost-reality-checker.html">Open Tool →</a>
+    <div class="smallNote">Best for MVP → scale</div>
+  </div>
+</article>
+<article class="tool" data-tags="kubernetes compute vpc architecture planning" data-filter="kubernetes architecture" data-name="Should This Be Kubernetes?">
+  <div class="toolThumbWrap">
+    <img class="toolThumb" src="/assets/img/tools/tool-should-this-be-kubernetes.png" alt="Should This Be Kubernetes? thumbnail" loading="lazy" decoding="async">
+  </div>
+  <div class="toolTop">
+    <div class="toolBadges"><span class="badge free">FREE</span><span class="badge pop">POPULAR</span></div>
+  </div>
+  <h3>Should This Be Kubernetes?</h3>
+  <p>Get a clear YES/NO, complexity score, and safer alternatives if Kubernetes is premature.</p>
+  <div class="meta" aria-label="Uses primitives"><span>Kubernetes</span><span>Compute</span><span>VPC</span></div>
+  <div class="toolFooter">
+    <a class="link" href="/tools/should-this-be-k8s.html">Open Tool →</a>
+    <div class="smallNote">Kills overbuild</div>
+  </div>
+</article>
+<article class="tool" data-tags="storage object-storage block-storage planning cost" data-filter="storage cost" data-name="Storage Strategy Advisor">
+  <div class="toolThumbWrap">
+    <img class="toolThumb" src="/assets/img/tools/tool-storage-strategy-advisor.png" alt="Storage Strategy Advisor thumbnail" loading="lazy" decoding="async">
+  </div>
+  <div class="toolTop">
+    <div class="toolBadges"><span class="badge free">FREE</span></div>
+  </div>
+  <h3>Storage Strategy Advisor</h3>
+  <p>Object vs block — without jargon. Pick the right storage for media, logs, backups, and I/O workloads.</p>
+  <div class="meta" aria-label="Uses primitives"><span>Object Storage</span><span>Block Storage</span></div>
+  <div class="toolFooter">
+    <a class="link" href="/tools/storage-strategy.html">Open Tool →</a>
+    <div class="smallNote">Avoids rework</div>
+  </div>
+</article>
+<article class="tool" data-tags="architecture compute storage load-balancer kubernetes vpc" data-filter="architecture" data-name="Cloud Architecture Generator">
+  <div class="toolThumbWrap">
+    <img class="toolThumb" src="/assets/img/tools/tool-cloud-architecture-generator.png" alt="Cloud Architecture Generator thumbnail" loading="lazy" decoding="async">
+  </div>
+  <div class="toolTop">
+    <div class="toolBadges"><span class="badge free">FREE</span><span class="badge new">NEW</span></div>
+  </div>
+  <h3>Cloud Architecture Generator</h3>
+  <p>Turn a plain-English app idea into a real architecture baseline with scaling notes and risks.</p>
+  <div class="meta" aria-label="Uses primitives"><span>Compute</span><span>Storage</span><span>Load Balancer</span><span>Kubernetes</span><span>VPC</span></div>
+  <div class="toolFooter">
+    <a class="link" href="/tools/architecture-generator.html">Open Tool →</a>
+    <div class="smallNote">Founder-ready</div>
+  </div>
+</article>
+<article class="tool" data-tags="security vpc compute kubernetes" data-filter="security architecture" data-name="VPC Security Sanity Checker">
+  <div class="toolThumbWrap">
+    <img class="toolThumb" src="/assets/img/tools/tool-vpc-security-sanity-checker.png" alt="VPC Security Sanity Checker thumbnail" loading="lazy" decoding="async">
+  </div>
+  <div class="toolTop">
+    <div class="toolBadges"><span class="badge free">FREE</span></div>
+  </div>
+  <h3>VPC Security Sanity Checker</h3>
+  <p>Catch risky exposure, weak access paths, and misconfigured network boundaries before incidents.</p>
+  <div class="meta" aria-label="Uses primitives"><span>VPC</span><span>Compute</span><span>Kubernetes</span></div>
+  <div class="toolFooter">
+    <a class="link" href="/tools/vpc-security-checker.html">Open Tool →</a>
+    <div class="smallNote">Quick risk scan</div>
+  </div>
+</article>
+<article class="tool" data-tags="deployment ops compute kubernetes load-balancer vpc" data-filter="architecture kubernetes" data-name="Deploy This App Generator">
+  <div class="toolThumbWrap">
+    <img class="toolThumb" src="/assets/img/tools/tool-deploy-this-app.png" alt="Deploy This App Generator thumbnail" loading="lazy" decoding="async">
+  </div>
+  <div class="toolTop">
+    <div class="toolBadges"><span class="badge free">FREE</span></div>
+  </div>
+  <h3>Deploy This App Generator</h3>
+  <p>Select app type + traffic. Get a deployment blueprint and safe defaults you can refine later.</p>
+  <div class="meta" aria-label="Uses primitives"><span>Compute</span><span>Kubernetes</span><span>Load Balancer</span><span>VPC</span></div>
+  <div class="toolFooter">
+    <a class="link" href="/tools/deploy-generator.html">Open Tool →</a>
+    <div class="smallNote">Starter blueprint</div>
+  </div>
+</article>
+<article class="tool" data-tags="ops load-balancer compute kubernetes founders cost" data-filter="cost founders" data-name="Traffic Spike Survival Calculator">
+  <div class="toolThumbWrap">
+    <img class="toolThumb" src="/assets/img/tools/tool-traffic-spike-survival.png" alt="Traffic Spike Survival Calculator thumbnail" loading="lazy" decoding="async">
+  </div>
+  <div class="toolTop">
+    <div class="toolBadges"><span class="badge free">FREE</span></div>
+  </div>
+  <h3>Traffic Spike Survival Calculator</h3>
+  <p>Simulate spikes, find failure points, and see where costs explode — before launch-day embarrassment.</p>
+  <div class="meta" aria-label="Uses primitives"><span>Load Balancer</span><span>Compute</span><span>Kubernetes</span></div>
+  <div class="toolFooter">
+    <a class="link" href="/tools/traffic-spike-simulator.html">Open Tool →</a>
+    <div class="smallNote">Scale-safety</div>
+  </div>
+</article>
+<article class="tool" data-tags="reliability security vpc load-balancer kubernetes compute" data-filter="security" data-name="Uptime Risk Score">
+  <div class="toolThumbWrap">
+    <img class="toolThumb" src="/assets/img/tools/tool-uptime-risk-score.png" alt="Uptime Risk Score thumbnail" loading="lazy" decoding="async">
+  </div>
+  <div class="toolTop">
+    <div class="toolBadges"><span class="badge free">FREE</span></div>
+  </div>
+  <h3>Uptime Risk Score</h3>
+  <p>Answer 10 questions. Get a 0–100 uptime score with single points of failure and top fixes.</p>
+  <div class="meta" aria-label="Uses primitives"><span>Compute</span><span>Load Balancer</span><span>Kubernetes</span><span>VPC</span></div>
+  <div class="toolFooter">
+    <a class="link" href="/tools/uptime-risk-score.html">Open Tool →</a>
+    <div class="smallNote">Reliability first</div>
+  </div>
+</article>
+<article class="tool" data-tags="founders cost planning compute storage load-balancer" data-filter="founders cost" data-name="Can This App Survive Month 1?">
+  <div class="toolThumbWrap">
+    <img class="toolThumb" src="/assets/img/tools/tool-can-this-app-survive-month-1.png" alt="Can This App Survive Month 1? thumbnail" loading="lazy" decoding="async">
+  </div>
+  <div class="toolTop">
+    <div class="toolBadges"><span class="badge free">FREE</span></div>
+  </div>
+  <h3>Can This App Survive Month 1?</h3>
+  <p>Runway vs infrastructure reality. See what breaks your budget first — compute, storage, or traffic routing.</p>
+  <div class="meta" aria-label="Uses primitives"><span>Compute</span><span>Storage</span><span>Load Balancer</span></div>
+  <div class="toolFooter">
+    <a class="link" href="/tools/month-1-survival.html">Open Tool →</a>
+    <div class="smallNote">Founder math</div>
+  </div>
+</article>
+      </div>
+
+      <div class="empty" id="emptyState">No tools match your filter/search. Try “all” or clear search.</div>
+    </div>
+  </section>
+
+  <section class="section" id="help">
+    <div class="wrap">
+      <div class="ctaBreak">
+        <div>
+          <h3>Want these decisions made <span style="color:var(--gold);">for you</span>?</h3>
+          <p>We implement the fixes — lean cost, clean security, scale-safe deployment.</p>
+        </div>
+        <div class="ctaRow">
+          <a class="btn" href="/consulting.html">Consulting</a>
+          <a class="btn primary" href="/contact.html">Build It For Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footerGrid">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+          <div class="logoMark" aria-hidden="true" style="width:40px;height:40px;border-radius:14px;"><span>MB</span></div>
+          <div>
+            <div style="font-weight:900;">Moe Community Cloud</div>
+            <div style="color:var(--muted2);font-size:12px;">Built for builders • Systems that scale</div>
+          </div>
+        </div>
+        <div style="max-width:70ch;">Free tools are educational and informational. Outputs are guidance — not legal or financial advice.</div>
+      </div>
+
+      <div class="footerLinks">
+        <a href="/index.html">Home</a>
+        <a href="/consulting.html">Consulting</a>
+        <a href="/newsletter.html">Newsletter</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+
+      <div class="footerLinks">
+        <a href="/tools/cost-reality-checker.html">Cost Checker</a>
+        <a href="/tools/should-this-be-k8s.html">Kubernetes Tool</a>
+        <a href="/tools/storage-strategy.html">Storage Advisor</a>
+        <a href="/tools/vpc-security-checker.html">VPC Checker</a>
+      </div>
+    </div>
+
+    <div style="margin-top:14px;color:var(--muted2);font-size:12px;">
+      © <span id="year"></span> MoeCommunityCloud.com. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const chips = Array.from(document.querySelectorAll(".chip"));
+  const tools = Array.from(document.querySelectorAll("#toolGrid .tool"));
+  const resultCount = document.getElementById("resultCount");
+  const emptyState = document.getElementById("emptyState");
+  const searchInput = document.getElementById("toolSearch");
+  const clearBtn = document.getElementById("clearSearch");
+
+  let activeFilter = "all";
+  let searchQuery = "";
+
+  const normalize = (s) => (s || "").toLowerCase().trim();
+
+  function matchesFilter(tool, filter){
+    if (filter === "all") return true;
+    const f = normalize(tool.getAttribute("data-filter"));
+    return f.split(/\s+/).includes(filter);
+  }
+
+  function matchesSearch(tool, query){
+    if (!query) return true;
+    const name = normalize(tool.getAttribute("data-name"));
+    const tags = normalize(tool.getAttribute("data-tags"));
+    const text = normalize(tool.innerText);
+    const q = normalize(query);
+    const expandedQ = (q === "k8s") ? "kubernetes" : q;
+    return name.includes(expandedQ) || tags.includes(expandedQ) || text.includes(expandedQ);
+  }
+
+  function apply(){
+    let shown = 0;
+    tools.forEach(tool => {
+      const ok = matchesFilter(tool, activeFilter) && matchesSearch(tool, searchQuery);
+      tool.style.display = ok ? "flex" : "none";
+      if (ok) shown++;
+    });
+    resultCount.textContent = "Showing " + shown + " tools";
+    emptyState.style.display = shown === 0 ? "block" : "none";
+  }
+
+  chips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      chips.forEach(c => c.classList.remove("active"));
+      chip.classList.add("active");
+      activeFilter = chip.getAttribute("data-filter");
       apply();
-    })();
-  </script>
+    });
+  });
 
-  <script>
-    // Modal previews
-    (function () {
-      const modal = document.getElementById("toolModal");
-      const backdrop = document.getElementById("toolModalBackdrop");
-      const closeBtn = document.getElementById("toolModalClose");
+  searchInput.addEventListener("input", (e) => {
+    searchQuery = e.target.value || "";
+    apply();
+  });
 
-      const titleEl = document.getElementById("toolModalTitle");
-      const descEl = document.getElementById("toolModalDesc");
-      const badgesEl = document.getElementById("toolModalBadges");
-      const bulletsEl = document.getElementById("toolModalBullets");
-      const metaEl = document.getElementById("toolModalMeta");
-      const nextEl = document.getElementById("toolModalNext");
-      const linkEl = document.getElementById("toolModalLink");
+  clearBtn.addEventListener("click", () => {
+    searchInput.value = "";
+    searchQuery = "";
+    apply();
+    searchInput.focus();
+  });
 
-      const TOOL_PREVIEWS = {
-        "tools/cost-reality-checker.html": {
-          bullets: [
-            "Estimate realistic monthly cost using compute + storage + routing assumptions.",
-            "Spot hidden fees and overbuild patterns.",
-            "Get a lean baseline recommendation."
-          ],
-          next: "If the bill looks high, run Storage Strategy Advisor next."
-        },
-        "tools/should-this-be-k8s.html": {
-          bullets: [
-            "Determine if Kubernetes is justified for your team and workload.",
-            "Score operational complexity and failure risk.",
-            "Recommend safer alternatives if K8s is premature."
-          ],
-          next: "If unsure, generate a baseline architecture next."
-        },
-        "tools/storage-strategy.html": {
-          bullets: [
-            "Choose object vs block storage for your workload.",
-            "Explain performance and cost tradeoffs clearly.",
-            "Highlight migration and backup considerations."
-          ],
-          next: "If you serve media, estimate egress/bandwidth in Cost Checker next."
-        },
-        "tools/architecture-generator.html": {
-          bullets: [
-            "Turn an app idea into a real architecture baseline.",
-            "Flag security + reliability risks early.",
-            "Recommend a scalable, lean starting point."
-          ],
-          next: "After you generate architecture, run VPC Security Sanity Checker."
-        },
-        "tools/vpc-security-checker.html": {
-          bullets: [
-            "Identify risky exposure and weak network boundaries.",
-            "Recommend minimal, practical hardening steps.",
-            "Improve access control and segmentation clarity."
-          ],
-          next: "If uptime matters, run Uptime Risk Score next."
-        },
-        "tools/deploy-generator.html": {
-          bullets: [
-            "Generate a deployment blueprint by app type and traffic.",
-            "Recommend the right primitives and routing.",
-            "Provide safe defaults for scaling and maintenance."
-          ],
-          next: "Validate spike behavior next with Traffic Spike Survival."
-        },
-        "tools/traffic-spike-simulator.html": {
-          bullets: [
-            "Simulate spike traffic and identify bottlenecks.",
-            "See where scaling breaks or costs explode.",
-            "Get a practical fix order."
-          ],
-          next: "If you see SPOFs, run Uptime Risk Score next."
-        },
-        "tools/uptime-risk-score.html": {
-          bullets: [
-            "Score uptime risk from 0–100.",
-            "Find single points of failure and top fixes.",
-            "Produce a reliability checklist you can forward."
-          ],
-          next: "If you want help implementing, contact us."
-        },
-        "tools/month-1-survival.html": {
-          bullets: [
-            "Compare runway vs infrastructure reality.",
-            "Predict early cost drivers (compute, storage, traffic).",
-            "Recommend a lean Month-1 baseline."
-          ],
-          next: "Start with Cost Reality Checker + Storage Strategy for the fastest wins."
-        }
-      };
-
-      function openModal({ title, desc, badges, meta, href }) {
-        titleEl.textContent = title || "Tool Preview";
-        descEl.textContent = desc || "";
-        badgesEl.innerHTML = "";
-        bulletsEl.innerHTML = "";
-        metaEl.innerHTML = "";
-        nextEl.textContent = "";
-        linkEl.href = href || "#";
-
-        (badges || []).forEach(b => {
-          const span = document.createElement("span");
-          span.className = "badge " + (b.className || "");
-          span.textContent = b.text || "";
-          badgesEl.appendChild(span);
-        });
-
-        const preview = TOOL_PREVIEWS[href] || { bullets: [], next: "" };
-        (preview.bullets || []).forEach(line => {
-          const li = document.createElement("li");
-          li.textContent = line;
-          bulletsEl.appendChild(li);
-        });
-        nextEl.textContent = preview.next || "";
-
-        (meta || []).forEach(m => {
-          const pill = document.createElement("span");
-          pill.style.cssText = "font-size:12px;color:rgba(247,243,233,.60);border:1px solid rgba(247,243,233,.10);padding:3px 8px;border-radius:999px;background:rgba(11,11,11,.28);";
-          pill.textContent = m;
-          metaEl.appendChild(pill);
-        });
-
-        modal.style.display = "block";
-        document.body.style.overflow = "hidden";
-        closeBtn.focus();
-      }
-
-      function closeModal() { modal.style.display = "none"; document.body.style.overflow = ""; }
-
-      backdrop.addEventListener("click", closeModal);
-      closeBtn.addEventListener("click", closeModal);
-      document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.style.display === "block") closeModal(); });
-
-      document.querySelectorAll(".tool").forEach(card => {
-        card.style.cursor = "pointer";
-        card.addEventListener("click", (e) => {
-          if (e.target.closest("a")) return;
-          const title = card.querySelector("h3")?.textContent?.trim();
-          const desc = card.querySelector("p")?.textContent?.trim();
-          const href = card.querySelector(".link")?.getAttribute("href") || "#";
-          const meta = Array.from(card.querySelectorAll(".meta span")).map(s => s.textContent.trim());
-          const badges = Array.from(card.querySelectorAll(".toolBadges .badge")).map(b => ({
-            text: b.textContent.trim(),
-            className: b.classList.contains("free") ? "free" : b.classList.contains("pop") ? "pop" : b.classList.contains("new") ? "new" : ""
-          }));
-          openModal({ title, desc, badges, meta, href });
-        });
-      });
-    })();
-  </script>
+  apply();
+})();
+</script>
 </body>
 </html>
