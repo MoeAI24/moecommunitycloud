@@ -4,41 +4,63 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Deploy This App Generator | Moe Community Cloud</title>
-  <meta name="description" content="Generate a deployment blueprint by app type and traffic using compute, Kubernetes, load balancing and VPC."/>
-  <meta name="robots" content="index,follow"/>
+  <meta name="description" content="Select app type + traffic. Generate a deployment blueprint with safe defaults."/>
   <link rel="canonical" href="https://moecommunitycloud.com/tools/deploy-generator.html"/>
+  <meta name="robots" content="index,follow"/>
+  <meta name="theme-color" content="#0b0b0b"/>
+  <link rel="preload" as="image" href="/tools/tool-deploy-this-app.png" fetchpriority="high"/>
   <style>
-    :root{--bg:#0b0b0b;--text:#f7f3e9;--muted:rgba(247,243,233,.72);--muted2:rgba(247,243,233,.55);--gold:#d4af37;--border:rgba(247,243,233,.12);--radius:16px}
+    :root{--bg:#0b0b0b;--text:#f7f3e9;--muted:rgba(247,243,233,.72);--border:rgba(247,243,233,.12);--radius:16px;--shadow:0 14px 38px rgba(0,0,0,.55);}
     *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text);line-height:1.45}
+    body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text);line-height:1.45}
     a{color:inherit;text-decoration:none}
     .wrap{max-width:980px;margin:0 auto;padding:18px}
-    .card{border:1px solid var(--border);border-radius:var(--radius);background:rgba(16,16,16,.90);padding:16px}
-    .heroImg{border-radius:var(--radius);overflow:hidden;border:1px solid rgba(247,243,233,.10);background:#0b0b0b;margin:12px 0 14px}
-    .heroImg img{width:100%;height:auto;display:block}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.12);font-weight:900}
-    .btn.secondary{border-color:rgba(247,243,233,.12);background:rgba(247,243,233,.05)}
-    .small{font-size:12px;color:var(--muted2)}
+    .card{border:1px solid var(--border);border-radius:var(--radius);background:rgba(16,16,16,.90);box-shadow:var(--shadow);padding:16px}
+    .heroImg{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:var(--radius);border:1px solid rgba(247,243,233,.10);}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.12);font-weight:900}
+    .btn.secondary{border-color:var(--border);background:rgba(247,243,233,.05)}
+    .muted{color:var(--muted)}
+    .grid{display:grid;gap:12px}
+    textarea{padding:12px;border-radius:12px;border:1px solid var(--border);background:rgba(11,11,11,.55);color:var(--text);outline:none;min-height:110px;resize:vertical}
+    .small{font-size:12px;color:rgba(247,243,233,.55)}
   </style>
 </head>
 <body>
-<main class="wrap">
-  <a href="/tools.html" style="color:var(--muted);">← Back to Tools</a>
-  <h1 style="margin:10px 0 6px;">Deploy This App Generator</h1>
-  <p style="margin:0 0 12px;color:var(--muted);max-width:78ch;">Generate a deployment blueprint by app type and traffic using compute, Kubernetes, load balancing and VPC.</p>
-
-  <div class="heroImg">
-    <img src="/assets/img/tools/tool-deploy-this-app.png" alt="Deploy This App Generator illustration" loading="eager" decoding="async">
-  </div>
-
-  <section class="card">
-    <p style="margin:0;color:var(--muted);">This tool page is live with a starter experience. We’ll keep upgrading the logic and outputs.</p>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;">
-      <a class="btn" href="/contact.html">Have Us Implement</a>
-      <a class="btn secondary" href="/consulting.html">Consulting</a>
+  <main class="wrap">
+    <div class="top">
+      <a class="muted" href="/tools.html">← Back to Free Tools</a>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn secondary" href="/contact.html">Work With Us</a>
+        <a class="btn" href="/pricing.html">Pricing</a>
+      </div>
     </div>
-    <p class="small" style="margin-top:12px;">Tip: Bookmark this page — updates will ship continuously.</p>
-  </section>
-</main>
+
+    <h1 style="margin:12px 0 8px;">Deploy This App Generator</h1>
+    <p class="muted" style="margin:0 0 14px;max-width:75ch;">Select app type + traffic. Generate a deployment blueprint with safe defaults.</p>
+
+    <div class="card" style="padding:14px;">
+      <img class="heroImg" src="/tools/tool-deploy-this-app.png" alt="Deploy This App Generator illustration" loading="eager" decoding="async" fetchpriority="high"/>
+      <div class="small" style="margin-top:10px;">AdSense-safe visual: designed to explain the tool before the click.</div>
+    </div>
+
+    <section class="card" style="margin-top:14px;">
+      <div class="grid">
+        <div style="font-weight:900;">Tool (starter)</div>
+        <div class="muted">This page is wired for UX and SEO. Keep the starter inputs or connect it to your backend later.</div>
+
+        <label style="font-weight:900;">Your scenario
+          <textarea placeholder="Describe your app/workload and constraints..."></textarea>
+        </label>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <button class="btn" type="button" onclick="alert('Starter UI only. Connect this to your backend when ready.')">Run Tool</button>
+          <a class="btn secondary" href="/tools.html#help">Have Us Implement</a>
+        </div>
+
+        <div class="small">Tip: Keep it lean. Measure. Then scale.</div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>

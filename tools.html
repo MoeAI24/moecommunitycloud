@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Free Cloud Tools | Moe Community Cloud</title>
+  <link rel="preload" as="image" href="/tools/tools-hero-free-cloud-tools.png" fetchpriority="high" />
   <meta name="description" content="Free cloud tools for cost planning, Kubernetes decisions, storage strategy, VPC security checks, architecture generation, deployment blueprints, traffic spike simulation, uptime risk scoring, and month-1 survival." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://moecommunitycloud.com/tools.html" />
@@ -157,7 +158,7 @@
           </div>
 
           <div class="heroMedia">
-            <img src="/tools/tools-hero-free-cloud-tools.png" alt="Free Cloud Tools hero illustration" loading="eager" decoding="async">
+            <img src="/tools/tools-hero-free-cloud-tools.png" alt="Free Cloud Tools hero illustration" loading="eager" decoding="async" fetchpriority="high">
           </div>
         </div>
 
@@ -352,7 +353,47 @@
       </div>
     </div>
   </section>
-</main>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>FAQ</h2>
+            <p>Quick answers so people trust the tools and understand what they’re getting.</p>
+          </div>
+        </div>
+
+        <div class="infoGrid">
+          <div class="infoCard">
+            <h4>Do I need to create an account?</h4>
+            <p>No. These tools are designed to deliver value without forcing signups.</p>
+          </div>
+          <div class="infoCard">
+            <h4>Are these tools vendor-specific?</h4>
+            <p>No. Outputs are vendor-neutral and based on shared primitives: compute, storage, load balancer, Kubernetes, and VPC.</p>
+          </div>
+          <div class="infoCard">
+            <h4>Can you implement the recommendations?</h4>
+            <p>Yes. If you want done-for-you, we offer fixed-scope sprints and optimization support.</p>
+          </div>
+          <div class="infoCard">
+            <h4>Do you track me?</h4>
+            <p>No tracking walls. If you add analytics later, disclose it in your privacy policy.</p>
+          </div>
+          <div class="infoCard">
+            <h4>Are the results guaranteed?</h4>
+            <p>Results are guidance based on your inputs. Real costs and behavior vary by provider, region, and traffic patterns.</p>
+          </div>
+          <div class="infoCard">
+            <h4>Which tool should I start with?</h4>
+            <p>Start with <strong>Cloud Cost Reality Checker</strong>. Then run <strong>Storage Strategy</strong> and <strong>Uptime Risk Score</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </main>
 
 <footer>
   <div class="wrap">
@@ -455,6 +496,63 @@
 
   apply();
 })();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need to create an account?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. These tools are designed to deliver value without forcing signups."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are these tools vendor-specific?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Outputs are vendor-neutral and based on shared primitives: compute, storage, load balancer, Kubernetes, and VPC."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you implement the recommendations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. If you want done-for-you, we offer fixed-scope sprints and optimization support."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you track me?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No tracking walls. If you add analytics later, disclose it in your privacy policy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the results guaranteed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Results are guidance based on your inputs. Real costs and behavior vary by provider, region, and traffic patterns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which tool should I start with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with Cloud Cost Reality Checker. Then run Storage Strategy and Uptime Risk Score."
+      }
+    }
+  ]
+}
 </script>
 </body>
 </html>
