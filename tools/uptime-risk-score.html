@@ -4,40 +4,120 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Uptime Risk Score | Moe Community Cloud</title>
-  <meta name="description" content="Uptime Risk Score — free tool by Moe Community Cloud."/>
+  <meta name="description" content="Answer a few questions. Get a 0–100 uptime score with top fixes."/>
   <meta name="robots" content="index,follow"/>
   <meta name="theme-color" content="#0b0b0b"/>
   <link rel="canonical" href="https://moecommunitycloud.com/tools/uptime-risk-score.html"/>
   <link rel="preload" as="image" href="/tools/20260120_2201_Image Generation_simple_compose_01kff7z7rhfk7bn6nv4r7yj10d.png" fetchpriority="high"/>
   <style>
-    :root{--bg:#0b0b0b;--text:#f7f3e9;--muted:rgba(247,243,233,.72);--border:rgba(247,243,233,.12);--radius:16px;}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text);line-height:1.45}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:980px;margin:0 auto;padding:18px}
-    .card{border:1px solid var(--border);border-radius:var(--radius);background:rgba(16,16,16,.90);padding:16px}
-    .img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius);border:1px solid rgba(247,243,233,.10);}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.12);font-weight:900}
-    .btn.secondary{border-color:var(--border);background:rgba(247,243,233,.05)}
-    .muted{color:var(--muted)}
-  </style>
+:root{--bg:#0b0b0b;--panel:rgba(16,16,16,.9);--text:#f7f3e9;--muted:rgba(247,243,233,.72);--muted2:rgba(247,243,233,.55);--gold:#d4af37;--border:rgba(247,243,233,.12);--radius:16px;--shadow:0 14px 38px rgba(0,0,0,.55);}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text);line-height:1.45}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:980px;margin:0 auto;padding:18px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.12);font-weight:900}
+.btn.secondary{border-color:var(--border);background:rgba(247,243,233,.05)}
+.card{border:1px solid var(--border);border-radius:var(--radius);background:var(--panel);box-shadow:var(--shadow);padding:16px}
+.img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius);border:1px solid rgba(247,243,233,.10);background:rgba(11,11,11,.35)}
+.grid{display:grid;gap:12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+label{display:grid;gap:6px;font-weight:900}
+input,select,textarea{padding:12px;border-radius:12px;border:1px solid var(--border);background:rgba(11,11,11,.55);color:var(--text);outline:none}
+textarea{min-height:110px;resize:vertical}
+small,.small{color:var(--muted2);font-size:12px}
+.out{border-radius:16px;border:1px solid rgba(247,243,233,.10);background:rgba(11,11,11,.35);padding:14px;color:rgba(247,243,233,.80)}
+h1{margin:12px 0 8px}
+p{margin:0 0 14px;color:var(--muted)}
+.pill{display:inline-flex;gap:8px;flex-wrap:wrap}
+.pill span{font-size:12px;color:rgba(247,243,233,.65);border:1px solid rgba(247,243,233,.10);padding:3px 8px;border-radius:999px;background:rgba(11,11,11,.25)}
+</style>
 </head>
 <body>
   <main class="wrap">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
-      <a class="muted" href="/tools.html">← Back to Free Tools</a>
+    <div class="top">
+      <a href="/tools.html" style="color:var(--muted);">← Back to Free Tools</a>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
         <a class="btn secondary" href="/contact.html">Work With Us</a>
         <a class="btn" href="/consulting.html">Consulting</a>
       </div>
     </div>
 
-    <h1 style="margin:12px 0 8px;">Uptime Risk Score</h1>
-    <p class="muted" style="margin:0 0 14px;">AdSense-safe visual + starter tool page (wire the calculator next).</p>
+    <h1>Uptime Risk Score</h1>
+    <p>Answer a few questions. Get a 0–100 uptime score with top fixes.</p>
 
-    <div class="card">
-      <img class="img" src="/tools/20260120_2201_Image Generation_simple_compose_01kff7z7rhfk7bn6nv4r7yj10d.png" alt="Uptime Risk Score illustration" loading="eager" decoding="async" fetchpriority="high">
+    <div class="card" style="padding:14px;">
+      <img class="img" src="/tools/20260120_2201_Image Generation_simple_compose_01kff7z7rhfk7bn6nv4r7yj10d.png" alt="Uptime Risk Score illustration" loading="eager" decoding="async" fetchpriority="high"/>
+      <div class="small" style="margin-top:10px;">AdSense-safe visual: designed to explain the tool before the click.</div>
+    </div>
+
+    
+<section class="card" style="margin-top:14px;">
+  <div class="grid">
+    <div class="pill"><span>Compute</span><span>Load Balancer</span><span>Kubernetes</span><span>VPC</span></div>
+    <div class="two">
+      <label>Load balancer in front of public traffic?
+        <select id="u_lb"><option value="yes">Yes</option><option value="no">No</option><option value="unknown">Not sure</option></select>
+      </label>
+      <label>At least 2 instances/pods for the app?
+        <select id="u_multi"><option value="yes">Yes</option><option value="no">No</option><option value="unknown">Not sure</option></select>
+      </label>
+    </div>
+    <div class="two">
+      <label>Monitoring + alerts enabled?
+        <select id="u_alerts"><option value="yes">Yes</option><option value="no">No</option><option value="unknown">Not sure</option></select>
+      </label>
+      <label>Backups for critical data?
+        <select id="u_backup"><option value="yes">Yes</option><option value="no">No</option><option value="unknown">Not sure</option></select>
+      </label>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="btn" type="button" id="u_score">Get Score</button>
+      <a class="btn secondary" href="/tools/vpc-security-checker.html">VPC Check</a>
+    </div>
+    <div class="out" id="u_out"><strong>Result:</strong> click Get Score.</div>
+  </div>
+</section>
+
+
+    <div class="small" style="margin-top:14px;">
+      Guidance only. For a production plan, request a one-page architecture + cost review.
     </div>
   </main>
+
+  <script>
+  
+function pts(v){return v==='yes'?0:v==='unknown'?6:12;}
+document.getElementById('u_score').addEventListener('click',()=>{
+  const lb=document.getElementById('u_lb').value;
+  const multi=document.getElementById('u_multi').value;
+  const alerts=document.getElementById('u_alerts').value;
+  const backup=document.getElementById('u_backup').value;
+
+  let risk=0;
+  risk += lb==='no'?18:lb==='unknown'?9:0;
+  risk += multi==='no'?18:multi==='unknown'?9:0;
+  risk += alerts==='no'?16:alerts==='unknown'?8:0;
+  risk += pts(backup);
+
+  risk=Math.min(100,Math.max(0,risk));
+  const score=100-risk;
+  const level=score<55?'WEAK':score<75?'MEDIUM':'STRONG';
+  const fixes=[];
+  if(lb!=='yes') fixes.push("Put all public traffic behind a load balancer with health checks.");
+  if(multi!=='yes') fixes.push("Run at least two instances/pods to remove the single-instance failure.");
+  if(alerts!=='yes') fixes.push("Add basic monitoring + alerting for latency and error rate.");
+  if(backup!=='yes') fixes.push("Implement backups and test restore.");
+  document.getElementById('u_out').innerHTML = `
+    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+      <div style="font-weight:900;color:var(--gold);">Uptime Score: ${Math.round(score)}/100 • ${level}</div>
+      <div class="small">Risk ${Math.round(risk)}/100</div>
+    </div>
+    <div style="margin-top:10px;"><strong>Top fixes:</strong><ul style="margin:8px 0 0;padding-left:18px;">${fixes.length?fixes.map(f=>`<li>${f}</li>`).join(''):"<li>No major flags based on your inputs.</li>"}</ul></div>
+  `;
+});
+
+  </script>
 </body>
 </html>

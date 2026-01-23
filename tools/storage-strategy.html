@@ -4,40 +4,135 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Storage Strategy Advisor | Moe Community Cloud</title>
-  <meta name="description" content="Storage Strategy Advisor — free tool by Moe Community Cloud."/>
+  <meta name="description" content="Object vs block storage guidance without jargon—pick the right storage for your workload."/>
   <meta name="robots" content="index,follow"/>
   <meta name="theme-color" content="#0b0b0b"/>
   <link rel="canonical" href="https://moecommunitycloud.com/tools/storage-strategy.html"/>
   <link rel="preload" as="image" href="/tools/20260120_2154_Image Generation_simple_compose_01kff7js7qed089m58bhtav64k.png" fetchpriority="high"/>
   <style>
-    :root{--bg:#0b0b0b;--text:#f7f3e9;--muted:rgba(247,243,233,.72);--border:rgba(247,243,233,.12);--radius:16px;}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text);line-height:1.45}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:980px;margin:0 auto;padding:18px}
-    .card{border:1px solid var(--border);border-radius:var(--radius);background:rgba(16,16,16,.90);padding:16px}
-    .img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius);border:1px solid rgba(247,243,233,.10);}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.12);font-weight:900}
-    .btn.secondary{border-color:var(--border);background:rgba(247,243,233,.05)}
-    .muted{color:var(--muted)}
-  </style>
+:root{--bg:#0b0b0b;--panel:rgba(16,16,16,.9);--text:#f7f3e9;--muted:rgba(247,243,233,.72);--muted2:rgba(247,243,233,.55);--gold:#d4af37;--border:rgba(247,243,233,.12);--radius:16px;--shadow:0 14px 38px rgba(0,0,0,.55);}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text);line-height:1.45}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:980px;margin:0 auto;padding:18px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.12);font-weight:900}
+.btn.secondary{border-color:var(--border);background:rgba(247,243,233,.05)}
+.card{border:1px solid var(--border);border-radius:var(--radius);background:var(--panel);box-shadow:var(--shadow);padding:16px}
+.img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius);border:1px solid rgba(247,243,233,.10);background:rgba(11,11,11,.35)}
+.grid{display:grid;gap:12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+label{display:grid;gap:6px;font-weight:900}
+input,select,textarea{padding:12px;border-radius:12px;border:1px solid var(--border);background:rgba(11,11,11,.55);color:var(--text);outline:none}
+textarea{min-height:110px;resize:vertical}
+small,.small{color:var(--muted2);font-size:12px}
+.out{border-radius:16px;border:1px solid rgba(247,243,233,.10);background:rgba(11,11,11,.35);padding:14px;color:rgba(247,243,233,.80)}
+h1{margin:12px 0 8px}
+p{margin:0 0 14px;color:var(--muted)}
+.pill{display:inline-flex;gap:8px;flex-wrap:wrap}
+.pill span{font-size:12px;color:rgba(247,243,233,.65);border:1px solid rgba(247,243,233,.10);padding:3px 8px;border-radius:999px;background:rgba(11,11,11,.25)}
+</style>
 </head>
 <body>
   <main class="wrap">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
-      <a class="muted" href="/tools.html">← Back to Free Tools</a>
+    <div class="top">
+      <a href="/tools.html" style="color:var(--muted);">← Back to Free Tools</a>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
         <a class="btn secondary" href="/contact.html">Work With Us</a>
         <a class="btn" href="/consulting.html">Consulting</a>
       </div>
     </div>
 
-    <h1 style="margin:12px 0 8px;">Storage Strategy Advisor</h1>
-    <p class="muted" style="margin:0 0 14px;">AdSense-safe visual + starter tool page (wire the calculator next).</p>
+    <h1>Storage Strategy Advisor</h1>
+    <p>Object vs block storage guidance without jargon—pick the right storage for your workload.</p>
 
-    <div class="card">
-      <img class="img" src="/tools/20260120_2154_Image Generation_simple_compose_01kff7js7qed089m58bhtav64k.png" alt="Storage Strategy Advisor illustration" loading="eager" decoding="async" fetchpriority="high">
+    <div class="card" style="padding:14px;">
+      <img class="img" src="/tools/20260120_2154_Image Generation_simple_compose_01kff7js7qed089m58bhtav64k.png" alt="Storage Strategy Advisor illustration" loading="eager" decoding="async" fetchpriority="high"/>
+      <div class="small" style="margin-top:10px;">AdSense-safe visual: designed to explain the tool before the click.</div>
+    </div>
+
+    
+<section class="card" style="margin-top:14px;">
+  <div class="grid">
+    <div class="pill"><span>Object Storage</span><span>Block Storage</span></div>
+    <div class="two">
+      <label>What are you storing?
+        <select id="s_type">
+          <option value="media">Media files (images/video/audio)</option>
+          <option value="backups">Backups / archives</option>
+          <option value="logs">Logs / event data</option>
+          <option value="db">Database files / low-latency I/O</option>
+          <option value="vm">VM disk / app filesystem</option>
+        </select>
+      </label>
+      <label>Access pattern
+        <select id="s_access">
+          <option value="rare">Rare reads (archive)</option>
+          <option value="normal">Normal reads</option>
+          <option value="hot">Very frequent reads</option>
+          <option value="random">Random reads/writes (I/O heavy)</option>
+        </select>
+      </label>
+    </div>
+    <div class="two">
+      <label>Latency sensitivity
+        <select id="s_latency">
+          <option value="low">Low (seconds OK)</option>
+          <option value="med">Medium</option>
+          <option value="high">High (needs low ms)</option>
+        </select>
+      </label>
+      <label>Estimated size (GB)
+        <input id="s_size" type="number" min="0" placeholder="e.g., 500"/>
+      </label>
+    </div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="btn" type="button" id="s_eval">Recommend</button>
+      <a class="btn secondary" href="/tools/cost-reality-checker.html">Cost Checker</a>
+    </div>
+
+    <div class="out" id="s_out"><strong>Recommendation:</strong> click Recommend.</div>
+  </div>
+</section>
+
+
+    <div class="small" style="margin-top:14px;">
+      Guidance only. For a production plan, request a one-page architecture + cost review.
     </div>
   </main>
+
+  <script>
+  
+function v(id){return document.getElementById(id).value;}
+function n(id){return Number(document.getElementById(id).value||0);}
+document.getElementById('s_eval').addEventListener('click',()=>{
+  const type=v('s_type'), access=v('s_access'), latency=v('s_latency'), size=n('s_size');
+  let rec='Object Storage', why=[], watch=[];
+  if(type==='db' || type==='vm' || access==='random' || latency==='high'){
+    rec='Block Storage';
+    why.push('You need low-latency random I/O (disk-like behavior).');
+    why.push('Best fit for VM disks and database storage.');
+    watch.push('Watch IOPS/throughput caps; plan snapshots and backups.');
+  } else {
+    rec='Object Storage';
+    why.push('Best for large files, backups, logs, and media delivery.');
+    why.push('Durable and cost-efficient at scale.');
+    if(access==='hot') watch.push('Hot access can increase retrieval/egress costs depending on tier.');
+    watch.push('Design around object semantics (not a full filesystem).');
+  }
+  if(size>5000){ watch.push('Large dataset: use lifecycle policies and tiering to control long-term cost.'); }
+  document.getElementById('s_out').innerHTML = `
+    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+      <div style="font-weight:900;color:var(--gold);">Recommended: ${rec}</div>
+      <div class="small">Size: ${size?size.toLocaleString()+' GB':'n/a'}</div>
+    </div>
+    <div style="margin-top:10px;"><strong>Why:</strong><ul style="margin:8px 0 0;padding-left:18px;">${why.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+    <div style="margin-top:10px;"><strong>Watch-outs:</strong><ul style="margin:8px 0 0;padding-left:18px;">${watch.length?watch.map(x=>`<li>${x}</li>`).join(''):'<li>None flagged.</li>'}</ul></div>
+  `;
+});
+
+  </script>
 </body>
 </html>

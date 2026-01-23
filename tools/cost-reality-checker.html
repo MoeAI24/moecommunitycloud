@@ -4,40 +4,129 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Cloud Cost Reality Checker | Moe Community Cloud</title>
-  <meta name="description" content="Cloud Cost Reality Checker — free tool by Moe Community Cloud."/>
+  <meta name="description" content="Estimate realistic monthly costs, spot hidden fees, and get a lean baseline that matches your traffic."/>
   <meta name="robots" content="index,follow"/>
   <meta name="theme-color" content="#0b0b0b"/>
   <link rel="canonical" href="https://moecommunitycloud.com/tools/cost-reality-checker.html"/>
   <link rel="preload" as="image" href="/tools/20260120_2152_Cloud Cost Transformation_simple_compose_01kff7ej5bfty9w86c79xec9pq.png" fetchpriority="high"/>
   <style>
-    :root{--bg:#0b0b0b;--text:#f7f3e9;--muted:rgba(247,243,233,.72);--border:rgba(247,243,233,.12);--radius:16px;}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text);line-height:1.45}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:980px;margin:0 auto;padding:18px}
-    .card{border:1px solid var(--border);border-radius:var(--radius);background:rgba(16,16,16,.90);padding:16px}
-    .img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius);border:1px solid rgba(247,243,233,.10);}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.12);font-weight:900}
-    .btn.secondary{border-color:var(--border);background:rgba(247,243,233,.05)}
-    .muted{color:var(--muted)}
-  </style>
+:root{--bg:#0b0b0b;--panel:rgba(16,16,16,.9);--text:#f7f3e9;--muted:rgba(247,243,233,.72);--muted2:rgba(247,243,233,.55);--gold:#d4af37;--border:rgba(247,243,233,.12);--radius:16px;--shadow:0 14px 38px rgba(0,0,0,.55);}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text);line-height:1.45}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:980px;margin:0 auto;padding:18px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.12);font-weight:900}
+.btn.secondary{border-color:var(--border);background:rgba(247,243,233,.05)}
+.card{border:1px solid var(--border);border-radius:var(--radius);background:var(--panel);box-shadow:var(--shadow);padding:16px}
+.img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius);border:1px solid rgba(247,243,233,.10);background:rgba(11,11,11,.35)}
+.grid{display:grid;gap:12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+label{display:grid;gap:6px;font-weight:900}
+input,select,textarea{padding:12px;border-radius:12px;border:1px solid var(--border);background:rgba(11,11,11,.55);color:var(--text);outline:none}
+textarea{min-height:110px;resize:vertical}
+small,.small{color:var(--muted2);font-size:12px}
+.out{border-radius:16px;border:1px solid rgba(247,243,233,.10);background:rgba(11,11,11,.35);padding:14px;color:rgba(247,243,233,.80)}
+h1{margin:12px 0 8px}
+p{margin:0 0 14px;color:var(--muted)}
+.pill{display:inline-flex;gap:8px;flex-wrap:wrap}
+.pill span{font-size:12px;color:rgba(247,243,233,.65);border:1px solid rgba(247,243,233,.10);padding:3px 8px;border-radius:999px;background:rgba(11,11,11,.25)}
+</style>
 </head>
 <body>
   <main class="wrap">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
-      <a class="muted" href="/tools.html">← Back to Free Tools</a>
+    <div class="top">
+      <a href="/tools.html" style="color:var(--muted);">← Back to Free Tools</a>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
         <a class="btn secondary" href="/contact.html">Work With Us</a>
         <a class="btn" href="/consulting.html">Consulting</a>
       </div>
     </div>
 
-    <h1 style="margin:12px 0 8px;">Cloud Cost Reality Checker</h1>
-    <p class="muted" style="margin:0 0 14px;">AdSense-safe visual + starter tool page (wire the calculator next).</p>
+    <h1>Cloud Cost Reality Checker</h1>
+    <p>Estimate realistic monthly costs, spot hidden fees, and get a lean baseline that matches your traffic.</p>
 
-    <div class="card">
-      <img class="img" src="/tools/20260120_2152_Cloud Cost Transformation_simple_compose_01kff7ej5bfty9w86c79xec9pq.png" alt="Cloud Cost Reality Checker illustration" loading="eager" decoding="async" fetchpriority="high">
+    <div class="card" style="padding:14px;">
+      <img class="img" src="/tools/20260120_2152_Cloud Cost Transformation_simple_compose_01kff7ej5bfty9w86c79xec9pq.png" alt="Cloud Cost Reality Checker illustration" loading="eager" decoding="async" fetchpriority="high"/>
+      <div class="small" style="margin-top:10px;">AdSense-safe visual: designed to explain the tool before the click.</div>
+    </div>
+
+    
+<section class="card" style="margin-top:14px;">
+  <div class="grid">
+    <div class="pill"><span>Compute</span><span>Object Storage</span><span>Load Balancer</span></div>
+    <div class="two">
+      <label>Compute profile
+        <select id="cc_compute">
+          <option value="small">Small (MVP/dev)</option>
+          <option value="medium">Medium (early prod)</option>
+          <option value="large">Large (scale)</option>
+        </select>
+      </label>
+      <label>Monthly storage (GB)
+        <input id="cc_storage" type="number" min="0" placeholder="e.g., 200"/>
+      </label>
+    </div>
+    <div class="two">
+      <label>Monthly requests (approx)
+        <input id="cc_requests" type="number" min="0" placeholder="e.g., 1000000"/>
+      </label>
+      <label>Traffic level
+        <select id="cc_traffic">
+          <option value="low">Low</option>
+          <option value="med">Medium</option>
+          <option value="high">High</option>
+          <option value="spiky">Spiky</option>
+        </select>
+      </label>
+    </div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="btn" type="button" id="cc_calc">Calculate</button>
+      <a class="btn secondary" href="/tools/storage-strategy.html">Storage Strategy</a>
+    </div>
+
+    <div class="out" id="cc_out"><strong>Result:</strong> enter inputs and click Calculate.</div>
+  </div>
+</section>
+
+
+    <div class="small" style="margin-top:14px;">
+      Guidance only. For a production plan, request a one-page architecture + cost review.
     </div>
   </main>
+
+  <script>
+  
+function num(id){return Number(document.getElementById(id).value||0);}
+document.getElementById('cc_calc').addEventListener('click',()=>{
+  const profile=document.getElementById('cc_compute').value;
+  const storage=num('cc_storage');
+  const req=num('cc_requests');
+  const traffic=document.getElementById('cc_traffic').value;
+
+  const base = profile==='small'?55:profile==='medium'?160:420;
+  const storageCost = storage*0.02;
+  const requestCost = (req/1_000_000)*3.5;
+  const lb = traffic==='low'?12:traffic==='med'?18:traffic==='high'?30:35;
+  const overhead = traffic==='low'?10:traffic==='med'?25:traffic==='high'?60:80;
+
+  const total = base+storageCost+requestCost+lb+overhead;
+  const note = total>300 ? "High for Month 1. Reduce compute, add caching, and re-check storage tiering." : "Looks reasonable for an MVP baseline.";
+
+  document.getElementById('cc_out').innerHTML = `
+    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+      <div><strong>Estimated monthly baseline (starter):</strong></div>
+      <div style="font-weight:900;color:var(--gold);font-size:18px;">$${total.toFixed(0)}/mo</div>
+    </div>
+    <div class="small" style="margin-top:8px;color:rgba(247,243,233,.72)">
+      Breakdown: Compute $${base.toFixed(0)} • Storage $${storageCost.toFixed(0)} • Requests $${requestCost.toFixed(0)} • LB $${lb.toFixed(0)} • Traffic overhead $${overhead.toFixed(0)}
+    </div>
+    <div style="margin-top:10px;"><strong>Next:</strong> ${note}</div>
+  `;
+});
+
+  </script>
 </body>
 </html>

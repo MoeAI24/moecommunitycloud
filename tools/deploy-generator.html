@@ -4,40 +4,120 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Deploy This App Generator | Moe Community Cloud</title>
-  <meta name="description" content="Deploy This App Generator — free tool by Moe Community Cloud."/>
+  <meta name="description" content="Select app type + traffic. Get a deployment blueprint and safe defaults you can refine later."/>
   <meta name="robots" content="index,follow"/>
   <meta name="theme-color" content="#0b0b0b"/>
   <link rel="canonical" href="https://moecommunitycloud.com/tools/deploy-generator.html"/>
   <link rel="preload" as="image" href="/tools/20260120_2158_App Deployment Animation_simple_compose_01kff7sngqe3vrh0vpmwwzrnc1.png" fetchpriority="high"/>
   <style>
-    :root{--bg:#0b0b0b;--text:#f7f3e9;--muted:rgba(247,243,233,.72);--border:rgba(247,243,233,.12);--radius:16px;}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text);line-height:1.45}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:980px;margin:0 auto;padding:18px}
-    .card{border:1px solid var(--border);border-radius:var(--radius);background:rgba(16,16,16,.90);padding:16px}
-    .img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius);border:1px solid rgba(247,243,233,.10);}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.12);font-weight:900}
-    .btn.secondary{border-color:var(--border);background:rgba(247,243,233,.05)}
-    .muted{color:var(--muted)}
-  </style>
+:root{--bg:#0b0b0b;--panel:rgba(16,16,16,.9);--text:#f7f3e9;--muted:rgba(247,243,233,.72);--muted2:rgba(247,243,233,.55);--gold:#d4af37;--border:rgba(247,243,233,.12);--radius:16px;--shadow:0 14px 38px rgba(0,0,0,.55);}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text);line-height:1.45}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:980px;margin:0 auto;padding:18px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:10px 14px;border-radius:14px;border:1px solid rgba(212,175,55,.55);background:rgba(212,175,55,.12);font-weight:900}
+.btn.secondary{border-color:var(--border);background:rgba(247,243,233,.05)}
+.card{border:1px solid var(--border);border-radius:var(--radius);background:var(--panel);box-shadow:var(--shadow);padding:16px}
+.img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius);border:1px solid rgba(247,243,233,.10);background:rgba(11,11,11,.35)}
+.grid{display:grid;gap:12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+label{display:grid;gap:6px;font-weight:900}
+input,select,textarea{padding:12px;border-radius:12px;border:1px solid var(--border);background:rgba(11,11,11,.55);color:var(--text);outline:none}
+textarea{min-height:110px;resize:vertical}
+small,.small{color:var(--muted2);font-size:12px}
+.out{border-radius:16px;border:1px solid rgba(247,243,233,.10);background:rgba(11,11,11,.35);padding:14px;color:rgba(247,243,233,.80)}
+h1{margin:12px 0 8px}
+p{margin:0 0 14px;color:var(--muted)}
+.pill{display:inline-flex;gap:8px;flex-wrap:wrap}
+.pill span{font-size:12px;color:rgba(247,243,233,.65);border:1px solid rgba(247,243,233,.10);padding:3px 8px;border-radius:999px;background:rgba(11,11,11,.25)}
+</style>
 </head>
 <body>
   <main class="wrap">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;">
-      <a class="muted" href="/tools.html">← Back to Free Tools</a>
+    <div class="top">
+      <a href="/tools.html" style="color:var(--muted);">← Back to Free Tools</a>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
         <a class="btn secondary" href="/contact.html">Work With Us</a>
         <a class="btn" href="/consulting.html">Consulting</a>
       </div>
     </div>
 
-    <h1 style="margin:12px 0 8px;">Deploy This App Generator</h1>
-    <p class="muted" style="margin:0 0 14px;">AdSense-safe visual + starter tool page (wire the calculator next).</p>
+    <h1>Deploy This App Generator</h1>
+    <p>Select app type + traffic. Get a deployment blueprint and safe defaults you can refine later.</p>
 
-    <div class="card">
-      <img class="img" src="/tools/20260120_2158_App Deployment Animation_simple_compose_01kff7sngqe3vrh0vpmwwzrnc1.png" alt="Deploy This App Generator illustration" loading="eager" decoding="async" fetchpriority="high">
+    <div class="card" style="padding:14px;">
+      <img class="img" src="/tools/20260120_2158_App Deployment Animation_simple_compose_01kff7sngqe3vrh0vpmwwzrnc1.png" alt="Deploy This App Generator illustration" loading="eager" decoding="async" fetchpriority="high"/>
+      <div class="small" style="margin-top:10px;">AdSense-safe visual: designed to explain the tool before the click.</div>
+    </div>
+
+    
+<section class="card" style="margin-top:14px;">
+  <div class="grid">
+    <div class="pill"><span>Compute</span><span>Kubernetes</span><span>Load Balancer</span><span>VPC</span></div>
+    <div class="two">
+      <label>App type
+        <select id="d_type">
+          <option value="static">Static site / SPA</option>
+          <option value="api">API / backend</option>
+          <option value="worker">Workers / jobs</option>
+          <option value="saas">SaaS (multi-service)</option>
+        </select>
+      </label>
+      <label>Traffic level
+        <select id="d_traffic">
+          <option value="low">Low (MVP)</option>
+          <option value="med">Medium</option>
+          <option value="high">High</option>
+          <option value="spiky">Spiky</option>
+        </select>
+      </label>
+    </div>
+    <label>Ops capacity
+      <select id="d_ops">
+        <option value="lite">Lite (no dedicated ops)</option>
+        <option value="some">Some ops experience</option>
+        <option value="dedicated">Dedicated ops</option>
+      </select>
+    </label>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="btn" type="button" id="d_gen">Generate Plan</button>
+      <a class="btn secondary" href="/tools/should-this-be-k8s.html">K8s Decision</a>
+    </div>
+    <div class="out" id="d_out"><strong>Plan:</strong> click Generate Plan.</div>
+  </div>
+</section>
+
+
+    <div class="small" style="margin-top:14px;">
+      Guidance only. For a production plan, request a one-page architecture + cost review.
     </div>
   </main>
+
+  <script>
+  
+function V(id){return document.getElementById(id).value;}
+document.getElementById('d_gen').addEventListener('click',()=>{
+  const type=V('d_type'), traffic=V('d_traffic'), ops=V('d_ops');
+  const needsLb = (traffic!=='low') || (type!=='static');
+  const k8s = (type==='saas' && ops!=='lite') || traffic==='high' || (traffic==='spiky' && ops==='dedicated');
+  const steps=[];
+  steps.push("VPC with public/private segmentation (minimum).");
+  steps.push((needsLb?"Load Balancer":"Optional load balancer")+" with health checks.");
+  steps.push(k8s? "Managed Kubernetes for services":"Compute (VMs/managed runtime) for services");
+  if(type==='static') steps.push("Serve assets from object storage + caching.");
+  if(traffic==='spiky') steps.push("Enable autoscaling and simulate spike traffic.");
+  const risks=[];
+  if(k8s && ops==='lite') risks.push("K8s burden may be high for lite ops — consider simpler compute first.");
+  risks.push("Add logs + alerts early to avoid silent failures.");
+  document.getElementById('d_out').innerHTML = `
+    <div style="font-weight:900;color:var(--gold);">Recommended setup</div>
+    <ul style="margin:10px 0 0;padding-left:18px;">${steps.map(s=>`<li>${s}</li>`).join('')}</ul>
+    <div style="margin-top:10px;"><strong>Risks:</strong><ul style="margin:8px 0 0;padding-left:18px;">${risks.map(r=>`<li>${r}</li>`).join('')}</ul></div>
+  `;
+});
+
+  </script>
 </body>
 </html>
