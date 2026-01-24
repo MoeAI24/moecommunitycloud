@@ -95,23 +95,130 @@ hr{border:none;border-top:1px solid rgba(247,243,233,.10);margin:14px 0}
 }
 .btn.primary{border-color: rgba(212,175,55,.60);background: linear-gradient(180deg, rgba(212,175,55,.14), rgba(11,11,11,0));}
 .small{color:var(--muted2);font-size:12px}
-.footer{margin-top:18px;padding:18px 0;border-top:1px solid rgba(247,243,233,.08);color:var(--muted2);font-size:13px}</style></head><body>
+.footer{margin-top:18px;padding:18px 0;border-top:1px solid rgba(247,243,233,.08);color:var(--muted2);font-size:13px}
+/* Filters */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;border:1px solid rgba(247,243,233,.12);background:rgba(11,11,11,.35);color:rgba(247,243,233,.72);font-weight:900;cursor:pointer}
+.chip.active{border-color:rgba(212,175,55,.55);color:var(--gold);background:rgba(212,175,55,.10)}
+</style></head><body>
 <header class="topbar"><div class="topbarInner"><div class="brand"><div class="logoMark" aria-hidden="true"><span>MB</span></div><div><div style="font-weight:900;">Moe Community Cloud</div><div class="small">Newsletter Issues</div></div></div>
 <nav class="nav"><a href="/newsletter.html">Newsletter</a><a href="/tools.html">Free Tools</a><a href="/partners.html">Partners</a><a class="cta" href="/consulting.html">Consulting →</a></nav></div></header>
 <main class="wrap">
-<div class="hero"><div class="kicker"><span class="dot"></span><span>ARCHIVE</span></div><h1>Newsletter Issues</h1><p style="margin:0;color:rgba(247,243,233,.78);max-width:78ch;">Operator-first issues you can share internally. Enterprise-safe. No hype.</p></div>
-<div class="card">
-<h2>Latest</h2>
-<ul>
-<li><a style="color:var(--gold);text-decoration:underline;" href="/newsletter/issues/issue-015-responsible-ai-for-small-teams.html">Issue 015 — Responsible AI for Small Teams</a></li>
-<li><a style="color:var(--gold);text-decoration:underline;" href="/newsletter/issues/issue-014-why-most-ai-projects-fail-at-the-ops-layer.html">Issue 014 — Why Most AI Projects Fail at the Ops Layer</a></li>
-<li><a style="color:var(--gold);text-decoration:underline;" href="/newsletter/issues/issue-013-ai-compliance-isnt-optional-anymore.html">Issue 013 — AI Compliance Isn’t Optional Anymore</a></li>
-<li><a style="color:var(--gold);text-decoration:underline;" href="/newsletter/issues/issue-009-ai-compliance-gatekeeper.html">Issue 009 — AI Compliance Gatekeeper</a></li>
-<li><a style="color:var(--gold);text-decoration:underline;" href="/newsletter/issues/issue-012-partner-systems-beat-one-off-projects.html">Issue 012 — Partner Systems Beat One-Off Projects</a></li>
-<li><a style="color:var(--gold);text-decoration:underline;" href="/newsletter/issues/issue-011-governance-proof-execs-can-forward.html">Issue 011 — Governance Proof Executives Can Forward</a></li>
-<li><a style="color:var(--gold);text-decoration:underline;" href="/newsletter/issues/issue-010-building-systems-that-actually-scale.html">Issue 010 — Building Systems That Actually Scale</a></li>
-</ul>
-<div class="btnRow"><a class="btn primary" href="/newsletter.html">Back to Newsletter →</a><a class="btn" href="/partners.html">Partner Path →</a></div>
+<div class="hero"><div class="kicker"><span class="dot"></span><span>ARCHIVE</span></div><h1>Newsletter Issues</h1>
+<p style="margin:0;color:rgba(247,243,233,.78);max-width:78ch;">Filter by category and share issues internally. Enterprise-safe.</p>
+<div class="filters" id="filters">
+  <button class="chip active" data-filter="All" type="button">All</button>
+  <button class="chip" data-filter="Operations" type="button">Operations</button>
+  <button class="chip" data-filter="Agent Ops" type="button">Agent Ops</button>
+  <button class="chip" data-filter="Governance" type="button">Governance</button>
+  <button class="chip" data-filter="Compliance" type="button">Compliance</button>
+  <button class="chip" data-filter="Monetization" type="button">Monetization</button>
+  <button class="chip" data-filter="Responsible Ai" type="button">Responsible AI</button>
 </div>
+</div>
+
+<div id="issueGrid">
+
+    <div class="card" data-issue-card data-cat="Operations">
+      <div class="badgeRow"><span class="badge gold">Issue 017</span><span class="badge">Operations</span></div>
+      <h2 style="margin:8px 0 6px;">Cost Per Request Is the Real KPI</h2>
+      <div class="btnRow" style="margin-top:10px;">
+        <a class="btn primary" href="/newsletter/issues/issue-017-cost-per-request-is-the-real-kpi.html">Read →</a>
+        <a class="btn" href="/newsletter.html">Archive →</a>
+      </div>
+    </div>
+    
+    <div class="card" data-issue-card data-cat="Agent Ops">
+      <div class="badgeRow"><span class="badge gold">Issue 016</span><span class="badge">Agent Ops</span></div>
+      <h2 style="margin:8px 0 6px;">The 30-Minute AgentOps Audit</h2>
+      <div class="btnRow" style="margin-top:10px;">
+        <a class="btn primary" href="/newsletter/issues/issue-016-the-30-minute-agentops-audit.html">Read →</a>
+        <a class="btn" href="/newsletter.html">Archive →</a>
+      </div>
+    </div>
+    
+    <div class="card" data-issue-card data-cat="Responsible Ai">
+      <div class="badgeRow"><span class="badge gold">Issue 015</span><span class="badge">Responsible Ai</span></div>
+      <h2 style="margin:8px 0 6px;">Responsible AI for Small Teams</h2>
+      <div class="btnRow" style="margin-top:10px;">
+        <a class="btn primary" href="/newsletter/issues/issue-015-responsible-ai-for-small-teams.html">Read →</a>
+        <a class="btn" href="/newsletter.html">Archive →</a>
+      </div>
+    </div>
+    
+    <div class="card" data-issue-card data-cat="Agent Ops">
+      <div class="badgeRow"><span class="badge gold">Issue 014</span><span class="badge">Agent Ops</span></div>
+      <h2 style="margin:8px 0 6px;">Why Most AI Projects Fail at the Ops Layer</h2>
+      <div class="btnRow" style="margin-top:10px;">
+        <a class="btn primary" href="/newsletter/issues/issue-014-why-most-ai-projects-fail-at-the-ops-layer.html">Read →</a>
+        <a class="btn" href="/newsletter.html">Archive →</a>
+      </div>
+    </div>
+    
+    <div class="card" data-issue-card data-cat="Governance">
+      <div class="badgeRow"><span class="badge gold">Issue 013</span><span class="badge">Governance</span></div>
+      <h2 style="margin:8px 0 6px;">AI Compliance Isn’t Optional Anymore</h2>
+      <div class="btnRow" style="margin-top:10px;">
+        <a class="btn primary" href="/newsletter/issues/issue-013-ai-compliance-isnt-optional-anymore.html">Read →</a>
+        <a class="btn" href="/newsletter.html">Archive →</a>
+      </div>
+    </div>
+    
+    <div class="card" data-issue-card data-cat="Monetization">
+      <div class="badgeRow"><span class="badge gold">Issue 012</span><span class="badge">Monetization</span></div>
+      <h2 style="margin:8px 0 6px;">Partner Systems Beat One-Off Projects</h2>
+      <div class="btnRow" style="margin-top:10px;">
+        <a class="btn primary" href="/newsletter/issues/issue-012-partner-systems-beat-one-off-projects.html">Read →</a>
+        <a class="btn" href="/newsletter.html">Archive →</a>
+      </div>
+    </div>
+    
+    <div class="card" data-issue-card data-cat="Governance">
+      <div class="badgeRow"><span class="badge gold">Issue 011</span><span class="badge">Governance</span></div>
+      <h2 style="margin:8px 0 6px;">Governance Proof Executives Can Forward</h2>
+      <div class="btnRow" style="margin-top:10px;">
+        <a class="btn primary" href="/newsletter/issues/issue-011-governance-proof-execs-can-forward.html">Read →</a>
+        <a class="btn" href="/newsletter.html">Archive →</a>
+      </div>
+    </div>
+    
+    <div class="card" data-issue-card data-cat="Operations">
+      <div class="badgeRow"><span class="badge gold">Issue 010</span><span class="badge">Operations</span></div>
+      <h2 style="margin:8px 0 6px;">Building Systems That Actually Scale</h2>
+      <div class="btnRow" style="margin-top:10px;">
+        <a class="btn primary" href="/newsletter/issues/issue-010-building-systems-that-actually-scale.html">Read →</a>
+        <a class="btn" href="/newsletter.html">Archive →</a>
+      </div>
+    </div>
+    
+    <div class="card" data-issue-card data-cat="Compliance">
+      <div class="badgeRow"><span class="badge gold">Issue 009</span><span class="badge">Compliance</span></div>
+      <h2 style="margin:8px 0 6px;">AI Compliance Gatekeeper</h2>
+      <div class="btnRow" style="margin-top:10px;">
+        <a class="btn primary" href="/newsletter/issues/issue-009-ai-compliance-gatekeeper.html">Read →</a>
+        <a class="btn" href="/newsletter.html">Archive →</a>
+      </div>
+    </div>
+    
+</div>
+
 <div class="footer">© 2026 Moe Community Cloud (MBCC).</div>
-</main></body></html>
+</main>
+<script>
+(function() {
+  const chips=[...document.querySelectorAll('.chip')];
+  const cards=[...document.querySelectorAll('[data-issue-card]')];
+  function setActive(cat){
+    chips.forEach(c=>c.classList.toggle('active', c.dataset.filter===cat));
+    cards.forEach(card=>{
+      const c=card.dataset.cat||'General';
+      card.style.display = (cat==='All' || c===cat) ? '' : 'none';
+    });
+  }
+  document.getElementById('filters').addEventListener('click', (e)=>{
+    const btn=e.target.closest('.chip'); if(!btn) return;
+    setActive(btn.dataset.filter);
+  });
+})();
+</script>
+</body></html>
