@@ -1,0 +1,773 @@
+ <!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Moe Community Cloud (MBCC) • Agent Ops + FinternetOps</title>
+<meta name="description" content="MBCC builds enterprise-ready operating systems for AI agents and next-gen finance automation. Agent Ops, FinternetOps, consulting, and partner enablement."/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Moe Community Cloud (MBCC) • Agent Ops + FinternetOps"/>
+<meta property="og:description" content="MBCC builds enterprise-ready operating systems for AI agents and next-gen finance automation. Agent Ops, FinternetOps, consulting, and partner enablement."/>
+<meta property="og:url" content="https://moecommunitycloud.com/"/>
+<meta property="og:image" content="https://moecommunitycloud.com/assets/img/moecommunitycloud-logo.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Moe Community Cloud (MBCC) • Agent Ops + FinternetOps"/>
+<meta name="twitter:description" content="MBCC builds enterprise-ready operating systems for AI agents and next-gen finance automation. Agent Ops, FinternetOps, consulting, and partner enablement."/>
+<meta name="twitter:image" content="https://moecommunitycloud.com/assets/img/moecommunitycloud-logo.png"/>
+<link rel="canonical" href="https://moecommunitycloud.com/"/>
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<link rel="preconnect" href="https://googleads.g.doubleclick.net">
+<meta name="theme-color" content="#0b0b0b"/>
+<link rel="stylesheet" href="assets/css/site.css"/>
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml"/>
+<link rel="icon" href="assets/img/favicon.png" type="image/png"/>
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Moe Community Cloud (MBCC)",
+  "url": "https://moecommunitycloud.com/",
+  "logo": "https://moecommunitycloud.com/assets/img/moecommunitycloud-logo.png",
+  "description": "Enterprise-ready operating systems for AI agents and finance automation. Agent Ops + FinternetOps + Consulting + Partner enablement."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Moe Community Cloud",
+  "url": "https://moecommunitycloud.com/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"Do you expose internal playbooks publicly?",
+      "acceptedAnswer":{"@type":"Answer","text":"No. Public pages describe outcomes and operator-friendly deliverables without revealing proprietary implementation details or internal control logic."}
+    },
+    {
+      "@type":"Question",
+      "name":"What do partners actually receive?",
+      "acceptedAnswer":{"@type":"Answer","text":"Partners move through onboarding → training → certification → licensing, and finish with proof artifacts: scopes, narratives, KPIs, and handoff deliverables designed for enterprise conversations."}
+    },
+    {
+      "@type":"Question",
+      "name":"Is this built for real operators or demos?",
+      "acceptedAnswer":{"@type":"Answer","text":"Operators. The focus is reconciliation, controls, evidence outputs, change visibility, and repeatable delivery standards — not hype decks."}
+    },
+    {
+      "@type":"Question",
+      "name":"How do I start?",
+      "acceptedAnswer":{"@type":"Answer","text":"Pick a lane (Operator / Consultant / Sales), start training, complete assessments (80%+), and build a proof pack that supports enterprise readiness."}
+    }
+  ]
+}
+</script>
+
+
+<!-- Optional: SEO-safe agent listing schema (does NOT reveal IP) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"MBCC Agent Library (Featured)",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Treasury Recon Agent","url":"https://finternetops.moecommunitycloud.com/agents.html"},
+    {"@type":"ListItem","position":2,"name":"Custody & Settlement Agent","url":"https://finternetops.moecommunitycloud.com/agents.html"},
+    {"@type":"ListItem","position":3,"name":"Risk & Limits Agent","url":"https://finternetops.moecommunitycloud.com/agents.html"},
+    {"@type":"ListItem","position":4,"name":"Compliance Evidence Agent","url":"https://finternetops.moecommunitycloud.com/agents.html"},
+    {"@type":"ListItem","position":5,"name":"Partner Onboarding Agent","url":"https://finternetops.moecommunitycloud.com/agents.html"},
+    {"@type":"ListItem","position":6,"name":"Certification Proctor Agent","url":"https://finternetops.moecommunitycloud.com/agents.html"},
+    {"@type":"ListItem","position":7,"name":"SOW & Delivery Agent","url":"https://finternetops.moecommunitycloud.com/agents.html"},
+    {"@type":"ListItem","position":8,"name":"AgentOps Orchestration Agent","url":"https://finternetops.moecommunitycloud.com/agents.html"}
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8387411349417007"
+     crossorigin="anonymous"></script>
+
+<style>
+/* MBCC: Partner Path + Quick Links right-column visuals (no structural redesign) */
+
+/* Partner Path visual */
+.ppGrid{display:grid;grid-template-columns:1.15fr .95fr;gap:16px;align-items:center;}
+@media (max-width:860px){.ppGrid{grid-template-columns:1fr}}
+.ppViz{padding:12px;border-radius:14px;border:1px solid rgba(212,175,55,.25);background:rgba(255,255,255,.02);overflow:hidden;}
+.ppViz svg{width:100%;height:auto;display:block}
+.ppLine{stroke:rgba(212,175,55,.45);stroke-width:4;stroke-linecap:round}
+.ppNode circle{fill:#0b0b0b;stroke:#d4af37;stroke-width:3}
+.ppNode text{fill:rgba(247,243,233,.92);font-size:12px;text-anchor:middle}
+.ppNode .mini{fill:rgba(247,243,233,.70);font-size:11px}
+.ppNode.active circle{filter:drop-shadow(0 0 10px rgba(193,18,31,.55));animation:ppPulse 2.2s ease-in-out infinite}
+.ppNode.active text{fill:#fff}
+@keyframes ppPulse{0%{transform:scale(1);opacity:1}50%{transform:scale(1.12);opacity:.85}100%{transform:scale(1);opacity:1}}
+.ppCaption{margin-top:10px;font-size:12px;color:rgba(247,243,233,.70);line-height:1.5}
+
+/* Quick Links visual (fills the right blank space) */
+.qlGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:stretch;}
+@media (max-width:860px){.qlGrid{grid-template-columns:1fr}}
+.qlViz{
+  border-radius:14px;border:1px solid rgba(212,175,55,.25);
+  background:radial-gradient(600px 180px at 20% 10%, rgba(193,18,31,.20), transparent 60%),
+             radial-gradient(480px 220px at 85% 30%, rgba(212,175,55,.12), transparent 60%),
+             rgba(255,255,255,.02);
+  padding:14px;overflow:hidden;position:relative;
+}
+.qlViz h4{margin:0 0 10px;font-size:14px;letter-spacing:.2px;color:rgba(247,243,233,.82)}
+.laneStack{display:grid;gap:10px}
+.laneCard{border-radius:14px;border:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.18);padding:12px;position:relative;overflow:hidden}
+.laneCard strong{display:block;color:#fff;font-size:14px;margin-bottom:4px}
+.laneCard span{display:block;color:rgba(247,243,233,.70);font-size:12px;line-height:1.35}
+.laneCard::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg, rgba(193,18,31,0), rgba(193,18,31,.18), rgba(212,175,55,.10), rgba(193,18,31,0));transform:translateX(-110%);opacity:.9}
+.laneCard.active{border-color:rgba(212,175,55,.38);box-shadow:0 18px 45px rgba(0,0,0,.35)}
+.laneCard.active::before{animation:sweep 2.4s ease-in-out infinite}
+@keyframes sweep{0%{transform:translateX(-110%)}60%{transform:translateX(110%)}100%{transform:translateX(110%)}}
+.miniKpi{margin-top:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media (max-width:520px){.miniKpi{grid-template-columns:1fr}}
+.kpi{border:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.16);border-radius:14px;padding:10px}
+.kpi b{display:block;font-size:12px;color:#fff;margin-bottom:2px}
+.kpi i{display:block;font-style:normal;font-size:11px;color:rgba(247,243,233,.70)}
+
+/* =========================================================
+   MBCC: Homepage readability + banner sizing
+   ========================================================= */
+.home{font-size:17px;line-height:1.7;}
+.home .lead{font-size:1.1rem;line-height:1.75;}
+.home .small{font-size:.95rem;line-height:1.7;}
+.home h1{font-size:2.2rem;line-height:1.15;}
+.home h2{font-size:1.7rem;line-height:1.2;}
+.home h3{font-size:1.3rem;line-height:1.25;}
+
+/* Existing image rule kept for non-agent cards */
+.card img,
+.panel img{
+  width:100%;
+  display:block;
+  height:260px;
+  object-fit:cover;
+  object-position:center;
+  border-radius:16px;
+}
+@media (max-width:768px){
+  .card img,
+  .panel img{ height:200px; }
+}
+
+/* ✅ NEW: Agent thumbnail images on homepage (NOT banners) */
+.agentThumb{
+  width:100%;
+  height:auto;
+  max-height:220px;
+  object-fit:cover;
+  object-position:center;
+  border-radius:14px;
+  display:block;
+  margin:0 0 10px;
+}
+.agentCaption{
+  font-size:12px;
+  color:rgba(247,243,233,.70);
+  line-height:1.5;
+  margin-top:6px;
+}
+
+/* Accessibility helpers */
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+.skiplink{
+  position:absolute; left:-999px; top:12px;
+  background:#0b0b0b; color:#f7f3e9;
+  border:1px solid rgba(212,175,55,.45);
+  padding:10px 12px; border-radius:12px;
+  z-index:9999;
+}
+.skiplink:focus{ left:12px; outline:none; }
+
+</style>
+</head>
+
+<body class="home">
+<a class="skiplink" href="#main-content">Skip to content</a>
+<header class="topbar">
+  <div class="container navwrap">
+    <div class="brand">
+      <img class="brandlogoimg" src="assets/img/moecommunitycloud-logo.png" alt="Moe Community Cloud logo" width="44" height="44"/>
+      <div class="brandmeta">
+        <div class="name">Moe Community Cloud</div>
+        <div class="tag">Agent Ops • FinternetOps • Consulting • Partners</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="consulting.html">Consulting</a>
+      <a href="newsletter.html">Newsletter</a>
+      <a href="tools.html">Free Tools</a>
+      <a href="free-assets/index.html">Free Assets</a>
+      <a href="shop.html">Shop</a>
+      <a class="primary" href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content" role="main">
+<div class="panel" style="margin-top:14px; padding:16px">
+  <div class="ppGrid">
+    <div class="ppCopy">
+      <span class="badge">Partner Path (Fast Track)</span>
+      <h1 style="margin:10px 0 8px; letter-spacing:.2px;">Agent Ops + FinternetOps Operating System for Enterprise AI</h1>
+      <p class="lead" style="margin:0 0 8px;">Build, govern, and deliver production-grade AI agent systems with repeatable training, certification, and proof artifacts.</p>
+      <div class="small" style="line-height:1.85; margin-top:10px">
+        <strong>Onboarding → Training → Certification → Licensing → Enterprise Proof</strong><br/>
+        Built for whitelabel buyers who want a repeatable delivery business.
+      </div>
+      <div class="ctaRow" style="margin-top:12px">
+        <a class="btn primary" href="https://finternetops.moecommunitycloud.com/training/">Start training →</a>
+        <a class="btn" href="partners.html#partnerpath">See partner path</a>
+      </div>
+    </div>
+
+    <div class="ppViz" aria-label="Partner Path animated diagram">
+      <svg viewBox="0 0 520 150" role="img" aria-label="Partner Path progression">
+        <title>Partner Path roadmap</title>
+        <desc>Five-step progression: Onboarding, Training, Certification, Licensing, and Enterprise Proof.</desc>
+        <defs>
+          <linearGradient id="ppGlow" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#c1121f" stop-opacity="0.55"/>
+            <stop offset="1" stop-color="#d4af37" stop-opacity="0.65"/>
+          </linearGradient>
+        </defs>
+
+        <line class="ppLine" x1="48" y1="66" x2="472" y2="66" />
+        <line x1="48" y1="66" x2="472" y2="66" stroke="url(#ppGlow)" stroke-width="2" opacity="0.55"/>
+
+        <g class="ppNode active" data-step="0" transform="translate(48,66)">
+          <circle r="14"></circle>
+          <text y="46">Onboarding</text>
+          <text class="mini" y="64">Scope + standards</text>
+        </g>
+
+        <g class="ppNode" data-step="1" transform="translate(154,66)">
+          <circle r="14"></circle>
+          <text y="46">Training</text>
+          <text class="mini" y="64">Playbooks + reps</text>
+        </g>
+
+        <g class="ppNode" data-step="2" transform="translate(260,66)">
+          <circle r="14"></circle>
+          <text y="46">Certification</text>
+          <text class="mini" y="64">Proof of skill</text>
+        </g>
+
+        <g class="ppNode" data-step="3" transform="translate(366,66)">
+          <circle r="14"></circle>
+          <text y="46">Licensing</text>
+          <text class="mini" y="64">Delivery rights</text>
+        </g>
+
+        <g class="ppNode" data-step="4" transform="translate(472,66)">
+          <circle r="14"></circle>
+          <text y="46">Enterprise Proof</text>
+          <text class="mini" y="64">Artifacts + KPIs</text>
+        </g>
+      </svg>
+
+      <div class="ppCaption">Visual roadmap — built for repeatable delivery and partner scale.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===========================
+     NEW SECTION: FEATURED AGENTS
+     SEO-friendly, no IP leakage
+=========================== -->
+<section class="section container" id="agents">
+  <h2>Featured MBCC Agents</h2>
+  <p class="lead">
+    MBCC agents are production-focused operator roles — built to help teams move faster with cleaner workflows, clearer reporting,
+    and consistent governance outputs. We describe outcomes publicly without exposing internal playbooks or proprietary implementation details.
+  </p>
+
+  <div class="ctaRow" style="margin-top:12px">
+    <a class="btn primary" href="https://finternetops.moecommunitycloud.com/agents.html">View FinternetOps Agent Library →</a>
+    <a class="btn" href="https://agentops.moecommunitycloud.com/">AgentOps Delivery System →</a>
+  </div>
+
+  <div class="grid" style="margin-top:16px">
+    <!-- 1 -->
+    <article class="card">
+      <img class="agentThumb" src="assets/images/treasury-recon.png" alt="Treasury Recon Agent - operational reconciliation for tokenized treasury positions" loading="lazy" decoding="async"/>
+      <h3 style="margin:0 0 6px">Treasury Recon Agent</h3>
+      <p class="small">Reconciliation-focused agent that helps operators spot breaks and mismatches across reporting sources. Built for clean exception handling and faster resolution cycles.</p>
+<div class="actions" style="margin-top:10px">
+        <a class="btn" href="https://finternetops.moecommunitycloud.com/agents.html">Learn more →</a>
+      </div>
+    </article>
+
+    <!-- 2 -->
+    <article class="card">
+      <img class="agentThumb" src="assets/images/custody-settlement.png" alt="Custody and Settlement Agent - operational status tracking and exception queues" loading="lazy" decoding="async"/>
+      <h3 style="margin:0 0 6px">Custody &amp; Settlement Agent</h3>
+      <p class="small">Tracks operational movement and settlement status to reduce “where is it?” chaos. Designed for partner handoffs, dashboard visibility, and exception queues.</p>
+<div class="actions" style="margin-top:10px">
+        <a class="btn" href="https://finternetops.moecommunitycloud.com/agents.html">Learn more →</a>
+      </div>
+    </article>
+
+    <!-- 3 -->
+    <article class="card">
+      <img class="agentThumb" src="assets/images/risk-limits.png" alt="Risk and Limits Agent - exposure checks, concentration limits, and operator escalations" loading="lazy" decoding="async"/>
+      <h3 style="margin:0 0 6px">Risk &amp; Limits Agent</h3>
+      <p class="small">Helps teams enforce exposure discipline with clear daily snapshots and escalation events. Built for operator review, not black-box automation.</p>
+<div class="actions" style="margin-top:10px">
+        <a class="btn" href="https://finternetops.moecommunitycloud.com/agents.html">Learn more →</a>
+      </div>
+    </article>
+
+    <!-- 4 -->
+    <article class="card">
+      <img class="agentThumb" src="assets/images/compliance-evidence.png" alt="Compliance Evidence Agent - audit friendly reporting and proof bundles" loading="lazy" decoding="async"/>
+      <h3 style="margin:0 0 6px">Compliance Evidence Agent</h3>
+      <p class="small">Produces audit-friendly outputs and proof artifacts without exposing internal controls logic. Focused on clean reporting, approvals, and change visibility.</p>
+<div class="actions" style="margin-top:10px">
+        <a class="btn" href="https://finternetops.moecommunitycloud.com/agents.html">Learn more →</a>
+      </div>
+    </article>
+
+    <!-- 5 -->
+    <article class="card">
+      <img class="agentThumb" src="assets/images/partner-onboarding.png" alt="Partner Onboarding Agent - routing partners into operator consultant and sales tracks" loading="lazy" decoding="async"/>
+      <h3 style="margin:0 0 6px">Partner Onboarding Agent</h3>
+      <p class="small">Routes partners into the right enablement track with readiness checks and next-step deliverables. Built to support a repeatable partner funnel at scale.</p>
+<div class="actions" style="margin-top:10px">
+        <a class="btn" href="partners.html#partnerpath">Partner path →</a>
+      </div>
+    </article>
+
+    <!-- 6 -->
+    <article class="card">
+      <img class="agentThumb" src="assets/images/certification-proctor.png" alt="Certification Proctor Agent - training QA assessment scoring and badge status" loading="lazy" decoding="async"/>
+      <h3 style="margin:0 0 6px">Certification Proctor Agent</h3>
+      <p class="small">Supports training quality: completion checks, assessment scoring, and remediation guidance. Outputs badge-style status for partner profiles.</p>
+<div class="actions" style="margin-top:10px">
+        <a class="btn" href="https://finternetops.moecommunitycloud.com/training/">Training →</a>
+      </div>
+    </article>
+
+    <!-- 7 -->
+    <article class="card">
+      <img class="agentThumb" src="assets/images/sow-delivery.png" alt="SOW and Delivery Agent - consulting delivery planning acceptance criteria and reporting cadence" loading="lazy" decoding="async"/>
+      <h3 style="margin:0 0 6px">SOW &amp; Delivery Agent</h3>
+      <p class="small">Helps shape delivery scopes and implementation phases with clear acceptance expectations. Designed for weekly reporting rhythm and cleaner delivery execution.</p>
+<div class="actions" style="margin-top:10px">
+        <a class="btn" href="consulting.html">Consulting →</a>
+      </div>
+    </article>
+
+    <!-- 8 -->
+    <article class="card">
+      <img class="agentThumb" src="assets/images/agentops-orchestration.png" alt="AgentOps Orchestration Agent - governance, RBAC, logging and change control for agent lifecycle" loading="lazy" decoding="async"/>
+      <h3 style="margin:0 0 6px">AgentOps Orchestration Agent</h3>
+      <p class="small">Bridges delivery discipline across agents with lifecycle structure and operator visibility. Built for repeatable delivery systems, not one-off demos.</p>
+<div class="actions" style="margin-top:10px">
+        <a class="btn" href="https://agentops.moecommunitycloud.com/">AgentOps →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== Existing page continues below (unchanged) ===== -->
+
+<section class="section" id="training-funnel">
+  <h2>Get Started the Right Way</h2>
+  <p class="lead">
+    Pick your lane and move through a real funnel: <strong>training → certification → proof artifacts → enterprise readiness</strong>.
+    This is built for operators, consultants, and founders who want to deliver MBCC solutions with confidence.
+  </p>
+
+  <div class="grid2" style="margin-top:16px">
+    <div class="card">
+      <div style="padding-top:4px">
+        <p class="small">
+          <strong>Enterprise Training + Certification</strong><br/>
+          Scenario modules, quizzes (80%+), capstone proof pack, and verifiable certificates.
+        </p>
+
+        <ul class="bullets">
+          <li><strong>Operator-first</strong>: recon, change control, incident response</li>
+          <li><strong>Evidence-first</strong>: runbooks, controls, evidence exports</li>
+          <li><strong>Credibility</strong>: certificate + verification link</li>
+          <li><strong>Repeatable delivery</strong>: standards you can sell and install</li>
+        </ul>
+
+        <div class="panel" style="margin-top:10px; padding:12px">
+          <span class="badge">Outcome</span>
+          <div class="small" style="margin-top:8px; line-height:1.85">
+            You finish with a <strong>proof pack</strong> you can show in enterprise conversations: scope, controls, narratives, KPIs, and handoff artifacts.
+          </div>
+        </div>
+
+        <div class="ctaRow" style="margin-top:12px">
+          <a class="btn primary" href="https://finternetops.moecommunitycloud.com/training/?utm_source=moecommunitycloud&utm_medium=homepage_content&utm_campaign=finternetops_training&utm_content=training_cta">Start Training →</a>
+          <a class="btn" href="https://finternetops.moecommunitycloud.com/training/?utm_source=moecommunitycloud&utm_medium=homepage_content&utm_campaign=finternetops_training&utm_content=portal_link">View Training Portal</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="padding-top:4px">
+        <p class="small">
+          <strong>Whitelist Business Owners</strong><br/>
+          Priority onboarding + enablement for founders building a real delivery business with MBCC.
+        </p>
+
+        <ul class="bullets">
+          <li><strong>Enablement</strong>: sales assets + positioning + delivery boundaries</li>
+          <li><strong>Quality gates</strong>: standards and proof templates built in</li>
+          <li><strong>Tier pathway</strong>: route to higher-value enterprise deals</li>
+          <li><strong>Partner scale</strong>: licensing lanes + repeatable onboarding</li>
+        </ul>
+
+        <div class="panel" style="margin-top:10px; padding:12px">
+          <span class="badge">Outcome</span>
+          <div class="small" style="margin-top:8px; line-height:1.85">
+            You get a cleaner path to <strong>selling delivery</strong> with confidence—without exposing internal playbook IP.
+          </div>
+        </div>
+
+        <div class="ctaRow" style="margin-top:12px">
+          <a class="btn primary" href="https://finternetops.moecommunitycloud.com/training/?utm_source=moecommunitycloud&utm_medium=homepage_content&utm_campaign=whitelist_business_owners&utm_content=whitelist_cta">Join the Whitelist →</a>
+          <a class="btn" href="whitelist.html">What’s included</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:18px; padding:14px">
+    <span class="badge">Partner spotlight</span>
+    <div class="small" style="margin-top:8px; line-height:1.8">
+      Want your tool, platform, or consulting offer featured here? <a href="contact.html">Contact MBCC →</a>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:14px">
+    <div class="card">
+      <h3 style="margin:0 0 6px">Why this funnel converts</h3>
+      <p class="small">
+        Enterprises buy <strong>operational certainty</strong>. Our training produces proof: runbooks, controls, evidence exports,
+        and a certificate that can be verified.
+      </p>
+      <div class="ctaRow">
+        <a class="btn" href="https://finternetops.moecommunitycloud.com/training/?utm_source=moecommunitycloud&utm_medium=homepage_content&utm_campaign=finternetops_training&utm_content=trust_proof">See Certification →</a>
+        <a class="btn" href="partners.html#partnerpath">Partner Path →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="margin:0 0 6px">Quick start</h3>
+      <ol class="bullets" style="margin:0; padding-left:18px">
+        <li><strong>Choose a track</strong> (Operator / Consultant / Sales)</li>
+        <li><strong>Complete modules + quizzes</strong> (80%+)</li>
+        <li><strong>Build your proof pack</strong> (capstone)</li>
+        <li><strong>Pass final exam</strong> → earn certificate</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<aside class="panel float">
+  <div class="qlGrid">
+    <div class="qlCopy">
+      <span class="badge">Quick Links</span>
+      <div class="hr"></div>
+      <div class="small" style="line-height:1.8">
+        <strong>Start here:</strong> pick a lane, then follow the partner path.<br/><br/>
+        <strong>Agent Ops</strong> is the core platform.<br/>
+        <strong>FinternetOps</strong> is the future finance automation lane.<br/>
+        <strong>Consulting</strong> is where we install, integrate, and accelerate.<br/>
+        <strong>Partners</strong> is how you sell and deliver at scale.
+      </div>
+      <div class="ctaRow" style="margin-top:12px">
+        <a class="btn primary" href="partners.html">Become a Partner →</a>
+        <a class="btn" href="#newsletter">Get the Newsletter</a>
+      </div>
+    </div>
+
+    <div class="qlViz" aria-label="Animated lane selector">
+      <h4>Lane Selector (Live)</h4>
+      <div class="laneStack">
+        <div class="laneCard active" data-lane="0" role="button" tabindex="0" aria-pressed="true">
+          <strong>Agent Ops</strong>
+          <span>Operator workflows + delivery standards</span>
+        </div>
+        <div class="laneCard" data-lane="1" role="button" tabindex="0" aria-pressed="false">
+          <strong>FinternetOps</strong>
+          <span>Automation + reporting for finance rails</span>
+        </div>
+        <div class="laneCard" data-lane="2" role="button" tabindex="0" aria-pressed="false">
+          <strong>Implementation</strong>
+          <span>Consulting + whitelabel installs</span>
+        </div>
+      </div>
+
+      <div class="miniKpi" aria-label="Value signals">
+        <div class="kpi"><b>Repeatable</b><i>Onboarding → proof</i></div>
+        <div class="kpi"><b>Fortune-ready</b><i>Standards + controls</i></div>
+        <div class="kpi"><b>Partner scale</b><i>Licensing lanes</i></div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+
+<section class="section container" id="whatwedo">
+  <h2>What we do</h2>
+  <p>Three lanes—one ecosystem. Public pages explain outcomes without exposing internal playbook IP.</p>
+
+  <div class="grid">
+    <article class="card">
+      <h3>Agent Ops Platform</h3>
+      <p>Design, deploy, and govern AI agents with repeatable operations, controls, and delivery standards—built for implementation.</p>
+      <div class="meta">
+        <span class="pill">Agent library</span><span class="pill">Operator workflows</span><span class="pill">Delivery standards</span>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://agentops.moecommunitycloud.com/">Open Agent Ops</a>
+        <a class="btn" href="partners.html#partnerpath">Partner path</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>FinternetOps</h3>
+      <p>Automation + reporting for tokenized finance rails: custody/settlement workflows, exception management, and proof artifacts.</p>
+      <div class="meta">
+        <span class="pill">Automation</span><span class="pill">Controls</span><span class="pill">Enterprise proof</span>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://finternetops.moecommunitycloud.com/">Open FinternetOps</a>
+        <a class="btn" href="consulting.html#offerings">Implementation</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>Consulting + Whitelabel</h3>
+      <p>We install, integrate, and train—then certify partners who can deliver under licensing. Built for scale: pilots and enterprise programs.</p>
+      <div class="meta">
+        <span class="pill">Fortune-ready training</span><span class="pill">Certification</span><span class="pill">Licensing</span>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="consulting.html">See consulting</a>
+        <a class="btn" href="contact.html">Contact</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section container" id="proof">
+  <h2>Enterprise-ready by design</h2>
+  <div class="split">
+    <div class="list">
+      <h3 style="margin:0 0 6px">What buyers expect</h3>
+      <ul>
+        <li>Clear scope and delivery standards</li>
+        <li>Operational controls and audit boundaries</li>
+        <li>Repeatable onboarding and training</li>
+        <li>Partner certification and licensing model</li>
+        <li>Proof artifacts (KPIs, narratives, case frames)</li>
+      </ul>
+    </div>
+    <div class="list">
+      <h3 style="margin:0 0 6px">How MBCC delivers it</h3>
+      <ul>
+        <li>Training portal + partner onboarding kits</li>
+        <li>Agent library + operator workflows</li>
+        <li>Certification + entitlement model</li>
+        <li>Licensing + revenue lanes for partners</li>
+        <li>Enterprise proof system for sales enablement</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ctaRow" style="margin-top:14px">
+    <a class="btn primary" href="partners.html#partnerpath">See the Partner Path →</a>
+    <a class="btn" href="newsletter.html">Get updates</a>
+  </div>
+</section>
+
+<section class="section container" id="faq">
+  <h2>FAQ</h2>
+  <div class="grid2" style="margin-top:14px">
+    <div class="card">
+      <h3 style="margin:0 0 6px">Do you expose internal playbooks publicly?</h3>
+      <p class="small">No. Public pages describe outcomes and operator-friendly deliverables without revealing proprietary implementation details or internal control logic.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin:0 0 6px">What do partners actually receive?</h3>
+      <p class="small">Partners move through onboarding → training → certification → licensing, and finish with proof artifacts: scopes, narratives, KPIs, and handoff deliverables designed for enterprise conversations.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin:0 0 6px">Is this built for real operators or demos?</h3>
+      <p class="small">Operators. The focus is reconciliation, controls, evidence outputs, change visibility, and repeatable delivery standards — not hype decks.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin:0 0 6px">How do I start?</h3>
+      <p class="small">Pick a lane (Operator / Consultant / Sales), start training, complete assessments (80%+), and build a proof pack that supports enterprise readiness.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section container" id="training">
+  <h2>Partner Training Portal</h2>
+  <p>Fortune-100 style enablement for whitelabel buyers and delivery partners—built to create operators who can implement, integrate, and consult.</p>
+
+  <div class="grid">
+    <article class="card">
+      <h3>Onboarding</h3>
+      <p>Scope boundaries, delivery standards, and how to sell outcomes without exposing MBCC internal IP.</p>
+      <div class="meta"><span class="pill">Positioning</span><span class="pill">Rules</span><span class="pill">Delivery map</span></div>
+      <div class="actions">
+        <a class="btn primary" href="https://finternetops.moecommunitycloud.com/training/">Start onboarding →</a>
+      </div>
+    </article>
+    <article class="card">
+      <h3>Agent Library</h3>
+      <p>Reusable agent patterns and operator workflows—what to install, how to test, and how to hand off.</p>
+      <div class="meta"><span class="pill">Patterns</span><span class="pill">Runbooks</span><span class="pill">QA</span></div>
+      <div class="actions">
+        <a class="btn primary" href="https://finternetops.moecommunitycloud.com/training/#agent-library">Open agent library →</a>
+      </div>
+    </article>
+    <article class="card">
+      <h3>Certification & Licensing</h3>
+      <p>Prove competence, then unlock partner delivery rights and whitelabel pathways with clean boundaries.</p>
+      <div class="meta"><span class="pill">Assessments</span><span class="pill">Entitlements</span><span class="pill">Licensing</span></div>
+      <div class="actions">
+        <a class="btn primary" href="https://finternetops.moecommunitycloud.com/training/#certification">See certification →</a>
+        <a class="btn" href="partners.html#partnerpath">Partner path</a>
+      </div>
+    </article>
+  </div>
+
+  <div class="panel" style="margin-top:16px">
+    <span class="badge">Operator-first • future-ready</span>
+    <p class="lead" style="margin-top:10px">
+      We train partners to build ahead of the market: tokenized rails, automated reporting, exception handling, and governance—so you can create new markets and sell delivery, not hype.
+    </p>
+    <div class="ctaRow">
+      <a class="btn primary" href="https://finternetops.moecommunitycloud.com/training/">Enter Training Portal →</a>
+      <a class="btn" href="consulting.html">Get implementation help</a>
+    </div>
+  </div>
+</section>
+
+<section class="section container" id="newsletter">
+  <h2>MBCC Newsletter</h2>
+  <p>Short, tactical updates on Agent Ops, FinternetOps, and partner execution.</p>
+  <div class="panel" style="margin-top:14px">
+    <span class="badge">No spam • operator-first</span>
+    <form class="formRow" action="newsletter.html" method="GET">
+      <label class="sr-only" for="nl-name">Name</label>
+      <input id="nl-name" class="input" type="text" name="name" placeholder="Name (optional)" autocomplete="name"/>
+
+      <label class="sr-only" for="nl-email">Email</label>
+      <input id="nl-email" class="input" type="email" name="email" placeholder="Email address" autocomplete="email" required/>
+
+      <button class="btn primary" type="submit">Go to Newsletter →</button>
+    </form>
+    <div class="note">Prefer email updates? Visit the newsletter page to subscribe and browse recent editions.</div>
+  </div>
+</section>
+
+<section class="section container" id="shop">
+  <h2>MBCC Shop</h2>
+  <p>Merch supports the build. The shop opens in a new tab.</p>
+  <div class="ctaRow" style="margin-top:12px">
+    <a class="btn primary" href="https://moe-bucks.myspreadshop.com/" target="_blank" rel="noopener noreferrer">Open the Shop →</a>
+    <a class="btn" href="partners.html">Partner opportunities</a>
+  </div>
+</section>
+
+</main>
+
+<section class="section container" id="contact-cta">
+  <div class="panel" style="padding:16px">
+    <span class="badge">Next step</span>
+    <h2 style="margin:10px 0 6px">Talk to MBCC</h2>
+    <p class="lead" style="margin:0">
+      Want a partner path, implementation support, or whitelabel licensing? Tell us your lane and timeline — we’ll respond with the cleanest next step.
+    </p>
+    <div class="ctaRow" style="margin-top:12px">
+      <a class="btn primary" href="contact.html">Contact MBCC →</a>
+      <a class="btn" href="consulting.html">See consulting →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footgrid">
+    <div>
+      <div class="small"><strong>MBCC</strong> builds enterprise-ready operating systems for AI agents and next-gen finance automation—designed for operators, partners, and whitelabel growth.</div>
+      <div class="small" style="margin-top:10px; color:rgba(247,243,233,.70)">Last updated: Jan 2026</div>
+      <div class="small" style="margin-top:10px">© 2026 Moe Community Cloud (MBCC). All rights reserved.</div>
+    </div>
+    <div class="footlinks">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="disclaimer.html">Disclaimer</a>
+      <a href="/sitemap.xml">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* MBCC micro-animations (no tracking) */
+(function(){
+  const ppNodes = document.querySelectorAll('.ppViz .ppNode');
+  if(ppNodes && ppNodes.length){
+    let i = 0;
+    setInterval(() => {
+      ppNodes.forEach(n => n.classList.remove('active'));
+      ppNodes[i].classList.add('active');
+      i = (i + 1) % ppNodes.length;
+    }, 2400);
+  }
+
+  const lanes = document.querySelectorAll('.qlViz .laneCard');
+  if(lanes && lanes.length){
+    let j = 0;
+
+    const setActive = (idx) => {
+      lanes.forEach((n, k) => {
+        const active = k === idx;
+        n.classList.toggle('active', active);
+        n.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      j = idx;
+    };
+
+    setInterval(() => setActive((j + 1) % lanes.length), 2600);
+
+    lanes.forEach((lane, idx) => {
+      lane.addEventListener('click', () => setActive(idx));
+      lane.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          setActive(idx);
+        }
+      });
+    });
+  }
+})();</script>
+<script defer src="assets/js/site.js"></script>
+</body>
+</html>
+
