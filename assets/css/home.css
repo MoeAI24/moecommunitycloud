@@ -1,0 +1,5 @@
+/* Homepage-only styles */
+.home{font-size:17px; line-height:1.7;}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.skiplink{position:absolute;left:-999px;top:12px;background:#000;color:#fff;padding:8px}
+.skiplink:focus{left:12px}
