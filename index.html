@@ -5,9 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Moe Community Cloud (MBCC) • Agent Ops + FinternetOps</title>
 <meta name="description" content="MBCC builds enterprise-ready operating systems for AI agents and next-gen finance automation. Agent Ops, FinternetOps, consulting, and partner enablement."/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Moe Community Cloud (MBCC) • Agent Ops + FinternetOps"/>
+<meta property="og:description" content="MBCC builds enterprise-ready operating systems for AI agents and next-gen finance automation. Agent Ops, FinternetOps, consulting, and partner enablement."/>
+<meta property="og:url" content="https://moecommunitycloud.com/"/>
+<meta property="og:image" content="https://moecommunitycloud.com/assets/img/moecommunitycloud-logo.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Moe Community Cloud (MBCC) • Agent Ops + FinternetOps"/>
+<meta name="twitter:description" content="MBCC builds enterprise-ready operating systems for AI agents and next-gen finance automation. Agent Ops, FinternetOps, consulting, and partner enablement."/>
+<meta name="twitter:image" content="https://moecommunitycloud.com/assets/img/moecommunitycloud-logo.png"/>
+<link rel="canonical" href="https://moecommunitycloud.com/"/>
+<link rel="preconnect" href="https://pagead2.googlesyndication.com">
+<link rel="preconnect" href="https://googleads.g.doubleclick.net">
 <meta name="theme-color" content="#0b0b0b"/>
 <link rel="stylesheet" href="assets/css/site.css"/>
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml"/>
+<link rel="icon" href="assets/img/favicon.png" type="image/png"/>
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png"/>
 
 <script type="application/ld+json">
 {
@@ -27,6 +41,35 @@
   "url": "https://moecommunitycloud.com/"
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"Do you expose internal playbooks publicly?",
+      "acceptedAnswer":{"@type":"Answer","text":"No. Public pages describe outcomes and operator-friendly deliverables without revealing proprietary implementation details or internal control logic."}
+    },
+    {
+      "@type":"Question",
+      "name":"What do partners actually receive?",
+      "acceptedAnswer":{"@type":"Answer","text":"Partners move through onboarding → training → certification → licensing, and finish with proof artifacts: scopes, narratives, KPIs, and handoff deliverables designed for enterprise conversations."}
+    },
+    {
+      "@type":"Question",
+      "name":"Is this built for real operators or demos?",
+      "acceptedAnswer":{"@type":"Answer","text":"Operators. The focus is reconciliation, controls, evidence outputs, change visibility, and repeatable delivery standards — not hype decks."}
+    },
+    {
+      "@type":"Question",
+      "name":"How do I start?",
+      "acceptedAnswer":{"@type":"Answer","text":"Pick a lane (Operator / Consultant / Sales), start training, complete assessments (80%+), and build a proof pack that supports enterprise readiness."}
+    }
+  ]
+}
+</script>
+
 
 <!-- Optional: SEO-safe agent listing schema (does NOT reveal IP) -->
 <script type="application/ld+json">
@@ -95,13 +138,12 @@
 /* =========================================================
    MBCC: Homepage readability + banner sizing
    ========================================================= */
-html{font-size:17px;}
-body{line-height:1.7;}
-.lead{font-size:1.1rem;line-height:1.75;}
-.small{font-size:.95rem;line-height:1.7;}
-h1{font-size:2.2rem;line-height:1.15;}
-h2{font-size:1.7rem;line-height:1.2;}
-h3{font-size:1.3rem;line-height:1.25;}
+.home{font-size:17px;line-height:1.7;}
+.home .lead{font-size:1.1rem;line-height:1.75;}
+.home .small{font-size:.95rem;line-height:1.7;}
+.home h1{font-size:2.2rem;line-height:1.15;}
+.home h2{font-size:1.7rem;line-height:1.2;}
+.home h3{font-size:1.3rem;line-height:1.25;}
 
 /* Existing image rule kept for non-agent cards */
 .card img,
@@ -135,10 +177,26 @@ h3{font-size:1.3rem;line-height:1.25;}
   line-height:1.5;
   margin-top:6px;
 }
+
+/* Accessibility helpers */
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+.skiplink{
+  position:absolute; left:-999px; top:12px;
+  background:#0b0b0b; color:#f7f3e9;
+  border:1px solid rgba(212,175,55,.45);
+  padding:10px 12px; border-radius:12px;
+  z-index:9999;
+}
+.skiplink:focus{ left:12px; outline:none; }
+
 </style>
 </head>
 
-<body>
+<body class="home">
+<a class="skiplink" href="#main-content">Skip to content</a>
 <header class="topbar">
   <div class="container navwrap">
     <div class="brand">
@@ -149,7 +207,7 @@ h3{font-size:1.3rem;line-height:1.25;}
       </div>
     </div>
     <nav class="nav">
-      <a href="index.html">Home</a>
+      <a href="index.html" aria-current="page">Home</a>
       <a href="consulting.html">Consulting</a>
       <a href="newsletter.html">Newsletter</a>
       <a href="tools.html">Free Tools</a>
@@ -160,10 +218,13 @@ h3{font-size:1.3rem;line-height:1.25;}
   </div>
 </header>
 
+<main id="main-content" role="main">
 <div class="panel" style="margin-top:14px; padding:16px">
   <div class="ppGrid">
     <div class="ppCopy">
       <span class="badge">Partner Path (Fast Track)</span>
+      <h1 style="margin:10px 0 8px; letter-spacing:.2px;">Agent Ops + FinternetOps Operating System for Enterprise AI</h1>
+      <p class="lead" style="margin:0 0 8px;">Build, govern, and deliver production-grade AI agent systems with repeatable training, certification, and proof artifacts.</p>
       <div class="small" style="line-height:1.85; margin-top:10px">
         <strong>Onboarding → Training → Certification → Licensing → Enterprise Proof</strong><br/>
         Built for whitelabel buyers who want a repeatable delivery business.
@@ -176,6 +237,8 @@ h3{font-size:1.3rem;line-height:1.25;}
 
     <div class="ppViz" aria-label="Partner Path animated diagram">
       <svg viewBox="0 0 520 150" role="img" aria-label="Partner Path progression">
+        <title>Partner Path roadmap</title>
+        <desc>Five-step progression: Onboarding, Training, Certification, Licensing, and Enterprise Proof.</desc>
         <defs>
           <linearGradient id="ppGlow" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0" stop-color="#c1121f" stop-opacity="0.55"/>
@@ -244,8 +307,7 @@ h3{font-size:1.3rem;line-height:1.25;}
       <img class="agentThumb" src="assets/images/treasury-recon.png" alt="Treasury Recon Agent - operational reconciliation for tokenized treasury positions" loading="lazy" decoding="async"/>
       <h3 style="margin:0 0 6px">Treasury Recon Agent</h3>
       <p class="small">Reconciliation-focused agent that helps operators spot breaks and mismatches across reporting sources. Built for clean exception handling and faster resolution cycles.</p>
-      <div class="agentCaption">SEO: treasury reconciliation, tokenized operations, exception management.</div>
-      <div class="actions" style="margin-top:10px">
+<div class="actions" style="margin-top:10px">
         <a class="btn" href="https://finternetops.moecommunitycloud.com/agents.html">Learn more →</a>
       </div>
     </article>
@@ -255,8 +317,7 @@ h3{font-size:1.3rem;line-height:1.25;}
       <img class="agentThumb" src="assets/images/custody-settlement.png" alt="Custody and Settlement Agent - operational status tracking and exception queues" loading="lazy" decoding="async"/>
       <h3 style="margin:0 0 6px">Custody &amp; Settlement Agent</h3>
       <p class="small">Tracks operational movement and settlement status to reduce “where is it?” chaos. Designed for partner handoffs, dashboard visibility, and exception queues.</p>
-      <div class="agentCaption">SEO: custody operations, settlement status, exception queue dashboards.</div>
-      <div class="actions" style="margin-top:10px">
+<div class="actions" style="margin-top:10px">
         <a class="btn" href="https://finternetops.moecommunitycloud.com/agents.html">Learn more →</a>
       </div>
     </article>
@@ -266,8 +327,7 @@ h3{font-size:1.3rem;line-height:1.25;}
       <img class="agentThumb" src="assets/images/risk-limits.png" alt="Risk and Limits Agent - exposure checks, concentration limits, and operator escalations" loading="lazy" decoding="async"/>
       <h3 style="margin:0 0 6px">Risk &amp; Limits Agent</h3>
       <p class="small">Helps teams enforce exposure discipline with clear daily snapshots and escalation events. Built for operator review, not black-box automation.</p>
-      <div class="agentCaption">SEO: risk limits, exposure monitoring, daily risk snapshot.</div>
-      <div class="actions" style="margin-top:10px">
+<div class="actions" style="margin-top:10px">
         <a class="btn" href="https://finternetops.moecommunitycloud.com/agents.html">Learn more →</a>
       </div>
     </article>
@@ -277,8 +337,7 @@ h3{font-size:1.3rem;line-height:1.25;}
       <img class="agentThumb" src="assets/images/compliance-evidence.png" alt="Compliance Evidence Agent - audit friendly reporting and proof bundles" loading="lazy" decoding="async"/>
       <h3 style="margin:0 0 6px">Compliance Evidence Agent</h3>
       <p class="small">Produces audit-friendly outputs and proof artifacts without exposing internal controls logic. Focused on clean reporting, approvals, and change visibility.</p>
-      <div class="agentCaption">SEO: compliance evidence, audit readiness, operational proof bundle.</div>
-      <div class="actions" style="margin-top:10px">
+<div class="actions" style="margin-top:10px">
         <a class="btn" href="https://finternetops.moecommunitycloud.com/agents.html">Learn more →</a>
       </div>
     </article>
@@ -288,8 +347,7 @@ h3{font-size:1.3rem;line-height:1.25;}
       <img class="agentThumb" src="assets/images/partner-onboarding.png" alt="Partner Onboarding Agent - routing partners into operator consultant and sales tracks" loading="lazy" decoding="async"/>
       <h3 style="margin:0 0 6px">Partner Onboarding Agent</h3>
       <p class="small">Routes partners into the right enablement track with readiness checks and next-step deliverables. Built to support a repeatable partner funnel at scale.</p>
-      <div class="agentCaption">SEO: partner enablement, onboarding workflows, delivery readiness.</div>
-      <div class="actions" style="margin-top:10px">
+<div class="actions" style="margin-top:10px">
         <a class="btn" href="partners.html#partnerpath">Partner path →</a>
       </div>
     </article>
@@ -299,8 +357,7 @@ h3{font-size:1.3rem;line-height:1.25;}
       <img class="agentThumb" src="assets/images/certification-proctor.png" alt="Certification Proctor Agent - training QA assessment scoring and badge status" loading="lazy" decoding="async"/>
       <h3 style="margin:0 0 6px">Certification Proctor Agent</h3>
       <p class="small">Supports training quality: completion checks, assessment scoring, and remediation guidance. Outputs badge-style status for partner profiles.</p>
-      <div class="agentCaption">SEO: certification readiness, training QA, badge status.</div>
-      <div class="actions" style="margin-top:10px">
+<div class="actions" style="margin-top:10px">
         <a class="btn" href="https://finternetops.moecommunitycloud.com/training/">Training →</a>
       </div>
     </article>
@@ -310,8 +367,7 @@ h3{font-size:1.3rem;line-height:1.25;}
       <img class="agentThumb" src="assets/images/sow-delivery.png" alt="SOW and Delivery Agent - consulting delivery planning acceptance criteria and reporting cadence" loading="lazy" decoding="async"/>
       <h3 style="margin:0 0 6px">SOW &amp; Delivery Agent</h3>
       <p class="small">Helps shape delivery scopes and implementation phases with clear acceptance expectations. Designed for weekly reporting rhythm and cleaner delivery execution.</p>
-      <div class="agentCaption">SEO: statement of work, delivery phases, acceptance criteria, weekly reporting.</div>
-      <div class="actions" style="margin-top:10px">
+<div class="actions" style="margin-top:10px">
         <a class="btn" href="consulting.html">Consulting →</a>
       </div>
     </article>
@@ -321,8 +377,7 @@ h3{font-size:1.3rem;line-height:1.25;}
       <img class="agentThumb" src="assets/images/agentops-orchestration.png" alt="AgentOps Orchestration Agent - governance, RBAC, logging and change control for agent lifecycle" loading="lazy" decoding="async"/>
       <h3 style="margin:0 0 6px">AgentOps Orchestration Agent</h3>
       <p class="small">Bridges delivery discipline across agents with lifecycle structure and operator visibility. Built for repeatable delivery systems, not one-off demos.</p>
-      <div class="agentCaption">SEO: agent lifecycle, RBAC, logs, change control, delivery system.</div>
-      <div class="actions" style="margin-top:10px">
+<div class="actions" style="margin-top:10px">
         <a class="btn" href="https://agentops.moecommunitycloud.com/">AgentOps →</a>
       </div>
     </article>
@@ -396,15 +451,11 @@ h3{font-size:1.3rem;line-height:1.25;}
     </div>
   </div>
 
-  <div class="adSlot" style="margin-top:18px">
-    <div class="small"><strong>Sponsored</strong> (AdSense-ready)</div>
-    <ins class="adsbygoogle"
-         style="display:block; min-height: 90px"
-         data-ad-client="ca-pub-8387411349417007"
-         data-ad-slot="0000000000"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <div class="panel" style="margin-top:18px; padding:14px">
+    <span class="badge">Partner spotlight</span>
+    <div class="small" style="margin-top:8px; line-height:1.8">
+      Want your tool, platform, or consulting offer featured here? <a href="contact.html">Contact MBCC →</a>
+    </div>
   </div>
 
   <div class="grid2" style="margin-top:14px">
@@ -453,15 +504,15 @@ h3{font-size:1.3rem;line-height:1.25;}
     <div class="qlViz" aria-label="Animated lane selector">
       <h4>Lane Selector (Live)</h4>
       <div class="laneStack">
-        <div class="laneCard active" data-lane="0">
+        <div class="laneCard active" data-lane="0" role="button" tabindex="0" aria-pressed="true">
           <strong>Agent Ops</strong>
           <span>Operator workflows + delivery standards</span>
         </div>
-        <div class="laneCard" data-lane="1">
+        <div class="laneCard" data-lane="1" role="button" tabindex="0" aria-pressed="false">
           <strong>FinternetOps</strong>
           <span>Automation + reporting for finance rails</span>
         </div>
-        <div class="laneCard" data-lane="2">
+        <div class="laneCard" data-lane="2" role="button" tabindex="0" aria-pressed="false">
           <strong>Implementation</strong>
           <span>Consulting + whitelabel installs</span>
         </div>
@@ -476,8 +527,6 @@ h3{font-size:1.3rem;line-height:1.25;}
   </div>
 </aside>
 
-</div>
-</main>
 
 <section class="section container" id="whatwedo">
   <h2>What we do</h2>
@@ -552,6 +601,28 @@ h3{font-size:1.3rem;line-height:1.25;}
   </div>
 </section>
 
+<section class="section container" id="faq">
+  <h2>FAQ</h2>
+  <div class="grid2" style="margin-top:14px">
+    <div class="card">
+      <h3 style="margin:0 0 6px">Do you expose internal playbooks publicly?</h3>
+      <p class="small">No. Public pages describe outcomes and operator-friendly deliverables without revealing proprietary implementation details or internal control logic.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin:0 0 6px">What do partners actually receive?</h3>
+      <p class="small">Partners move through onboarding → training → certification → licensing, and finish with proof artifacts: scopes, narratives, KPIs, and handoff deliverables designed for enterprise conversations.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin:0 0 6px">Is this built for real operators or demos?</h3>
+      <p class="small">Operators. The focus is reconciliation, controls, evidence outputs, change visibility, and repeatable delivery standards — not hype decks.</p>
+    </div>
+    <div class="card">
+      <h3 style="margin:0 0 6px">How do I start?</h3>
+      <p class="small">Pick a lane (Operator / Consultant / Sales), start training, complete assessments (80%+), and build a proof pack that supports enterprise readiness.</p>
+    </div>
+  </div>
+</section>
+
 <section class="section container" id="training">
   <h2>Partner Training Portal</h2>
   <p>Fortune-100 style enablement for whitelabel buyers and delivery partners—built to create operators who can implement, integrate, and consult.</p>
@@ -597,16 +668,20 @@ h3{font-size:1.3rem;line-height:1.25;}
 </section>
 
 <section class="section container" id="newsletter">
-  <h2 id="newsletter">MBCC Newsletter</h2>
+  <h2>MBCC Newsletter</h2>
   <p>Short, tactical updates on Agent Ops, FinternetOps, and partner execution.</p>
   <div class="panel" style="margin-top:14px">
     <span class="badge">No spam • operator-first</span>
-    <div class="formRow">
-      <input class="input" type="text" placeholder="Name (optional)" aria-label="Name"/>
-      <input class="input" type="email" placeholder="Email address" aria-label="Email"/>
-      <a class="btn primary" href="newsletter.html">Open Newsletter Page →</a>
-    </div>
-    <div class="note">Wire capture to your provider later (Mailchimp/Beehiiv/ConvertKit/Google Form) without changing layout.</div>
+    <form class="formRow" action="newsletter.html" method="GET">
+      <label class="sr-only" for="nl-name">Name</label>
+      <input id="nl-name" class="input" type="text" name="name" placeholder="Name (optional)" autocomplete="name"/>
+
+      <label class="sr-only" for="nl-email">Email</label>
+      <input id="nl-email" class="input" type="email" name="email" placeholder="Email address" autocomplete="email" required/>
+
+      <button class="btn primary" type="submit">Go to Newsletter →</button>
+    </form>
+    <div class="note">Prefer email updates? Visit the newsletter page to subscribe and browse recent editions.</div>
   </div>
 </section>
 
@@ -614,8 +689,24 @@ h3{font-size:1.3rem;line-height:1.25;}
   <h2>MBCC Shop</h2>
   <p>Merch supports the build. The shop opens in a new tab.</p>
   <div class="ctaRow" style="margin-top:12px">
-    <a class="btn primary" href="https://moe-bucks.myspreadshop.com/">Open the Shop →</a>
+    <a class="btn primary" href="https://moe-bucks.myspreadshop.com/" target="_blank" rel="noopener noreferrer">Open the Shop →</a>
     <a class="btn" href="partners.html">Partner opportunities</a>
+  </div>
+</section>
+
+</main>
+
+<section class="section container" id="contact-cta">
+  <div class="panel" style="padding:16px">
+    <span class="badge">Next step</span>
+    <h2 style="margin:10px 0 6px">Talk to MBCC</h2>
+    <p class="lead" style="margin:0">
+      Want a partner path, implementation support, or whitelabel licensing? Tell us your lane and timeline — we’ll respond with the cleanest next step.
+    </p>
+    <div class="ctaRow" style="margin-top:12px">
+      <a class="btn primary" href="contact.html">Contact MBCC →</a>
+      <a class="btn" href="consulting.html">See consulting →</a>
+    </div>
   </div>
 </section>
 
@@ -623,6 +714,7 @@ h3{font-size:1.3rem;line-height:1.25;}
   <div class="container footgrid">
     <div>
       <div class="small"><strong>MBCC</strong> builds enterprise-ready operating systems for AI agents and next-gen finance automation—designed for operators, partners, and whitelabel growth.</div>
+      <div class="small" style="margin-top:10px; color:rgba(247,243,233,.70)">Last updated: Jan 2026</div>
       <div class="small" style="margin-top:10px">© 2026 Moe Community Cloud (MBCC). All rights reserved.</div>
     </div>
     <div class="footlinks">
@@ -631,7 +723,7 @@ h3{font-size:1.3rem;line-height:1.25;}
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
       <a href="disclaimer.html">Disclaimer</a>
-      <a href="sitemap.xml">Sitemap</a>
+      <a href="/sitemap.xml">Sitemap</a>
     </div>
   </div>
 </footer>
@@ -648,18 +740,34 @@ h3{font-size:1.3rem;line-height:1.25;}
       i = (i + 1) % ppNodes.length;
     }, 2400);
   }
+
   const lanes = document.querySelectorAll('.qlViz .laneCard');
   if(lanes && lanes.length){
     let j = 0;
-    setInterval(() => {
-      lanes.forEach(n => n.classList.remove('active'));
-      lanes[j].classList.add('active');
-      j = (j + 1) % lanes.length;
-    }, 2600);
+
+    const setActive = (idx) => {
+      lanes.forEach((n, k) => {
+        const active = k === idx;
+        n.classList.toggle('active', active);
+        n.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      j = idx;
+    };
+
+    setInterval(() => setActive((j + 1) % lanes.length), 2600);
+
+    lanes.forEach((lane, idx) => {
+      lane.addEventListener('click', () => setActive(idx));
+      lane.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          setActive(idx);
+        }
+      });
+    });
   }
-})();
-</script>
-<script src="assets/js/site.js"></script>
+})();</script>
+<script defer src="assets/js/site.js"></script>
 </body>
 </html>
 
